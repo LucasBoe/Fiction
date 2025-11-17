@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4g3uav2f0004"]
+[gd_scene load_steps=6 format=3 uid="uid://b4g3uav2f0004"]
 
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://b4fgi7bkj10bh" path="res://scripts/raycast_handler.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
+[ext_resource type="ArrayMesh" uid="uid://c4lua1h8uyfcy" path="res://meshes/selection_Cursor.obj" id="4_tbgi4"]
 
 [node name="main" type="Node"]
 
@@ -11,7 +13,7 @@ script = ExtResource("1_jyhfs")
 
 [node name="Camera" type="Node3D" parent="."]
 script = ExtResource("3_sugp2")
-move_speed = 1.0
+move_speed = 3.0
 
 [node name="Perspective" type="Camera3D" parent="Camera"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4, 6, 4)
@@ -21,7 +23,14 @@ fov = 40.0
 transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 0, 6, 0)
 visible = false
 
+[node name="RaycastHandler" type="Node" parent="."]
+script = ExtResource("3_jyhfs")
+
+[node name="Cursor" type="MeshInstance3D" parent="RaycastHandler"]
+mesh = ExtResource("4_tbgi4")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.804324, -9.58829e-08, -0.594191, 0.358686, 0.797247, 0.485533, 0.473717, -0.603653, 0.641245, 0, 10, 0)
+shadow_enabled = true
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]

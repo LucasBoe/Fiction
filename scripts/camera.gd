@@ -20,10 +20,12 @@ func _process(delta):
 	handle_zoom(delta)
 	handle_move(delta)
 	
+func get_current_camera() -> Camera3D:
+	return perspective_camera if current_camera_mode == camera_mode.PERSPECTIVE else topdown_camera
+	
 func set_camera(mode):
 	current_camera_mode = mode
-	var cam = perspective_camera if mode == camera_mode.PERSPECTIVE else topdown_camera
-	cam.current = true
+	get_current_camera().current = true
 	
 func handle_toggle():
 	if Input.is_action_just_pressed("toggle_camera"):
