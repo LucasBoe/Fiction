@@ -25,6 +25,7 @@ script = ExtResource("1_o5qli")
 
 [node name="Camera" type="Node3D" parent="."]
 script = ExtResource("3_sugp2")
+move_speed = 1.0
 
 [node name="Perspective" type="Camera3D" parent="Camera"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4, 6, 4)
