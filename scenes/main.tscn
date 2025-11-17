@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4g3uav2f0004"]
+[gd_scene load_steps=7 format=3 uid="uid://b4g3uav2f0004"]
 
-[ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
+[ext_resource type="Script" path="res://scripts/map_loader.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
-[ext_resource type="PackedScene" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dh68thegmeo6o" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
+[ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="4_tbgi4"]
+[ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="5_tbgi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
+render_priority = 0
+shader = ExtResource("5_tbgi4")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 148.0
 
 [node name="main" type="Node"]
 
@@ -25,3 +34,8 @@ visible = false
 transform = Transform3D(0.804324, -9.58829e-08, -0.594191, 0.358686, 0.797247, 0.485533, 0.473717, -0.603653, 0.641245, 0, 10, 0)
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
+
+[node name="HumanBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125948, 0.0577575, 0.0446473)
+mesh = ExtResource("4_tbgi4")
+surface_material_override/0 = SubResource("ShaderMaterial_tefeu")
