@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="1_o5qli"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 
 [node name="main" type="Node"]
 
@@ -11,7 +11,7 @@ mesh_library = ExtResource("1_0wfyh")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65534, 65534, 1, 65533, 65534, 1, 65535, 65533, 1, 0, 65533, 1, 65535, 65534, 0, 65535, 65535, 0, 0, 65534, 0, 0, 65535, 0, 65535, 0, 0, 0, 0, 0)
+"cells": PackedInt32Array(65534, 65534, 1, 65533, 65534, 1, 65535, 65533, 1, 0, 65533, 1, 65535, 65534, 0, 65535, 65535, 0, 0, 65534, 0, 0, 65535, 0, 65535, 0, 0, 0, 0, 0, 1, 65534, 0, 1, 65535, 0)
 }
 script = ExtResource("1_o5qli")
 
