@@ -64,7 +64,7 @@ func handle_move(delta):
 	# Apply movement
 	if move_dir != Vector3.ZERO:
 		move_dir = move_dir.normalized()
-		global_position += move_dir * move_speed * delta
+		global_position += move_dir * move_speed * zoomTarget * delta
 
 func zoom_in_out():
 	perspective_camera.position = Vector3(4,6,4) * zoomTarget
