@@ -8,8 +8,3 @@ void fragment() {
 	
 	COLOR = vec4(quantized_color, 1);
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
