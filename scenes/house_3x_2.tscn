@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvikiklpnjtq0"]
+
+[ext_resource type="ArrayMesh" uid="uid://crlv5xagu5rc4" path="res://meshes/cube2x2.obj" id="1_ftito"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tefeu"]
+albedo_color = Color(0.913506, 0.309198, 0.152574, 1)
+
+[node name="House_3x2" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1, 0, 0.5, 0, -1.5, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_ftito")
+surface_material_override/0 = SubResource("StandardMaterial3D_tefeu")
