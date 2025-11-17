@@ -2,12 +2,33 @@ extends Node3D
 
 @export var move_speed: float = 4.0
 @onready var perspective_camera = $Perspective;
+@onready var topdown_camera = $TopDown;
 
 var zoomTarget : float = 1
+var current_camera_mode : camera_mode = camera_mode.PERSPECTIVE
+
+enum camera_mode {
+	PERSPECTIVE,
+	TOP_DOWN
+}
+
+func _ready():
+	set_camera(camera_mode.PERSPECTIVE)
 
 func _process(delta):
+	handle_toggle()
 	handle_zoom(delta)
 	handle_move(delta)
+	
+func set_camera(mode):
+	current_camera_mode = mode
+	var cam = perspective_camera if mode == camera_mode.PERSPECTIVE else topdown_camera
+	cam.current = true
+	
+func handle_toggle():
+	if Input.is_action_just_pressed("toggle_camera"):
+		var mode = camera_mode.TOP_DOWN if current_camera_mode == camera_mode.PERSPECTIVE else camera_mode.PERSPECTIVE
+		set_camera(mode)
 	
 func handle_zoom(delta):
 	if Input.is_action_just_pressed("zoom_in"):
@@ -68,3 +89,4 @@ func handle_move(delta):
 
 func zoom_in_out():
 	perspective_camera.position = Vector3(4,6,4) * zoomTarget
+	topdown_camera.position = 5 * zoomTarget * Vector3.UP
