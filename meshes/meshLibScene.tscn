@@ -1,4 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca01pjytgegqi"]
+[gd_scene load_steps=8 format=3 uid="uid://ca01pjytgegqi"]
+
+[ext_resource type="ArrayMesh" uid="uid://pxmabawdntko" path="res://meshes/cube1x1.obj" id="1_e2awl"]
+[ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="2_4h77v"]
+[ext_resource type="ArrayMesh" uid="uid://crlv5xagu5rc4" path="res://meshes/cube2x2.obj" id="3_gyj4w"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gfl3y"]
 
@@ -23,3 +27,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gfl3y")
 mesh = SubResource("BoxMesh_gfl3y")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jpem")
+
+[node name="Cube1x1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = ExtResource("1_e2awl")
+
+[node name="Cube1x2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+mesh = ExtResource("2_4h77v")
+
+[node name="Cube2x2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+mesh = ExtResource("3_gyj4w")
