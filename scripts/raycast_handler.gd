@@ -1,28 +1,43 @@
-extends Node
+extends Node3D
 
 @onready var camera_handler = $"../Camera"
 @onready var cursor_3d = $Cursor
 
+var currently_hovered_moveable
+
 func _process(delta):
+	
+	currently_hovered_moveable = raycast_for_object(Moveable)
+	
+	var grid_pos = raycast_for_position_on_grid()
+	if grid_pos != null:
+		cursor_3d.global_position = grid_pos + Vector3(0, .025, 0)
+		
+	if (currently_hovered_moveable != null):
+		print("hover moveable")	
+
+func raycast_for_object(target_class_type):
+	var space_state = get_world_3d().direct_space_state
+	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+	var cam = camera_handler.get_current_camera()
+	var origin = cam.project_ray_origin(mouse_pos)
+	var end = origin + cam.project_ray_normal(mouse_pos) * 100
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+	var result = space_state.intersect_ray(query)
+	
+	if (result.size() > 0 and is_instance_of(result.collider, target_class_type)):
+		return result.collider
+
+func raycast_for_position_on_grid():
 	var hit_pos = get_mouse_on_y0_plane()
+	
 	if hit_pos != null:
-		print("Hit on y = 0 plane at: ", hit_pos)
 		var x = round(hit_pos.x - .5) + .5
 		var z = round(hit_pos.z - .5) + .5
-		cursor_3d.global_position = Vector3(x, .025, z)
-	else:
-		print("No intersection with y = 0 plane.")
+		return Vector3(x,0,z)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_LEFT \
-	and event.pressed:
-		var hit_pos = get_mouse_on_y0_plane()
-		if hit_pos != null:
-			print("Hit on y = 0 plane at: ", hit_pos)
-		else:
-			print("No intersection with y = 0 plane.")
-
+	return null	
 
 func get_mouse_on_y0_plane():
 	var camera = camera_handler.get_current_camera()
