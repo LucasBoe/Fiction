@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca01pjytgegqi"]
+[gd_scene load_steps=5 format=3 uid="uid://ca01pjytgegqi"]
 
+[ext_resource type="ArrayMesh" uid="uid://c68ylcato0wdg" path="res://meshes/plane1x1.obj" id="1_dj2vx"]
 [ext_resource type="ArrayMesh" uid="uid://pxmabawdntko" path="res://meshes/cube1x1.obj" id="1_e2awl"]
-[ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="2_4h77v"]
-[ext_resource type="ArrayMesh" uid="uid://crlv5xagu5rc4" path="res://meshes/cube2x2.obj" id="3_gyj4w"]
-[ext_resource type="ArrayMesh" uid="uid://c68ylcato0wdg" path="res://meshes/plane1x1.obj" id="4_4h77v"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_gfl3y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfl3y"]
 albedo_color = Color(0.0901961, 0.305882, 0, 1)
 metallic_specular = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_gfl3y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jpem"]
 albedo_color = Color(0.228078, 0.236931, 0.281648, 1)
@@ -20,27 +14,11 @@ metallic_specular = 0.0
 [node name="meshLibScene" type="Node3D"]
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_gfl3y")
+mesh = ExtResource("1_dj2vx")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_gfl3y")
 
 [node name="Rocks" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_gfl3y")
+mesh = ExtResource("1_e2awl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jpem")
-
-[node name="Cube1x1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-mesh = ExtResource("1_e2awl")
-
-[node name="Cube1x2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-mesh = ExtResource("2_4h77v")
-
-[node name="Cube2x2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
-mesh = ExtResource("3_gyj4w")
-
-[node name="Plane1x1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-mesh = ExtResource("4_4h77v")
