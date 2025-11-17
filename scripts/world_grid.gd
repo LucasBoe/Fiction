@@ -1,7 +1,7 @@
 extends GridMap
 
-const sizeX = 12
-const sizeY = 12
+const sizeX = 64
+const sizeY = 64
 
 func _ready():
 	for x in sizeX:
@@ -11,5 +11,7 @@ func _ready():
 			var yy = y - sizeY / 2
 			
 			var pos = Vector3i(xx, 0, yy)
-			set_cell_item(pos, 0)
+			
+			if get_cell_item(pos) == INVALID_CELL_ITEM:
+				set_cell_item(pos, 0)
 	
