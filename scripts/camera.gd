@@ -1,8 +1,44 @@
 extends Node3D
 
-@export var move_speed: float = 10.0
+@export var move_speed: float = 4.0
+@onready var perspective_camera = $Perspective;
 
-func _physics_process(delta: float) -> void:
+var zoomTarget : float = 1
+
+func _process(delta):
+	handle_zoom(delta)
+	handle_move(delta)
+	
+func handle_zoom(delta):
+	if Input.is_action_just_pressed("zoom_in"):
+		zoomTarget *= 1.1
+		zoom_in_out();
+		
+	if Input.is_action_just_pressed("zoom_out"):
+		zoomTarget *= 0.9
+		zoom_in_out();
+	
+func _input(event):
+	
+	var delta = get_process_delta_time() 
+	
+	if event is InputEventMouseButton and event.is_pressed() and not event.is_echo():
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			zoomTarget *= 1.1
+			zoom_in_out();
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			zoomTarget *= 0.9
+			zoom_in_out();
+		
+	if event is InputEventPanGesture:
+		if event.delta.y < 0:
+			zoomTarget *= 1.005
+			zoom_in_out();
+		else:
+			zoomTarget *= 0.99
+			zoom_in_out();
+		
+func handle_move(delta):
 	var move_dir: Vector3 = Vector3.ZERO
 
 	# Get forward (look) and right directions from this node’s transform
@@ -29,3 +65,6 @@ func _physics_process(delta: float) -> void:
 	if move_dir != Vector3.ZERO:
 		move_dir = move_dir.normalized()
 		global_position += move_dir * move_speed * delta
+
+func zoom_in_out():
+	perspective_camera.position = Vector3(4,6,4) * zoomTarget
