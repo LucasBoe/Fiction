@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://ca01pjytgegqi"]
+[gd_scene load_steps=5 format=3 uid="uid://ca01pjytgegqi"]
 
-[node name="MeshLibScene" type="Node3D"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_gfl3y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfl3y"]
+albedo_color = Color(0.0901961, 0.305882, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_gfl3y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jpem"]
+albedo_color = Color(0.228078, 0.236931, 0.281648, 1)
+metallic_specular = 0.0
+
+[node name="meshLibScene" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_gfl3y")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_gfl3y")
+
+[node name="Rocks" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gfl3y")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_8jpem")
