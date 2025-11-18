@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b4g3uav2f0004"]
 
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
-[ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scenes/NavigationMesh.gd" id="1_tipki"]
 [ext_resource type="Script" uid="uid://b4fgi7bkj10bh" path="res://scripts/raycast_handler.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dh68thegmeo6o" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]

@@ -6,22 +6,22 @@ extends Node
 func _process(delta):
 	var hit_pos = get_mouse_on_y0_plane()
 	if hit_pos != null:
-		print("Hit on y = 0 plane at: ", hit_pos)
+		#print("Hit on y = 0 plane at: ", hit_pos)
 		var x = round(hit_pos.x - .5) + .5
 		var z = round(hit_pos.z - .5) + .5
 		cursor_3d.global_position = Vector3(x, .025, z)
-	else:
-		print("No intersection with y = 0 plane.")
+	#else:
+		#print("No intersection with y = 0 plane.")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
 		var hit_pos = get_mouse_on_y0_plane()
-		if hit_pos != null:
-			print("Hit on y = 0 plane at: ", hit_pos)
-		else:
-			print("No intersection with y = 0 plane.")
+		#if hit_pos != null:
+			#print("Hit on y = 0 plane at: ", hit_pos)
+		#else:
+			#print("No intersection with y = 0 plane.")
 
 
 func get_mouse_on_y0_plane():
