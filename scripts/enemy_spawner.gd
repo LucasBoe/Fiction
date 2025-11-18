@@ -16,7 +16,7 @@ func _ready() -> void:
 	%NavigationMesh.baked_navigation.connect(_on_navigation_baked)
 	
 func _on_navigation_baked():
-	_spawn_wave(4,1)
+	_spawn_wave(10,1)
 
 func _spawn_wave(pack_amount: int, enemy_amount: int) -> void:
 	# For each pack, choose a random spawnpoint and spawn enemy_amount enemies there
@@ -25,6 +25,8 @@ func _spawn_wave(pack_amount: int, enemy_amount: int) -> void:
 
 		for j in range(enemy_amount):
 			_spawn_enemy(spawnpoint)
+			
+			await get_tree().create_timer(0.5).timeout
 
 
 func _spawn_enemy(spawnpoint: Node3D) -> void:

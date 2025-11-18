@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-@export var speed: float = 5.0
+@export var speed: float = 1.0
 @onready var agent = %NavigationAgent3D
 
 func _ready():
-	var target = Vector3(10, 0, 10)
+	var target = Vector3(0, 0, 0)
 	agent.target_position = target
 
 func _physics_process(delta: float) -> void:
