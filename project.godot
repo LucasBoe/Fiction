@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 EntityHandler="*res://scripts/autoload/entity_handler.gd"
+HealthBarCanvas="*res://scenes/ui/health_bar_canvas.gd"
+Globals="*res://scripts/autoload/globals.gd"
 
 [debug_draw_3d]
 

@@ -26,6 +26,7 @@ func get_current_camera() -> Camera3D:
 func set_camera(mode):
 	current_camera_mode = mode
 	get_current_camera().current = true
+	Globals.current_camera = get_current_camera()
 	
 func handle_toggle():
 	if Input.is_action_just_pressed("toggle_camera"):

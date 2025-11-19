@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c5shvswlu7ue5"]
+[gd_scene load_steps=2 format=3 uid="uid://c5shvswlu7ue5"]
+
+[ext_resource type="Script" uid="uid://d2vtri1upjs43" path="res://scenes/ui/health_bar_canvas.gd" id="1_sl5sn"]
 
 [node name="HealthBarCanvas" type="CanvasLayer"]
+script = ExtResource("1_sl5sn")

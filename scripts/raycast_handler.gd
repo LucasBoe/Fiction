@@ -1,7 +1,7 @@
 extends Node3D
 class_name RaycastHandler
 
-@onready var camera_handler = $"../Camera"
+@onready var camera_handler = $"../CameraManager"
 @onready var cursor_3d = $Cursor
 
 var currently_hovered_moveable
