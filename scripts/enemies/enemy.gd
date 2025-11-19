@@ -35,6 +35,7 @@ func _start_damage_loop() -> void:
 #Ability to damage the enemy
 func take_damage(amount: int):
 	health -= amount
+	JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 	_check_for_death()
 
 func _check_for_death():

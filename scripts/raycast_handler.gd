@@ -56,12 +56,14 @@ func _process(delta):
 			if obstructed:
 				currently_dragging.global_position = pickup_location
 				
+			JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
 			currently_dragging = null
 			
 	elif currently_hovered_moveable and lmb_pressed:
 		pickup_location = currently_hovered_moveable.global_position
 		pickup_offset = currently_hovered_moveable.global_position - grid_pos
 		currently_dragging = currently_hovered_moveable
+		JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
 
 func raycast_for_position_on_grid():
 	var hit_pos = get_mouse_on_y0_plane()
