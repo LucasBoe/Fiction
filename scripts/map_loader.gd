@@ -5,8 +5,6 @@ var map_folder_path = "res://scenes/maps/";
 signal loaded_map
 
 func _ready():
-	#Waits one frame, so that every variable is connected -> is needed for the nav mesh to rebuild
-	await get_tree().process_frame
 	var random_map = get_all_file_paths(map_folder_path).pick_random()
 	load_map_from_path(random_map)
 	
