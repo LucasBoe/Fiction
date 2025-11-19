@@ -1,13 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://dmjrrpq5hre60"]
 
-[ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="1_hsfs4"]
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_xliut"]
+[ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_fxwh8"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_pcdh0"]
+[ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_v2acl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
 size = Vector3(2, 1, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pcdh0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1.97223, 1.02826, 1)
@@ -16,33 +15,13 @@ size = Vector3(1.97223, 1.02826, 1)
 script = ExtResource("1_xliut")
 grid_size = Vector2i(2, 1)
 
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_fxwh8")
+mesh = ExtResource("3_v2acl")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_xliut")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.909413, 0, 0, 0, 0.883794, 0, 0, 0, 0.810193, 0, 0.133687, 0)
-mesh = ExtResource("1_hsfs4")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.576853, 0, 0, 0, -1.56397e-09, -0.551136, 0, 0.0357794, -2.40909e-08, -0.566118, 0.288901, 0.451864)
-mesh = SubResource("CylinderMesh_pcdh0")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.576853, 0, 0, 0, -1.56397e-09, -0.551136, 0, 0.0357794, -2.40909e-08, 0.513382, 0.288901, 0.451864)
-mesh = SubResource("CylinderMesh_pcdh0")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.576853, 0, 0, 0, -1.56397e-09, -0.551136, 0, 0.0357794, -2.40909e-08, -0.566118, 0.288901, -0.444832)
-mesh = SubResource("CylinderMesh_pcdh0")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.576853, 0, 0, 0, -1.56397e-09, -0.551136, 0, 0.0357794, -2.40909e-08, 0.513382, 0.288901, -0.444832)
-mesh = SubResource("CylinderMesh_pcdh0")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0658002, 0, 0.106696, 0, 0.117868, 0, -0.333691, 0, 0.0210393, -0.93654, 0.087229, 0.229991)
-mesh = ExtResource("1_hsfs4")
 
 [node name="WagonBody" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
