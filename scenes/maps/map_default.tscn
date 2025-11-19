@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_o6yqm"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_qg01v"]
 [ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_ylk5q"]
-[ext_resource type="PackedScene" uid="uid://bvikiklpnjtq0" path="res://scenes/house_3x_2.tscn" id="4_o6yqm"]
+[ext_resource type="PackedScene" uid="uid://ca1hywypp28na" path="res://scenes/house_3x_2.tscn" id="4_o6yqm"]
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_o6yqm")

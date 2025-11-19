@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca01pjytgegqi"]
+[gd_scene load_steps=7 format=3 uid="uid://ca01pjytgegqi"]
 
 [ext_resource type="ArrayMesh" uid="uid://b4kgqjg17bqtp" path="res://meshes/plane1x1.obj" id="1_dj2vx"]
 [ext_resource type="ArrayMesh" uid="uid://pxmabawdntko" path="res://meshes/cube1x1.obj" id="1_e2awl"]
@@ -12,6 +12,8 @@ texture_filter = 0
 albedo_color = Color(0.228078, 0.236931, 0.281648, 1)
 metallic_specular = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2awl"]
+
 [node name="meshLibScene" type="Node3D"]
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -23,3 +25,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4h77v")
 mesh = ExtResource("1_e2awl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jpem")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rocks/StaticBody3D"]
+shape = SubResource("BoxShape3D_e2awl")
