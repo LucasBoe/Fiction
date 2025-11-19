@@ -48,24 +48,23 @@ static func raycast_for_all_and_find(space_state, mouse_pos, cam, target_class_t
 	var end = origin + cam.project_ray_normal(mouse_pos) * 100.0
 
 	var exclude: Array = []
-	var first_matching: Object = null
 
-	while true:
+	for i in 8:
 		var query := PhysicsRayQueryParameters3D.create(origin, end)
 		query.collide_with_areas = true
 		query.exclude = exclude  # can be colliders or RIDs; both are supported :contentReference[oaicite:3]{index=3}
 
 		var result: Dictionary = space_state.intersect_ray(query)
 		if result.is_empty():
-			break
+			return null
 
 		# Check class
 		if is_instance_of(result.collider, target_class_type):
-			print("Raycast hit: ", result.collider.name)
 			return result.collider
 
 		# Exclude this collider for the next iteration
-		exclude.append(result.collider)
+		if not exclude.has(result.collider):
+			exclude.append(result.collider)
 
 	return null
 	
