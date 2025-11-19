@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Enemy
 
 @export var speed: float = 1.0
 @onready var agent = %NavigationAgent3D
