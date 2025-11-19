@@ -1,20 +1,29 @@
 extends Node3D
 
-@onready var mesh: MeshInstance3D = %Visualization
+@onready var mesh: MeshInstance3D = $Visualization
 
 var _target: Node3D
+var _target_position: Vector3
 var _speed: float = 5.0
+var _damage : int
 
 var _start_pos: Vector3
 var _distance_travelled := 0.0
 var _total_distance := 1.0
-var _base_height := 1.0
+var _base_height := .3
 var _moving := false
 
+func _ready() -> void:
+	$Area3D.enemy_damaged.connect(_on_enemy_damaged)
 
-func _set_target(speed: float, target: Node3D) -> void:
+func _on_enemy_damaged(enemy : Enemy):
+	enemy._damage(_damage)
+	self.queue_free()
+
+func _set_target(speed: float, target: Node3D, damage : int) -> void:
 	_target = target
 	_speed = speed
+	_damage = damage
 
 	_start_pos = global_position
 	_distance_travelled = 0.0
@@ -40,8 +49,8 @@ func _set_target(speed: float, target: Node3D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not _moving or not is_instance_valid(_target):
-		return
+	if not _moving:
+		queue_free()
 
 	# Move horizontally based on speed
 	_distance_travelled += _speed * delta
@@ -51,11 +60,11 @@ func _physics_process(delta: float) -> void:
 		t = 1.0
 		_moving = false
 
-	# Always get the updated target position
-	var current_end := _target.global_position
+	if is_instance_valid(_target):
+		_target_position = _target.global_position
 
 	# Linear movement along the path
-	var next_pos := _start_pos.lerp(current_end, t)
+	var next_pos := _start_pos.lerp(_target_position, t)
 
 	# Parabolic arc (Z up or Y up depending on engine settings — you used Y here)
 	var arc: float = 1.5 * t * (1.0 - t)
