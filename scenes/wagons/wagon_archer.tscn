@@ -27,7 +27,6 @@ unique_name_in_owner = true
 script = ExtResource("2_fw700")
 
 [node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
 shape = SubResource("BoxShape3D_hsfs4")
 disabled = true

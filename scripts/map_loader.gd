@@ -5,6 +5,7 @@ var map_folder_path = "res://scenes/maps/";
 signal loaded_map
 
 func _ready():
+	await get_tree().process_frame
 	var random_map = get_all_file_paths(map_folder_path).pick_random()
 	load_map_from_path(random_map)
 	
@@ -29,6 +30,6 @@ func load_map_from_path(path):
 	var scene = ResourceLoader.load(path)
 	var instance = scene.instantiate()
 	add_child(instance)
-	emit_signal("loaded_map")
 	print("Loaded Map!")
+	emit_signal("loaded_map")
 	
