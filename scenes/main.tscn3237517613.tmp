@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4g3uav2f0004"]
+
+[ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scenes/NavigationMesh.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://b4fgi7bkj10bh" path="res://scripts/raycast_handler.gd" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dh68thegmeo6o" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
+[ext_resource type="ArrayMesh" uid="uid://bjo3x4nsnv0fp" path="res://meshes/selection_Cursor.obj" id="4_tbgi4"]
+[ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="6_tefeu"]
+[ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="7_tipki"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_o6xl0"]
+vertices = PackedVector3Array(-3.5, 0.5, -3.5, -3.5, 0.5, -2.25, -1.5, 0.5, -2.5, -1.25, 0.5, -3.25, 3.5, 0.5, 3.5, 3.5, 0.5, 2.75, 1.5, 0.5, 2.5, -3.5, 0.5, 3.5, 1.25, 0.5, -1.25, -0.25, 0.5, -1.25, -0.75, 0.5, -0.25, 3.5, 0.5, -3.5, 1.5, 0.5, -3.5, 1.75, 0.5, -1.75, 3.5, 0.5, -1.5, -3.5, 0.5, -0.5, 1.5, 0.5, -1.25, 2.5, 1.5, -0.5, 2.5, 1.5, 1.5, 3.5, 1.5, 1.5, 3.5, 1.5, -0.5)
+polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(15, 10, 7), PackedInt32Array(7, 10, 6), PackedInt32Array(8, 13, 16), PackedInt32Array(16, 13, 14), PackedInt32Array(8, 16, 10), PackedInt32Array(10, 16, 6), PackedInt32Array(20, 19, 17), PackedInt32Array(17, 19, 18)]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
+render_priority = 0
+shader = ExtResource("7_tipki")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 250.0
+
+[node name="main" type="Node"]
+
+[node name="NavigationMesh" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_o6xl0")
+script = ExtResource("1_tipki")
+
+[node name="MapLoader" type="Node3D" parent="NavigationMesh"]
+unique_name_in_owner = true
+script = ExtResource("1_jyhfs")
+
+[node name="Camera" type="Node3D" parent="."]
+script = ExtResource("3_sugp2")
+move_speed = 3.0
+
+[node name="Perspective" type="Camera3D" parent="Camera"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4, 6, 4)
+fov = 40.0
+
+[node name="TopDown" type="Camera3D" parent="Camera"]
+transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 0, 6, 0)
+visible = false
+
+[node name="RaycastHandler" type="Node" parent="."]
+script = ExtResource("3_jyhfs")
+
+[node name="Cursor" type="MeshInstance3D" parent="RaycastHandler"]
+mesh = ExtResource("4_tbgi4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.804324, -9.58829e-08, -0.594191, 0.358686, 0.797247, 0.485533, 0.473717, -0.603653, 0.641245, 0, 10, 0)
+shadow_enabled = true
+
+[node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
+
+[node name="HumanBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0362556, -0.0119693, -0.145683)
+mesh = ExtResource("6_tefeu")
+surface_material_override/0 = SubResource("ShaderMaterial_choun")
