@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4g3uav2f0004"]
+[gd_scene load_steps=16 format=3 uid="uid://b4g3uav2f0004"]
 
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://b4fgi7bkj10bh" path="res://scripts/raycast_handler.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://dyamhf5x7d64o" path="res://scenes/editor_only.gd" id="4_choun"]
+[ext_resource type="Script" uid="uid://dyamhf5x7d64o" path="res://scripts/utility/editor_only.gd" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://dh68thegmeo6o" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
 [ext_resource type="ArrayMesh" uid="uid://bjo3x4nsnv0fp" path="res://meshes/selection_Cursor.obj" id="4_tbgi4"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="6_tefeu"]
 [ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://bj8fnwhl8p0bo" path="res://scripts/autoload/entity_handler.gd" id="12_eb6dy"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o6xl0"]
 vertices = PackedVector3Array(-3.5, 0.5, -3.5, -3.5, 0.5, -2.25, -1.5, 0.5, -2.5, -1.25, 0.5, -3.25, 3.5, 0.5, 3.5, 3.5, 0.5, 2.75, 1.5, 0.5, 2.5, -3.5, 0.5, 3.5, 1.25, 0.5, -1.25, -0.25, 0.5, -1.25, -0.75, 0.5, -0.25, 3.5, 0.5, -3.5, 1.5, 0.5, -3.5, 1.75, 0.5, -1.75, 3.5, 0.5, -1.5, -3.5, 0.5, -0.5, 1.5, 0.5, -1.25, 2.5, 1.5, -0.5, 2.5, 1.5, 1.5, 3.5, 1.5, 1.5, 3.5, 1.5, -0.5)
@@ -132,3 +133,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_choun")
 
 [node name="Wagon_Barricade" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54325)
+
+[node name="EntityHandler" type="Node3D" parent="."]
+script = ExtResource("12_eb6dy")
