@@ -3,8 +3,14 @@ extends Node3D
 @export var shooting_range: float = 10.0
 @export var shooting_cooldown : float = 2.0
 
+@export var projectile_speed: float = 4.0
+
+@onready var shooting_origin: Node3D
+@onready var bolt = preload("res://scenes/projectiles/bolt.tscn")
+
 
 func _ready() -> void:
+	shooting_origin = get_node("ShootingOrigin")
 	start_shoot_loop()
 
 func _process(delta: float) -> void:
@@ -15,6 +21,7 @@ func start_shoot_loop() -> void:
 		var enemy := _get_enemy_in_range(shooting_range)
 
 		if enemy != null:
+			_look_at(enemy)
 			_shoot(enemy)
 			await get_tree().create_timer(shooting_cooldown).timeout
 		else:
@@ -38,7 +45,12 @@ func _get_enemy_in_range(range: float) -> Node3D:
 
 	return closest_enemy
 
+func _look_at(target: Node3D):
+	look_at(-target.global_position, Vector3.UP)
 
 func _shoot(target: Node3D):
-	print ("shooting at" + target.name)
-	return
+	print("shooting at" + target.name)
+	var projectile := bolt.instantiate()
+	projectile.global_position = shooting_origin.global_position
+	get_tree().current_scene.add_child(projectile)
+	projectile._set_target(projectile_speed, target)

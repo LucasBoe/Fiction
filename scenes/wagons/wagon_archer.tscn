@@ -64,15 +64,26 @@ transform = Transform3D(0.0658002, 0, 0.106696, 0, 0.117868, 0, -0.333691, 0, 0.
 mesh = ExtResource("1_tgdyf")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(0.430242, 0, -0.254739, 0, 0.5, 0, 0.254739, 0, 0.430242, -0.473264, 1.00917, 0)
-mesh = ExtResource("2_5uj0l")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(0.394499, 0, 0.307198, 0, 0.5, 0, -0.307198, 0, 0.394499, 0.528731, 1.00917, 0)
-mesh = ExtResource("2_5uj0l")
-skeleton = NodePath("../..")
-
 [node name="Archer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525183, 1.0542, 0)
 script = ExtResource("4_5uj0l")
+
+[node name="ShootingOrigin" type="Node3D" parent="Archer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_5uj0l")
+skeleton = NodePath("../..")
+
+[node name="Archer2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474817, 1.0542, 0)
+script = ExtResource("4_5uj0l")
+
+[node name="ShootingOrigin" type="Node3D" parent="Archer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_5uj0l")
+skeleton = NodePath("../..")
