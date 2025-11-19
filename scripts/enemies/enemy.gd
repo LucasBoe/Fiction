@@ -11,6 +11,7 @@ var _damaging := false
 func _ready():
 	$HitArea.body_entered.connect(_on_body_entered)
 	$HitArea.body_exited.connect(_on_body_exited)
+	EntityHandler._register_enemy(self)
 
 #checks if it hits a wagon
 func _on_body_entered(body: Node3D):
@@ -38,4 +39,5 @@ func take_damage(amount: int):
 
 func _check_for_death():
 	if health <= 0 :
+		EntityHandler._unregister_enemy(self)
 		self.queue_free()

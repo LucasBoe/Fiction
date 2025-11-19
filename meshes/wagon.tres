@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3kcolrnwqone"]
+
+[ext_resource type="Texture2D" uid="uid://cuhg3f84v7hp2" path="res://meshes/wagon_0.png" id="1_psr02"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_psr02")
+metallic_specular = 0.0
+texture_filter = 0
