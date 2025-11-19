@@ -28,9 +28,10 @@ func _process(delta):
 	
 	if currently_dragging:
 			
-		var size = Vector3(currently_dragging.grid_size.x, 1, currently_dragging.grid_size.y)
-		var check_pos : Vector3 = (grid_pos + pickup_offset)
-		var check_offset = - Vector3(currently_dragging.grid_size.x / 2.0, 0, currently_dragging.grid_size.y / 2.0)
+		var grid_size = currently_dragging.get_rotated_grid_size()
+		var size = Vector3(grid_size.x, 1, grid_size.y)
+		var check_pos : Vector3 = (raw_pos + pickup_offset)
+		var check_offset = - Vector3(grid_size.x / 2.0, 0, grid_size.y / 2.0)
 		
 		var count = PhysicsUtil.boxcast_for_objects(space_state, check_pos, size).size()
 		var obstructed = count > 1
@@ -40,7 +41,13 @@ func _process(delta):
 		else:
 			currently_dragging.global_position = raw_pos + pickup_offset
 		
-		#DebugDraw3D.draw_box(check_pos + check_offset, Quaternion.IDENTITY,size, Color.RED if obstructed else Color.GREEN)
+		
+		if Input.is_action_just_pressed("rotate_dragging"):
+			pickup_offset = Vector3(pickup_offset.z, pickup_offset.y, pickup_offset.x)
+			currently_dragging.rotate_step(90)
+			var rot = deg_to_rad(currently_dragging.rotation_in_degrees)
+			currently_dragging.rotation = Vector3(0,rot,0)
+			
 		
 		if not lmb_pressed:
 			
