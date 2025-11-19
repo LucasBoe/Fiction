@@ -4,6 +4,8 @@ extends CharacterBody3D
 @onready var agent = %NavigationAgent3D
 
 func _ready():
+	EntityHandler._register_enemy(self)
+	
 	var target = Vector3(0, 0, 0)
 	agent.target_position = target
 

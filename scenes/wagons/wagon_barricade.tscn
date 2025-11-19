@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmjrrpq5hre60"]
 
 [ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="1_hsfs4"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/wagons/wagon_body.gd" id="2_pcdh0"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_pcdh0"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pcdh0"]
 
