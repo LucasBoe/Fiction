@@ -9,6 +9,7 @@ static func boxcast_for_objects(
 	space_state,
 	center: Vector3,
 	size: Vector3,
+	exclude,
 	collision_mask: int = 0xFFFFFFFF,
 	max_results: int = 32
 ) -> Array[Dictionary]:
@@ -26,6 +27,7 @@ static func boxcast_for_objects(
 	params.collision_mask = collision_mask
 	params.collide_with_bodies = true
 	params.collide_with_areas = true
+	params.exclude = exclude
 	
 	# Returns Array[Dictionary] with keys: "collider", "rid", "shape", "collider_id"
 	return space_state.intersect_shape(params, max_results)
@@ -37,5 +39,44 @@ static  func raycast_for_object(space_state, mouse_pos, cam, target_class_type):
 	query.collide_with_areas = true
 	var result = space_state.intersect_ray(query)
 	
+	
 	if (result.size() > 0 and is_instance_of(result.collider, target_class_type)):
 		return result.collider
+		
+static func raycast_for_all_and_find(space_state, mouse_pos, cam, target_class_type):
+	var origin = cam.project_ray_origin(mouse_pos)
+	var end = origin + cam.project_ray_normal(mouse_pos) * 100.0
+
+	var exclude: Array = []
+	var first_matching: Object = null
+
+	while true:
+		var query := PhysicsRayQueryParameters3D.create(origin, end)
+		query.collide_with_areas = true
+		query.exclude = exclude  # can be colliders or RIDs; both are supported :contentReference[oaicite:3]{index=3}
+
+		var result: Dictionary = space_state.intersect_ray(query)
+		if result.is_empty():
+			break
+
+		# Check class
+		if is_instance_of(result.collider, target_class_type):
+			print("Raycast hit: ", result.collider.name)
+			return result.collider
+
+		# Exclude this collider for the next iteration
+		exclude.append(result.collider)
+
+	return null
+	
+static func collect_all_collision_rids(root) -> Array:
+	var exclude: Array = []
+	_collect_collision_rids(root, exclude)
+	return exclude
+	
+static func _collect_collision_rids(root: Node, into: Array) -> void:
+	if root is CollisionObject3D: # PhysicsBody3D, Area3D, etc.
+		into.append(root.get_rid())
+
+	for child in root.get_children():
+		_collect_collision_rids(child, into)

@@ -1,16 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdld48i2gfx8s"]
+[gd_scene load_steps=9 format=3 uid="uid://cdld48i2gfx8s"]
 
+[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
 [ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="1_tgdyf"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="2_5uj0l"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_fw700"]
 [ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="4_5uj0l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
+size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1.97223, 1.02826, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pcdh0"]
 
-[node name="Wagon_Barricade" type="Node3D"]
+[node name="Wagon_Archer" type="StaticBody3D"]
+script = ExtResource("1_qnmmq")
+grid_size = Vector2i(2, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qnmmq")
 
 [node name="WagonBody" type="StaticBody3D" parent="."]
 unique_name_in_owner = true

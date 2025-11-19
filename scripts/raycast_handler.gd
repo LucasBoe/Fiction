@@ -15,7 +15,7 @@ func _process(delta):
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var cam = camera_handler.get_current_camera()
 	
-	currently_hovered_moveable = PhysicsUtil.raycast_for_object(space_state, mouse_pos, cam, Moveable)
+	currently_hovered_moveable = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, Moveable)
 	
 	var raw_pos = get_mouse_on_y0_plane()
 	var grid_pos = raycast_for_position_on_grid()
@@ -33,8 +33,9 @@ func _process(delta):
 		var check_pos : Vector3 = (raw_pos + pickup_offset)
 		var check_offset = - Vector3(grid_size.x / 2.0, 0, grid_size.y / 2.0)
 		
-		var count = PhysicsUtil.boxcast_for_objects(space_state, check_pos, size).size()
-		var obstructed = count > 1
+		var exclude = PhysicsUtil.collect_all_collision_rids(currently_dragging)
+		var count = PhysicsUtil.boxcast_for_objects(space_state, check_pos, size, exclude).size()
+		var obstructed = count > 0
 		
 		if not obstructed:
 			currently_dragging.global_position = grid_pos + pickup_offset
