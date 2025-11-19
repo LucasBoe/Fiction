@@ -12,6 +12,7 @@ func _ready():
 	$HitArea.body_entered.connect(_on_body_entered)
 	$HitArea.body_exited.connect(_on_body_exited)
 
+#checks if it hits a wagon
 func _on_body_entered(body: Node3D):
 	if body is WagonBody:
 		_wagon = body
@@ -30,6 +31,7 @@ func _start_damage_loop() -> void:
 		_wagon.take_damage(damage_per_tick)
 		await get_tree().create_timer(damage_interval).timeout
 
+#Ability to damage the enemy
 func take_damage(amount: int):
 	health -= amount
 	_check_for_death()
