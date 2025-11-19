@@ -3,6 +3,8 @@ class_name WagonBody
 
 @export var health := 200
 
+signal took_damage(amount: int)
+
 func _ready() -> void:
 	#make collision shape active
 	await get_tree().process_frame
@@ -11,7 +13,8 @@ func _ready() -> void:
 
 func take_damage(amount: int):
 	health -= amount
-	print("Barricade HP:", health)
+	print("Wagon took damage")
+	emit_signal("took_damage", amount)
 
 	if health <= 0:
 		queue_free()

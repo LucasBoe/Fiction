@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	camera = Globals.current_camera
 
 	for wagon in wagon_to_healthbar.keys():
-		var bar: Control = wagon_to_healthbar[wagon]
+		var bar: HealthBar = wagon_to_healthbar[wagon]
 
 		# Remove bar if wagon is gone
 		if not is_instance_valid(wagon):
@@ -40,7 +40,12 @@ func _process(delta: float) -> void:
 		bar.position = screen_pos
 
 
-func _create_bar_for_wagon(wagon: Node3D) -> void:
+func _create_bar_for_wagon(wagon: WagonBody) -> void:
 	var bar: Control = healthbar_wagon.instantiate()
 	add_child(bar)
+	
+	#Connects the healthbar function to the signal when the wagon takes damage
+	bar._connect_to_signal(wagon.took_damage)
+	
+	#Adds bar to dictionary
 	wagon_to_healthbar[wagon] = bar

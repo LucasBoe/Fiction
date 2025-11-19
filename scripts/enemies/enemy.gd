@@ -5,6 +5,8 @@ class_name Enemy
 @export var damage_per_tick := 10
 @export var damage_interval := 1.0   # 1 second
 
+signal took_damage(amount : int)
+
 var _wagon: Node3D = null
 var _damaging := false
 
@@ -35,6 +37,7 @@ func _start_damage_loop() -> void:
 #Ability to damage the enemy
 func take_damage(amount: int):
 	health -= amount
+	emit_signal("took_damage", amount)
 	JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 	_check_for_death()
 
