@@ -17,7 +17,7 @@ func _ready() -> void:
 	$Area3D.enemy_damaged.connect(_on_enemy_damaged)
 
 func _on_enemy_damaged(enemy : Enemy):
-	enemy._damage(_damage)
+	enemy.take_damage(_damage)
 	self.queue_free()
 
 func _set_target(speed: float, target: Node3D, damage : int) -> void:
