@@ -1,4 +1,5 @@
 extends Node3D
+class_name RaycastHandler
 
 @onready var camera_handler = $"../Camera"
 @onready var cursor_3d = $Cursor
