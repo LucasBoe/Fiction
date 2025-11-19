@@ -1,17 +1,20 @@
-[gd_scene format=3 uid="uid://b5ilsle4knfcg"]
+[gd_scene load_steps=2 format=3 uid="uid://b5ilsle4knfcg"]
+
+[ext_resource type="Script" uid="uid://bylfsqhduqx26" path="res://scenes/ui/health_bar.gd" id="1_r7qri"]
 
 [node name="Healthbar2D_Wagon" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_r7qri")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 10.0
-offset_bottom = 1.0
+offset_right = 20.0
+offset_bottom = 2.0
 color = Color(0.176419, 0.176419, 0.176419, 1)
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
-offset_right = 10.0
-offset_bottom = 1.0
+offset_right = 20.0
+offset_bottom = 2.0
 color = Color(0.712129, 0.712129, 0.712129, 1)
