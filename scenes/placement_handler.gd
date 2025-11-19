@@ -32,7 +32,7 @@ func reset_placement():
 		child.reparent(inactive_holder)
 
 func _align_all_placeables():
-	var placement_position = Vector3i(0, 0, 4)
+	var placement_position = Vector3(0.5, 0, 4.5)
 	
 	for child in inactive_holder.get_children():
 		child.reparent(active_holder)
@@ -43,7 +43,8 @@ func _align_all_placeables():
 		if (child is Moveable):
 			var m = (child as Moveable)
 			m.rotation_in_degrees = 0
-			placement_position += Vector3i(0, 0, m.grid_size.y)
+			placement_position += Vector3(0, 0, m.grid_size.y)
+			child.global_position += Vector3(0 if _is_odd(m.grid_size.x) else .5,0,0)
 		else:
 			placement_position += Vector3i.BACK
 
@@ -58,3 +59,6 @@ func _button_pressed():
 	button.queue_free()
 
 	emit_signal("placement_finished")
+	
+func _is_odd(x: int):
+	return x % 2 != 0
