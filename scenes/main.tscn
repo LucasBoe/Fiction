@@ -134,8 +134,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_a8y0u")
 unique_name_in_owner = true
 script = ExtResource("9_jbj1t")
 
-[node name="Wagon" parent="PlacementHandler" instance=ExtResource("8_a8y0u")]
+[node name="InactiveObjectHolder" type="Node3D" parent="PlacementHandler"]
+visible = false
+
+[node name="ActiveObjectHolder" type="Node3D" parent="PlacementHandler"]
+
+[node name="Wagon" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("8_a8y0u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.5)
+
+[node name="Wagon_Barricade" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54325)
+
+[node name="Wagon_Barricade2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.55225)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.804324, -9.58829e-08, -0.594191, 0.358686, 0.797247, 0.485533, 0.473717, -0.603653, 0.641245, 0, 10, 0)
@@ -147,12 +158,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0362556, -0.0119693, -0.145683)
 mesh = ExtResource("6_tefeu")
 surface_material_override/0 = SubResource("ShaderMaterial_choun")
-
-[node name="Wagon_Barricade" parent="." instance=ExtResource("11_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54325)
-
-[node name="Wagon_Barricade2" parent="." instance=ExtResource("13_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.55225)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
