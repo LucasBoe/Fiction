@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://flemoc77kr28"]
+
+[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_u75iw"]
+[ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_nkb43"]
+[ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_4iylc"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_i8c7e"]
+[ext_resource type="ArrayMesh" uid="uid://cjr3rvm5jggjv" path="res://meshes/coins.obj" id="5_2dd0y"]
+[ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="5_nkb43"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6xl0"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5tb2"]
+size = Vector3(1.97223, 1.02826, 1)
+
+[node name="Wagon_Money" type="StaticBody3D"]
+script = ExtResource("1_u75iw")
+grid_size = Vector2i(2, 1)
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_nkb43")
+mesh = ExtResource("3_4iylc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="WagonBody" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_i8c7e")
+
+[node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
+shape = SubResource("BoxShape3D_a5tb2")
+disabled = true
+
+[node name="Money" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.117964, 0.863514, -0.151704)
+material_override = ExtResource("5_nkb43")
+mesh = ExtResource("5_2dd0y")

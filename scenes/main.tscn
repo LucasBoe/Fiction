@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4g3uav2f0004"]
+[gd_scene load_steps=25 format=3 uid="uid://b4g3uav2f0004"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -14,6 +14,7 @@
 [ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="7_tipki"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scenes/placement_handler.gd" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://flemoc77kr28" path="res://scenes/wagons/wagon_money.tscn" id="13_muem4"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_jbj1t"]
 
@@ -34,6 +35,19 @@ shader_parameter/color_tint = Vector3(1, 1, 1)
 shader_parameter/texture_tile = Vector2(1, 1)
 shader_parameter/snap_enabled = true
 shader_parameter/snap_resolution = 250.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_muem4"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_dp3eg"]
+sky_material = SubResource("ProceduralSkyMaterial_muem4")
+
+[sub_resource type="Environment" id="Environment_0ld40"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_dp3eg")
+tonemap_mode = 2
 
 [node name="main" type="Node"]
 
@@ -155,9 +169,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.55225)
 [node name="Wagon_Archer2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_trceg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.55225)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.804324, -9.58829e-08, -0.594191, 0.358686, 0.797247, 0.485533, 0.473717, -0.603653, 0.641245, 0, 10, 0)
-shadow_enabled = true
+[node name="Wagon_Money" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.31666)
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 
@@ -170,3 +183,24 @@ surface_material_override/0 = SubResource("ShaderMaterial_choun")
 unique_name_in_owner = true
 
 [node name="HealthBarCanvas" parent="." instance=ExtResource("15_jbj1t")]
+
+[node name="Style" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Style"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00520873, 2.62407, 0.196077)
+light_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.5
+shadow_blur = 10.0
+omni_range = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Style"]
+transform = Transform3D(0.804324, -5.51327e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, 0, 10, 0)
+light_energy = 0.2
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 0.5
+shadow_opacity = 0.5
+shadow_blur = 3.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Style"]
+environment = SubResource("Environment_0ld40")

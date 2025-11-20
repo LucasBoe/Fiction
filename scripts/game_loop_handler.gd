@@ -40,7 +40,7 @@ func _reset_placement() -> void:
 	print("placement reset")
 	
 func _run_wave_phase() -> void:
-	enemy_spawner.spawn_wave(4,1)
+	enemy_spawner.spawn_wave(20,1)
 	await EntityHandler.all_enemies_unregistered
 	print("wave cleared reset")
 
