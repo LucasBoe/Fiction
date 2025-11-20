@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cuso2agaipx16" path="res://scenes/projectiles/bolt.gd" id="1_yniuu"]
 [ext_resource type="ArrayMesh" uid="uid://b6p41ky46llyl" path="res://meshes/projectiles/bolt.obj" id="2_labdy"]
-[ext_resource type="Script" path="res://scenes/projectiles/enemy_damager.gd" id="3_labdy"]
+[ext_resource type="Script" uid="uid://b8trxeh5lua0f" path="res://scenes/projectiles/enemy_damager.gd" id="3_labdy"]
 
 [sub_resource type="Gradient" id="Gradient_labdy"]
 offsets = PackedFloat32Array(0, 0.319182)

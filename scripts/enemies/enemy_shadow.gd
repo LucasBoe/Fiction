@@ -5,8 +5,7 @@ extends Enemy
 @onready var placement_handler = %PlacementHandler
 
 func _ready():
-	EntityHandler._register_enemy(self)
-	
+	super._ready()
 	var target = Vector3(0, 0, 0)
 	agent.target_position = target
 

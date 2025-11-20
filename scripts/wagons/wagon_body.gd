@@ -16,8 +16,8 @@ func _ready() -> void:
 
 func take_damage(amount: int):
 	health -= amount
-	print("Wagon took damage")
+	#print("Wagon took damage")
 	took_damage.emit(health, max_health)
 
 	if health <= 0:
-		queue_free()
+		self.get_parent_node_3d().queue_free()
