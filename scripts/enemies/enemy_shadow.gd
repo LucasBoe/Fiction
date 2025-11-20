@@ -2,6 +2,7 @@ extends Enemy
 
 @export var speed: float = 1.0
 @onready var agent = %NavigationAgent3D
+@onready var placement_handler = %PlacementHandler
 
 func _ready():
 	EntityHandler._register_enemy(self)
@@ -10,6 +11,16 @@ func _ready():
 	agent.target_position = target
 
 func _physics_process(delta: float) -> void:
+	
+	var target = Globals.placement_handler.get_next_potential_target(global_position)
+	
+	if target != null:
+		target = target.global_position
+	else:
+		target = Vector3.ZERO
+
+	agent.target_position = target
+	
 	# If there's no path or we're already there, stop
 	if not agent.is_navigation_finished():
 		var next_point: Vector3 = agent.get_next_path_position()

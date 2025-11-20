@@ -11,6 +11,9 @@ var button : Button
 signal placement_started
 signal placement_finished
 
+func _ready():
+	Globals.placement_handler = self
+
 func run_placement_phase():
 
 	if active:
@@ -30,6 +33,26 @@ func reset_placement():
 	#migrate all placed objects to inactive parent
 	for child in active_holder.get_children():
 		child.reparent(inactive_holder)
+		
+func get_next_potential_target(position):
+	
+	var all_targets : Array
+	for child in active_holder.get_children():
+		if child is WagonMoney:
+			all_targets.append(child)
+			
+	if all_targets.is_empty():
+		return null
+		
+	var closestSquaredDistance = INF
+	var closestNode = null
+	for target in all_targets:
+		var squaredDistance = target.global_position.distance_squared_to(position)
+		if squaredDistance < closestSquaredDistance:
+			closestSquaredDistance = squaredDistance
+			closestNode = target
+
+	return closestNode	
 
 func _align_all_placeables():
 	var placement_position = Vector3(0.5, 0, 4.5)

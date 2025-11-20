@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://flemoc77kr28"]
 
-[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_u75iw"]
+[ext_resource type="Script" uid="uid://cihuvho6pn0jm" path="res://scripts/wagon_money.gd" id="1_nkb43"]
 [ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_nkb43"]
 [ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_4iylc"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_i8c7e"]
@@ -14,8 +14,7 @@ size = Vector3(2, 1, 1)
 size = Vector3(1.97223, 1.02826, 1)
 
 [node name="Wagon_Money" type="StaticBody3D"]
-script = ExtResource("1_u75iw")
-grid_size = Vector2i(2, 1)
+script = ExtResource("1_nkb43")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_nkb43")
