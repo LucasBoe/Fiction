@@ -1,6 +1,9 @@
 extends Node3D
 
-@export var move_speed: float = 4.0
+@export var move_speed = 3.0
+@export var zoom_speed_wheel = 1.0
+@export var zoom_speed_pan = 1.0
+
 @onready var perspective_camera = $Perspective;
 @onready var topdown_camera = $TopDown;
 
@@ -48,18 +51,18 @@ func _input(event):
 	
 	if event is InputEventMouseButton and event.is_pressed() and not event.is_echo():
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			zoomTarget *= 1.1
+			zoomTarget *= (1 + .1 * zoom_speed_wheel)
 			zoom_in_out();
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			zoomTarget *= 0.9
+			zoomTarget *= (1 - .1 * zoom_speed_wheel)
 			zoom_in_out();
 		
 	if event is InputEventPanGesture:
 		if event.delta.y < 0:
-			zoomTarget *= 1.005
+			zoomTarget *= (1 + .01 * zoom_speed_pan)
 			zoom_in_out();
 		else:
-			zoomTarget *= 0.99
+			zoomTarget *= (1 - .01 * zoom_speed_pan)
 			zoom_in_out();
 		
 func handle_move(delta):
