@@ -6,6 +6,7 @@ render_mode blend_mix,
 	vertex_lighting;
 
 uniform sampler2D albedo_texture: source_color, filter_nearest;
+uniform vec3 color_tint = vec3(1.0, 1.0, 1.0);
 uniform vec2 texture_tile = vec2(1,1);
 
 uniform bool snap_enabled = true;
@@ -28,7 +29,7 @@ void vertex() {
 
 void fragment() {
 	vec4 albedo = texture(albedo_texture, UV * texture_tile);
-	ALBEDO = albedo.rgb;
+	ALBEDO = albedo.rgb * color_tint;
 	ALPHA = albedo.a;
 }
 

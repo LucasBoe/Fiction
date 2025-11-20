@@ -8,9 +8,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5cnh8"]
 render_priority = 0
 shader = ExtResource("2_kxqcu")
+shader_parameter/color_tint = Vector3(0.1, 0.1, 0.15)
 shader_parameter/texture_tile = Vector2(1, 1)
 shader_parameter/snap_enabled = true
-shader_parameter/snap_resolution = 250.0
+shader_parameter/snap_resolution = 120.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5cnh8"]
 radius = 0.25
