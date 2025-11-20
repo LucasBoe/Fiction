@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_pwtvp"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_snj55"]
 [ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_qlpkg"]
-[ext_resource type="PackedScene" uid="uid://ca1hywypp28na" path="res://scenes/house_3x_2.tscn" id="4_pwtvp"]
+[ext_resource type="PackedScene" uid="uid://bg4owrrqp2ivq" path="res://scenes/barn_3x2.tscn" id="4_pwtvp"]
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_pwtvp")
@@ -19,5 +19,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
 
 [node name="Houses" type="Node3D" parent="."]
 
-[node name="House_3x2" parent="Houses" instance=ExtResource("4_pwtvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)
+[node name="Barn_3x2" parent="Houses" instance=ExtResource("4_pwtvp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0)
