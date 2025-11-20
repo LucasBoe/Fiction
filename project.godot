@@ -34,6 +34,10 @@ window/size/window_height_override=960
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_forward={
