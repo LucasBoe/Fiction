@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 EntityHandler="*res://scripts/autoload/entity_handler.gd"
 HealthBarCanvas="*res://scenes/ui/health_bar_canvas.gd"
 Globals="*res://scripts/autoload/globals.gd"
+MoneyHandler="*res://scripts/autoload/money_handler.gd"
 
 [debug_draw_3d]
 
