@@ -5,23 +5,23 @@ extends CanvasLayer
 
 @onready var camera: Camera3D
 
-var wagon_to_healthbar: = {}  
+var health_to_healthbar: = {}  
 
 func _process(delta: float) -> void:
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 	camera = Globals.current_camera
 
-	for wagon in wagon_to_healthbar.keys():
-		var bar: HealthBar = wagon_to_healthbar[wagon]
+	for health in health_to_healthbar.keys():
+		var bar: HealthBar = health_to_healthbar[health]
 
 		# Remove bar if wagon is gone
-		if not is_instance_valid(wagon):
+		if not is_instance_valid(health):
 			bar.queue_free()
-			wagon_to_healthbar.erase(wagon)
+			health_to_healthbar.erase(health)
 			continue
 
 		# 3D point above the wagon’s head
-		var world_pos: Vector3 = wagon.global_transform.origin + Vector3(0, 2.0, 0)
+		var world_pos: Vector3 = health.global_transform.origin + Vector3(0, 2.0, 0)
 
 		# Hide if behind camera
 		if camera.is_position_behind(world_pos):
@@ -40,11 +40,12 @@ func _process(delta: float) -> void:
 		bar.position = screen_pos
 
 
-func _create_bar_for_wagon(wagon: WagonBody) -> void:
+func _create_bar_for(health: Health) -> void:
 	var bar: HealthBar = healthbar_wagon.instantiate()
 	add_child(bar)
+	bar.fill_rect.color = Color.RED if health.is_enemy else Color.GREEN_YELLOW
 
-	wagon.took_damage.connect(bar._on_took_damage)
+	health.health_changed.connect(bar._on_health_changed)
 	
 	#Adds bar to dictionary
-	wagon_to_healthbar[wagon] = bar
+	health_to_healthbar[health] = bar
