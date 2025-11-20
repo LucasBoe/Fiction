@@ -1,8 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlki23hwukhmd"]
+[gd_scene load_steps=11 format=3 uid="uid://dlki23hwukhmd"]
 
 [ext_resource type="Script" uid="uid://cuso2agaipx16" path="res://scenes/projectiles/bolt.gd" id="1_yniuu"]
 [ext_resource type="ArrayMesh" uid="uid://b6p41ky46llyl" path="res://meshes/projectiles/bolt.obj" id="2_labdy"]
-[ext_resource type="Script" uid="uid://b8trxeh5lua0f" path="res://scenes/projectiles/enemy_damager.gd" id="3_labdy"]
+[ext_resource type="Script" path="res://scenes/projectiles/enemy_damager.gd" id="3_labdy"]
+
+[sub_resource type="Gradient" id="Gradient_labdy"]
+offsets = PackedFloat32Array(0, 0.319182)
+colors = PackedColorArray(1, 1, 1, 0.290196, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aupyw"]
+gradient = SubResource("Gradient_labdy")
+fill_from = Vector2(0.459402, 0)
+fill_to = Vector2(0.442308, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_labdy"]
+transparency = 1
+blend_mode = 1
+albedo_texture = SubResource("GradientTexture2D_aupyw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbnlj"]
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Curve" id="Curve_aupyw"]
+_data = [Vector2(0, 0), 0.0, 39.91, 0, 0, Vector2(0.0767123, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.66412, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_qbnlj"]
+radius = 0.025
+radial_steps = 4
+sections = 3
+section_rings = 2
+cap_top = false
+cap_bottom = false
+curve = SubResource("Curve_aupyw")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aupyw"]
 radius = 0.0606473
@@ -13,6 +44,14 @@ script = ExtResource("1_yniuu")
 [node name="Visualization" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("2_labdy")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Visualization"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.0248923, 0.00426047, -0.149107)
+material_override = SubResource("StandardMaterial3D_labdy")
+amount = 64
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qbnlj")
+draw_pass_1 = SubResource("TubeTrailMesh_qbnlj")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("3_labdy")
