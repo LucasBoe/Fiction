@@ -13,6 +13,8 @@ shader_parameter/snap_enabled = true
 shader_parameter/snap_resolution = 250.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5cnh8"]
+radius = 0.25
+height = 1.0
 
 [node name="EnemyShadow" type="CharacterBody3D"]
 script = ExtResource("1_ani8c")
@@ -21,6 +23,7 @@ script = ExtResource("1_ani8c")
 unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_kxqcu")
 surface_material_override/0 = SubResource("ShaderMaterial_5cnh8")
 
