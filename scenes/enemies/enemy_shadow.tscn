@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd8fpufy1o7f6"]
+[gd_scene load_steps=7 format=3 uid="uid://dd8fpufy1o7f6"]
 
 [ext_resource type="Script" uid="uid://cj7voqr5q4hrr" path="res://scripts/enemies/enemy_shadow.gd" id="1_ani8c"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_5cnh8"]
 [ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="2_kxqcu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kxqcu"]
@@ -19,6 +20,11 @@ height = 0.963322
 
 [node name="EnemyShadow" type="CharacterBody3D"]
 script = ExtResource("1_ani8c")
+
+[node name="Health" parent="." instance=ExtResource("2_5cnh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+max_health = 10
+is_enemy = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true

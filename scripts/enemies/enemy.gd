@@ -1,17 +1,18 @@
 extends CharacterBody3D
 class_name Enemy
 
-@export var health = 6
 @export var damage_per_tick := 10
 @export var damage_interval := 1.0   # 1 second
 
-signal took_damage(amount : int)
+@onready var health : Health = $Health
 
 var _wagon: Node3D = null
 var _damaging := false
 
 func _ready():
 	EntityHandler._register_enemy(self)
+	HealthBarCanvas._create_bar_for(health)
+	health.took_damage.connect(_on_took_damage)
 	%AttackArea.body_entered.connect(_on_body_entered)
 	%AttackArea.body_exited.connect(_on_body_exited)
 
@@ -33,17 +34,11 @@ func _start_damage_loop() -> void:
 	_damaging = true
 
 	while _damaging and is_instance_valid(_wagon):
-		_wagon.take_damage(damage_per_tick)
+		_wagon.health.take_damage(damage_per_tick)
 		await get_tree().create_timer(damage_interval).timeout
 
-#Ability to damage the enemy
-func take_damage(amount: int):
-	health -= amount
-	emit_signal("took_damage", amount)
+func _on_took_damage(amount):
 	JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
-	_check_for_death()
-
-func _check_for_death():
-	if health <= 0 :
+	if health.current_health <= 0:
 		EntityHandler._unregister_enemy(self)
 		self.queue_free()

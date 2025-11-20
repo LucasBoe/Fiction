@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdld48i2gfx8s"]
+[gd_scene load_steps=11 format=3 uid="uid://cdld48i2gfx8s"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
 [ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="1_tgdyf"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="2_5uj0l"]
 [ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_8hdq7"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_b8lbu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_fw700"]
 [ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_b8lbu"]
 [ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="4_5uj0l"]
@@ -17,6 +18,8 @@ size = Vector3(1.97223, 1.02826, 1)
 [node name="Wagon_Archer" type="StaticBody3D"]
 script = ExtResource("1_qnmmq")
 grid_size = Vector2i(2, 1)
+
+[node name="Health" parent="." instance=ExtResource("2_b8lbu")]
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_8hdq7")

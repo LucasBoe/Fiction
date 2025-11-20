@@ -1,15 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://flemoc77kr28"]
+[gd_scene load_steps=11 format=3 uid="uid://flemoc77kr28"]
 
 [ext_resource type="Script" uid="uid://cihuvho6pn0jm" path="res://scripts/wagon_money.gd" id="1_nkb43"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_4iylc"]
 [ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_nkb43"]
 [ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_4iylc"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_i8c7e"]
 [ext_resource type="ArrayMesh" uid="uid://cjr3rvm5jggjv" path="res://meshes/coins.obj" id="5_2dd0y"]
 [ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="5_nkb43"]
 
-[sub_resource type="Curve" id="Curve_nkb43"]
+[sub_resource type="Curve" id="Curve_4iylc"]
 _limits = [0.0, 1.0, 0.0, 100.0]
-_data = [Vector2(0.452489, 0), 0.0, 0.0264354, 0, 0, Vector2(100, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0271725, 0, 0, Vector2(100, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6xl0"]
@@ -20,7 +21,10 @@ size = Vector3(1.97223, 1.02826, 1)
 
 [node name="Wagon_Money" type="StaticBody3D"]
 script = ExtResource("1_nkb43")
-money_amount_lerp_curve = SubResource("Curve_nkb43")
+money_amount_lerp_curve = SubResource("Curve_4iylc")
+
+[node name="Health" parent="." instance=ExtResource("2_4iylc")]
+max_health = 10
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_nkb43")

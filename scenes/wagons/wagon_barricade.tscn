@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmjrrpq5hre60"]
+[gd_scene load_steps=8 format=3 uid="uid://dmjrrpq5hre60"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_xliut"]
 [ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_fxwh8"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_pcdh0"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_v2acl"]
 [ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_v2acl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
@@ -14,6 +15,8 @@ size = Vector3(1.97223, 1.02826, 1)
 [node name="Wagon_Barricade" type="StaticBody3D"]
 script = ExtResource("1_xliut")
 grid_size = Vector2i(2, 1)
+
+[node name="Health" parent="." instance=ExtResource("2_v2acl")]
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_fxwh8")
