@@ -11,19 +11,21 @@ var _wagon: Node3D = null
 var _damaging := false
 
 func _ready():
-	$HitArea.body_entered.connect(_on_body_entered)
-	$HitArea.body_exited.connect(_on_body_exited)
 	EntityHandler._register_enemy(self)
+	%AttackArea.body_entered.connect(_on_body_entered)
+	%AttackArea.body_exited.connect(_on_body_exited)
 
 #checks if it hits a wagon
 func _on_body_entered(body: Node3D):
+	print("Entered: " + body.name)
 	if body is WagonBody:
 		_wagon = body
 		if not _damaging:
 			_start_damage_loop()
 
 func _on_body_exited(body: Node3D) -> void:
-	if body == WagonBody:
+	print("Exited: " + body.name)
+	if body is WagonBody:
 		_wagon = null
 		_damaging = false
 
