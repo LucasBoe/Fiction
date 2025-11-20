@@ -36,16 +36,15 @@ func _process(delta: float) -> void:
 			bar.visible = false
 			continue
 
-		bar.visible = true
+		bar.visible = bar.has_damage
 		bar.position = screen_pos
 
 
 func _create_bar_for_wagon(wagon: WagonBody) -> void:
-	var bar: Control = healthbar_wagon.instantiate()
+	var bar: HealthBar = healthbar_wagon.instantiate()
 	add_child(bar)
-	
-	#Connects the healthbar function to the signal when the wagon takes damage
-	bar._connect_to_signal(wagon.took_damage)
+
+	wagon.took_damage.connect(bar._on_took_damage)
 	
 	#Adds bar to dictionary
 	wagon_to_healthbar[wagon] = bar

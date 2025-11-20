@@ -1,13 +1,12 @@
 extends Control
 class_name HealthBar
 
-func _connect_to_signal(_signal : Signal):
-	#_signal.connect(_on_took_damage())
-	return
+@onready var back_rect : ColorRect = $ColorRect
+@onready var fill_rect : ColorRect = $ColorRect/ColorRect
 
-func _on_took_damage():
-	_update_healthbar()
+var has_damage = false
 
-func _update_healthbar():
-	print("Updated Healthbar")
-	return
+func _on_took_damage(health, max_health):	
+	print("health: ", health)
+	has_damage = health < max_health
+	fill_rect.size = back_rect.size * Vector2(health / max_health, 1)

@@ -26,7 +26,6 @@ shape = SubResource("BoxShape3D_xliut")
 [node name="WagonBody" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_pcdh0")
-health = null
 
 [node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
 unique_name_in_owner = true

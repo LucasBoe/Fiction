@@ -48,8 +48,9 @@ mesh = ExtResource("2_labdy")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Visualization"]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.0248923, 0.00426047, -0.149107)
 material_override = SubResource("StandardMaterial3D_labdy")
-amount = 64
+amount = 60
 lifetime = 0.5
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_qbnlj")
 draw_pass_1 = SubResource("TubeTrailMesh_qbnlj")
 
