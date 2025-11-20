@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://b4g3uav2f0004"]
+[gd_scene load_steps=25 format=3 uid="uid://b4g3uav2f0004"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
 [ext_resource type="Script" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://b4fgi7bkj10bh" path="res://scripts/raycast_handler.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
@@ -53,9 +54,10 @@ shader_parameter/snap_resolution = 250.0
 [node name="GameLoopHandler" type="Node" parent="."]
 script = ExtResource("1_jkv2x")
 
-[node name="Style" type="Node" parent="."]
+[node name="Environment" type="Node" parent="."]
+script = ExtResource("2_muem4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Style"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00520873, 2.62407, 0.196077)
 light_energy = 2.0
 shadow_enabled = true
@@ -63,7 +65,7 @@ shadow_opacity = 0.5
 shadow_blur = 10.0
 omni_range = 10.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Style"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.804324, -5.51327e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, 0, 10, 0)
 light_energy = 0.2
 light_indirect_energy = 0.5
@@ -71,7 +73,7 @@ light_volumetric_fog_energy = 0.5
 shadow_opacity = 0.5
 shadow_blur = 3.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Style"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_0ld40")
 
 [node name="NavigationMesh" type="NavigationRegion3D" parent="."]

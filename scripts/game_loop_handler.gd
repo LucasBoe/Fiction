@@ -32,7 +32,9 @@ func _load_random_map() -> void:
 
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
+	Globals.environment.set_day()
 	await placement_handler.placement_finished
+	Globals.environment.set_night()
 	print("placement finished")
 	
 func _reset_placement() -> void:
