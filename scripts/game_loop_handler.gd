@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _game_loop() -> void:
 	await get_tree().process_frame
+	MoneyHandler.change_money(10)
 	await _reset_placement()
 	
 	while true:
@@ -47,6 +48,7 @@ func _run_wave_phase() -> void:
 	print("wave cleared reset")
 
 func _reward_phase() -> void:
+	MoneyHandler.change_money(10)
 	print("enter Reward phase – TODO: implement real rewards")
 	await get_tree().create_timer(0.5).timeout
 
