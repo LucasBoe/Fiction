@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cx5ogq8y4fikq"
-path="res://.godot/imported/barn_2x3.glb-e7da6764f2f69ed95149f7558261b445.scn"
+uid="uid://bur501jtguxx2"
+path="res://.godot/imported/debris_1.glb-f1c83ed18d33d8509c0e0fbc7713fd9c.scn"
 
 [deps]
 
-source_file="res://scenes/buildings/barn_2x3.glb"
-dest_files=["res://.godot/imported/barn_2x3.glb-e7da6764f2f69ed95149f7558261b445.scn"]
+source_file="res://meshes/decoration/debris_1.glb"
+dest_files=["res://.godot/imported/debris_1.glb-f1c83ed18d33d8509c0e0fbc7713fd9c.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://er5xilone522"
-path="res://.godot/imported/ruin_2x3.glb-9c9b027e7dcdb8f2238fb4f5134da03a.scn"
+uid="uid://dv5vaepwavwq1"
+path="res://.godot/imported/wall_1x3.glb-842d38b79b15cf37b6d49662d840d8cc.scn"
 
 [deps]
 
-source_file="res://scenes/buildings/ruin_2x3.glb"
-dest_files=["res://.godot/imported/ruin_2x3.glb-9c9b027e7dcdb8f2238fb4f5134da03a.scn"]
+source_file="res://meshes/buildings/wall_1x3.glb"
+dest_files=["res://.godot/imported/wall_1x3.glb-842d38b79b15cf37b6d49662d840d8cc.scn"]
 
 [params]
 

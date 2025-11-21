@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://caxlqr3uhaypb"
-path="res://.godot/imported/smith_1x2.glb-254dfdae5f3804da103c77f2779ecea6.scn"
+path="res://.godot/imported/smith_1x2.glb-bd490089969d9448155aa5c82de9c68b.scn"
 
 [deps]
 
-source_file="res://scenes/buildings/smith_1x2.glb"
-dest_files=["res://.godot/imported/smith_1x2.glb-254dfdae5f3804da103c77f2779ecea6.scn"]
+source_file="res://meshes/buildings/smith_1x2.glb"
+dest_files=["res://.godot/imported/smith_1x2.glb-bd490089969d9448155aa5c82de9c68b.scn"]
 
 [params]
 

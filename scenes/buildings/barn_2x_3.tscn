@@ -1,0 +1,17 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1i0sfero84vb"]
+
+[ext_resource type="PackedScene" uid="uid://cx5ogq8y4fikq" path="res://meshes/buildings/barn_2x3.glb" id="1_nytnj"]
+[ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_jp4x0"]
+[ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="3_3p5yp"]
+[ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="4_e73r3"]
+[ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="5_f3dot"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="6_y3r8j"]
+
+[node name="barn_2x3" instance=ExtResource("1_nytnj")]
+
+[node name="Barn_2x3" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jp4x0")
+surface_material_override/1 = ExtResource("3_3p5yp")
+surface_material_override/2 = ExtResource("4_e73r3")
+surface_material_override/3 = ExtResource("5_f3dot")
+surface_material_override/4 = ExtResource("6_y3r8j")

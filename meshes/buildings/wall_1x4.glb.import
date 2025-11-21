@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bur501jtguxx2"
-path="res://.godot/imported/debris_1.glb-bb10c6a18e9eeeec85e1ec5a93556b34.scn"
+uid="uid://dq431itrlebf2"
+path="res://.godot/imported/wall_1x4.glb-d688e77359f88f45e67a128abd41d15f.scn"
 
 [deps]
 
-source_file="res://scenes/decoration/debris_1.glb"
-dest_files=["res://.godot/imported/debris_1.glb-bb10c6a18e9eeeec85e1ec5a93556b34.scn"]
+source_file="res://meshes/buildings/wall_1x4.glb"
+dest_files=["res://.godot/imported/wall_1x4.glb-d688e77359f88f45e67a128abd41d15f.scn"]
 
 [params]
 

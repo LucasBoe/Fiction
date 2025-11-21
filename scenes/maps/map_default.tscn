@@ -23,6 +23,9 @@ script = ExtResource("3_ylk5q")
 [node name="WaveSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
 
+[node name="WaveSpawnPoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
 [node name="Houses" type="Node3D" parent="."]
 
 [node name="Barn_3x2" parent="Houses" instance=ExtResource("4_qg01v")]

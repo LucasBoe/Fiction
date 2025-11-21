@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://2cte4sm1bg88"
-path="res://.godot/imported/wagonMaker_1x2.glb-e5dea29571f4480179c85ab80d914e63.scn"
+uid="uid://cjfrnm30fdxej"
+path="res://.godot/imported/well_1x1.glb-1d5f20685017d70148869885d391af62.scn"
 
 [deps]
 
-source_file="res://scenes/buildings/wagonMaker_1x2.glb"
-dest_files=["res://.godot/imported/wagonMaker_1x2.glb-e5dea29571f4480179c85ab80d914e63.scn"]
+source_file="res://meshes/buildings/well_1x1.glb"
+dest_files=["res://.godot/imported/well_1x1.glb-1d5f20685017d70148869885d391af62.scn"]
 
 [params]
 
