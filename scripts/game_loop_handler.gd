@@ -14,7 +14,7 @@ func _game_loop() -> void:
 	await _reset_placement()
 	
 	while true:
-		await _load_random_map()
+		await _load_next_map()
 		await _wait_for_placement()
 		await _run_wave_phase()
 		await _reward_phase()
@@ -27,9 +27,9 @@ func _unload_current_map() -> void:
 	map_loader.unload_current_map()
 	print("unloaded current map")
 
-func _load_random_map() -> void:
-	map_loader.load_random_map()
-	print("loaded random map")
+func _load_next_map() -> void:
+	map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
+	print("loaded new map")
 
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
