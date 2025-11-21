@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
-[ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_muem4"]
+[ext_resource type="Script" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dyamhf5x7d64o" path="res://scripts/utility/editor_only.gd" id="4_choun"]
