@@ -33,8 +33,10 @@ func _load_random_map() -> void:
 
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
-	Globals.environment.set_day()
+	RaycastHandler.set_modifications_allowed(true)
+	Globals.environment.set_day()	
 	await placement_handler.placement_finished
+	RaycastHandler.set_modifications_allowed(false)
 	Globals.environment.set_night()
 	print("placement finished")
 	

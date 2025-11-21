@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cemj8rbwpuygu"]
 
-[ext_resource type="Script" uid="uid://ds26wnxukcgp" path="res://scripts/narrative/narrative_canvas.gd" id="1_00rlo"]
-[ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="2_s7jss"]
-[ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="3_s2hr0"]
+[ext_resource type="Script" uid="uid://ds26wnxukcgp" path="res://scripts/narrative/narrative_canvas.gd" id="1_2i8tp"]
+[ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="2_hac41"]
+[ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="3_uwomx"]
 
 [node name="NarrativeCanvas" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_00rlo")
+script = ExtResource("1_2i8tp")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -41,7 +41,7 @@ grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control/NarrativePopup"]
 layout_mode = 2
-texture = ExtResource("2_s7jss")
+texture = ExtResource("2_hac41")
 patch_margin_left = 58
 patch_margin_top = 58
 patch_margin_right = 58
@@ -65,7 +65,7 @@ theme_override_constants/margin_right = 24
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("3_s2hr0")
+theme = ExtResource("3_uwomx")
 theme_override_colors/default_color = Color(0.694118, 0.635294, 0.52549, 1)
 theme_override_font_sizes/normal_font_size = 11
 text = "You reach a fork in the road. In the middle stands a signpost with a sign pointing north that says “Hammercastle.” The sign pointing south has been broken off and is nowhere to be seen."
@@ -80,11 +80,11 @@ theme_override_constants/separation = 24
 [node name="Button1" type="Button" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_s2hr0")
+theme = ExtResource("3_uwomx")
 text = "Go south"
 
 [node name="Button2" type="Button" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_s2hr0")
+theme = ExtResource("3_uwomx")
 text = "Go south"

@@ -1,15 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4g3uav2f0004"]
+[gd_scene load_steps=22 format=3 uid="uid://b4g3uav2f0004"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
 [ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
-[ext_resource type="Script" uid="uid://b4fgi7bkj10bh" path="res://scripts/raycast_handler.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dyamhf5x7d64o" path="res://scripts/utility/editor_only.gd" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://dh68thegmeo6o" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
-[ext_resource type="ArrayMesh" uid="uid://bjo3x4nsnv0fp" path="res://meshes/selection_Cursor.obj" id="4_tbgi4"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="6_tefeu"]
 [ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="7_tipki"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scenes/placement_handler.gd" id="9_jbj1t"]
@@ -37,9 +35,6 @@ polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Arr
 
 [sub_resource type="TextMesh" id="TextMesh_choun"]
 text = "SPAWN"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
-shading_mode = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
 render_priority = 0
@@ -159,13 +154,6 @@ fov = 40.0
 [node name="TopDown" type="Camera3D" parent="CameraManager"]
 transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 0, 6, 0)
 visible = false
-
-[node name="RaycastHandler" type="Node3D" parent="."]
-script = ExtResource("3_jyhfs")
-
-[node name="Cursor" type="MeshInstance3D" parent="RaycastHandler"]
-mesh = ExtResource("4_tbgi4")
-surface_material_override/0 = SubResource("StandardMaterial3D_a8y0u")
 
 [node name="PlacementHandler" type="Node3D" parent="."]
 unique_name_in_owner = true

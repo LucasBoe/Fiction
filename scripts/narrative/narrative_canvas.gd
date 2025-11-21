@@ -42,8 +42,7 @@ func begin_travel():
 	
 	_show_event(event)
 	
-func _show_event(event):
-	
+func _show_event(event):	
 	#fill content
 	narrative_text_label.text = event.text
 	try_create_button(0, event)
@@ -55,7 +54,7 @@ func _show_event(event):
 	fade_black_color_rect.visible = true
 	popup_parent.visible = true
 
-func try_create_button(index, event):
+func try_create_button(index, event):	
 	if (event.choices.size() <= index):
 		return
 	
@@ -65,8 +64,7 @@ func try_create_button(index, event):
 	button.text = choice.button_text	
 	button.pressed.connect(execute_choice.bind(choice))
 	
-func _animate_text(label : RichTextLabel, elements : Array[Button]):
-	
+func _animate_text(label : RichTextLabel, elements : Array[Button]):	
 	_skip_text_animation = false
 	
 	for n in elements:
@@ -84,15 +82,13 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 		if c == ".":
 			await get_tree().create_timer(.2).timeout
 		else:
-			await get_tree().create_timer(.01).timeout			
-	
+			await get_tree().create_timer(.01).timeout
 			
 	for n in elements:
 		if not n.text.is_empty():
 			n.visible = true
 
-func execute_choice(choice : EventChoice):
-	
+func execute_choice(choice : EventChoice):	
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
 	
@@ -103,6 +99,7 @@ func execute_choice(choice : EventChoice):
 		choice_button_1.text = "continue"
 		choice_button_2.text = ""	
 		_animate_text(narrative_text_label, event_choice_buttons)
+		
 	#show followup event
 	elif choice.opt_next_event != null:
 		_show_event(choice.opt_next_event)

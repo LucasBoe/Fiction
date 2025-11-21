@@ -1,7 +1,5 @@
 extends Node3D
-class_name RaycastHandler
 
-@onready var camera_handler = $"../CameraManager"
 @onready var cursor_3d = $Cursor
 
 var currently_hovered_moveable
@@ -9,11 +7,24 @@ var currently_dragging : Moveable
 var pickup_offset : Vector3
 var pickup_location : Vector3
 
+var are_modifications_allowed = false
+
+func set_modifications_allowed(allowed):
+	are_modifications_allowed = allowed
+	cursor_3d.visible = allowed
+	
+	if not allowed and currently_dragging:
+		currently_dragging.global_position = pickup_location
+		currently_dragging = null
+
 func _process(delta):
+	
+	if not are_modifications_allowed:
+		return
 	
 	var space_state = get_world_3d().direct_space_state
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	var cam = camera_handler.get_current_camera()
+	var cam = Globals.current_camera
 	
 	currently_hovered_moveable = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, Moveable)
 	
@@ -76,7 +87,7 @@ func raycast_for_position_on_grid():
 	return null	
 
 func get_mouse_on_y0_plane():
-	var camera = camera_handler.get_current_camera()
+	var camera = Globals.current_camera
 	
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var origin: Vector3 = camera.project_ray_origin(mouse_pos)
