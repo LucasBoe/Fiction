@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://diyvaqghfok1b"]
+
+[ext_resource type="Script" uid="uid://bhy4lhrhk1cbl" path="res://scripts/autoload/reward_handler.gd" id="1_gr6x3"]
+[ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="2_hnfjh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gr6x3"]
+
+[node name="RewardHandler" type="Node3D"]
+script = ExtResource("1_gr6x3")
+
+[node name="RewardDummy" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gr6x3")
+surface_material_override/0 = ExtResource("2_hnfjh")
