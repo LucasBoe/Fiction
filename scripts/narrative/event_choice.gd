@@ -6,18 +6,10 @@ class_name EventChoice
 @export var opt_effects : Array[EventChoiceEffects] = []
 @export_multiline var opt_text : String
 @export var opt_difficultiy_change : int
-@export var opt_location_keywords : Array[LocationKeyword] = []
+@export var opt_location_keywords : Array[MapData.LocationKeyword] = []
 
 enum EventChoiceEffects {
 	LOOSE_MONEY_SMALL,
 	LOOSE_MONEY_BIG,
 	REDUCED_LAYOUT_TIME
-}
-
-enum LocationKeyword {
-	HAS_SMITH_OR_IS_CASTLE,
-	HAS_WAGNER,
-	FIRE,
-	STARVING,
-	BANDITS
 }

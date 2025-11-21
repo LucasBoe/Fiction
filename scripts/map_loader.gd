@@ -1,14 +1,34 @@
 extends Node3D
 
-var map_folder_path = "res://scenes/maps/";
+const PATH = "path"
+const DIFFICULTY = "difficulty"
+const KEYWORDS = "keywords"
+const map_folder_path = "res://scenes/maps/";
 
 var currently_loaded_map
+var map_infos : Array
 
 signal loaded_map
 
+func _ready():
+	_index_all_map_infos()
+
+func _index_all_map_infos():
+	var paths = FileUtil.get_all_file_paths(map_folder_path)
+	for path in paths:
+		var scene = ResourceLoader.load(path)
+		var map = scene.instantiate() as MapData
+		map_infos.append({
+			PATH: path,
+			DIFFICULTY: map.difficulty,
+			KEYWORDS: map.keywords
+		})
+		map.queue_free()
+	print("indexed ", map_infos.size(), " map infos")
+
 func load_random_map():
-	var random_map = FileUtil.get_all_file_paths(map_folder_path).pick_random()
-	load_map_from_path(random_map)
+	var random_map = map_infos.pick_random()
+	load_map_from_path(random_map[PATH])
 	
 func unload_current_map():
 	currently_loaded_map.queue_free()
