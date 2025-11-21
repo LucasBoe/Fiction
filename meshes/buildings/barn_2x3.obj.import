@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dunr1yex8wh5y"
+path="res://.godot/imported/barn_2x3.obj-2d916a5b4c0888dcc499aeb1ac7e3421.mesh"
+
+[deps]
+
+files=["res://.godot/imported/barn_2x3.obj-2d916a5b4c0888dcc499aeb1ac7e3421.mesh"]
+
+source_file="res://meshes/buildings/barn_2x3.obj"
+dest_files=["res://.godot/imported/barn_2x3.obj-2d916a5b4c0888dcc499aeb1ac7e3421.mesh", "res://.godot/imported/barn_2x3.obj-2d916a5b4c0888dcc499aeb1ac7e3421.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=false
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
