@@ -50,10 +50,9 @@ func _run_wave_phase() -> void:
 	print("wave cleared reset")
 
 func _reward_phase() -> void:
-	MoneyHandler.change_money(10)
-	print("enter Reward phase – TODO: implement real rewards")
-	await get_tree().create_timer(0.5).timeout
-
+	RewardHandler.give_rewards()
+	await RewardHandler.all_rewards_given_signal
+	print("rewards given")
 
 func _run_narrative_popups() -> void:
 	NarrativeCanvas.begin_travel()

@@ -1,4 +1,5 @@
 extends Node3D
+class_name MapLoader
 
 const PATH = "path"
 const DIFFICULTY = "difficulty"
@@ -11,6 +12,7 @@ var map_infos : Array
 signal loaded_map
 
 func _ready():
+	Globals.map_loader = self
 	_index_all_map_infos()
 
 func _index_all_map_infos():
