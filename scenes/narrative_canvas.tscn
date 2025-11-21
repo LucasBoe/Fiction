@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://cemj8rbwpuygu"]
+
+[ext_resource type="Script" uid="uid://ds26wnxukcgp" path="res://scripts/narrative/narrative_canvas.gd" id="1_00rlo"]
+[ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="2_s7jss"]
+[ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="3_s2hr0"]
+
+[node name="NarrativeCanvas" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_00rlo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="NarrativePopup" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -110.0
+offset_right = 162.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/NarrativePopup"]
+layout_mode = 2
+texture = ExtResource("2_s7jss")
+patch_margin_left = 58
+patch_margin_top = 58
+patch_margin_right = 58
+patch_margin_bottom = 58
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/NarrativePopup"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NarrativePopup/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/NarrativePopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="Label" type="Label" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+text = "You reach a fork in the road. In the middle stands a signpost with a sign pointing north that says “Hammercastle.” The sign pointing south has been broken off and is nowhere to be seen.You reach a fork in the road. In the middle stands a signpost with a sign pointing north that says “Hamm"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NarrativePopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 24
+
+[node name="Button1" type="Button" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_s2hr0")
+text = "Go south"
+
+[node name="Button2" type="Button" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_s2hr0")
+text = "Go south"

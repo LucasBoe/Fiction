@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NarrativeEvent" load_steps=5 format=3 uid="uid://c23nriwabr65f"]
 
-[ext_resource type="Script" uid="uid://ddoi7l4te1l2a" path="res://scripts/event_choice.gd" id="1_p4lnq"]
-[ext_resource type="Script" uid="uid://dl34a76dc7a6c" path="res://scripts/narrative_event.gd" id="2_imopb"]
+[ext_resource type="Script" uid="uid://ddoi7l4te1l2a" path="res://scripts/narrative/event_choice.gd" id="1_p4lnq"]
+[ext_resource type="Script" uid="uid://dl34a76dc7a6c" path="res://scripts/narrative/narrative_event.gd" id="2_imopb"]
 
 [sub_resource type="Resource" id="Resource_tjpsu"]
 script = ExtResource("1_p4lnq")

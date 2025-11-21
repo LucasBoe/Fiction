@@ -21,6 +21,7 @@ EntityHandler="*res://scripts/autoload/entity_handler.gd"
 HealthBarCanvas="*res://scenes/ui/health_bar_canvas.gd"
 Globals="*res://scripts/autoload/globals.gd"
 MoneyHandler="*res://scripts/autoload/money_handler.gd"
+NarrativeCanvas="*res://scenes/narrative_canvas.tscn"
 
 [debug_draw_3d]
 
@@ -38,6 +39,11 @@ window/stretch/aspect="keep_height"
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/custom="uid://bjos0os13v61q"
+theme/custom_font="uid://pbrmctq7sdlw"
 
 [input]
 

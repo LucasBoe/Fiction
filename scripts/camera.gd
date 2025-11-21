@@ -38,11 +38,11 @@ func handle_toggle():
 	
 func handle_zoom(delta):
 	if Input.is_action_just_pressed("zoom_in"):
-		zoomTarget *= 1.1
+		zoomTarget *= 0.9
 		zoom_in_out();
 		
 	if Input.is_action_just_pressed("zoom_out"):
-		zoomTarget *= 0.9
+		zoomTarget *= 1.1
 		zoom_in_out();
 	
 func _input(event):
@@ -51,10 +51,10 @@ func _input(event):
 	
 	if event is InputEventMouseButton and event.is_pressed() and not event.is_echo():
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			zoomTarget *= (1 + .1 * zoom_speed_wheel)
+			zoomTarget *= (1 - .04 * zoom_speed_wheel)
 			zoom_in_out();
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			zoomTarget *= (1 - .1 * zoom_speed_wheel)
+			zoomTarget *= (1 + .04 * zoom_speed_wheel)
 			zoom_in_out();
 		
 	if event is InputEventPanGesture:

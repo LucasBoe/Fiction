@@ -4,7 +4,7 @@ class_name EventChoice
 @export var button_text : String
 @export var opt_next_event : NarrativeEvent
 @export var opt_effects : Array[EventChoiceEffects] = []
-@export var opt_text : String
+@export_multiline var opt_text : String
 @export var opt_difficultiy_change : int
 @export var opt_location_keywords : Array[LocationKeyword] = []
 

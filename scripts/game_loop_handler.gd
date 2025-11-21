@@ -43,7 +43,7 @@ func _reset_placement() -> void:
 	print("placement reset")
 	
 func _run_wave_phase() -> void:
-	enemy_spawner.spawn_wave(20,1)
+	enemy_spawner.spawn_wave(1,1)
 	await EntityHandler.all_enemies_unregistered
 	print("wave cleared reset")
 
@@ -54,5 +54,5 @@ func _reward_phase() -> void:
 
 
 func _run_narrative_popups() -> void:
-	print("enter Travel phase – TODO: implement real popups")
-	await get_tree().create_timer(0.5).timeout
+	NarrativeCanvas.begin_travel()
+	await NarrativeCanvas.travel_finished_signal
