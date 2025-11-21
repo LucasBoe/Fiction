@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="NarrativeEvent" load_steps=5 format=3 uid="uid://rjuy8rkemb1j"]
+
+[ext_resource type="Script" uid="uid://ddoi7l4te1l2a" path="res://scripts/event_choice.gd" id="1_tjpsu"]
+[ext_resource type="Script" uid="uid://dl34a76dc7a6c" path="res://scripts/narrative_event.gd" id="2_aesnb"]
+
+[sub_resource type="Resource" id="Resource_tjpsu"]
+script = ExtResource("1_tjpsu")
+button_text = "Go north"
+opt_effects = Array[String]([])
+opt_text = "You can see Hammercastle from afar. This is a safe place."
+opt_difficultiy_change = 0
+opt_location_keywords = Array[int]([0])
+metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
+
+[sub_resource type="Resource" id="Resource_aesnb"]
+script = ExtResource("1_tjpsu")
+button_text = "Go south"
+opt_effects = Array[String]([])
+opt_text = "After several hours on rarely traveled paths, you reach a village in the afternoon. But others were there before you and have ravaged the village."
+opt_difficultiy_change = 2
+opt_location_keywords = Array[int]([4])
+metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
+
+[resource]
+script = ExtResource("2_aesnb")
+text = "You reach a fork in the road. In the middle stands a signpost with a sign pointing north that says “Hammercastle.” The sign pointing south has been broken off and is nowhere to be seen."
+choices = Array[ExtResource("1_tjpsu")]([SubResource("Resource_tjpsu"), SubResource("Resource_aesnb")])
+metadata/_custom_type_script = "uid://dl34a76dc7a6c"

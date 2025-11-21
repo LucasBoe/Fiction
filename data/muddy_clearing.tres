@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="NarrativeEvent" load_steps=5 format=3 uid="uid://c23nriwabr65f"]
+
+[ext_resource type="Script" uid="uid://ddoi7l4te1l2a" path="res://scripts/event_choice.gd" id="1_p4lnq"]
+[ext_resource type="Script" uid="uid://dl34a76dc7a6c" path="res://scripts/narrative_event.gd" id="2_imopb"]
+
+[sub_resource type="Resource" id="Resource_tjpsu"]
+script = ExtResource("1_p4lnq")
+button_text = "Follow path"
+opt_effects = Array[int]([])
+opt_text = "After a few hours, you reach a village, or rather what remains of it. The villagers are grateful that you have come, but very concerned that they will not survive the night."
+opt_difficultiy_change = 1
+opt_location_keywords = Array[int]([2, 0, 1])
+metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
+
+[sub_resource type="Resource" id="Resource_aesnb"]
+script = ExtResource("1_p4lnq")
+button_text = "Fight through undergrowth"
+opt_effects = Array[String]([""])
+opt_text = "You struggle through the thicket for several hours. When you stumble out of the forest in the late afternoon, you find yourselves in a small village. Hurry, it will be dark very soon."
+opt_difficultiy_change = 0
+opt_location_keywords = Array[int]([1])
+metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
+
+[resource]
+script = ExtResource("2_imopb")
+text = "As you enter a clearing, rays of sunshine shine on your face; it is a beautiful day. If only there weren't clouds of smoke on the horizon. The ground in the clearing is muddy, and the tracks lead along a path to the east, the shortest route. Directly toward the clouds of smoke. There don't seem to be any other paths; you would have to fight your way through the undergrowth to get around the source of the smoke."
+choices = Array[ExtResource("1_p4lnq")]([SubResource("Resource_tjpsu"), SubResource("Resource_aesnb")])
+metadata/_custom_type_script = "uid://dl34a76dc7a6c"
