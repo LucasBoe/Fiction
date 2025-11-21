@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dl34a76dc7a6c" path="res://scripts/narrative/narrative_event.gd" id="2_aesnb"]
 
 [sub_resource type="Resource" id="Resource_tjpsu"]
+resource_local_to_scene = true
 script = ExtResource("1_tjpsu")
 button_text = "Go north"
 opt_effects = Array[int]([])
@@ -18,7 +19,7 @@ button_text = "Go south"
 opt_effects = Array[int]([])
 opt_text = "After several hours on rarely traveled paths, you reach a village in the afternoon. But others were there before you and have ravaged the village."
 opt_difficultiy_change = 2
-opt_location_keywords = Array[int]([4])
+opt_location_keywords = Array[int]([3])
 metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
 
 [resource]

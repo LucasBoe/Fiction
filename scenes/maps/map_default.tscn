@@ -8,6 +8,7 @@
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_o6yqm")
+keywords = Array[int]([0])
 
 [node name="WorldGrid" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00640845, 0, 0.00334358)

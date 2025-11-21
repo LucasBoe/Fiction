@@ -13,6 +13,7 @@ var narrative_event_folder_path = "res://data/travel/"
 var narrative_event_pool : Array[NarrativeEvent]
 
 var _skip_text_animation = false
+var chosen_keywords : Array
 
 signal travel_finished_signal
 
@@ -36,6 +37,8 @@ func _input(event: InputEvent) -> void:
 		_skip_text_animation = true
 		
 func begin_travel():
+	chosen_keywords.clear()
+	
 	#pick next event
 	var event : NarrativeEvent = narrative_event_pool.pick_random()
 	narrative_event_pool.erase(event)
@@ -91,6 +94,8 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 func execute_choice(choice : EventChoice):	
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
+		
+	chosen_keywords.append_array(choice.opt_location_keywords)
 	
 	#show the consequences of the choice as text
 	if not choice.opt_text.is_empty():

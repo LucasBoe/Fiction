@@ -7,6 +7,7 @@
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_pwtvp")
+keywords = Array[int]([3])
 
 [node name="WorldGrid" type="GridMap" parent="."]
 mesh_library = ExtResource("2_snj55")

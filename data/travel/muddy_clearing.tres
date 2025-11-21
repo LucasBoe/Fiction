@@ -9,13 +9,13 @@ button_text = "Follow path"
 opt_effects = Array[int]([])
 opt_text = "After a few hours, you reach a village, or rather what remains of it. The villagers are grateful that you have come, but very concerned that they will not survive the night."
 opt_difficultiy_change = 1
-opt_location_keywords = Array[int]([2, 0, 1])
+opt_location_keywords = Array[int]([3])
 metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
 
 [sub_resource type="Resource" id="Resource_aesnb"]
 script = ExtResource("1_p4lnq")
 button_text = "Fight through undergrowth"
-opt_effects = Array[String]([""])
+opt_effects = Array[int]([])
 opt_text = "You struggle through the thicket for several hours. When you stumble out of the forest in the late afternoon, you find yourselves in a small village. Hurry, it will be dark very soon."
 opt_difficultiy_change = 0
 opt_location_keywords = Array[int]([1])
