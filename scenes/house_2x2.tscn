@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca1hywypp28na"]
+
+[ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_17r57"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ftito"]
+size = Vector3(2, 1, 2)
+
+[node name="House_2x2" type="StaticBody3D"]
+
+[node name="house_2x2" parent="." instance=ExtResource("1_17r57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0867281)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ftito")

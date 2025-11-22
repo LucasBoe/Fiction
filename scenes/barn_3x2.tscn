@@ -1,21 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg4owrrqp2ivq"]
+[gd_scene load_steps=3 format=3 uid="uid://bg4owrrqp2ivq"]
 
-[ext_resource type="Material" uid="uid://b7eaqr0cstvdn" path="res://meshes/barn.tres" id="1_2537n"]
-[ext_resource type="ArrayMesh" uid="uid://fj18fcvskwv5" path="res://meshes/barn.obj" id="2_bliat"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tefeu"]
-albedo_color = Color(0.913506, 0.309198, 0.152574, 1)
+[ext_resource type="PackedScene" uid="uid://cx5ogq8y4fikq" path="res://meshes/buildings/barn_2x3.glb" id="1_cj5cl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftito"]
 size = Vector3(2, 1, 3)
 
 [node name="Barn_3x2" type="StaticBody3D"]
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2)
-material_override = ExtResource("1_2537n")
-mesh = ExtResource("2_bliat")
-surface_material_override/0 = SubResource("StandardMaterial3D_tefeu")
+[node name="Mesh" parent="." instance=ExtResource("1_cj5cl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
