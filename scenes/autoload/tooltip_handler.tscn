@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://luhjewvnwf3j"]
+
+[ext_resource type="Script" uid="uid://h854rga7lfnk" path="res://scripts/autoload/tooltip_handler.gd" id="1_pxhph"]
+[ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="2_ilbwo"]
+[ext_resource type="Texture2D" uid="uid://bslcuojh5lc4h" path="res://ui/healthbar_frame.png" id="3_iojw3"]
+[ext_resource type="Texture2D" uid="uid://yapy1n8utfd1" path="res://ui/healthbar_center_overlay.png" id="4_mrwpc"]
+
+[node name="TooltipHandler" type="Node3D"]
+script = ExtResource("1_pxhph")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ilbwo")
+patch_margin_left = 6
+patch_margin_top = 8
+patch_margin_right = 6
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Abendbrot! Hunga!"
+
+[node name="HealthBar" type="Control" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="NinePatchRect" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iojw3")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar/MarginContainer"]
+layout_mode = 2
+color = Color(0.145098, 0.12549, 0.121569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.772549, 0.282353, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_top = -6.0
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+texture = ExtResource("4_mrwpc")
+stretch_mode = 2

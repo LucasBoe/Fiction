@@ -15,6 +15,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="13_gmxyp"]
 [ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="14_d2o8o"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_vn13o"]
+[ext_resource type="PackedScene" uid="uid://luhjewvnwf3j" path="res://scenes/autoload/tooltip_handler.tscn" id="16_aag8u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_muem4"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -188,3 +189,5 @@ surface_material_override/0 = SubResource("ShaderMaterial_choun")
 unique_name_in_owner = true
 
 [node name="HealthBarCanvas" parent="." instance=ExtResource("15_vn13o")]
+
+[node name="TooltipHandler" parent="." instance=ExtResource("16_aag8u")]

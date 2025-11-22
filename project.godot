@@ -24,6 +24,7 @@ MoneyHandler="*res://scripts/autoload/money_handler.gd"
 NarrativeCanvas="*res://scenes/autoload/narrative_canvas.tscn"
 RaycastHandler="*res://scenes/autoload/raycast_handler.tscn"
 RewardHandler="*res://scenes/autoload/reward_handler.tscn"
+TooltipHandler="*res://scenes/autoload/tooltip_handler.tscn"
 
 [debug_draw_3d]
 

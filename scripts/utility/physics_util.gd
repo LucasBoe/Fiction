@@ -43,7 +43,7 @@ static  func raycast_for_object(space_state, mouse_pos, cam, target_class_type):
 	if (result.size() > 0 and is_instance_of(result.collider, target_class_type)):
 		return result.collider
 		
-static func raycast_for_all_and_find(space_state, mouse_pos, cam, target_class_type):
+static func raycast_for_all_and_find(space_state, mouse_pos, cam, target_class_type, check_parent = false):
 	var origin = cam.project_ray_origin(mouse_pos)
 	var end = origin + cam.project_ray_normal(mouse_pos) * 100.0
 
@@ -57,10 +57,15 @@ static func raycast_for_all_and_find(space_state, mouse_pos, cam, target_class_t
 		var result: Dictionary = space_state.intersect_ray(query)
 		if result.is_empty():
 			return null
+			
+		var node = result.collider
+		
+		if check_parent:
+			node = node.get_parent()
 
 		# Check class
-		if is_instance_of(result.collider, target_class_type):
-			return result.collider
+		if is_instance_of(node, target_class_type):
+			return node
 
 		# Exclude this collider for the next iteration
 		if not exclude.has(result.collider):
