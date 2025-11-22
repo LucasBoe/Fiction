@@ -40,7 +40,7 @@ func _process(delta):
 	if currently_dragging:
 			
 		var grid_size = currently_dragging.get_rotated_grid_size()
-		var size = Vector3(grid_size.x, 1, grid_size.y)
+		var size = Vector3(grid_size.x - .1, 1, grid_size.y - .1)
 		var check_pos : Vector3 = (raw_pos + pickup_offset)
 		var check_offset = - Vector3(grid_size.x / 2.0, 0, grid_size.y / 2.0)
 		
