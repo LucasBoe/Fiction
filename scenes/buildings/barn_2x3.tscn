@@ -1,16 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1i0sfero84vb"]
+[gd_scene load_steps=10 format=3 uid="uid://c1i0sfero84vb"]
 
 [ext_resource type="PackedScene" uid="uid://cx5ogq8y4fikq" path="res://meshes/buildings/barn_2x3.glb" id="1_sirkh"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_buocy"]
+[ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_ocmk0"]
 [ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="3_ocmk0"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="4_vgbpj"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="5_ryjx5"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="6_3n31h"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_vgbpj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28ebe"]
 size = Vector3(3, 1, 2)
 
 [node name="barn_2x3" instance=ExtResource("1_sirkh")]
+script = ExtResource("2_ocmk0")
+is_enemy_target = true
+can_be_damaged_by_enemy = true
 
 [node name="Barn_2x3" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
@@ -25,3 +30,6 @@ surface_material_override/4 = ExtResource("6_3n31h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_28ebe")
+
+[node name="Health" parent="." index="2" instance=ExtResource("8_vgbpj")]
+max_health = 1000

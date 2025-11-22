@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxhmsu5ug7h8h"]
+[gd_scene load_steps=6 format=3 uid="uid://dxhmsu5ug7h8h"]
 
 [ext_resource type="PackedScene" uid="uid://er5xilone522" path="res://meshes/buildings/ruin_2x3.glb" id="1_hky1h"]
+[ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_rtwjv"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="2_uydup"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="3_rtwjv"]
 
@@ -8,6 +9,7 @@
 size = Vector3(3, 1, 2)
 
 [node name="ruin_2x3" instance=ExtResource("1_hky1h")]
+script = ExtResource("2_rtwjv")
 
 [node name="Ruin_2x3" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_uydup")

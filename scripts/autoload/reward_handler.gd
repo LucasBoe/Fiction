@@ -14,8 +14,7 @@ func give_rewards():
 	
 	var money_cart = Globals.placement_handler.active_holder.find_child("Wagon_Money") as WagonMoney
 	
-	var house_root = map.find_child("Houses")	
-	for child in house_root.get_children():
+	for child in map.houses:
 		for i in 7:
 			var reward_instance = reward_dummy.duplicate()
 			add_child(reward_instance)

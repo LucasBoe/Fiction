@@ -4,6 +4,9 @@ extends Enemy
 @onready var agent = %NavigationAgent3D
 @onready var placement_handler = %PlacementHandler
 
+var target_node
+var target_position
+
 func _ready():
 	super._ready()
 	var target = Vector3(0, 0, 0)
@@ -11,14 +14,14 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
-	var target = Globals.placement_handler.get_next_potential_target(global_position)
+	target_node = get_closest_potential_target()
 	
-	if target != null:
-		target = target.global_position
+	if target_node != null:
+		target_position = target_node.global_position
 	else:
-		target = Vector3.ZERO
+		target_position = Vector3.ZERO
 
-	agent.target_position = target
+	agent.target_position = target_position
 	
 	# If there's no path or we're already there, stop
 	if not agent.is_navigation_finished():

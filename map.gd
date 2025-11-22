@@ -6,9 +6,14 @@ class_name MapData
 
 @onready var wave_spawn_point = $WaveSpawnPoint
 
+var houses : Array
+
 enum LocationKeyword {
 	HAS_SMITH,
 	HAS_WAGNER,
 	FARM,
 	PLUNDERED
 }
+
+func _ready():
+	houses = find_child("Houses").get_children()	
