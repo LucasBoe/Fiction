@@ -13,9 +13,20 @@ func give_rewards():
 	var map = Globals.map_loader.currently_loaded_map
 	
 	var money_cart = Globals.placement_handler.active_holder.find_child("Wagon_Money") as WagonMoney
+	var total_reward = 0
 	
 	for child in map.houses:
-		for i in 7:
+		
+		if child is not Building:
+			continue
+			
+		var 	building = child as Building
+		if not building.can_be_damaged_by_enemy:
+			continue
+			
+		var reward = roundi(6.0 * ((float)(building.health.current_health) / (float)(building.health.max_health)))
+		
+		for i in reward:
 			var reward_instance = reward_dummy.duplicate()
 			add_child(reward_instance)
 			reward_instance.visible = true
@@ -27,13 +38,16 @@ func give_rewards():
 			tween.tween_property(reward_instance, "global_position", child.global_position + Vector3(randf_range(-.5,.5), 1, randf_range(-.5,.5)), 0.5)
 			tween.parallel().tween_property(reward_instance, "scale", Vector3.ONE * .3, 0.5)
 			
+		total_reward += reward / 2
+		
 	await get_tree().create_timer(.5).timeout
 		
 	var curve_fly_duration = 1.0
 	for reward in reward_instances:
 		animate_over_time(reward, money_cart.global_position, curve_fly_duration)
-	await get_tree().create_timer(curve_fly_duration).timeout		
-	MoneyHandler.change_money(10)
+	await get_tree().create_timer(curve_fly_duration).timeout	
+		
+	MoneyHandler.change_money(total_reward)
 		
 	await get_tree().create_timer(2).timeout
 	
