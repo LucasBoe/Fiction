@@ -9,7 +9,7 @@ static func boxcast_for_objects(
 	space_state,
 	center: Vector3,
 	size: Vector3,
-	exclude,
+	exclude = null,
 	collision_mask: int = 0xFFFFFFFF,
 	max_results: int = 32
 ) -> Array[Dictionary]:

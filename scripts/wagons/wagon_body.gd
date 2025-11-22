@@ -8,9 +8,7 @@ func _ready() -> void:
 	#make collision shape active
 	await get_tree().process_frame
 	$WagonShape.disabled = false
-	HealthBarCanvas._create_bar_for(health)
-	health.took_damage.connect(_on_took_damage)
+	health.is_empty.connect(on_health_is_empty)
 	
-func _on_took_damage():
-	if health.current_health <= 0:
-		self.get_parent_node_3d().queue_free()
+func on_health_is_empty():
+	self.get_parent().queue_free()
