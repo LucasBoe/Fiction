@@ -28,6 +28,7 @@ func _unload_current_map() -> void:
 	print("unloaded current map")
 
 func _load_next_map() -> void:
+	Globals.current_camera.get_parent_node_3d().rotate_y(deg_to_rad(90))
 	map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
 	print("loaded new map")
 
