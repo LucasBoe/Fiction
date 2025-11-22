@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwr4ji4gk7meu"]
+[gd_scene load_steps=8 format=3 uid="uid://bwr4ji4gk7meu"]
 
 [ext_resource type="PackedScene" uid="uid://2cte4sm1bg88" path="res://meshes/buildings/wagonMaker_1x2.glb" id="1_3n6ov"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_c6q0m"]
@@ -6,6 +6,9 @@
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_v47fx"]
 [ext_resource type="Material" uid="uid://cbrq65kcjolgc" path="res://materials/wooden_shingles.tres" id="5_o5t0c"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_5m0qi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3n6ov"]
+size = Vector3(2, 1, 1)
 
 [node name="wagonMaker_1x2" instance=ExtResource("1_3n6ov")]
 
@@ -15,3 +18,9 @@ surface_material_override/1 = ExtResource("3_1m81v")
 surface_material_override/2 = ExtResource("4_v47fx")
 surface_material_override/3 = ExtResource("5_o5t0c")
 surface_material_override/4 = ExtResource("6_5m0qi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_3n6ov")
