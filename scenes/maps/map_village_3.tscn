@@ -1,0 +1,69 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6mcrfw1dv608"]
+
+[ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_xpgn2"]
+[ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_uuaxs"]
+[ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_payof"]
+[ext_resource type="Script" uid="uid://c5ucrsu5qeipc" path="res://wave_spawn_point.gd" id="4_dbadc"]
+[ext_resource type="PackedScene" uid="uid://dvmhnhf158up0" path="res://scenes/buildings/ruin_2x2.tscn" id="5_tjyws"]
+[ext_resource type="PackedScene" uid="uid://crgj0ak63hjnu" path="res://scenes/buildings/wall_1x3.tscn" id="6_oai6b"]
+[ext_resource type="PackedScene" uid="uid://bwr4ji4gk7meu" path="res://scenes/buildings/wagon_maker_1x2.tscn" id="7_2om6k"]
+[ext_resource type="PackedScene" uid="uid://6l5ghah5ecm" path="res://scenes/buildings/house_1x2.tscn" id="8_jv1ux"]
+[ext_resource type="PackedScene" uid="uid://crd7qkxr1o3b" path="res://scenes/buildings/house_2x2.tscn" id="10_3mvug"]
+[ext_resource type="PackedScene" uid="uid://ki1qd1vity5r" path="res://scenes/buildings/well_1x1.tscn" id="10_uuaxs"]
+[ext_resource type="PackedScene" uid="uid://duq0kcbuervo1" path="res://scenes/buildings/smith_1x2.tscn" id="11_payof"]
+[ext_resource type="PackedScene" uid="uid://ckeo2owgkkvcm" path="res://scenes/buildings/wall_corner_2x2.tscn" id="12_payof"]
+[ext_resource type="PackedScene" uid="uid://dx144bpv8r2qw" path="res://scenes/buildings/wall_1x2.tscn" id="13_dbadc"]
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_xpgn2")
+keywords = Array[int]([0])
+
+[node name="WorldGrid" type="GridMap" parent="."]
+mesh_library = ExtResource("2_uuaxs")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65533, 3, 0, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65534, 2, 0, 65535, 2, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 65535, 0, 65535, 65535, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 0, 0, 65535, 65534, 0, 65534, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 1, 65535, 0, 0, 65534, 0, 1, 65534, 0, 2, 1, 0, 2, 2, 0, 1, 2, 0, 0, 2, 0)
+}
+script = ExtResource("3_payof")
+
+[node name="WaveSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31743, 0, -11.8508)
+script = ExtResource("4_dbadc")
+
+[node name="WaveSpawnPoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3141, 0, 2.68518)
+script = ExtResource("4_dbadc")
+
+[node name="WaveSpawnPoint3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00117, 0, 10.9623)
+script = ExtResource("4_dbadc")
+
+[node name="Houses" type="Node3D" parent="."]
+
+[node name="ruin_2x2" parent="Houses" instance=ExtResource("5_tjyws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+
+[node name="wall_1x32" parent="Houses" instance=ExtResource("6_oai6b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 0, -2.5)
+
+[node name="wagonMaker_1x2" parent="Houses" instance=ExtResource("7_2om6k")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 1.5)
+
+[node name="house_1x3" parent="Houses" instance=ExtResource("8_jv1ux")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.5, 0, -2)
+
+[node name="house_2x3" parent="Houses" instance=ExtResource("10_3mvug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00425, 0.0101147, 1.99516)
+
+[node name="well_1x1" parent="Houses" instance=ExtResource("10_uuaxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+
+[node name="smith_1x2" parent="Houses" instance=ExtResource("11_payof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.5)
+
+[node name="wall_corner_2x2" parent="Houses" instance=ExtResource("12_payof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="wall_1x33" parent="Houses" instance=ExtResource("13_dbadc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, 2)

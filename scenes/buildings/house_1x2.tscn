@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://6l5ghah5ecm"]
+
+[ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_wbnbi"]
+[ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_j54jo"]
+[ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="3_mr4cv"]
+[ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_8dfc8"]
+[ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="5_e4ukk"]
+[ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_sfm7d"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="7_tswc2"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_yn47h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akphn"]
+size = Vector3(2, 1, 2)
+
+[node name="house_2x2" instance=ExtResource("1_wbnbi")]
+script = ExtResource("2_j54jo")
+can_be_damaged_by_enemy = true
+
+[node name="House_2x2" parent="." index="0"]
+transform = Transform3D(0.85, 0, 0, 0, 1, 0, 0, 0, 0.575, 0.0264831, 0, 0.0867432)
+surface_material_override/0 = ExtResource("3_mr4cv")
+surface_material_override/1 = ExtResource("4_8dfc8")
+surface_material_override/2 = ExtResource("5_e4ukk")
+surface_material_override/3 = ExtResource("6_sfm7d")
+surface_material_override/4 = ExtResource("3_mr4cv")
+surface_material_override/5 = ExtResource("7_tswc2")
+surface_material_override/7 = ExtResource("7_tswc2")
+surface_material_override/8 = ExtResource("3_mr4cv")
+surface_material_override/10 = ExtResource("7_tswc2")
+surface_material_override/11 = ExtResource("3_mr4cv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_akphn")
+
+[node name="Health" parent="." index="2" instance=ExtResource("8_yn47h")]
+max_health = 300

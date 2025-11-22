@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfenjhkwqjotb"]
+
+[ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_ayv5t"]
+[ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_33xuh"]
+[ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_uty84"]
+[ext_resource type="Script" uid="uid://c5ucrsu5qeipc" path="res://wave_spawn_point.gd" id="4_b6p5v"]
+[ext_resource type="PackedScene" uid="uid://duq0kcbuervo1" path="res://scenes/buildings/smith_1x2.tscn" id="5_kerjc"]
+[ext_resource type="PackedScene" uid="uid://ki1qd1vity5r" path="res://scenes/buildings/well_1x1.tscn" id="7_olrt5"]
+[ext_resource type="PackedScene" uid="uid://dxhmsu5ug7h8h" path="res://scenes/buildings/ruin_2x3.tscn" id="8_8uibf"]
+[ext_resource type="PackedScene" uid="uid://dx144bpv8r2qw" path="res://scenes/buildings/wall_1x2.tscn" id="9_ttd6m"]
+[ext_resource type="PackedScene" uid="uid://crgj0ak63hjnu" path="res://scenes/buildings/wall_1x3.tscn" id="10_8uibf"]
+[ext_resource type="PackedScene" uid="uid://6l5ghah5ecm" path="res://scenes/buildings/house_1x2.tscn" id="10_sy0e7"]
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_ayv5t")
+keywords = Array[int]([0])
+
+[node name="WorldGrid" type="GridMap" parent="."]
+mesh_library = ExtResource("2_33xuh")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65533, 3, 0, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65534, 2, 0, 65535, 2, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 65535, 0, 65535, 65535, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 0, 0, 65535, 65534, 0, 65534, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 1, 65535, 0, 0, 65534, 0, 1, 65534, 0, 2, 1, 0, 2, 2, 0, 1, 2, 0, 0, 2, 0)
+}
+script = ExtResource("3_uty84")
+
+[node name="WaveSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31743, 0, -11.8508)
+script = ExtResource("4_b6p5v")
+
+[node name="WaveSpawnPoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3141, 0, 2.68518)
+script = ExtResource("4_b6p5v")
+
+[node name="WaveSpawnPoint3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00117, 0, 10.9623)
+script = ExtResource("4_b6p5v")
+
+[node name="Houses" type="Node3D" parent="."]
+
+[node name="smith_1x2" parent="Houses" instance=ExtResource("5_kerjc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, 1)
+
+[node name="house_1x2" parent="Houses" instance=ExtResource("10_sy0e7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 2.5)
+
+[node name="house_1x3" parent="Houses" instance=ExtResource("10_sy0e7")]
+transform = Transform3D(-1, 0.000467427, 0.000188562, 0.000467457, 1, 0.000196755, -0.000188487, 0.000196827, -1, -1, 0, -5.5)
+
+[node name="house_1x4" parent="Houses" instance=ExtResource("10_sy0e7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 0, 0)
+
+[node name="well_1x1" parent="Houses" instance=ExtResource("7_olrt5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0.5)
+
+[node name="ruin_2x3" parent="Houses" instance=ExtResource("8_8uibf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -2.5)
+
+[node name="wall_1x32" parent="Houses" instance=ExtResource("9_ttd6m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 0, 2)
+
+[node name="wall_1x33" parent="Houses" instance=ExtResource("10_8uibf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.5, 0, -4.5)
