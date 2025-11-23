@@ -1,7 +1,7 @@
 extends Node3D
 class_name Health
 
-@export var max_health = 100
+@export var max_health = 120
 @export var is_enemy = false
 var current_health
 

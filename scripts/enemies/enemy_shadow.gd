@@ -38,8 +38,8 @@ func refresh():
 			target = target.get_parent()
 		
 		if is_wagon or is_house:
-			target.health.take_damage(10)
-			print("damage ", target, ": ", 10)
+			target.health.take_damage(15)
+			print("damage ", target, ": ", 15)
 	
 	await get_tree().create_timer(1).timeout
 
