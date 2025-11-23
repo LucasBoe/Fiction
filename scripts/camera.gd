@@ -4,6 +4,11 @@ extends Node3D
 @export var zoom_speed_wheel = 1.0
 @export var zoom_speed_pan = 1.0
 
+@export var max_zoom_in = 5.0
+@export var max_zoom_out = 0.1
+
+@export var max_camera_to_world_center_distance = 30.0
+
 @onready var perspective_camera = $Perspective;
 @onready var topdown_camera = $TopDown;
 
@@ -91,8 +96,17 @@ func handle_move(delta):
 	# Apply movement
 	if move_dir != Vector3.ZERO:
 		move_dir = move_dir.normalized()
-		global_position += move_dir * move_speed * zoomTarget * delta
+		
+		var movement_target = Vector2(global_position.x + move_dir.x, global_position.z + move_dir.z)
+		if movement_target.distance_to(Vector2.ZERO) < max_camera_to_world_center_distance:
+			global_position += move_dir * move_speed * zoomTarget * delta
 
 func zoom_in_out():
+	if zoomTarget < max_zoom_out:
+		zoomTarget = max_zoom_out
+		
+	if zoomTarget > max_zoom_in:
+		zoomTarget = max_zoom_in
+		
 	perspective_camera.position = Vector3(4,6,4) * zoomTarget
 	topdown_camera.position = 5 * zoomTarget * Vector3.UP
