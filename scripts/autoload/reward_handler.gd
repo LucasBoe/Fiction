@@ -1,9 +1,11 @@
 extends Node3D
 
 @onready var reward_dummy : MeshInstance3D = $RewardDummy
+@onready var reward_choice_canvas : RewardChoiceCanvas = $RewardChoiceCanvas
 
 var reward_instances : Array[MeshInstance3D]
 
+signal all_rewards_chose_signal
 signal all_rewards_given_signal
 
 func _ready():
@@ -15,18 +17,24 @@ func give_rewards():
 	var money_cart = Globals.placement_handler.active_holder.find_child("Wagon_Money") as WagonMoney
 	var total_reward = 0
 	
+	var reward_buildings : Array[RewardBuilding]
+	
 	for child in map.houses:
-		
 		if child is not Building:
 			continue
 			
-		var 	building = child as Building
+		var building = child as Building
 		if not building.can_be_damaged_by_enemy:
 			continue
-			
-		var reward = roundi(6.0 * ((float)(building.health.current_health) / (float)(building.health.max_health)))
 		
-		for i in reward:
+		# filter out specific reward buildings
+		if building is RewardBuilding:
+			if not building.health._is_empty():
+				reward_buildings.append(building)
+			
+		# apply genereal reward based on destruction	
+		var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
+		for i in reward_amount / 3.0:
 			var reward_instance = reward_dummy.duplicate()
 			add_child(reward_instance)
 			reward_instance.visible = true
@@ -38,32 +46,40 @@ func give_rewards():
 			tween.tween_property(reward_instance, "global_position", child.global_position + Vector3(randf_range(-.5,.5), 1, randf_range(-.5,.5)), 0.5)
 			tween.parallel().tween_property(reward_instance, "scale", Vector3.ONE * .3, 0.5)
 			
-		total_reward += reward / 2
+		total_reward += reward_amount
 		
 	await get_tree().create_timer(.5).timeout
 		
 	var curve_fly_duration = 1.0
+	var curve_fly_step_delay = 0.1
+	
+	var delay = 0.0
 	for reward in reward_instances:
-		animate_over_time(reward, money_cart.global_position, curve_fly_duration)
-	await get_tree().create_timer(curve_fly_duration).timeout	
+		animate_over_time(reward, money_cart.global_position, curve_fly_duration, delay)
+		delay += curve_fly_step_delay
+		
+	await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout	
 		
 	MoneyHandler.change_money(total_reward)
 		
-	await get_tree().create_timer(2).timeout
-	
 	for reward in reward_instances:
 		reward.queue_free()
 	reward_instances.clear()
+	
+	for building in reward_buildings:
+		await reward_choice_canvas.show_choice(building.reward)
 		
 	all_rewards_given_signal.emit()
 
-func animate_over_time(node, p2, duration = 1.0, complete_function = null):
+func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay = 0.0):
 	var points : Array[Vector3]
 		
 	var p1 = node.global_position + Vector3.UP
 	var distance = p1.distance_to(p2)
 	
 	var t = 1.0
+	
+	await get_tree().create_timer(delay).timeout
 	
 	while t > 0.0:
 		var l = ease_in_out_sine(1.0-t)

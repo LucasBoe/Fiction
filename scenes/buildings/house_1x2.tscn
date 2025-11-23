@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6l5ghah5ecm"]
+[gd_scene load_steps=10 format=3 uid="uid://cg7yqtpg64jjr"]
 
 [ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_wbnbi"]
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_j54jo"]
@@ -15,6 +15,7 @@ size = Vector3(2, 1, 2)
 [node name="house_2x2" instance=ExtResource("1_wbnbi")]
 script = ExtResource("2_j54jo")
 can_be_damaged_by_enemy = true
+reward_amount_base = 20
 
 [node name="House_2x2" parent="." index="0"]
 transform = Transform3D(0.85, 0, 0, 0, 1, 0, 0, 0, 0.575, 0.0264831, 0, 0.0867432)

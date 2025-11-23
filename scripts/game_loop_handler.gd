@@ -51,8 +51,10 @@ func _run_wave_phase() -> void:
 	print("wave cleared reset")
 
 func _reward_phase() -> void:
+	Globals.reward_phase_begin_signal.emit()
 	RewardHandler.give_rewards()
 	await RewardHandler.all_rewards_given_signal
+	Globals.reward_phase_end_signal.emit()
 	print("rewards given")
 
 func _run_narrative_popups() -> void:

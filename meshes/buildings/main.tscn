@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=23 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_i5y3l"]
 [ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_aag8u"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="9_3imvf"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="10_u78cl"]
 [ext_resource type="PackedScene" uid="uid://flemoc77kr28" path="res://scenes/wagons/wagon_money.tscn" id="11_6k2bg"]
-[ext_resource type="PackedScene" path="res://scenes/PostProcessing.tscn" id="12_44qba"]
+[ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="12_44qba"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="13_gmxyp"]
 [ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="14_d2o8o"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_vn13o"]

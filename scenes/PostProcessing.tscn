@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh68thegmeo6o"]
+[gd_scene load_steps=3 format=3 uid="uid://do85eqr16rq3j"]
 
 [ext_resource type="Shader" uid="uid://6yn3xdh4sj5n" path="res://shaders/ps1postprocessing.gdshader" id="1_knowr"]
 
@@ -18,4 +18,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true

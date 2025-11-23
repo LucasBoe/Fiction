@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwr4ji4gk7meu"]
 
 [ext_resource type="PackedScene" uid="uid://2cte4sm1bg88" path="res://meshes/buildings/wagonMaker_1x2.glb" id="1_3n6ov"]
-[ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_1m81v"]
+[ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_1m81v"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_c6q0m"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_1m81v"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_v47fx"]
@@ -14,8 +14,10 @@ size = Vector3(2, 1, 1)
 
 [node name="wagonMaker_1x2" instance=ExtResource("1_3n6ov")]
 script = ExtResource("2_1m81v")
+reward = 1
 is_enemy_target = true
 can_be_damaged_by_enemy = true
+reward_amount_base = 0
 
 [node name="WagonMaker" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_c6q0m")

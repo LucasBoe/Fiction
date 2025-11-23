@@ -20,3 +20,6 @@ func take_damage(amount: int):
 	
 	if current_health <= 0:
 		is_empty.emit()
+		
+func _is_empty():
+	return current_health <= 0

@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://diyvaqghfok1b"]
+[gd_scene load_steps=8 format=3 uid="uid://diyvaqghfok1b"]
 
 [ext_resource type="Script" uid="uid://bhy4lhrhk1cbl" path="res://scripts/autoload/reward_handler.gd" id="1_gr6x3"]
 [ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="2_hnfjh"]
+[ext_resource type="Script" uid="uid://bm1ko5i1aars7" path="res://scripts/reward_choice_canvas.gd" id="3_sd2vp"]
+[ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="4_plse1"]
+[ext_resource type="Texture2D" uid="uid://yapy1n8utfd1" path="res://ui/healthbar_center_overlay.png" id="5_iterj"]
+[ext_resource type="Texture2D" uid="uid://qicfrh33uwpf" path="res://ui/wagon_thumbnail_placeholder.png" id="6_1xt37"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gr6x3"]
 
@@ -11,3 +15,95 @@ script = ExtResource("1_gr6x3")
 [node name="RewardDummy" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_gr6x3")
 surface_material_override/0 = ExtResource("2_hnfjh")
+
+[node name="RewardChoiceCanvas" type="CanvasLayer" parent="."]
+script = ExtResource("3_sd2vp")
+
+[node name="Control" type="Control" parent="RewardChoiceCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RewardChoiceCanvas/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -20.0
+offset_right = 94.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="RewardChoiceCanvas/Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_plse1")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="MarginContainer" type="MarginContainer" parent="RewardChoiceCanvas/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "The greatful smith allows you to choose:"
+
+[node name="TextureRect" type="TextureRect" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_iterj")
+stretch_mode = 2
+flip_h = true
+flip_v = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ChoiceDummy" type="MarginContainer" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tank Wagon"
+horizontal_alignment = 1
+
+[node name="IllustrationTextureRect" type="TextureRect" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_1xt37")
+
+[node name="PriceLabel" type="Label" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "100$"
+horizontal_alignment = 1

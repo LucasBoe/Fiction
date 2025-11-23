@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ut3jxk2872un"]
+[gd_scene load_steps=8 format=3 uid="uid://c4wm12ek3vnmp"]
 
 [ext_resource type="PackedScene" uid="uid://cn65w7en314rf" path="res://meshes/buildings/ruin_2x2.glb" id="1_0pec5"]
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_ut747"]

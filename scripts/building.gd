@@ -3,6 +3,7 @@ class_name Building
 
 @export var is_enemy_target = false # will be actively focused
 @export var can_be_damaged_by_enemy = false # not focused but will receive damage
+@export var reward_amount_base = 10
 
 var health : Health
 
