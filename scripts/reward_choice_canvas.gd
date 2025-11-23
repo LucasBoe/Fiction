@@ -1,9 +1,9 @@
 extends CanvasLayer
 class_name RewardChoiceCanvas
 
+@onready var header_label = $Control/MarginContainer/MarginContainer/VBoxContainer/Label
 @onready var choice_dummy = $Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy
 var choice_instances : Array
-
 
 signal on_picked_reward_signal
 
@@ -15,7 +15,7 @@ func show_choice(reward : RewardBuilding.RewardType):
 	visible = true
 	
 	if reward == RewardBuilding.RewardType.WAGON_MAKER:
-		
+		header_label.text = "The greatful wageon maker allows you to choose:"
 		create_button("Repair All", 20)
 		create_button("Simple Wagon", 30, "res://scenes/wagons/wagon_barricade.tscn")
 	
