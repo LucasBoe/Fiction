@@ -9,6 +9,7 @@ extends Node3D
 @onready var healthbar_fill_rect = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar/MarginContainer/ColorRect/ColorRect
 
 var currently_hovered
+var current_health
 
 func _ready():
 	canvas_layer.visible = false
@@ -28,23 +29,29 @@ func _process(delta):
 	if currently_hovered:
 		tooltip_root.position = tooltip_root.get_global_mouse_position() + Vector2(0,8)
 		
+	if current_health:
+		update_health(current_health)
+		
 	if currently_hovered == hovered_before:
 		return
 		
 	if currently_hovered == null:
 		canvas_layer.visible = false
+		current_health = null
 	else:
 		canvas_layer.visible = true
 		label.text = currently_hovered.name
 		
 		if currently_hovered is Wagon:
-			update_health(currently_hovered.body.health)
+			current_health = currently_hovered.body.health
+			healthbar_root.visible = true
 		elif currently_hovered is Building:
-			update_health(currently_hovered.health)
+			current_health = currently_hovered.health
+			healthbar_root.visible = true
 		else:
-			update_health(null)
+			healthbar_root.visible = false
 		
 func update_health(health : Health):
 	healthbar_root.visible = health != null
 	if health:
-		healthbar_fill_rect.size = Vector2(health.current_health / health.max_health,1) * healthbar_background_rect.size
+		healthbar_fill_rect.size = Vector2(float(health.current_health) / float(health.max_health),1) * healthbar_background_rect.size
