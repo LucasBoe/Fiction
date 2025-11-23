@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg7yqtpg64jjr"]
+[gd_scene load_steps=12 format=3 uid="uid://6l5ghah5ecm"]
 
 [ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_wbnbi"]
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_j54jo"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_sfm7d"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="7_tswc2"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_yn47h"]
+[ext_resource type="PackedScene" uid="uid://b6xxo006nv5go" path="res://meshes/buildings/house_1x2_import.tscn" id="9_j54jo"]
+[ext_resource type="PackedScene" uid="uid://cmjhjeua7dicr" path="res://scenes/window_light.tscn" id="10_mr4cv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akphn"]
 size = Vector3(2, 1, 2)
@@ -19,6 +21,7 @@ reward_amount_base = 20
 
 [node name="House_2x2" parent="." index="0"]
 transform = Transform3D(0.85, 0, 0, 0, 1, 0, 0, 0, 0.575, 0.0264831, 0, 0.0867432)
+visible = false
 surface_material_override/0 = ExtResource("3_mr4cv")
 surface_material_override/1 = ExtResource("4_8dfc8")
 surface_material_override/2 = ExtResource("5_e4ukk")
@@ -38,3 +41,13 @@ shape = SubResource("BoxShape3D_akphn")
 
 [node name="Health" parent="." index="2" instance=ExtResource("8_yn47h")]
 max_health = 300
+
+[node name="house_1x2" parent="." index="3" instance=ExtResource("9_j54jo")]
+
+[node name="Lights" type="Node3D" parent="." index="4"]
+
+[node name="WindowLight" parent="Lights" index="0" instance=ExtResource("10_mr4cv")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.432922, 0.383698, -0.402637)
+
+[node name="WindowLight2" parent="Lights" index="1" instance=ExtResource("10_mr4cv")]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0.0498772, 0.383698, 0.384215)

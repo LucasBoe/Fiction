@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cmjhjeua7dicr"]
+
+[node name="WindowLight" type="SpotLight3D"]
+transform = Transform3D(1, 4.51784e-05, 0.000189625, -4.50236e-05, 1, -0.000814781, -0.000189661, 0.000814676, 1, 0.000759602, 1.19209e-07, -0.00502133)
+light_color = Color(1, 0.933333, 0.756863, 1)
+light_energy = 2.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 0.0
+spot_range = 6.0
+spot_angle = 35.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://duq0kcbuervo1"]
+[gd_scene load_steps=12 format=3 uid="uid://duq0kcbuervo1"]
 
 [ext_resource type="PackedScene" uid="uid://caxlqr3uhaypb" path="res://meshes/buildings/smith_1x2.glb" id="1_pema0"]
 [ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_3f57p"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://cbrq65kcjolgc" path="res://materials/wooden_shingles.tres" id="5_lxmwq"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_pdo8e"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_3f57p"]
+[ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="8_ug0mn"]
+[ext_resource type="PackedScene" uid="uid://cmjhjeua7dicr" path="res://scenes/window_light.tscn" id="10_lxmwq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pema0"]
 size = Vector3(2, 1, 1)
@@ -24,6 +26,7 @@ surface_material_override/1 = ExtResource("3_3f57p")
 surface_material_override/2 = ExtResource("4_ug0mn")
 surface_material_override/3 = ExtResource("5_lxmwq")
 surface_material_override/4 = ExtResource("6_pdo8e")
+surface_material_override/5 = ExtResource("8_ug0mn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 
@@ -33,3 +36,17 @@ shape = SubResource("BoxShape3D_pema0")
 
 [node name="Health" parent="." index="2" instance=ExtResource("8_3f57p")]
 max_health = 400
+
+[node name="Lights" type="Node3D" parent="." index="3"]
+
+[node name="WindowLight" parent="Lights" index="0" instance=ExtResource("10_lxmwq")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -0.000171603, 0.665487, 0.74641, -9.24711e-05, -0.74641, 0.665487, 0.380581, 1.0531, -0.429902)
+
+[node name="WindowLight4" parent="Lights" index="1" instance=ExtResource("10_lxmwq")]
+transform = Transform3D(9.24274e-05, 0.74641, -0.665487, -0.000171603, 0.665487, 0.74641, 1, 4.52108e-05, 0.000189595, 0.927212, 1.04054, 0.173743)
+
+[node name="WindowLight2" parent="Lights" index="2" instance=ExtResource("10_lxmwq")]
+transform = Transform3D(-0.000133777, -0.548736, 0.835996, -0.000141811, 0.835996, 0.548736, -1, -4.51455e-05, -0.000189653, -0.323734, 0.995392, 0.283767)
+
+[node name="WindowLight3" parent="Lights" index="3" instance=ExtResource("10_lxmwq")]
+transform = Transform3D(-1, -4.51215e-05, -0.00018969, -0.000141811, 0.835996, 0.548736, 0.00013382, 0.548736, -0.835996, 0.114094, 0.56768, 0.437697)
