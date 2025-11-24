@@ -109,4 +109,4 @@ func zoom_in_out():
 		zoomTarget = max_zoom_in
 		
 	perspective_camera.position = Vector3(4,6,4) * zoomTarget
-	topdown_camera.position = 5 * zoomTarget * Vector3.UP
+	topdown_camera.position = Vector3(0,-.25 +  6 * zoomTarget, 0)
