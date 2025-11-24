@@ -9,6 +9,8 @@ const map_folder_path = "res://scenes/maps/";
 var currently_loaded_map
 var map_infos : Array
 
+var map_number = 0
+
 signal loaded_map
 
 func _ready():
@@ -58,6 +60,7 @@ func load_map_from_path(path):
 	if currently_loaded_map:
 		unload_current_map()
 	
+	map_number+= 1
 	var scene = ResourceLoader.load(path)
 	currently_loaded_map = scene.instantiate()
 	add_child(currently_loaded_map)

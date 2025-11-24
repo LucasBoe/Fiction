@@ -1,31 +1,23 @@
 extends Node3D
 
+@export var location_number_to_enemy_emount_curve : Curve
+
 @onready var shadowEnemy: PackedScene = preload("res://scenes/enemies/enemy_shadow.tscn")
+const spawn_distance_to_center = 20
 
-var spawnpoints: Array[Node3D] = []
-var rng := RandomNumberGenerator.new()
-
-func _ready() -> void:
-	rng.randomize()
-
-	# Collect all spawnpoints under the %SpawnPoints node
-	for child: Node in %SpawnPoints.get_children():
-		if child is Node3D:
-			spawnpoints.append(child)
-
-func spawn_wave(pack_amount: int, enemy_amount: int) -> void:
-	# For each pack, choose a random spawnpoint and spawn enemy_amount enemies there
-	for i in range(pack_amount):
-		var spawnpoint: Node3D = spawnpoints[rng.randi_range(0, spawnpoints.size() - 1)]
-
-		for j in range(enemy_amount):
-			_spawn_enemy(spawnpoint)
-			
-			await get_tree().create_timer(0.5).timeout
+func spawn_wave(location_number) -> void:
+	var target_amount = roundi(location_number_to_enemy_emount_curve.sample(location_number))
+	print("spawn enemies: ", target_amount)
+	
+	
+	for i in target_amount:
+		var dir = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
+		var location = dir * spawn_distance_to_center
+		spawn_enemy_at(location)
+		await get_tree().create_timer(0.5).timeout
 
 
-func _spawn_enemy(spawnpoint: Node3D) -> void:
+func spawn_enemy_at(spawnpoint: Vector3) -> void:
 	var enemy: Node3D = shadowEnemy.instantiate()
-	# Place enemy at the spawnpoint position
-	enemy.global_transform = spawnpoint.global_transform
+	enemy.global_position = spawnpoint
 	add_child.call_deferred(enemy)
