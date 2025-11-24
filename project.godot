@@ -111,3 +111,4 @@ renderer/rendering_method.mobile="forward_plus"
 renderer/rendering_method.web="forward_plus"
 shading/overrides/force_vertex_shading=true
 limits/opengl/max_renderable_lights=50
+limits/opengl/max_lights_per_object=50
