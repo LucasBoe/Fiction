@@ -12,6 +12,7 @@ func _game_loop() -> void:
 	await get_tree().process_frame
 	MoneyHandler.change_money(10)
 	await _reset_placement()
+	await _run_narrative_popups(true)
 	
 	while true:
 		await _load_next_map()
@@ -57,6 +58,6 @@ func _reward_phase() -> void:
 	Globals.reward_phase_end_signal.emit()
 	print("rewards given")
 
-func _run_narrative_popups() -> void:
-	NarrativeCanvas.begin_travel()
+func _run_narrative_popups(introduction_narrative = false) -> void:
+	NarrativeCanvas.begin_travel(introduction_narrative)
 	await NarrativeCanvas.travel_finished_signal
