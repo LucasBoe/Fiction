@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
-[ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
-[ext_resource type="Script" path="res://scripts/environment.gd" id="2_muem4"]
+[ext_resource type="Script" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scripts/placement_handler.gd" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cvns1siwngwfn" path="res://scenes/outer_environment.tscn" id="13_jbj1t"]
+[ext_resource type="Script" uid="uid://cjoovptj6mk7" path="res://scripts/supply_ui.gd" id="13_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://flemoc77kr28" path="res://scenes/wagons/wagon_money.tscn" id="13_muem4"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_jbj1t"]
@@ -123,5 +125,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+
+[node name="SupplyUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("13_jkv2x")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SupplyUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("13_a8y0u")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Supplies:"
+
+[node name="Label" type="Label" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.764706, 0, 1)
+text = "400"
 
 [node name="HealthBarCanvas" parent="." instance=ExtResource("15_jbj1t")]
