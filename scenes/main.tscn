@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=17 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -16,23 +16,19 @@
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_jbj1t"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jkv2x"]
-
-[sub_resource type="Sky" id="Sky_jbj1t"]
-sky_material = SubResource("ProceduralSkyMaterial_jkv2x")
-
 [sub_resource type="Environment" id="Environment_0ld40"]
 background_mode = 1
 background_color = Color(0, 0.11152, 0.0744719, 1)
 background_energy_multiplier = 0.5
-sky = SubResource("Sky_jbj1t")
+ambient_light_source = 3
+reflected_light_source = 1
 tonemap_mode = 2
+glow_intensity = 0.1
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.439216, 0.631373, 0.756863, 1)
-fog_light_energy = 0.02
+fog_light_color = Color(0.0980392, 0.164706, 0.172549, 1)
 fog_density = 1.0
-fog_depth_begin = 13.0
+fog_depth_curve = 3.03143
 fog_depth_end = 50.0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o6xl0"]
@@ -52,16 +48,18 @@ script = ExtResource("2_muem4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00520873, 2.62407, 0.196077)
+visible = false
 light_energy = 2.0
 shadow_enabled = true
 shadow_opacity = 0.5
 shadow_blur = 10.0
-omni_range = 10.0
+omni_range = 20.4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.804324, -5.51327e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, 0, 10, 0)
+transform = Transform3D(0.804324, -7.19122e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, -0.0302546, 9.99828, -0.0361762)
+visible = false
 light_color = Color(0.675861, 0.73425, 0.694877, 1)
-light_energy = 0.01
+light_energy = 1.9
 light_indirect_energy = 0.5
 light_volumetric_fog_energy = 0.5
 shadow_opacity = 0.5
@@ -129,6 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.31666)
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="OuterEnvironment" parent="." instance=ExtResource("13_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
