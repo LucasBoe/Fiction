@@ -23,6 +23,6 @@ metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
 
 [resource]
 script = ExtResource("2_imopb")
-text = "As you enter a clearing, rays of sunshine shine on your face; it is a beautiful day. If only there weren't clouds of smoke on the horizon. The ground in the clearing is muddy, and the tracks lead along a path to the east, the shortest route. Directly toward the clouds of smoke. There don't seem to be any other paths; you would have to fight your way through the undergrowth to get around the source of the smoke."
+text = "You step into a muddy clearing, sunlight on your face, but smoke clouds darken the horizon. Tracks lead east—the shortest route, straight toward the smoke. There are no other paths; you’d have to force your way through the undergrowth to avoid it."
 choices = Array[ExtResource("1_p4lnq")]([SubResource("Resource_tjpsu"), SubResource("Resource_aesnb")])
 metadata/_custom_type_script = "uid://dl34a76dc7a6c"
