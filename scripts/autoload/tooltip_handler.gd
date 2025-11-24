@@ -2,11 +2,13 @@ extends Node3D
 
 @onready var canvas_layer = $CanvasLayer
 @onready var tooltip_root = $CanvasLayer/Control/MarginContainer
-@onready var label = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/Label
+@onready var label = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/NameLabel
 @onready var healthbar_root = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar
-
+@onready var reward_container = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/RewardContainer
+@onready var reward_label = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/RewardContainer/HBoxContainer/RewardLabel
 @onready var healthbar_background_rect = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar/MarginContainer/ColorRect
 @onready var healthbar_fill_rect = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar/MarginContainer/ColorRect/ColorRect
+@onready var healthbar_amount_label = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthAmountLabel
 
 var currently_hovered
 var current_health
@@ -25,12 +27,14 @@ func _process(delta):
 	
 	if not currently_hovered:
 		currently_hovered = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, Building, true)
+		if currently_hovered and not currently_hovered.can_be_damaged_by_enemy:
+			currently_hovered = null
 	
 	if currently_hovered:
-		tooltip_root.position = tooltip_root.get_global_mouse_position() + Vector2(0,8)
+		tooltip_root.position = tooltip_root.get_global_mouse_position() - tooltip_root.size * Vector2(0.5, 1) - Vector2(0,8)
 		
 	if current_health:
-		update_health(current_health)
+		update_health(current_health, currently_hovered)
 		
 	if currently_hovered == hovered_before:
 		return
@@ -44,14 +48,18 @@ func _process(delta):
 		
 		if currently_hovered is Wagon:
 			current_health = currently_hovered.body.health
-			healthbar_root.visible = true
+			reward_container.hide()
+			tooltip_root.reset_size()
 		elif currently_hovered is Building:
 			current_health = currently_hovered.health
-			healthbar_root.visible = true
-		else:
-			healthbar_root.visible = false
+			reward_container.show()
+			#reward_container.visible = true
+			
 		
-func update_health(health : Health):
-	healthbar_root.visible = health != null
-	if health:
-		healthbar_fill_rect.size = Vector2(float(health.current_health) / float(health.max_health),1) * healthbar_background_rect.size
+func update_health(health : Health, source):
+	var health_multiplier = float(health.current_health) / float(health.max_health)
+	healthbar_fill_rect.size = Vector2(health_multiplier,1) * healthbar_background_rect.size
+	healthbar_amount_label.text = str(health.current_health, "/", health.max_health)
+	
+	if reward_container.visible and source is Building:
+		reward_label.text = str((source as Building).reward_amount_base * health_multiplier, "$")
