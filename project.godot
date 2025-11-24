@@ -26,6 +26,7 @@ RaycastHandler="*res://scenes/autoload/raycast_handler.tscn"
 RewardHandler="*res://scenes/autoload/reward_handler.tscn"
 TooltipHandler="*res://scenes/autoload/tooltip_handler.tscn"
 DefeatHandler="*res://scenes/autoload/defeat_handler.tscn"
+GridVisualizer="*res://scenes/autoload/grid_visualizer.tscn"
 
 [debug_draw_3d]
 
@@ -105,6 +106,7 @@ restart={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="forward_plus"
 renderer/rendering_method.web="forward_plus"
 shading/overrides/force_vertex_shading=true
