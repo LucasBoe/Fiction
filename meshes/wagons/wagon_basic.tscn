@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://difbqk0glhsqm"]
+
+[ext_resource type="PackedScene" uid="uid://su4scq10sqf6" path="res://meshes/wagons/wagon_basic.glb" id="1_jvu5y"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_15ik2"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_16t07"]
+
+[node name="wagon_basic2" instance=ExtResource("1_jvu5y")]
+
+[node name="wagon_basic" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_15ik2")
+surface_material_override/1 = ExtResource("3_16t07")

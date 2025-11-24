@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://5cy08nx7c0ha"]
+
+[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qi1ia"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_co4em"]
+[ext_resource type="PackedScene" uid="uid://xi6ow6uv6wjt" path="res://meshes/wagons/wagon_wall.tscn" id="3_qi1ia"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_d0qgl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
+size = Vector3(3.01236, 0.805603, 0.837952)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
+size = Vector3(1.97223, 1.02826, 1)
+
+[node name="Wagon_Barricade" type="StaticBody3D"]
+script = ExtResource("1_qi1ia")
+grid_size = Vector2i(2, 1)
+
+[node name="Health" parent="." instance=ExtResource("2_co4em")]
+max_health = 3000
+
+[node name="wagon_wall" parent="." instance=ExtResource("3_qi1ia")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245523, 0.597198, 0.0176697)
+shape = SubResource("BoxShape3D_xliut")
+
+[node name="WagonBody" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_d0qgl")
+
+[node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
+shape = SubResource("BoxShape3D_hsfs4")
+disabled = true

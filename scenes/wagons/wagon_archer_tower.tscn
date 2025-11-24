@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://xfjdwg50g6na"]
+
+[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_ie0vh"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_27y3g"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="3_ucjej"]
+[ext_resource type="PackedScene" uid="uid://bfc5dwhuyvxpv" path="res://meshes/wagons/wagon_archer_tower.tscn" id="4_ie0vh"]
+[ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="5_goo4k"]
+[ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="6_1pskq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
+size = Vector3(1.97223, 1.02826, 1)
+
+[node name="Wagon_Archer" type="StaticBody3D"]
+script = ExtResource("1_ie0vh")
+grid_size = Vector2i(2, 1)
+
+[node name="Health" parent="." instance=ExtResource("2_27y3g")]
+max_health = 800
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qnmmq")
+
+[node name="WagonBody" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_ucjej")
+
+[node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
+shape = SubResource("BoxShape3D_hsfs4")
+disabled = true
+
+[node name="wagon_archer_tower2" parent="." instance=ExtResource("4_ie0vh")]
+
+[node name="Archer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.559609, 0.966419, 0.0510263)
+script = ExtResource("5_goo4k")
+shooting_range = 15.0
+
+[node name="ShootingOrigin" type="Node3D" parent="Archer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("6_1pskq")
+skeleton = NodePath("../..")
+
+[node name="Archer3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0376202, 1.52928, 0.0510263)
+script = ExtResource("5_goo4k")
+shooting_range = 15.0
+
+[node name="ShootingOrigin" type="Node3D" parent="Archer3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("6_1pskq")
+skeleton = NodePath("../..")
+
+[node name="Archer2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51856, 0.966419, 0.014389)
+script = ExtResource("5_goo4k")
+shooting_range = 15.0
+
+[node name="ShootingOrigin" type="Node3D" parent="Archer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("6_1pskq")
+skeleton = NodePath("../..")

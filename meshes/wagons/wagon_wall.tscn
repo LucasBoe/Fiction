@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://xi6ow6uv6wjt"]
+
+[ext_resource type="PackedScene" uid="uid://cejitby0tfee2" path="res://meshes/wagons/wagon_wall.glb" id="1_vfook"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_a616m"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_lyy8l"]
+[ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="4_khr4r"]
+[ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="5_5fxf5"]
+
+[node name="wagon_wall2" instance=ExtResource("1_vfook")]
+
+[node name="wagon_wall" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_a616m")
+surface_material_override/1 = ExtResource("3_lyy8l")
+surface_material_override/2 = ExtResource("4_khr4r")
+surface_material_override/3 = ExtResource("5_5fxf5")

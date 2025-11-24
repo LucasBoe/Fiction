@@ -1,13 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdld48i2gfx8s"]
+[gd_scene load_steps=9 format=3 uid="uid://cdld48i2gfx8s"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
-[ext_resource type="ArrayMesh" uid="uid://oio6n4u3cgbv" path="res://meshes/cube1x2.obj" id="1_tgdyf"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="2_5uj0l"]
-[ext_resource type="Material" uid="uid://c3kcolrnwqone" path="res://meshes/wagon.tres" id="2_8hdq7"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_b8lbu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_fw700"]
-[ext_resource type="ArrayMesh" uid="uid://bromd37nim3d8" path="res://meshes/wagon.obj" id="3_b8lbu"]
 [ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="4_5uj0l"]
+[ext_resource type="PackedScene" uid="uid://c1dj43eabcpxr" path="res://meshes/wagons/wagon_archer.tscn" id="4_fs8ih"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
 size = Vector3(2, 1, 1)
@@ -20,10 +18,7 @@ script = ExtResource("1_qnmmq")
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("2_b8lbu")]
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_8hdq7")
-mesh = ExtResource("3_b8lbu")
+max_health = 180
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -40,18 +35,10 @@ disabled = true
 
 [node name="Visuals" type="Node3D" parent="."]
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(0.23212, 0, 0, 0, 0.424018, 0, 0, 0, 0.53196, -0.420207, 0.805521, 0)
-mesh = ExtResource("1_tgdyf")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(0.23212, 0, 0, 0, 0.424018, 0, 0, 0, 0.53196, 0.507151, 0.805521, 0)
-mesh = ExtResource("1_tgdyf")
-skeleton = NodePath("../..")
+[node name="wagon_archer2" parent="Visuals" instance=ExtResource("4_fs8ih")]
 
 [node name="Archer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525183, 1.0542, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525183, 0.966419, 0)
 script = ExtResource("4_5uj0l")
 
 [node name="ShootingOrigin" type="Node3D" parent="Archer"]
@@ -63,7 +50,7 @@ mesh = ExtResource("2_5uj0l")
 skeleton = NodePath("../..")
 
 [node name="Archer2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474817, 1.0542, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474817, 0.966419, 0)
 script = ExtResource("4_5uj0l")
 
 [node name="ShootingOrigin" type="Node3D" parent="Archer2"]

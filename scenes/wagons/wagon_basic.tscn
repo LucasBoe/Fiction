@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmjrrpq5hre60"]
+[gd_scene load_steps=7 format=3 uid="uid://bwa7d8yrcj3mh"]
 
-[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_xliut"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_pcdh0"]
-[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_v2acl"]
-[ext_resource type="PackedScene" uid="uid://e6vikdxmpudk" path="res://meshes/wagons/wagon_barricade.tscn" id="3_fxwh8"]
+[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_amqdm"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_wasyv"]
+[ext_resource type="PackedScene" uid="uid://difbqk0glhsqm" path="res://meshes/wagons/wagon_basic.tscn" id="3_liv0p"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_ncwio"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
 size = Vector3(1.82397, 0.805603, 0.837952)
@@ -12,13 +12,13 @@ size = Vector3(1.82397, 0.805603, 0.837952)
 size = Vector3(1.97223, 1.02826, 1)
 
 [node name="Wagon_Barricade" type="StaticBody3D"]
-script = ExtResource("1_xliut")
+script = ExtResource("1_amqdm")
 grid_size = Vector2i(2, 1)
 
-[node name="Health" parent="." instance=ExtResource("2_v2acl")]
-max_health = 1000
+[node name="Health" parent="." instance=ExtResource("2_wasyv")]
+max_health = 500
 
-[node name="wagon_barricade2" parent="." instance=ExtResource("3_fxwh8")]
+[node name="wagon_basic2" parent="." instance=ExtResource("3_liv0p")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0250244, 0.597198, 0.0176697)
@@ -28,7 +28,7 @@ shape = SubResource("BoxShape3D_xliut")
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("2_pcdh0")
+script = ExtResource("4_ncwio")
 
 [node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
 unique_name_in_owner = true

@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1dj43eabcpxr"]
+
+[ext_resource type="PackedScene" uid="uid://cigmef4d1krbn" path="res://meshes/wagons/wagon_archer.glb" id="1_40uki"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_qeu3p"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_u1t1s"]
+[ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="4_4j68o"]
+[ext_resource type="Material" uid="uid://cbrq65kcjolgc" path="res://materials/wooden_shingles.tres" id="5_jfvsx"]
+
+[node name="wagon_archer2" instance=ExtResource("1_40uki")]
+
+[node name="wagon_archer" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qeu3p")
+surface_material_override/1 = ExtResource("3_u1t1s")
+surface_material_override/2 = ExtResource("4_4j68o")
+surface_material_override/3 = ExtResource("5_jfvsx")
