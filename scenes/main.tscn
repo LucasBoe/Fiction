@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
-[ext_resource type="Script" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
-[ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_muem4"]
+[ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
+[ext_resource type="Script" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
-[ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="6_tefeu"]
-[ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="7_tipki"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scripts/placement_handler.gd" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cvns1siwngwfn" path="res://scenes/outer_environment.tscn" id="13_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://flemoc77kr28" path="res://scenes/wagons/wagon_money.tscn" id="13_muem4"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_jbj1t"]
@@ -35,14 +34,6 @@ _limits = [0.0, 51.1714, 0.0, 16.0]
 _data = [Vector2(0, 0), 0.0, 4.80973, 0, 0, Vector2(16, 51.1714), 6.37987, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
-render_priority = 0
-shader = ExtResource("7_tipki")
-shader_parameter/color_tint = Vector3(1, 1, 1)
-shader_parameter/texture_tile = Vector2(1, 1)
-shader_parameter/snap_enabled = true
-shader_parameter/snap_resolution = 250.0
-
 [node name="main" type="Node"]
 
 [node name="GameLoopHandler" type="Node" parent="."]
@@ -61,7 +52,6 @@ omni_range = 10.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.804324, -5.51327e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, 0, 10, 0)
-light_energy = 0.2
 light_indirect_energy = 0.5
 light_volumetric_fog_energy = 0.5
 shadow_opacity = 0.5
@@ -122,11 +112,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.31666)
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 
-[node name="HumanBase" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0362556, -0.0119693, -0.145683)
-visible = false
-mesh = ExtResource("6_tefeu")
-surface_material_override/0 = SubResource("ShaderMaterial_choun")
+[node name="OuterEnvironment" parent="." instance=ExtResource("13_jbj1t")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
