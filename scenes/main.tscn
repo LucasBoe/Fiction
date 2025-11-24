@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
-[ext_resource type="Script" uid="uid://tpl4koo61ib1" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
-[ext_resource type="Script" path="res://scripts/environment.gd" id="2_muem4"]
+[ext_resource type="Script" path="res://scripts/NavigationMesh.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://bh1reks2agiq5" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
@@ -57,11 +57,11 @@ omni_range = 20.4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.804324, -7.19122e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, -0.0302546, 9.99828, -0.0361762)
-visible = false
 light_color = Color(0.675861, 0.73425, 0.694877, 1)
 light_energy = 1.9
 light_indirect_energy = 0.5
 light_volumetric_fog_energy = 0.5
+shadow_enabled = true
 shadow_opacity = 0.5
 shadow_blur = 3.0
 
