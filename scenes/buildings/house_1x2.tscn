@@ -8,16 +8,17 @@
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_sfm7d"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="7_tswc2"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_yn47h"]
-[ext_resource type="PackedScene" uid="uid://b6xxo006nv5go" path="res://meshes/buildings/house_1x2_import.tscn" id="9_j54jo"]
+[ext_resource type="PackedScene" path="res://meshes/buildings/house_1x2_import.tscn" id="9_j54jo"]
 [ext_resource type="PackedScene" uid="uid://cmjhjeua7dicr" path="res://scenes/window_light.tscn" id="10_mr4cv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akphn"]
 size = Vector3(2, 1, 2)
 
-[node name="house_2x2" instance=ExtResource("1_wbnbi")]
+[node name="house_1x2" instance=ExtResource("1_wbnbi")]
 script = ExtResource("2_j54jo")
 can_be_damaged_by_enemy = true
 reward_amount_base = 20
+display_name = "House"
 
 [node name="House_2x2" parent="." index="0"]
 transform = Transform3D(0.85, 0, 0, 0, 1, 0, 0, 0, 0.575, 0.0264831, 0, 0.0867432)

@@ -5,6 +5,8 @@ class_name Building
 @export var can_be_damaged_by_enemy = false # not focused but will receive damage
 @export var reward_amount_base = 10
 
+@export var display_name = ""
+
 var health : Health
 
 func _ready():

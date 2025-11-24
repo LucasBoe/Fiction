@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://ki1qd1vity5r"]
+[gd_scene load_steps=8 format=3 uid="uid://ki1qd1vity5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjfrnm30fdxej" path="res://meshes/buildings/well_1x1.glb" id="1_6bhmc"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="2_47k84"]
-[ext_resource type="Script" uid="uid://bw105kpg7eqj4" path="res://scripts/health.gd" id="2_k8uxb"]
+[ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_k8uxb"]
 [ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="3_k8uxb"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="4_txf1v"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="6_txf1v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bhmc"]
 
 [node name="well_1x1" instance=ExtResource("1_6bhmc")]
 script = ExtResource("2_k8uxb")
+is_enemy_target = true
+can_be_damaged_by_enemy = true
+display_name = "Well"
 
 [node name="Well" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_47k84")
@@ -21,3 +25,6 @@ surface_material_override/2 = ExtResource("4_txf1v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_6bhmc")
+
+[node name="Health" parent="." index="2" instance=ExtResource("6_txf1v")]
+max_health = 100

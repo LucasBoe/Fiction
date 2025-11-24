@@ -23,6 +23,7 @@ size = Vector3(1.97223, 1.02826, 1.97571)
 [node name="Wagon_Money" type="StaticBody3D"]
 script = ExtResource("1_nkb43")
 money_amount_lerp_curve = SubResource("Curve_4iylc")
+display_name = "King's Wagon"
 grid_size = Vector2i(2, 2)
 
 [node name="Health" parent="." instance=ExtResource("2_4iylc")]

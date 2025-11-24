@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://duq0kcbuervo1"]
 
 [ext_resource type="PackedScene" uid="uid://caxlqr3uhaypb" path="res://meshes/buildings/smith_1x2.glb" id="1_pema0"]
-[ext_resource type="Script" path="res://scripts/reward_building.gd" id="2_3f57p"]
+[ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_3f57p"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_nxwk6"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_3f57p"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_ug0mn"]
@@ -19,6 +19,7 @@ script = ExtResource("2_3f57p")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
 reward_amount_base = 0
+display_name = "Blacksmith"
 
 [node name="Smith" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_nxwk6")

@@ -16,6 +16,7 @@ size = Vector3(1.97223, 1.02826, 1)
 
 [node name="Wagon_Archer" type="StaticBody3D"]
 script = ExtResource("1_ie0vh")
+display_name = "Archer Tower Wagon"
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("2_27y3g")]

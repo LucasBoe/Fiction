@@ -44,7 +44,10 @@ func _process(delta):
 		current_health = null
 	else:
 		canvas_layer.visible = true
-		label.text = currently_hovered.name
+		if not currently_hovered.display_name.is_empty():
+			label.text = currently_hovered.display_name
+		else:
+			label.text = currently_hovered.name
 		
 		if currently_hovered is Wagon:
 			current_health = currently_hovered.body.health
@@ -53,8 +56,6 @@ func _process(delta):
 		elif currently_hovered is Building:
 			current_health = currently_hovered.health
 			reward_container.show()
-			#reward_container.visible = true
-			
 		
 func update_health(health : Health, source):
 	var health_multiplier = float(health.current_health) / float(health.max_health)
