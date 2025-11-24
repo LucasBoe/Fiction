@@ -47,7 +47,7 @@ max_health = 300
 [node name="Lights" type="Node3D" parent="." index="4"]
 
 [node name="WindowLight" parent="Lights" index="0" instance=ExtResource("10_mr4cv")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.432922, 0.383698, -0.402637)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.432922, 0.383698, -0.423511)
 
 [node name="WindowLight2" parent="Lights" index="1" instance=ExtResource("10_mr4cv")]
-transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0.0498772, 0.383698, 0.384215)
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0.0498772, 0.383698, 0.412276)

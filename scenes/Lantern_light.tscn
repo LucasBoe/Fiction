@@ -8,4 +8,4 @@ light_size = 0.1
 shadow_enabled = true
 shadow_reverse_cull_face = true
 shadow_opacity = 0.6
-omni_range = 14.0
+omni_range = 16.0

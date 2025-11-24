@@ -105,7 +105,8 @@ restart={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method.mobile="forward_plus"
-renderer/rendering_method.web="forward_plus"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 shading/overrides/force_vertex_shading=true
 limits/opengl/max_renderable_lights=50
+limits/opengl/max_lights_per_object=10
