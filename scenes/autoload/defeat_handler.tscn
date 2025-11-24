@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://p3q6cv87kyrg"]
+
+[ext_resource type="Script" uid="uid://cg4anjdtnx8mm" path="res://scripts/defeat_handler.gd" id="1_fnaon"]
+[ext_resource type="Texture2D" uid="uid://u3xcxfscigri" path="res://ui/defeat_screen.png" id="2_3xutq"]
+
+[node name="DefeatHandler" type="Node"]
+script = ExtResource("1_fnaon")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ColorRect/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_3xutq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -53.0
+offset_right = 101.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "the king has been slayn
+(Press R to Restart)"
+horizontal_alignment = 1
+vertical_alignment = 1

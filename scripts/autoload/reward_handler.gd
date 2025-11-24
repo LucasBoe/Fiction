@@ -15,6 +15,10 @@ func give_rewards():
 	var map = Globals.map_loader.currently_loaded_map
 	
 	var money_cart = Globals.placement_handler.active_holder.find_child("Wagon_Money") as WagonMoney
+	
+	if money_cart == null:
+		return
+	
 	var total_reward = 0
 	
 	var reward_buildings : Array[RewardBuilding]

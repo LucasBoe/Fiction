@@ -28,5 +28,4 @@ func _spawn_enemy(spawnpoint: Node3D) -> void:
 	var enemy: Node3D = shadowEnemy.instantiate()
 	# Place enemy at the spawnpoint position
 	enemy.global_transform = spawnpoint.global_transform
-	# Add to the same parent as this spawner (or change to whatever container you want)
-	get_tree().get_root().add_child.call_deferred(enemy)
+	add_child.call_deferred(enemy)

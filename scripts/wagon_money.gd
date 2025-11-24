@@ -15,6 +15,7 @@ var xz_scale_max = 1.0
 
 func _ready():
 	MoneyHandler.money_changed_signal.connect(on_money_changed)
+	(body.health as Health).is_empty.connect(DefeatHandler.show_canvas)
 	
 func on_money_changed(amount):
 	var l = money_amount_lerp_curve.sample(amount)
