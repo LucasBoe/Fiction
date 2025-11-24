@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://flemoc77kr28"]
+[gd_scene load_steps=12 format=3 uid="uid://flemoc77kr28"]
 
 [ext_resource type="Script" uid="uid://cihuvho6pn0jm" path="res://scripts/wagon_money.gd" id="1_nkb43"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_4iylc"]
 [ext_resource type="PackedScene" uid="uid://clwk1ki35gt75" path="res://meshes/wagons/wagon_king.tscn" id="3_ga33m"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="4_2dd0y"]
+[ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="4_4iylc"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_i8c7e"]
 [ext_resource type="ArrayMesh" uid="uid://cjr3rvm5jggjv" path="res://meshes/coins.obj" id="5_2dd0y"]
 [ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="5_nkb43"]
@@ -27,6 +29,17 @@ grid_size = Vector2i(2, 2)
 max_health = 1000
 
 [node name="wagon_king2" parent="." instance=ExtResource("3_ga33m")]
+
+[node name="LanternLight" parent="." instance=ExtResource("4_2dd0y")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.180695, 0.803247, 0.290612)
+light_energy = 1.0
+omni_range = 20.0
+
+[node name="Lantern" parent="." instance=ExtResource("4_4iylc")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.578652, 0.848347, -0.118969)
+
+[node name="Lantern2" parent="." instance=ExtResource("4_4iylc")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.930482, 0.848347, -0.118969)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.00726318)

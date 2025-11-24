@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://5cy08nx7c0ha"]
+[gd_scene load_steps=9 format=3 uid="uid://5cy08nx7c0ha"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qi1ia"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_co4em"]
 [ext_resource type="PackedScene" uid="uid://xi6ow6uv6wjt" path="res://meshes/wagons/wagon_wall.tscn" id="3_qi1ia"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="4_1fhnm"]
+[ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="4_co4em"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_d0qgl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
@@ -19,6 +21,24 @@ grid_size = Vector2i(2, 1)
 max_health = 3000
 
 [node name="wagon_wall" parent="." instance=ExtResource("3_qi1ia")]
+
+[node name="LanternLight" parent="." instance=ExtResource("4_1fhnm")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, -1.96751, 0.959937, -0.00502133)
+
+[node name="LanternLight2" parent="." instance=ExtResource("4_1fhnm")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 1.78291, 0.959937, -0.00502133)
+
+[node name="Lantern" parent="." instance=ExtResource("4_co4em")]
+transform = Transform3D(-0.394872, 0, -0.918736, 0, 1, 0, 0.918736, 0, -0.394872, 1.21692, 0.988534, 0.328638)
+
+[node name="Lantern5" parent="." instance=ExtResource("4_co4em")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1.45347, 1.01952, -0.406328)
+
+[node name="Lantern6" parent="." instance=ExtResource("4_co4em")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1.45347, 1.01952, 0.407112)
+
+[node name="Lantern2" parent="." instance=ExtResource("4_co4em")]
+transform = Transform3D(0.481402, 0, -0.8765, 0, 1, 0, 0.8765, 0, 0.481402, 1.21692, 0.988534, -0.322419)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245523, 0.597198, 0.0176697)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvns1siwngwfn"]
+[gd_scene load_steps=10 format=3 uid="uid://cvns1siwngwfn"]
 
 [ext_resource type="PackedScene" uid="uid://cs66pedltoe0j" path="res://scenes/foliage/trees/tree_1_large.tscn" id="1_gbr4b"]
 [ext_resource type="PackedScene" uid="uid://cqvy4brk32dcc" path="res://scenes/foliage/trees/tree_2_large.tscn" id="2_aimym"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b7ulywonniab3" path="res://scenes/foliage/trees/tree_2_slim.tscn" id="5_u17py"]
 [ext_resource type="PackedScene" uid="uid://bl8ugmb54vkd1" path="res://scenes/foliage/trees/tree_1_slim.tscn" id="6_g6bmm"]
 [ext_resource type="PackedScene" uid="uid://co4y7ye1o82d3" path="res://scenes/foliage/trees/tree_3_slim.tscn" id="7_u8q61"]
+[ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="8_aimym"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5mek5"]
 
 [node name="OuterEnvironment" type="Node3D"]
 
@@ -180,3 +183,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.549
 
 [node name="tree_3_slim" parent="." instance=ExtResource("7_u8q61")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.12631, 0.00356436, 6.98244)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(34.2542, 0, 0, 0, 34.2542, 0, 0, 0, 34.2542, 0, -0.0119112, 0)
+material_override = ExtResource("8_aimym")
+mesh = SubResource("PlaneMesh_5mek5")

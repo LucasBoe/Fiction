@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmjrrpq5hre60"]
+[gd_scene load_steps=9 format=3 uid="uid://dmjrrpq5hre60"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_xliut"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_pcdh0"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_v2acl"]
 [ext_resource type="PackedScene" uid="uid://e6vikdxmpudk" path="res://meshes/wagons/wagon_barricade.tscn" id="3_fxwh8"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="4_5jywj"]
+[ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="4_v2acl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
 size = Vector3(1.82397, 0.805603, 0.837952)
@@ -19,6 +21,15 @@ grid_size = Vector2i(2, 1)
 max_health = 1000
 
 [node name="wagon_barricade2" parent="." instance=ExtResource("3_fxwh8")]
+
+[node name="LanternLight" parent="." instance=ExtResource("4_5jywj")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.000759602, 1.47639, -0.00502133)
+
+[node name="Lantern" parent="." instance=ExtResource("4_v2acl")]
+transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0.192626, 0.837514, -0.373531)
+
+[node name="Lantern2" parent="." instance=ExtResource("4_v2acl")]
+transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, -0.327452, 0.837514, 0.3693)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0250244, 0.597198, 0.0176697)

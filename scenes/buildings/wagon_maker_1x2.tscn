@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwr4ji4gk7meu"]
 
 [ext_resource type="PackedScene" uid="uid://2cte4sm1bg88" path="res://meshes/buildings/wagonMaker_1x2.glb" id="1_3n6ov"]
-[ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_1m81v"]
+[ext_resource type="Script" path="res://scripts/reward_building.gd" id="2_1m81v"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_c6q0m"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_1m81v"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_v47fx"]
@@ -43,14 +43,8 @@ max_health = 400
 [node name="WindowLight" parent="Lights" index="0" instance=ExtResource("10_o5t0c")]
 transform = Transform3D(1, 4.51781e-05, 0.000189624, -0.000171603, 0.665487, 0.74641, -9.24711e-05, -0.74641, 0.665487, 0.380581, 1.0531, -0.429902)
 
-[node name="WindowLight4" parent="Lights" index="1" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(9.24274e-05, 0.74641, -0.665487, -0.000171603, 0.665487, 0.74641, 1, 4.52108e-05, 0.000189595, 0.927297, 1.04348, -0.265008)
+[node name="WindowLight5" parent="Lights" index="1" instance=ExtResource("10_o5t0c")]
+transform = Transform3D(9.24274e-05, 0.74641, -0.665487, -0.000171603, 0.665487, 0.74641, 1, 4.52108e-05, 0.000189595, 1.02904, 1.01619, -0.0731916)
 
-[node name="WindowLight5" parent="Lights" index="2" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(9.24274e-05, 0.74641, -0.665487, -0.000171603, 0.665487, 0.74641, 1, 4.52108e-05, 0.000189595, 0.927297, 1.04348, 0.184424)
-
-[node name="WindowLight2" parent="Lights" index="3" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(-0.000133777, -0.548736, 0.835996, -0.000141811, 0.835996, 0.548736, -1, -4.51455e-05, -0.000189653, -0.323734, 0.995392, 0.283767)
-
-[node name="WindowLight3" parent="Lights" index="4" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(-1, -4.51215e-05, -0.00018969, -0.000141811, 0.835996, 0.548736, 0.00013382, 0.548736, -0.835996, 0.114094, 0.56768, 0.437697)
+[node name="WindowLight2" parent="Lights" index="2" instance=ExtResource("10_o5t0c")]
+transform = Transform3D(-0.000133777, -0.548736, 0.835996, -0.000141811, 0.835996, 0.548736, -1, -4.51452e-05, -0.000189654, -0.469238, 0.995392, 0.527821)

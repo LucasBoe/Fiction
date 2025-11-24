@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://cmjhjeua7dicr"]
+[gd_scene format=3 uid="uid://dnkauswv0p8vg"]
 
-[node name="WindowLight" type="OmniLight3D"]
+[node name="LanternLight" type="OmniLight3D"]
 transform = Transform3D(1, 4.51784e-05, 0.000189625, -4.50236e-05, 1, -0.000814781, -0.000189661, 0.000814676, 1, 0.000759602, 1.19209e-07, -0.00502133)
 light_color = Color(1, 0.933333, 0.756863, 1)
-light_energy = 0.4
+light_energy = 0.7
 light_size = 0.1
 shadow_enabled = true
 shadow_reverse_cull_face = true
 shadow_opacity = 0.6
-omni_range = 9.0
+omni_range = 14.0
