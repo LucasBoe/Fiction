@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0cnaiynhw5st"]
+
+[ext_resource type="PackedScene" uid="uid://neer5msfn08i" path="res://meshes/foliage/grass/bush_1_small.glb" id="1_f4qh8"]
+[ext_resource type="Material" uid="uid://bdxltprtn8w65" path="res://materials/foliage/grass.tres" id="2_au2xu"]
+
+[node name="Bush_1_small" instance=ExtResource("1_f4qh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_au2xu")

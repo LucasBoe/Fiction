@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://co4y7ye1o82d3"]
+
+[ext_resource type="PackedScene" uid="uid://cvrpbujccmssj" path="res://meshes/foliage/trees/tree_3_slim.glb" id="1_34c6p"]
+[ext_resource type="Material" uid="uid://c4mtm62k41y2a" path="res://materials/foliage/tree_slim_1.tres" id="2_culti"]
+[ext_resource type="Material" uid="uid://b0pioolpwlgp6" path="res://materials/foliage/tree_slim_branch.tres" id="3_wj8h2"]
+
+[node name="tree_3_slim" instance=ExtResource("1_34c6p")]
+transform = Transform3D(0.00345318, 0, 0, 0, 2.05825e-10, -0.00345318, 0, 0.00345318, 2.05825e-10, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_culti")
+surface_material_override/1 = ExtResource("3_wj8h2")
