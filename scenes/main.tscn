@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=21 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/environment.gd" id="2_muem4"]
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://dyamhf5x7d64o" path="res://scripts/utility/editor_only.gd" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scripts/placement_handler.gd" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
@@ -36,8 +35,10 @@ fog_depth_end = 50.0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o6xl0"]
 
-[sub_resource type="TextMesh" id="TextMesh_choun"]
-text = "SPAWN"
+[sub_resource type="Curve" id="Curve_jkv2x"]
+_limits = [0.0, 51.1714, 0.0, 16.0]
+_data = [Vector2(0, 0), 0.0, 4.80973, 0, 0, Vector2(16, 51.1714), 6.37987, 0.0, 0, 0]
+point_count = 2
 
 [node name="main" type="Node"]
 
@@ -79,66 +80,7 @@ script = ExtResource("1_jyhfs")
 [node name="EnemySpawner" type="Node3D" parent="NavigationMesh"]
 unique_name_in_owner = true
 script = ExtResource("3_85g3d")
-
-[node name="SpawnPoints" type="Node3D" parent="NavigationMesh/EnemySpawner"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="SpawnPoint_1" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_1"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_2" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -17)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_2"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_3" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.9295)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_3"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_4" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6726, 0, -16.4386)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_4"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_5" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9497, 0, 0)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_5"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_6" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0032, 0, 12.9801)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_6"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_7" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.7162)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_7"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
-
-[node name="SpawnPoint_8" type="Node3D" parent="NavigationMesh/EnemySpawner/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2099, 0, 14.1993)
-
-[node name="Visualisation" type="MeshInstance3D" parent="NavigationMesh/EnemySpawner/SpawnPoints/SpawnPoint_8"]
-mesh = SubResource("TextMesh_choun")
-script = ExtResource("4_choun")
+location_number_to_enemy_emount_curve = SubResource("Curve_jkv2x")
 
 [node name="CameraManager" type="Node3D" parent="."]
 script = ExtResource("3_sugp2")

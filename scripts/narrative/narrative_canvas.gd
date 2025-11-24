@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var choice_button_1 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button1
 @onready var choice_button_2 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2
 
+@onready var intro_event = load("res://data/travel/intro.tres")
+
 var event_choice_buttons : Array[Button]
 
 var narrative_event_folder_path = "res://data/travel/"
@@ -36,11 +38,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		_skip_text_animation = true
 		
-func begin_travel():
+func begin_travel(introduction_narrative = true):
 	chosen_keywords.clear()
 	
 	#pick next event
-	var event : NarrativeEvent = narrative_event_pool.pick_random()
+	var event : NarrativeEvent = intro_event if introduction_narrative else narrative_event_pool.pick_random()
 	narrative_event_pool.erase(event)
 	
 	_show_event(event)
@@ -58,12 +60,14 @@ func _show_event(event):
 	popup_parent.visible = true
 
 func try_create_button(index, event):	
+	var button : Button = event_choice_buttons[index]
+	
 	if (event.choices.size() <= index):
+		button.text = ""
 		return
 	
 	var choice =  event.choices[index]
-	var button : Button = event_choice_buttons[index]
-	button.visible = true
+	button.show()
 	button.text = choice.button_text	
 	button.pressed.connect(execute_choice.bind(choice))
 	
