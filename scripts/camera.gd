@@ -9,6 +9,9 @@ extends Node3D
 
 @export var max_camera_to_world_center_distance = 30.0
 
+@export var top_down_min_zoom = 0
+@export var top_down_max_zoom = 30
+
 @onready var perspective_camera = $Perspective;
 @onready var topdown_camera = $TopDown;
 
@@ -109,4 +112,4 @@ func zoom_in_out():
 		zoomTarget = max_zoom_in
 		
 	perspective_camera.position = Vector3(4,6,4) * zoomTarget
-	topdown_camera.position = Vector3(0,-.25 +  6 * zoomTarget, 0)
+	topdown_camera.size = lerp(top_down_min_zoom, top_down_max_zoom, zoomTarget / max_zoom_in)
