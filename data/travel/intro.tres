@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NarrativeEvent" load_steps=4 format=3 uid="uid://cy0of6uf6jrk3"]
+[gd_resource type="Resource" script_class="NarrativeEvent" load_steps=4 format=3 uid="uid://re26o1pcd2bn"]
 
 [ext_resource type="Script" uid="uid://ddoi7l4te1l2a" path="res://scripts/narrative/event_choice.gd" id="1_wdyy5"]
 [ext_resource type="Script" uid="uid://dl34a76dc7a6c" path="res://scripts/narrative/narrative_event.gd" id="2_wx4ia"]
