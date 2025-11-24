@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6mcrfw1dv608"]
+[gd_scene load_steps=15 format=3 uid="uid://c6mcrfw1dv608"]
 
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_xpgn2"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_uuaxs"]
 [ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_payof"]
-[ext_resource type="Script" uid="uid://c5ucrsu5qeipc" path="res://wave_spawn_point.gd" id="4_dbadc"]
 [ext_resource type="PackedScene" uid="uid://dvmhnhf158up0" path="res://scenes/buildings/ruin_2x2.tscn" id="5_tjyws"]
 [ext_resource type="PackedScene" uid="uid://crgj0ak63hjnu" path="res://scenes/buildings/wall_1x3.tscn" id="6_oai6b"]
 [ext_resource type="PackedScene" uid="uid://bwr4ji4gk7meu" path="res://scenes/buildings/wagon_maker_1x2.tscn" id="7_2om6k"]
@@ -13,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://duq0kcbuervo1" path="res://scenes/buildings/smith_1x2.tscn" id="11_payof"]
 [ext_resource type="PackedScene" uid="uid://ckeo2owgkkvcm" path="res://scenes/buildings/wall_corner_2x2.tscn" id="12_payof"]
 [ext_resource type="PackedScene" uid="uid://dx144bpv8r2qw" path="res://scenes/buildings/wall_1x2.tscn" id="13_dbadc"]
+[ext_resource type="PackedScene" uid="uid://bl8ugmb54vkd1" path="res://scenes/foliage/trees/tree_1_slim.tscn" id="13_tjyws"]
+[ext_resource type="PackedScene" uid="uid://co4y7ye1o82d3" path="res://scenes/foliage/trees/tree_3_slim.tscn" id="14_oai6b"]
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_xpgn2")
@@ -26,18 +27,6 @@ data = {
 "cells": PackedInt32Array(65533, 3, 0, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65534, 3, 0, 65534, 2, 0, 65535, 2, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 65535, 0, 65535, 65535, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 0, 0, 65535, 65534, 0, 65534, 65534, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 1, 65535, 0, 0, 65534, 0, 1, 65534, 0, 2, 1, 0, 2, 2, 0, 1, 2, 0, 0, 2, 0)
 }
 script = ExtResource("3_payof")
-
-[node name="WaveSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31743, 0, -11.8508)
-script = ExtResource("4_dbadc")
-
-[node name="WaveSpawnPoint2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3141, 0, 2.68518)
-script = ExtResource("4_dbadc")
-
-[node name="WaveSpawnPoint3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00117, 0, 10.9623)
-script = ExtResource("4_dbadc")
 
 [node name="Houses" type="Node3D" parent="."]
 
@@ -67,3 +56,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 
 [node name="wall_1x33" parent="Houses" instance=ExtResource("13_dbadc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, 2)
+
+[node name="tree_1_slim" parent="." instance=ExtResource("13_tjyws")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.25823, 0, 3.80493)
+
+[node name="tree_3_slim" parent="." instance=ExtResource("14_oai6b")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.95527, 0, 3.10734)
+
+[node name="tree_3_slim2" parent="." instance=ExtResource("14_oai6b")]
+transform = Transform3D(-0.783216, 0.621749, -2.71775e-08, 0, -4.37114e-08, -1, -0.621749, -0.783216, 3.42355e-08, -1.78113, 1.19209e-07, 2.13036)
