@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdld48i2gfx8s"]
+[gd_scene load_steps=11 format=3 uid="uid://cdld48i2gfx8s"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="2_5uj0l"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_fw700"]
 [ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="4_5uj0l"]
 [ext_resource type="PackedScene" uid="uid://c1dj43eabcpxr" path="res://meshes/wagons/wagon_archer.tscn" id="4_fs8ih"]
+[ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="5_8hdq7"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="6_b8lbu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
 size = Vector3(2, 1, 1)
@@ -36,6 +38,15 @@ disabled = true
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="wagon_archer2" parent="Visuals" instance=ExtResource("4_fs8ih")]
+
+[node name="Lantern" parent="Visuals" instance=ExtResource("5_8hdq7")]
+transform = Transform3D(1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, 1, 0.319791, 1.13449, -0.24714)
+
+[node name="Lantern2" parent="Visuals" instance=ExtResource("5_8hdq7")]
+transform = Transform3D(-1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, -1, -0.299482, 1.13449, 0.294017)
+
+[node name="LanternLight" parent="Visuals" instance=ExtResource("6_b8lbu")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.05003, 1.44114, -0.00502133)
 
 [node name="Archer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525183, 0.966419, 0)

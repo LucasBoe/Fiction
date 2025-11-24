@@ -4,7 +4,7 @@ class_name MapData
 @export var difficulty : int
 @export var keywords : Array[LocationKeyword]
 
-@onready var wave_spawn_point = $WaveSpawnPoint
+#@onready var wave_spawn_point = $WaveSpawnPoint
 
 var houses : Array
 

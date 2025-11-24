@@ -16,18 +16,24 @@
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_jbj1t"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_muem4"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jkv2x"]
 
-[sub_resource type="Sky" id="Sky_dp3eg"]
-sky_material = SubResource("ProceduralSkyMaterial_muem4")
+[sub_resource type="Sky" id="Sky_jbj1t"]
+sky_material = SubResource("ProceduralSkyMaterial_jkv2x")
 
 [sub_resource type="Environment" id="Environment_0ld40"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0, 0.11152, 0.0744719, 1)
 background_energy_multiplier = 0.5
-sky = SubResource("Sky_dp3eg")
+sky = SubResource("Sky_jbj1t")
 tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.439216, 0.631373, 0.756863, 1)
+fog_light_energy = 0.02
+fog_density = 1.0
+fog_depth_begin = 13.0
+fog_depth_end = 50.0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o6xl0"]
 
@@ -54,6 +60,8 @@ omni_range = 10.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.804324, -5.51327e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, 0, 10, 0)
+light_color = Color(0.675861, 0.73425, 0.694877, 1)
+light_energy = 0.01
 light_indirect_energy = 0.5
 light_volumetric_fog_energy = 0.5
 shadow_opacity = 0.5
@@ -98,7 +106,7 @@ visible = false
 [node name="ActiveObjectHolder" type="Node3D" parent="PlacementHandler"]
 
 [node name="Wagon_Barricade" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54325)
+transform = Transform3D(1.00139, 0, 0, 0, 1.00139, 0, 0, 0, 1.00139, 0, 0, -2.54325)
 
 [node name="Wagon_Barricade2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.54325)
