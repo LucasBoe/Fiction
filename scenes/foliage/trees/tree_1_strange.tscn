@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://cn33r0j1fc1db" path="res://materials/foliage/tree_strange_branch.tres" id="4_77pi3"]
 
 [node name="tree_1_strange" instance=ExtResource("1_6p5io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_lpytl")
 surface_material_override/1 = ExtResource("3_7478c")
 surface_material_override/2 = ExtResource("4_77pi3")

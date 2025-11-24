@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cn33r0j1fc1db"]
 
-[ext_resource type="Texture2D" uid="uid://cjc5kotevpyhh" path="res://External/Bushes_Color_Noise.png" id="1_5hlwh"]
+[ext_resource type="Texture2D" uid="uid://cfeey8my6tqip" path="res://texture/trees/tree_strange_1_leafes.png" id="1_5hlwh"]
 
 [resource]
 transparency = 2

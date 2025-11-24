@@ -58,10 +58,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, 2)
 
 [node name="tree_1_slim" parent="." instance=ExtResource("13_tjyws")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.25823, 0, 3.80493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25823, 0, 3.80493)
 
 [node name="tree_3_slim" parent="." instance=ExtResource("14_oai6b")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.95527, 0, 3.10734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95527, 0, 3.10734)
 
 [node name="tree_3_slim2" parent="." instance=ExtResource("14_oai6b")]
-transform = Transform3D(-0.783216, 0.621749, -2.71775e-08, 0, -4.37114e-08, -1, -0.621749, -0.783216, 3.42355e-08, -1.78113, 1.19209e-07, 2.13036)
+transform = Transform3D(-0.783216, 0, 0.621749, 0, 1, 0, -0.621749, 0, -0.783216, -1.78113, 1.19209e-07, 2.13036)

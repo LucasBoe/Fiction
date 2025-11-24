@@ -5,6 +5,6 @@
 [ext_resource type="Material" uid="uid://b0pioolpwlgp6" path="res://materials/foliage/tree_slim_branch.tres" id="3_wj8h2"]
 
 [node name="tree_3_slim" instance=ExtResource("1_34c6p")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_culti")
 surface_material_override/1 = ExtResource("3_wj8h2")
