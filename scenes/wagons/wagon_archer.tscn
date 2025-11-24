@@ -36,6 +36,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
 shape = SubResource("BoxShape3D_hsfs4")
 disabled = true
 
+[node name="LanternLight" parent="." instance=ExtResource("6_b8lbu")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.05003, 1.44114, -0.00502133)
+
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="wagon_archer2" parent="Visuals" instance=ExtResource("4_fs8ih")]
@@ -45,9 +48,6 @@ transform = Transform3D(1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, 1, 0.319791
 
 [node name="Lantern2" parent="Visuals" instance=ExtResource("5_8hdq7")]
 transform = Transform3D(-1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, -1, -0.299482, 1.13449, 0.294017)
-
-[node name="LanternLight" parent="Visuals" instance=ExtResource("6_b8lbu")]
-transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.05003, 1.44114, -0.00502133)
 
 [node name="Archer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525183, 0.966419, 0)
