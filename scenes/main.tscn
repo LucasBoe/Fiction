@@ -146,6 +146,9 @@ script = ExtResource("4_choun")
 
 [node name="CameraManager" type="Node3D" parent="."]
 script = ExtResource("3_sugp2")
+max_zoom_in = 2.0
+max_zoom_out = 0.2
+max_camera_to_world_center_distance = 15.0
 
 [node name="Perspective" type="Camera3D" parent="CameraManager"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4, 6, 4)
