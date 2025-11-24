@@ -1,6 +1,7 @@
 extends Enemy
 
 @export var speed: float = 1.0
+@export var attack_speed = 1.0
 @onready var agent = %NavigationAgent3D
 
 var target_node
@@ -9,8 +10,9 @@ var target_position
 func _ready():
 	super._ready()
 	
-	while true:
-		await refresh()
+	while true: 
+		await get_tree().create_timer(1.0 / attack_speed).timeout
+		refresh()
 
 func refresh():
 	
@@ -38,13 +40,10 @@ func refresh():
 		
 		if is_wagon or is_house:
 			target.health.take_damage(15)
+			DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
 			print("damage ", target, ": ", 15)
-	
-	await get_tree().create_timer(1).timeout
 
 func _physics_process(delta: float) -> void:
-	
-
 	
 	# If there's no path or we're already there, stop
 	if not agent.is_navigation_finished():
