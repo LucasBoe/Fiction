@@ -17,6 +17,7 @@ mesh = SubResource("BoxMesh_gr6x3")
 surface_material_override/0 = ExtResource("2_hnfjh")
 
 [node name="RewardChoiceCanvas" type="CanvasLayer" parent="."]
+layer = 50
 script = ExtResource("3_sd2vp")
 
 [node name="Control" type="Control" parent="RewardChoiceCanvas"]
