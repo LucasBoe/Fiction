@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c4mtm62k41y2a"]
+
+[ext_resource type="Texture2D" uid="uid://w8367ixq2lwr" path="res://texture/trees/tree_slim.png" id="1_yh8lg"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_yh8lg")
+texture_filter = 0

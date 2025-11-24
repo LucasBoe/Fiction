@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brktsmg0y1pdi"]
+
+[ext_resource type="Texture2D" uid="uid://dqlejrqwpcq5g" path="res://texture/trees/tree3large.png" id="1_2hilc"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_2hilc")
+texture_filter = 0
