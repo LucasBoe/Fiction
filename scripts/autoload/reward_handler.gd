@@ -100,5 +100,5 @@ func ease_in_out_sine(x: float) -> float:
 func _process(delta: float) -> void:
 	for i in len(reward_instances):
 		var reward = reward_instances[i]
-		var movement = Vector3((PI * i) / 7, PI * i * 2, PI * i * 5).normalized()
+		var movement = (Vector3(1.0 + (PI * i) / 7.0, 2.0 + PI * i * 2.0, PI * i * 5.0).normalized())
 		reward.rotate(movement, delta)

@@ -19,5 +19,5 @@ func spawn_wave(location_number) -> void:
 
 func spawn_enemy_at(spawnpoint: Vector3) -> void:
 	var enemy: Node3D = shadowEnemy.instantiate()
+	add_child(enemy)
 	enemy.global_position = spawnpoint
-	add_child.call_deferred(enemy)

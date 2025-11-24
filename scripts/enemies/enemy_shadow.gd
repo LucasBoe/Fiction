@@ -2,7 +2,6 @@ extends Enemy
 
 @export var speed: float = 1.0
 @onready var agent = %NavigationAgent3D
-@onready var placement_handler = %PlacementHandler
 
 var target_node
 var target_position
