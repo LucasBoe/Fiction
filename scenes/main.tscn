@@ -105,7 +105,8 @@ location_number_to_enemy_emount_curve = SubResource("Curve_jkv2x")
 [node name="CameraManager" type="Node3D" parent="."]
 script = ExtResource("3_sugp2")
 max_zoom_in = 2.0
-max_zoom_out = 0.25
+max_zoom_out = 0.2
+max_camera_to_world_center_distance = 12.0
 top_down_min_zoom = -1
 top_down_max_zoom = 20
 
