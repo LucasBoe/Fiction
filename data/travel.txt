@@ -1,0 +1,120 @@
+_Village & Farm 1_
+#MAIN
+After a few hours of travel under the dim sunlight you reach a crossing and the last signpost has long since rotted away.
+To the west, the wind carries the faint smell of smoke — not the choking kind of burning, but the thin, lonely kind one finds rising from a distant hearth. 
+To the east, the land slopes downward into unseen lowlands. No rooftops break the horizon. No birds sing on that side. Only silence, and the far-off creak of something tall swaying where no trees should stand.
+
+[Go west
+-KEY:village]
+We reach a village in silence. Faces appear at windows, then vanish again. No one cheers. No one speaks. Behind us, the road feels longer than it should. Ahead, it offers no promises.
+[Go east
+-KEY:farm]
+
+The land dips and the earth darkens. We find the farm low and hidden, sheltered by trees rather than walls. Nobody greets us. Then, slowly, barn doors crack, and faces emerge and you see hope in their faces.
+
+_Village & Farm 2_
+#MAIN
+We travel for hours with no marker to measure our progress, only the slow turn of the sky and the creak of the wagons.
+To the west, thin threads of smoke drift and vanish between the low hills, too steady to be a camp.
+To the east, the wind carries the faint smell of soil and hay, and the ground shows the broken marks of old wagon wheels.
+
+[Go west
+-KEY:village]
+A cluster of houses appears only when we are nearly upon it, tucked away between the hills.
+The villagers move quickly to us and watch us with relief that we will protect the village for the night.
+
+[Go east
+-KEY:farm]
+A wide, silent field opens before us and a modest farmhouse slowly emerges from the distance. The people here live close to the land and even closer to their fear of the coming night.
+
+_Village & Farm 3_
+#MAIN
+We travel through a narrow stretch of land where the sky feels pressed low above us, and even the birds seem unwilling to pass.
+To the west, a faint road branches away through tall grass, marked by old wheel tracks and
+to the east, the soil beneath us grows brittle and dry, and the distant scent of straw and animals lingers.
+
+[Go west
+-KEY:village]
+We arrive at a small village gathered tightly around a dry well.
+The people here seem worn thin by long nights and welcome our presence without a word.
+
+[Go east
+-KEY:farm]
+A silent farm stands alone among wide, empty fields of withered crops.
+Those who remain watch us closely, torn between relief and fear of drawing attention.
+
+
+_Castle & Farm 1_
+#MAIN
+We reach a narrow crossing marked by a splintered, half-rotted sign.
+To the east, the path dips into a small valley and rises again, where the faint tip of a distant tower can just be seen against the hill.
+To the west, the path is nearly lost to weeds, marked only by trampled earth and old remains of animal dung.
+[Go east
+-KEY:castle]
+The road climbs from the valley to the base of an old castle.
+Those within its walls watch us carefully as we arrive.
+
+[Go west
+-KEY:farm]
+A small farm emerges from the brush along the narrow path.
+The people living here are wary but relieved to see us.
+
+_Castle & Farm 2_
+#MAIN
+We reach a slow-moving river, its surface dark and quiet beneath an old stone bridge. Beyond the bridge, a thin line of smoke curls into the sky, and the distant sound of hammer strikes echoes across the water.
+Next to the bridge a narrow path follows the riverbank, soft earth pressed down by steady use. One of my people nods in recognition, certain that a farm lies not far along the water’s edge.
+
+[Cross the stone bridge
+-KEY:castle]
+After our daily journey stone walls rise gradually from the land.
+Those living within the crumbled castle watch our approach with guarded relief.
+
+[Follow the path
+-KEY:farm]
+The riverside path leads us to a modest farm nestled close to the water.
+Its people live quietly here, thankful to see armed protection arrive.
+
+_Castle & Farm 3_
+#MAIN
+We reach a small clearing in the thick forest, where the trees finally give way to a circle of pale light. At its center stands an old stone sign, split in two and covered in heavy moss.
+To the east, the carved name Mordheim is still faintly readable, the arrow pointing deeper into the forest toward what must be an ancient castle hidden somewhere beyond sight.
+To the west, the second carving has almost completely faded and is unknown.
+[Go deeper into the forest
+-KEY:castle]
+The forest thins, revealing the broken towers of Castle Mordheim.
+Those who shelter within its ruins look upon us with a mix of fear and hope.
+
+[Follow the unknown path
+-KEY:farm]
+The path opens into a small forest farm, protected by the trees around it.
+The people here have learned to stay hidden, and welcome our arrival quietly.
+
+_Castle & Village 1_
+#MAIN
+Our path leads past a bare field where black crows circle overhead, watching our slow progress. 
+To the north, a thin column of dark smoke rises from the broken top of a large ruined tower, standing alone against the empty sky.
+To the west, the breeze carries with it the unmistakable scent of roasted fish, warm and sharp, hinting at a small settlement near water just beyond the field.
+[Go towards the smoke
+-KEY:castle]
+The field gives way to cracked stone and fallen walls around a towering ruin.
+Those who shelter in its broken shadow look to us with wary, desperate hope.
+
+[Follow the scent of fish
+-KEY:village]
+Low houses appear near dark, slow-moving water as we near its edge.
+The people here live from the river and greet us with quiet relief.
+
+_Castle & Village 2_
+#MAIN
+We reach a rotten crossing where water and earth meet, and an old, vine-covered sign still stands, its markings barely readable beneath layers of green decay.
+To the east, a narrow wooden path stretches out over the dark water. Old lances jut from the ground along it, their broken tips crowned with scraps of faded cloth that sway softly in the breeze
+To the west, a faint trail follows a quiet stream deeper into the swamp, where the ground seems strangely firmer and the tangled water gives way to a thicker forest.
+[Follow the wooden path
+-KEY:castle]
+The wooden path carries us beyond the worst of the mire.
+Somewhere ahead, stone rises to shelter those who still endure the night.
+
+[Follow the small stream
+-KEY:village]
+The stream leads us back beneath the cover of trees, away from open water.
+Those who live here survive in secrecy, and greet us with weary relief.
