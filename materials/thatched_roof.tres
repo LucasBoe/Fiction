@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://qafu0obujair" path="res://External/ThatchedRoof.png" id="1_0r7ac"]
 
 [resource]
+albedo_color = Color(0.77, 0.846667, 1, 1)
 albedo_texture = ExtResource("1_0r7ac")
 texture_filter = 0

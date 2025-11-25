@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://e6vikdxmpudk"]
+[gd_scene load_steps=7 format=3 uid="uid://e6vikdxmpudk"]
 
 [ext_resource type="PackedScene" uid="uid://dogfw42oigikd" path="res://meshes/wagons/wagon_barricade.glb" id="1_4j17u"]
 [ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_0khtr"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_7ue6q"]
+[ext_resource type="Material" uid="uid://b4vwgoynukgpi" path="res://materials/wooden_shingles_red.tres" id="4_0khtr"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="4_jgoyr"]
 [ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="5_cf41h"]
 
@@ -11,6 +12,6 @@
 [node name="wagon_barricade" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_0khtr")
 surface_material_override/1 = ExtResource("3_7ue6q")
-surface_material_override/2 = ExtResource("4_jgoyr")
+surface_material_override/2 = ExtResource("4_0khtr")
 surface_material_override/3 = ExtResource("4_jgoyr")
 surface_material_override/4 = ExtResource("5_cf41h")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cdld48i2gfx8s"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
-[ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_1givq"]
+[ext_resource type="Script" path="res://scripts/wagon_upgrade.gd" id="2_1givq"]
 [ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="2_5uj0l"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_b8lbu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_fw700"]

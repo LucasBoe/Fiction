@@ -1,20 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://clwk1ki35gt75"]
+[gd_scene load_steps=9 format=3 uid="uid://clwk1ki35gt75"]
 
 [ext_resource type="PackedScene" uid="uid://xdv505naq0jv" path="res://meshes/wagons/wagon_king.glb" id="1_xpq4q"]
 [ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_t2bhm"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_jj0rk"]
-[ext_resource type="Material" uid="uid://cbrq65kcjolgc" path="res://materials/wooden_shingles.tres" id="4_hnq0g"]
-[ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="5_8t0jf"]
+[ext_resource type="Material" uid="uid://b4vwgoynukgpi" path="res://materials/wooden_shingles_red.tres" id="4_t2bhm"]
+[ext_resource type="Material" uid="uid://ufovdlh45nww" path="res://materials/wooden_planks_branches.tres" id="5_t2bhm"]
 [ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="6_318ax"]
 [ext_resource type="Material" uid="uid://bgd1qgpt0fpog" path="res://materials/fabric_white.tres" id="7_6imp3"]
+[ext_resource type="Material" uid="uid://dypxplk0jllt" path="res://materials/fabric_red.tres" id="7_t2bhm"]
 
 [node name="wagon_king2" instance=ExtResource("1_xpq4q")]
 
 [node name="wagon_king" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_t2bhm")
 surface_material_override/1 = ExtResource("3_jj0rk")
-surface_material_override/2 = ExtResource("4_hnq0g")
-surface_material_override/3 = ExtResource("5_8t0jf")
+surface_material_override/2 = ExtResource("4_t2bhm")
+surface_material_override/3 = ExtResource("5_t2bhm")
 surface_material_override/4 = ExtResource("6_318ax")
-surface_material_override/5 = ExtResource("7_6imp3")
+surface_material_override/5 = ExtResource("7_t2bhm")
 surface_material_override/6 = ExtResource("7_6imp3")

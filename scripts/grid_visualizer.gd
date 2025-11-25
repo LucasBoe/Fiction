@@ -6,7 +6,7 @@ extends Node3D
 func _ready():
 	
 	#create grid mesh instances
-	var gridSize = 24.0
+	var gridSize = 20.0
 	for x in gridSize:
 		for y in gridSize:
 			
@@ -25,4 +25,3 @@ func show_grid():
 	
 func hide_grid():
 	grid_root.hide()
-	
