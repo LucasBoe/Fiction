@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://th50k0gksajg"
-path.s3tc="res://.godot/imported/tree2large.png-cffe3763cc828d9b67b0ad518dbfca22.s3tc.ctex"
+uid="uid://bydv7j1bvypyx"
+path="res://.godot/imported/rocky_forest.png-efc6250201be452d70815513ca5da4a0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/trees/tree2large.png"
-dest_files=["res://.godot/imported/tree2large.png-cffe3763cc828d9b67b0ad518dbfca22.s3tc.ctex"]
+source_file="res://texture/terrain/rocky_forest.png"
+dest_files=["res://.godot/imported/rocky_forest.png-efc6250201be452d70815513ca5da4a0.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

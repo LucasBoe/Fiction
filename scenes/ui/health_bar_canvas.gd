@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 func _create_bar_for(health: Health) -> void:
 	var bar: HealthBar = healthbar_wagon.instantiate()
 	add_child(bar)
-	bar.fill_rect.color = Color.RED if health.is_enemy else Color.GREEN_YELLOW
+	bar.fill_rect.color = Color.DARK_RED if health.is_enemy else Color.GRAY
 
 	health.health_changed.connect(bar._on_health_changed)
 	

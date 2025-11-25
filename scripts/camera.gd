@@ -7,7 +7,7 @@ extends Node3D
 @export var max_zoom_in = 5.0
 @export var max_zoom_out = 0.1
 
-@export var max_camera_to_world_center_distance = 30.0
+@export var max_camera_to_world_center_distance = 15.0
 
 @export var top_down_min_zoom = 0
 @export var top_down_max_zoom = 30

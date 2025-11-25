@@ -12,6 +12,6 @@ func _ready():
 			
 			var pos = Vector3i(xx, 0, yy)
 			
-			if get_cell_item(pos) == INVALID_CELL_ITEM:
-				set_cell_item(pos, 0)
+			if get_cell_item(pos) == 0:
+				set_cell_item(pos, INVALID_CELL_ITEM)
 	

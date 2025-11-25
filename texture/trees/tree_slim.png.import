@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://w8367ixq2lwr"
-path.s3tc="res://.godot/imported/tree_slim.png-902642b909800e97f98f09aa5a0c0dde.s3tc.ctex"
+path="res://.godot/imported/tree_slim.png-902642b909800e97f98f09aa5a0c0dde.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://texture/trees/tree_slim.png"
-dest_files=["res://.godot/imported/tree_slim.png-902642b909800e97f98f09aa5a0c0dde.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree_slim.png-902642b909800e97f98f09aa5a0c0dde.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
