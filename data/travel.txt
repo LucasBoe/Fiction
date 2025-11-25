@@ -134,3 +134,38 @@ The family is super happy your repaired their wagon and decides to join forces.
 [Reject
 -EFFECT:DAMAGE_WAGON_RANDOM]
 The family is super duper pissed and kicks your wagons ass.
+
+%Forest Carpenter%
+#ENCOUNTER
+As we travel through a narrow stretch of forest, a steady tapping reaches our ears from somewhere between the trees — wood striking wood, slow and careful. It is not the sound of an animal, nor a weapon. Some of my people grow uneasy and urge me to keep moving.
+[Follow the sound
+-EFFECT:REPAIR_ALL_WAGONS]
+We guide the wagons toward the sound and find an old carpenter beneath the trees, carefully shaping wood beside a small, hidden shelter. He looks up, unafraid. “Your wagons have suffered,” he says simply. “I heard the tired creak of them in the forest.” Without asking for payment, he works through the daylight, tightening frames, replacing weak boards, and reinforcing the wheels. When he is done, the wagons move smoother and quieter than they have in days.
+[Ignore it and move on]
+We pass the place without slowing.
+%Roadside Barrier%
+#ENCOUNTER
+The forest path narrows suddenly, blocked by a fallen wagon dragged across the road. Its boards are freshly split, as if torn down in haste. Off to the side, almost hidden in tall grass, a faint trail of wood shavings leads toward a cluster of trees, and somewhere within, the soft rasp of a file against metal can just be heard.
+[Move the barrier aside
+-EFFECT:DAMAGE_WAGON_RANDOM]
+We pull the barrier aside and force the wagons through. The rough movement strains weakened frames — and one wagon gives way beneath the pressure, its axle splitting with a loud crack. That did some damage…
+[Follow the shavings and investigate
+-COST:10
+-EFFECT:REPAIR_ALL_WAGONS]
+We leave the barrier where it lies and follow the faint trail of shavings into the trees. Hidden between trunks, a metalworker tends a small forge, reshaping tools and wagon parts salvaged from the road. He nods once and offers his skill to repair our wagons in exchange for a small amount of supplies, then joins our group when the work is done.
+%Riverbank Glimmer%
+#ENCOUNTER
+We travel alongside a slow-moving river, its dark surface barely disturbed as it slips past the road. Between the reeds, something glints once and disappears beneath the water. One of my people insists it was only a trick of the light. Another swears there may be something worth finding in the shallows.
+[Search along the riverbank
+-EFFECT:GET_SUPPLIES_BIG]
+We halt the caravan and search the river’s edge. Caught between reeds, a half-submerged fishing crate is pulled free, still sealed and intact. Inside, we find dried fish, rope, and usable tools — recently lost, but not yet claimed by the water.
+[Ignore it and move on]
+We move on without stopping. The river carries its secrets away, and nothing else of note happens before nightfall.
+%Buried Bundle%
+#ENCOUNTER
+As we move through the forest, the trees close in and the light begins to fade. Beneath one of the larger trunks, half-covered by leaves, something has disturbed the ground. A few broken branches lie nearby, arranged in a way that feels almost deliberate.
+[Search the disturbed ground
+-EFFECT:GET_SUPPLIES_SMALL]
+We clear away the leaves and uncover a small buried bundle wrapped in leather. Inside are preserved rations, metal nails, and some lantern oil — recently hidden and still usable.
+[Leave it undisturbed]
+We move past the place without disturbing it.

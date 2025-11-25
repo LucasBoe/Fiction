@@ -54,7 +54,6 @@ func begin_travel(introduction_narrative = true):
 	
 func _show_event(event):	
 	
-	print(event.text)
 	
 	#fill content
 	narrative_text_label.text = try_merge(previous_feedback_text, event.text)
