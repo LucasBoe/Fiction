@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm20yep3yt1j4"
-path="res://.godot/imported/ground.png-ca05b802b092654c90b327215a87c2f3.ctex"
+uid="uid://mo3hnbk3ffjs"
+path="res://.godot/imported/height_sub.svg-1a14a9bb856f3db0faa02dba3c807b50.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/terrain/ground.png"
-dest_files=["res://.godot/imported/ground.png-ca05b802b092654c90b327215a87c2f3.ctex"]
+source_file="res://addons/terrain_3d/icons/height_sub.svg"
+dest_files=["res://.godot/imported/height_sub.svg-1a14a9bb856f3db0faa02dba3c807b50.ctex"]
 
 [params]
 
@@ -31,4 +32,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=false
