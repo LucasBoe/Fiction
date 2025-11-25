@@ -9,9 +9,9 @@ class_name MapData
 var houses : Array
 
 enum LocationKeyword {
-	CASTLE,
 	VILLAGE,
-	FARM
+	CASTLE,
+	FARM,
 }
 
 func _ready():

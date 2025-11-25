@@ -35,7 +35,7 @@ func reset_placement():
 		child.reparent(inactive_holder)
 
 func _align_all_placeables():
-	var placement_position = Vector3(0.5, 0, 4.5)
+	var placement_position = Vector3(0, 0, 4.5)
 	
 	for child in inactive_holder.get_children():
 		child.reparent(active_holder)
@@ -45,6 +45,8 @@ func _align_all_placeables():
 		child.rotation = Vector3.ZERO
 		if (child is Moveable):
 			var m = (child as Moveable)
+			var local_offset = Vector3(0 if _is_odd(m.grid_size.x) else 0.5, 0, 0 if _is_odd(m.grid_size.y) else 0.5)
+			child.global_position += local_offset
 			m.rotation_in_degrees = 0
 			placement_position += Vector3(0, 0, m.grid_size.y)
 			child.global_position += Vector3(0 if _is_odd(m.grid_size.x) else .5,0,0)

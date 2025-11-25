@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var choice_button_2 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2
 
 @onready var intro_event = load("res://data/travel/intro.tres")
+@onready var parser = $TextFileParser
 
 var event_choice_buttons : Array[Button]
 
@@ -16,6 +17,9 @@ var narrative_event_pool : Array[NarrativeEvent]
 
 var _skip_text_animation = false
 var chosen_keywords : Array
+
+var previous_feedback_text
+var final_text
 
 signal travel_finished_signal
 
@@ -28,10 +32,10 @@ func _ready() -> void:
 	event_choice_buttons.append(choice_button_2)
 	
 	#load all narrative events
-	var paths = FileUtil.get_all_file_paths(narrative_event_folder_path)
-	for path in paths:
-		var event_data = ResourceLoader.load(path)
-		narrative_event_pool.append(event_data)
+	#var paths = FileUtil.get_all_file_paths(narrative_event_folder_path)
+	#for path in paths:
+		#var event_data = ResourceLoader.load(path)
+		#narrative_event_pool.append(event_data)
 
 func _input(event: InputEvent) -> void:
 	# Any mouse button press will trigger a skip
@@ -42,14 +46,17 @@ func begin_travel(introduction_narrative = true):
 	chosen_keywords.clear()
 	
 	#pick next event
-	var event : NarrativeEvent = intro_event if introduction_narrative else narrative_event_pool.pick_random()
-	narrative_event_pool.erase(event)
+	var event : NarrativeEvent = intro_event if introduction_narrative else parser.get_events(NarrativeEvent.EventType.MAIN).pick_random()
+	#var event : NarrativeEvent = parser.get_events(NarrativeEvent.EventType.MAIN).pick_random()
+	#narrative_event_pool.erase(event)
 	
 	_show_event(event)
 	
 func _show_event(event):	
+	
+	
 	#fill content
-	narrative_text_label.text = event.text
+	narrative_text_label.text = try_merge(previous_feedback_text, event.text)
 	try_create_button(0, event)
 	try_create_button(1, event)
 	_animate_text(narrative_text_label, event_choice_buttons)
@@ -66,10 +73,17 @@ func try_create_button(index, event):
 		button.text = ""
 		return
 	
+	populate_button(button, index, event)
+	
+func populate_button(button : Button, index, event):
 	var choice =  event.choices[index]
 	button.show()
-	button.text = choice.button_text	
-	button.pressed.connect(execute_choice.bind(choice))
+	if (choice.cost > 0):
+		button.text = str(choice.button_text	, " (",choice.cost,")")
+	else:
+		button.text = choice.button_text	
+	button.disabled = MoneyHandler.current_money < choice.cost
+	button.pressed.connect(execute_choice.bind(event, choice))
 	
 func _animate_text(label : RichTextLabel, elements : Array[Button]):	
 	_skip_text_animation = false
@@ -95,31 +109,38 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 		if not n.text.is_empty():
 			n.visible = true
 
-func execute_choice(choice : EventChoice):	
+func execute_choice(event : NarrativeEvent, choice : EventChoice):	
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
+		button.disabled = false
 		
-	chosen_keywords.append_array(choice.opt_location_keywords)
+	chosen_keywords.append_array(choice.location_keywords)
 	
-	#show the consequences of the choice as text
-	if not choice.opt_text.is_empty():
-		narrative_text_label.text = choice.opt_text	
+	#append feedback text
+	if not choice.feedback_text.is_empty():
+		previous_feedback_text = choice.feedback_text
+	elif event.type == NarrativeEvent.EventType.ENCOUNTER:
+		previous_feedback_text = choice.final_text
+	
+	#append final text
+	if event.type == NarrativeEvent.EventType.MAIN:
+		final_text = choice.final_text
+		var next_event = parser.get_events(NarrativeEvent.EventType.ENCOUNTER).pick_random()
+		_show_event(next_event)
+	else:
+		narrative_text_label.text = try_merge(previous_feedback_text, final_text)
 		choice_button_1.pressed.connect(_end_travel)
 		choice_button_1.text = "continue"
 		choice_button_2.text = ""	
 		_animate_text(narrative_text_label, event_choice_buttons)
-		
-	#show followup event
-	elif choice.opt_next_event != null:
-		_show_event(choice.opt_next_event)
-		
-	else:
-		_end_travel()
 
 func _end_travel():
 	
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
+	
+	previous_feedback_text = ""
+	final_text = ""
 	
 	visible = false
 	fade_black_color_rect.visible = false
@@ -129,3 +150,11 @@ func _end_travel():
 func _disconnect_all_from(button):
 	for dict in button.pressed.get_connections():
 		button.pressed.disconnect(dict.callable)
+
+func try_merge(textA, textB):
+	if textA == null or textA.is_empty():
+		return textB
+	elif textB == null or textB.is_empty():
+		return textA
+	
+	return str(textA, "\n", textB)

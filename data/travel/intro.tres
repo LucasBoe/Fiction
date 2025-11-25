@@ -7,17 +7,18 @@
 resource_local_to_scene = true
 script = ExtResource("1_wdyy5")
 button_text = "Ready!"
-opt_effects = Array[int]([])
-opt_text = "Use your wagons to defend the village.
+feedback_text = "Use your wagons to defend the village.
 Make sure your KING'S WAGON is not destroyed."
-opt_difficultiy_change = 0
-opt_location_keywords = Array[int]([])
+final_text = ""
+effects = Array[int]([])
+location_keywords = Array[int]([])
 metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
 
 [resource]
 script = ExtResource("2_wx4ia")
+type = 2
+choices = Array[ExtResource("1_wdyy5")]([SubResource("Resource_tjpsu")])
 text = "Dark forces are attacking your kingdom.
 You are the king and have to exscape to the capital.
 On your journey you will meet your subjects traveling from village to village. Are you ready to defend your people?"
-choices = Array[ExtResource("1_wdyy5")]([SubResource("Resource_tjpsu")])
 metadata/_custom_type_script = "uid://dl34a76dc7a6c"
