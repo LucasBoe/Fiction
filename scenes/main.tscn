@@ -224,20 +224,9 @@ script = ExtResource("1_jkv2x")
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("2_muem4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00520873, 2.62407, 0.196077)
-visible = false
-light_energy = 2.0
-shadow_enabled = true
-shadow_opacity = 0.5
-shadow_blur = 10.0
-omni_range = 20.4
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.804324, -7.19122e-07, -0.594191, 0.358686, 0.797247, 0.485532, 0.473717, -0.603653, 0.641245, -0.0302546, 9.99828, -0.0361762)
-visible = false
-light_color = Color(0.675861, 0.73425, 0.694877, 1)
-light_energy = 1.9
+transform = Transform3D(1, 0, 0, 0, -0.871214, 0.490904, 0, -0.490904, -0.871214, -0.0302546, 9.99828, -0.0361762)
+light_color = Color(0.89, 0.807675, 0.5607, 1)
 light_indirect_energy = 0.5
 light_volumetric_fog_energy = 0.5
 shadow_enabled = true

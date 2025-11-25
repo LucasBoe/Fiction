@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _game_loop() -> void:
 	await get_tree().process_frame
-	MoneyHandler.change_money(10)
+	MoneyHandler.change_money(0)
 	await _reset_placement()
 	await _run_narrative_popups(true)
 	
@@ -53,6 +53,7 @@ func _run_wave_phase() -> void:
 
 func _reward_phase() -> void:
 	Globals.reward_phase_begin_signal.emit()
+	Globals.environment.set_day()
 	RewardHandler.give_rewards()
 	await RewardHandler.all_rewards_given_signal
 	Globals.reward_phase_end_signal.emit()
