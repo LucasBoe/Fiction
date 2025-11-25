@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cemj8rbwpuygu"]
+[gd_scene load_steps=5 format=3 uid="uid://cemj8rbwpuygu"]
 
 [ext_resource type="Script" uid="uid://ds26wnxukcgp" path="res://scripts/narrative/narrative_canvas.gd" id="1_2i8tp"]
 [ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="2_hac41"]
+[ext_resource type="Script" uid="uid://c3m8qqsdekftg" path="res://scenes/autoload/text_file_parser.gd" id="2_uwomx"]
 [ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="3_uwomx"]
 
 [node name="NarrativeCanvas" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_2i8tp")
+
+[node name="TextFileParser" type="Node" parent="."]
+script = ExtResource("2_uwomx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var choice_button_2 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2
 
 @onready var intro_event = load("res://data/travel/intro.tres")
+@onready var parser = $TextFileParser
 
 var event_choice_buttons : Array[Button]
 
@@ -27,11 +28,11 @@ func _ready() -> void:
 	event_choice_buttons.append(choice_button_1)
 	event_choice_buttons.append(choice_button_2)
 	
-	#load all narrative events
-	var paths = FileUtil.get_all_file_paths(narrative_event_folder_path)
-	for path in paths:
-		var event_data = ResourceLoader.load(path)
-		narrative_event_pool.append(event_data)
+	##load all narrative events
+	#var paths = FileUtil.get_all_file_paths(narrative_event_folder_path)
+	#for path in paths:
+		#var event_data = ResourceLoader.load(path)
+		#narrative_event_pool.append(event_data)
 
 func _input(event: InputEvent) -> void:
 	# Any mouse button press will trigger a skip
@@ -42,8 +43,8 @@ func begin_travel(introduction_narrative = true):
 	chosen_keywords.clear()
 	
 	#pick next event
-	var event : NarrativeEvent = intro_event if introduction_narrative else narrative_event_pool.pick_random()
-	narrative_event_pool.erase(event)
+	var event : NarrativeEvent = intro_event if introduction_narrative else parser.events.values().pick_random()
+	#narrative_event_pool.erase(event)
 	
 	_show_event(event)
 	
@@ -99,19 +100,15 @@ func execute_choice(choice : EventChoice):
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
 		
-	chosen_keywords.append_array(choice.opt_location_keywords)
+	chosen_keywords.append_array(choice.location_keywords)
 	
 	#show the consequences of the choice as text
-	if not choice.opt_text.is_empty():
-		narrative_text_label.text = choice.opt_text	
+	if not choice.final_text.is_empty():
+		narrative_text_label.text = choice.final_text	
 		choice_button_1.pressed.connect(_end_travel)
 		choice_button_1.text = "continue"
 		choice_button_2.text = ""	
 		_animate_text(narrative_text_label, event_choice_buttons)
-		
-	#show followup event
-	elif choice.opt_next_event != null:
-		_show_event(choice.opt_next_event)
 		
 	else:
 		_end_travel()
