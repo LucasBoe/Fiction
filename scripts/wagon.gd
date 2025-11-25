@@ -2,14 +2,17 @@ extends Moveable
 class_name Wagon
 
 @onready var body = $WagonBody
-
 @export var display_name = ""
+@export var upgrades : Array[WagonUpgrade]
 
 func _ready():
 	var lights = find_child("LanternLight")
 	if lights != null:
 		Globals.environment.set_day_signal.connect(on_set_day)
 		Globals.environment.set_night_signal.connect(on_set_night)
+		
+	for upgrade in upgrades:
+		upgrade.original_wagon = self
 
 func on_set_day():
 	var lights = find_child("LanternLight")
