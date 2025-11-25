@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3spc888nuc6j"]
+
+[ext_resource type="PackedScene" uid="uid://dd6tk0bex227s" path="res://meshes/wagons/wagon_1x2_debris.glb" id="1_pj4tg"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_iq1c7"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_eft51"]
+[ext_resource type="Material" uid="uid://ch4b83h3vj0v8" path="res://materials/ground.tres" id="4_yja4w"]
+
+[node name="wagon_1x2_debris" instance=ExtResource("1_pj4tg")]
+surface_material_override/0 = ExtResource("2_iq1c7")
+surface_material_override/1 = ExtResource("3_eft51")
+surface_material_override/2 = ExtResource("4_yja4w")

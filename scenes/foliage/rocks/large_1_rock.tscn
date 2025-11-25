@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://kic4inkgep85"]
+
+[ext_resource type="PackedScene" uid="uid://dorxrgpw2mk37" path="res://meshes/foliage/rocks/large_1_rock.glb" id="1_yw7iu"]
+[ext_resource type="Material" uid="uid://c4nynhpcgqxjl" path="res://materials/foliage/stone_1.tres" id="2_bhg6r"]
+
+[node name="large_1_rock" instance=ExtResource("1_yw7iu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_bhg6r")

@@ -8,12 +8,12 @@
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scripts/placement_handler.gd" id="9_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://bwa7d8yrcj3mh" path="res://scenes/wagons/wagon_basic.tscn" id="10_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cvns1siwngwfn" path="res://scenes/outer_environment.tscn" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://cjoovptj6mk7" path="res://scripts/supply_ui.gd" id="13_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://flemoc77kr28" path="res://scenes/wagons/wagon_money.tscn" id="13_muem4"]
-[ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="13_trceg"]
 [ext_resource type="PackedScene" uid="uid://c5shvswlu7ue5" path="res://scenes/ui/health_bar_canvas.tscn" id="15_jbj1t"]
 [ext_resource type="Shader" uid="uid://dgha8qwy530rv" path="res://shaders/fog.gdshader" id="16_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://bydv7j1bvypyx" path="res://texture/terrain/rocky_forest.png" id="17_gqmmt"]
@@ -290,14 +290,12 @@ transform = Transform3D(1.00139, 0, 0, 0, 1.00139, 0, 0, 0, 1.00139, 0, 0, -2.54
 [node name="Wagon_Barricade2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.54325)
 
-[node name="Wagon_Archer" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.55225)
-
-[node name="Wagon_Archer2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.55225)
-
 [node name="Wagon_Money" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_muem4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.31666)
+
+[node name="Wagon_Basic" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("10_gqmmt")]
+
+[node name="Wagon_Basic2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("10_gqmmt")]
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 
