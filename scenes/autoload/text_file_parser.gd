@@ -6,7 +6,7 @@ var events : Dictionary
 
 func _ready():
 	var file = FileAccess.open(text_source_file_path, FileAccess.READ)
-	var content = file.get_as_text().replace("\n", "").split("_", false)
+	var content = file.get_as_text().replace("\n", "").split("%", false)
 	
 	while content.size() > 0:
 		var title = content[0]
@@ -98,3 +98,11 @@ func _parse_parameter(p, choice : EventChoice):
 		var effect_key = EventChoice.EventChoiceEffects[effect_name]
 		choice.effects.append(effect_key)
 		
+func get_events(type):
+	var filtered : Array
+	for event in events.values():
+		if event.type == type:
+			filtered.append(event)
+			
+	return filtered
+	

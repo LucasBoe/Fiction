@@ -2,6 +2,7 @@ extends Resource
 class_name EventChoice
 
 @export var button_text : String
+@export var cost : int = 0
 @export_multiline var feedback_text : String
 @export_multiline var final_text : String
 @export var effects : Array[EventChoiceEffects] = []

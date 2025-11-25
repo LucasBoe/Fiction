@@ -7,5 +7,6 @@ class_name NarrativeEvent
 
 enum EventType {
 	MAIN,
-	ENCOUNTER
+	ENCOUNTER,
+	INTRO,
 }
