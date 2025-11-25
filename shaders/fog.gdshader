@@ -12,13 +12,14 @@ uniform vec4 fog_color = vec4(0.0, 0.0, 0.0, 0.8);
 // UV circle settings (center is 0.5, 0.5)
 uniform float clear_radius = 0.25;   // in UV space (0.0 - 0.5)
 uniform float edge_softness = 0.05;  // smooth border
+uniform vec2 tiling = vec2(1.0,1.0);
 
 void fragment() {
 
 	// Animate noise
 	vec2 uv = UV + speed * TIME;
 
-	float noise = texture(noise_texture, uv).r;
+	float noise = texture(noise_texture, uv * tiling).r;
 	float fog = noise * 2.0 - 1.0;
 
 	float base_alpha = clamp(fog * density, 0.0, 1.0);

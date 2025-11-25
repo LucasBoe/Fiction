@@ -15,7 +15,7 @@
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_amdkd")
-keywords = Array[int]([0])
+keywords = Array[int]([2])
 
 [node name="WorldGrid" type="GridMap" parent="."]
 mesh_library = ExtResource("2_1biw2")

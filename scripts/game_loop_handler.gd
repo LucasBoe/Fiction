@@ -59,5 +59,7 @@ func _reward_phase() -> void:
 	print("rewards given")
 
 func _run_narrative_popups(introduction_narrative = false) -> void:
+	Globals.camera_manager.set_camera(CameraManager.camera_mode.NARRATIVE)
 	NarrativeCanvas.begin_travel(introduction_narrative)
 	await NarrativeCanvas.travel_finished_signal
+	Globals.camera_manager.set_camera(CameraManager.camera_mode.PERSPECTIVE)

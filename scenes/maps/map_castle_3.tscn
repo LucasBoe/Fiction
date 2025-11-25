@@ -13,7 +13,7 @@
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_ayv5t")
-keywords = Array[int]([0])
+keywords = Array[int]([1])
 
 [node name="WorldGrid" type="GridMap" parent="."]
 mesh_library = ExtResource("2_33xuh")

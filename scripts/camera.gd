@@ -1,4 +1,5 @@
 extends Node3D
+class_name CameraManager
 
 @export var move_speed = 3.0
 @export var zoom_speed_wheel = 1.0
@@ -14,16 +15,19 @@ extends Node3D
 
 @onready var perspective_camera = $Perspective;
 @onready var topdown_camera = $TopDown;
+@onready var narrative_camera = $Travel;
 
 var zoomTarget : float = 1
 var current_camera_mode : camera_mode = camera_mode.PERSPECTIVE
 
 enum camera_mode {
 	PERSPECTIVE,
-	TOP_DOWN
+	TOP_DOWN,
+	NARRATIVE
 }
 
 func _ready():
+	Globals.camera_manager = self
 	set_camera(camera_mode.PERSPECTIVE)
 
 func _process(delta):
@@ -32,7 +36,13 @@ func _process(delta):
 	handle_move(delta)
 	
 func get_current_camera() -> Camera3D:
-	return perspective_camera if current_camera_mode == camera_mode.PERSPECTIVE else topdown_camera
+	if current_camera_mode == camera_mode.PERSPECTIVE:
+		return perspective_camera
+	elif current_camera_mode == camera_mode.TOP_DOWN:
+		return topdown_camera
+	elif current_camera_mode == camera_mode.NARRATIVE:
+		return narrative_camera
+	return null
 	
 func set_camera(mode):
 	current_camera_mode = mode

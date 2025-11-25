@@ -35,7 +35,7 @@ func reset_placement():
 		child.reparent(inactive_holder)
 
 func _align_all_placeables():
-	var placement_position = Vector3(0, 0, 4.5)
+	var placement_position = Vector3(-7.5, 0, -4.5)
 	
 	for child in inactive_holder.get_children():
 		child.reparent(active_holder)
