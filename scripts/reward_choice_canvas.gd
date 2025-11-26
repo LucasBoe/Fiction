@@ -27,15 +27,7 @@ func show_choice(reward : RewardBuilding.RewardType):
 		create_button_wagon_maker("Nothing")
 		
 		#pool upgrades
-		var pool : Array[WagonUpgrade]
-		for wagon : Wagon in get_all_wagons():
-			if wagon.upgrades.size() == 0:
-				continue
-				
-			if pool.any(func(w: WagonUpgrade): return upgrade_is_for_wagon(w, wagon)):
-				continue
-				
-			pool.append_array(wagon.upgrades)
+		var pool = WagonUpgrade.get_all_possible_upgrades()
 		
 		#pick random upgrades
 		var i = 2 #max count
@@ -49,15 +41,7 @@ func show_choice(reward : RewardBuilding.RewardType):
 			
 	visible = false
 	
-func upgrade_is_for_wagon(w : WagonUpgrade, wagon):
-	
-	if wagon == null:
-		return false
-		
-	if w.original_wagon == null:
-		return false
-	
-	return w.original_wagon.name == wagon.name
+
 
 func create_button_smith(title, price, original_wagon, new_wagon):
 	var button = create_button(title, price)
@@ -89,19 +73,10 @@ func pick(price, wagon, original_wagon = null):
 		choice.queue_free()
 	choice_instances.clear()
 	
-	if not wagon.is_empty():
-		var scene = ResourceLoader.load(wagon)
-		var instance = scene.instantiate()
-		Globals.placement_handler.active_holder.add_child(instance)
-		
-		if original_wagon != null:
-			original_wagon.queue_free()
-		
-	elif price > 0:
-		for existing_wagon : Wagon in get_all_wagons():
+	if wagon.is_empty() and price > 0:
+		for existing_wagon : Wagon in Wagon.get_all_active_wagons():
 			existing_wagon.body.health.heal()
+	else:
+		WagonUpgrade.execute_wagon_upgrade(wagon, original_wagon)
 	
 	on_picked_reward_signal.emit()
-	
-func get_all_wagons():
-	return Globals.placement_handler.active_holder.get_children()

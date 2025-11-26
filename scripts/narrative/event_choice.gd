@@ -17,7 +17,7 @@ enum EventChoiceEffects {
 	DAMAGE_WAGON_RANDOM, 
 	GET_WAGON_WINDOW, 
 	REPAIR_ALL_WAGONS,
-	 GET_UPGRADE_WINDOW
+	GET_UPGRADE_WINDOW
 }
 
 func get_print_string():

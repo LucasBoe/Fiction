@@ -133,6 +133,9 @@ func execute_choice(event : NarrativeEvent, choice : EventChoice):
 	# remove cost
 	if choice.cost >= 0:
 		MoneyHandler.change_money(-choice.cost)
+		
+	if not choice.effects.is_empty():
+		execute_effects(choice.effects)
 	
 	# append feedback text
 	if not choice.feedback_text.is_empty():
@@ -184,3 +187,29 @@ func try_merge(textA, textB):
 		return textA
 	
 	return str(textA, "\n", textB)
+	
+func execute_effects(effects : Array[EventChoice.EventChoiceEffects]):
+	for effect : EventChoice.EventChoiceEffects in effects:
+		match effect:
+			EventChoice.EventChoiceEffects.GET_SUPPLIES_SMALL:
+				MoneyHandler.change_money(10)
+			EventChoice.EventChoiceEffects.GET_SUPPLIES_BIG:
+				MoneyHandler.change_money(25)
+			EventChoice.EventChoiceEffects.LOOSE_SUPPLIES_SMALL:
+				MoneyHandler.change_money(-5)
+			EventChoice.EventChoiceEffects.LOOSE_SUPPLIES_BIG:
+				MoneyHandler.change_money(-10)
+			EventChoice.EventChoiceEffects.REDUCED_LAYOUT_TIME:
+				print("missing: REDUCED_LAYOUT_TIME")
+			EventChoice.EventChoiceEffects.DAMAGE_WAGON_RANDOM:
+				Wagon.get_all_active_wagons().pick_random().body.health.take_damage(10)
+			EventChoice.EventChoiceEffects.GET_WAGON_WINDOW:
+				WagonUpgrade.execute_wagon_upgrade(Wagon.get_all_wagon_scene_paths().pick_random())
+			EventChoice.EventChoiceEffects.REPAIR_ALL_WAGONS:
+				for wagon : Wagon in Wagon.get_all_active_wagons():
+					wagon.body.health.heal()
+			EventChoice.EventChoiceEffects.GET_UPGRADE_WINDOW:
+				var upgrades = WagonUpgrade.get_all_possible_upgrades()
+				if not upgrades.is_empty():
+					WagonUpgrade.execute(upgrades.pick_random())
+		print("excuted choice effect: ", effect)
