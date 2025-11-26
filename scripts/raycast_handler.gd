@@ -68,6 +68,7 @@ func _process(delta):
 				currently_dragging.global_position = pickup_location
 				
 			JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
+			SoundPlayer.play3D(SoundPlayer.wagon_place, currently_dragging.global_position)
 			GridVisualizer.hide_grid()
 			currently_dragging = null
 			
@@ -77,6 +78,7 @@ func _process(delta):
 		currently_dragging = currently_hovered_moveable
 		JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
 		GridVisualizer.show_grid()
+		SoundPlayer.play3D(SoundPlayer.wagon_pick_up, pickup_location)
 
 func raycast_for_position_on_grid():
 	var hit_pos = get_mouse_on_y0_plane()

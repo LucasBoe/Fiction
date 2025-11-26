@@ -41,6 +41,7 @@ DefeatHandler="*res://scenes/autoload/defeat_handler.tscn"
 GridVisualizer="*res://scenes/autoload/grid_visualizer.tscn"
 MusicPlayer="*res://scenes/autoload/music_player.tscn"
 FadeEffectCanvas="*res://scenes/autoload/fade_effect_canvas.tscn"
+SoundPlayer="*res://scenes/autoload/sound_player.tscn"
 
 [debug_draw_3d]
 

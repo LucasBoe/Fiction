@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var fade_black_color_rect = $Control/ColorRect
 @onready var popup_parent = $Control/NarrativePopup
 
+@onready var text_beep_audio = $UiTextBeep
+
 @onready var narrative_text_label = $Control/NarrativePopup/MarginContainer/VBoxContainer/MarginContainer/RichTextLabel
 @onready var choice_button_1 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button1
 @onready var choice_button_2 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2
@@ -105,17 +107,21 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 			break
 		else:
 			label.visible_characters+=1
+			
+		SoundPlayer.play(SoundPlayer.ui_text_beep)
 		
 		if c == ".":
-			await get_tree().create_timer(.2).timeout
+			await get_tree().create_timer(.4).timeout
 		else:
-			await get_tree().create_timer(.01).timeout
+			await get_tree().create_timer(.05).timeout
 			
 	for n in elements:
 		if not n.text.is_empty():
 			n.visible = true
 
 func execute_choice(event : NarrativeEvent, choice : EventChoice):
+	
+	SoundPlayer.play(SoundPlayer.ui_click)
 	
 	# reset all buttons
 	for button in event_choice_buttons:
@@ -159,6 +165,8 @@ func execute_choice(event : NarrativeEvent, choice : EventChoice):
 		_animate_text(narrative_text_label, event_choice_buttons)
 
 func _end_travel():
+	
+	SoundPlayer.play(SoundPlayer.ui_click)
 	
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)

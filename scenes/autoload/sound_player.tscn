@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4rqihu0ytmqv"]
+
+[ext_resource type="Script" uid="uid://cga0pb641gqx7" path="res://scripts/autoload/sound_player.gd" id="1_1as15"]
+[ext_resource type="AudioStream" uid="uid://bn42ewxbxmx6a" path="res://audio/sounds/ui_step.wav" id="2_wisn8"]
+[ext_resource type="AudioStream" uid="uid://1nlvyst4vur4" path="res://audio/sounds/ui_click.wav" id="3_t7yms"]
+[ext_resource type="AudioStream" uid="uid://1ipi552cjdfp" path="res://audio/sounds/wagon_pick_up.wav" id="4_wisn8"]
+[ext_resource type="AudioStream" uid="uid://bt6ai0nw1xy0d" path="res://audio/sounds/wagon_place.wav" id="5_t7yms"]
+
+[node name="SoundPlayer" type="Node3D"]
+script = ExtResource("1_1as15")
+
+[node name="UiTextBeep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wisn8")
+volume_db = -18.0
+
+[node name="UiClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t7yms")
+
+[node name="WagonPickUp" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_wisn8")
+volume_db = -8.0
+
+[node name="WagonPlace" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_t7yms")
+volume_db = -8.0
