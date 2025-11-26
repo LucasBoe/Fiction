@@ -13,6 +13,7 @@ func _game_loop() -> void:
 	MoneyHandler.change_money(0)
 	await _reset_placement()
 	MusicPlayer.play_track(MusicPlayer.music_travel)
+	FadeEffectCanvas.fade_out()
 	await _run_narrative_popups(true)
 	
 	while true:
@@ -23,10 +24,13 @@ func _game_loop() -> void:
 		await _run_wave_phase()
 		MusicPlayer.play_track(MusicPlayer.music_day)
 		await _reward_phase()
+		await FadeEffectCanvas.fade_in_out()
 		await _unload_current_map()
 		await _reset_placement()		
-		MusicPlayer.play_track(MusicPlayer.music_travel)
+		MusicPlayer.play_track(MusicPlayer.music_travel)		
 		await _run_narrative_popups()
+		
+	await FadeEffectCanvas.fade_in_out()
 		
 
 func _unload_current_map() -> void:

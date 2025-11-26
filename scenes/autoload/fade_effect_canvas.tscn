@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv6827ineotj3"]
+
+[ext_resource type="Script" uid="uid://dpj5xcl7hpbgv" path="res://scripts/autoload/fade_effect_canvas.gd" id="1_g53dt"]
+
+[node name="FadeEffectCanvas" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_g53dt")
+
+[node name="Fade" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

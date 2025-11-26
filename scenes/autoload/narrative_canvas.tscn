@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="3_uwomx"]
 
 [node name="NarrativeCanvas" type="CanvasLayer"]
-layer = 100
+layer = 60
 script = ExtResource("1_2i8tp")
 
 [node name="TextFileParser" type="Node" parent="."]
@@ -30,6 +30,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
 [node name="NarrativePopup" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,6 +78,7 @@ fit_content = true
 visible_characters_behavior = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/NarrativePopup/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_constants/separation = 24

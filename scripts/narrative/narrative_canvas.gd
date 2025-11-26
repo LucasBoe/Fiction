@@ -54,6 +54,12 @@ func begin_travel(introduction_narrative = true):
 	
 func _show_event(event):	
 	
+	#show		
+	visible = true
+	fade_black_color_rect.visible = true
+	popup_parent.visible = false
+	
+	await FadeEffectCanvas.finished_signal
 	
 	#fill content
 	narrative_text_label.text = try_merge(previous_feedback_text, event.text)
@@ -61,9 +67,6 @@ func _show_event(event):
 	try_create_button(1, event)
 	_animate_text(narrative_text_label, event_choice_buttons)
 	
-	#show	
-	visible = true
-	fade_black_color_rect.visible = true
 	popup_parent.visible = true
 
 func try_create_button(index, event):	
@@ -92,6 +95,9 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 		n.visible = false
 		
 	label.visible_characters = 0
+	
+	await get_tree().create_timer(.5).timeout
+	
 	for c in label.text:
 		
 		if _skip_text_animation:
@@ -115,6 +121,11 @@ func execute_choice(event : NarrativeEvent, choice : EventChoice):
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
 		button.disabled = false
+		
+	choice_button_1.visible = false
+	choice_button_2.visible = false
+		
+	await get_tree().create_timer(.5).timeout
 	
 	# append keywords
 	chosen_keywords.append_array(choice.location_keywords)
@@ -133,8 +144,11 @@ func execute_choice(event : NarrativeEvent, choice : EventChoice):
 	if event.type == NarrativeEvent.EventType.MAIN:
 		final_text = choice.final_text
 		var next_event = parser.get_events(NarrativeEvent.EventType.ENCOUNTER).pick_random()
+		await FadeEffectCanvas.fade_in_out()
 		_show_event(next_event)
 	else:
+		
+		await FadeEffectCanvas.fade_in_out()
 		narrative_text_label.text = try_merge(previous_feedback_text, final_text)
 		choice_button_1.pressed.connect(_end_travel)
 		choice_button_1.text = "continue"
@@ -145,6 +159,11 @@ func _end_travel():
 	
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
+		
+	choice_button_1.visible = false
+	choice_button_2.visible = false
+	
+	await FadeEffectCanvas.fade_in_out()
 	
 	previous_feedback_text = ""
 	final_text = ""

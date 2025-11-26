@@ -40,6 +40,7 @@ TooltipHandler="*res://scenes/autoload/tooltip_handler.tscn"
 DefeatHandler="*res://scenes/autoload/defeat_handler.tscn"
 GridVisualizer="*res://scenes/autoload/grid_visualizer.tscn"
 MusicPlayer="*res://scenes/autoload/music_player.tscn"
+FadeEffectCanvas="*res://scenes/autoload/fade_effect_canvas.tscn"
 
 [debug_draw_3d]
 
