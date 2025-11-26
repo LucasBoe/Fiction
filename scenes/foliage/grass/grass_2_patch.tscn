@@ -9,16 +9,15 @@
 [node name="grass_2_patch" type="Node3D"]
 
 [node name="bush_2_medium" parent="." instance=ExtResource("1_q3xll")]
-transform = Transform3D(-0.182682, 0, 0.983172, 0, 1, 0, -0.983172, 0, -0.182682, 0.717014, 0, 0.688596)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.717014, 0, 0.688596)
 
 [node name="bush_2_small" parent="." instance=ExtResource("2_ornt5")]
-transform = Transform3D(0.86502, 0, 0.501737, 0, 1, 0, -0.501737, 0, 0.86502, 0.778964, 0, -0.500652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.778964, 0, -0.500652)
 
 [node name="Bush_3_large" parent="." instance=ExtResource("3_q3aeu")]
-transform = Transform3D(0.858942, 0, 0.512073, 0, 1, 0, -0.512073, 0, 0.858942, 0, 0, 0)
 
 [node name="Bush_3_small" parent="." instance=ExtResource("4_yhy57")]
-transform = Transform3D(0.937592, 0, -0.347738, 0, 1, 0, 0.347738, 0, 0.937592, -0.132492, 0, 0.253293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132492, 0, 0.253293)
 
 [node name="Bush_2_large" parent="." instance=ExtResource("5_0aqgf")]
-transform = Transform3D(0.881493, 0, 0.472197, 0, 1, 0, -0.472197, 0, 0.881493, 0.197783, 0, -0.181064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197783, 0, -0.181064)
