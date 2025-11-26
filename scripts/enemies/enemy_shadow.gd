@@ -38,7 +38,7 @@ func refresh():
 		if is_house:
 			target = target.get_parent()
 		
-		if is_wagon or is_house:
+		if (is_wagon or is_house) and target.health.current_health > 0:
 			target.health.take_damage(15)
 			DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
 			print("damage ", target, ": ", 15)

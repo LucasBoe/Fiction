@@ -89,7 +89,7 @@ func pick(price, wagon, original_wagon = null):
 		
 	elif price > 0:
 		for existing_wagon : Wagon in get_all_wagons():
-			existing_wagon.body.health.current_health = existing_wagon.body.health.max_health
+			existing_wagon.body.health.heal()
 	
 	on_picked_reward_signal.emit()
 	
