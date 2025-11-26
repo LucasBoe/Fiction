@@ -46,7 +46,7 @@ func _process(delta):
 		
 		var exclude = PhysicsUtil.collect_all_collision_rids(currently_dragging)
 		var count = PhysicsUtil.boxcast_for_objects(space_state, check_pos, size, exclude).size()
-		var obstructed = count > 0
+		var obstructed = count > 1
 		
 		if not obstructed:
 			currently_dragging.global_position = grid_pos + pickup_offset

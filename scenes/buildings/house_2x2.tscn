@@ -16,6 +16,7 @@ size = Vector3(2, 1, 2)
 
 [node name="house_2x2" instance=ExtResource("1_17r57")]
 script = ExtResource("2_viv3f")
+is_enemy_target = true
 can_be_damaged_by_enemy = true
 reward_amount_base = 20
 display_name = "House"
