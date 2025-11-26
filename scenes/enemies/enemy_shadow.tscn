@@ -15,11 +15,12 @@ shader_parameter/snap_enabled = true
 shader_parameter/snap_resolution = 120.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5cnh8"]
-radius = 0.278867
+radius = 0.1
 height = 0.963322
 
 [node name="EnemyShadow" type="CharacterBody3D"]
 script = ExtResource("1_ani8c")
+speed = 5.0
 
 [node name="Health" parent="." instance=ExtResource("2_5cnh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -28,6 +29,10 @@ is_enemy = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+path_max_distance = 3.01
+debug_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

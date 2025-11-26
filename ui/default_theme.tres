@@ -41,7 +41,7 @@ texture_margin_bottom = 6.0
 
 [resource]
 Button/colors/font_color = Color(0.941176, 0.85098, 0.705882, 1)
-Button/font_sizes/font_size = 13
+Button/font_sizes/font_size = 11
 Button/styles/disabled = SubResource("StyleBoxTexture_v8hat")
 Button/styles/focus = SubResource("StyleBoxTexture_0ie0l")
 Button/styles/hover = SubResource("StyleBoxTexture_dqg5i")
