@@ -27,6 +27,7 @@ func _ready():
 				_original_energy[l] = l.light_energy
 
 			Globals.environment.set_day_signal.connect(on_set_day)
+			Globals.environment.set_evening_signal.connect(on_set_day)
 			Globals.environment.set_night_signal.connect(on_set_night)
 
 func _collect_lights(node: Node):

@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _game_loop() -> void:
 	await get_tree().process_frame
-	MoneyHandler.change_money(0)
+	MoneyHandler.change_money(25)
 	await _reset_placement()
 	await _run_narrative_popups(true)
 	
@@ -31,12 +31,12 @@ func _unload_current_map() -> void:
 func _load_next_map() -> void:
 	Globals.current_camera.get_parent_node_3d().rotate_y(deg_to_rad(90))
 	map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
+	Globals.environment.set_evening()	
 	print("loaded new map")
 
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
 	RaycastHandler.set_modifications_allowed(true)
-	Globals.environment.set_evening()	
 	await placement_handler.placement_finished
 	RaycastHandler.set_modifications_allowed(false)
 	Globals.environment.set_night()
