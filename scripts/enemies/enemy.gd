@@ -33,6 +33,7 @@ func get_closest_potential_target() -> Node3D:
 		if child is Building:
 			var building = child as Building
 			if building.is_enemy_target and building.health.current_health > 0:
+				print("building ", building.name, " is target with hp: ", building.health.current_health)
 				all_targets.append(child)
 	
 	if all_targets.is_empty():

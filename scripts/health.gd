@@ -12,6 +12,12 @@ signal is_empty
 func _ready():
 	current_health = max_health
 	HealthBarCanvas._create_bar_for(self)
+	
+func heal():
+	var health_before = current_health
+	current_health = max_health
+	health_changed.emit(self)
+	print(get_parent().name, " healed from ", health_before, " to ", current_health)
 
 func take_damage(amount: int):
 	current_health -= amount
