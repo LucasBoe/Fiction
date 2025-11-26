@@ -12,15 +12,20 @@ func _game_loop() -> void:
 	await get_tree().process_frame
 	MoneyHandler.change_money(25)
 	await _reset_placement()
+	MusicPlayer.play_track(MusicPlayer.music_travel)
 	await _run_narrative_popups(true)
 	
 	while true:
-		await _load_next_map()
+		await _load_next_map()		
+		MusicPlayer.play_track(MusicPlayer.music_day)
 		await _wait_for_placement()
+		MusicPlayer.play_track(MusicPlayer.music_night)
 		await _run_wave_phase()
+		MusicPlayer.play_track(MusicPlayer.music_day)
 		await _reward_phase()
 		await _unload_current_map()
-		await _reset_placement()
+		await _reset_placement()		
+		MusicPlayer.play_track(MusicPlayer.music_travel)
 		await _run_narrative_popups()
 		
 
