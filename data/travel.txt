@@ -170,7 +170,7 @@ We clear away the leaves and uncover a small buried bundle wrapped in leather. I
 [Leave it undisturbed]
 We move past the place without disturbing it.
 
-%Title%
+%Title_1%
 #ENCOUNTER
 encounter description
 [Option 1 Text get big supplies
@@ -179,7 +179,7 @@ outcome text option 1
 [Option 2 Text loose supples small
 -EFFECT:LOOSE_SUPPLIES_SMALL]
 outcome text option 2
-%Title%
+%Title_2%
 #ENCOUNTER
 encounter description
 [Option 1 Text get upgrade window
@@ -188,7 +188,7 @@ outcome text option 1
 [Option 2 Text nothing]
 outcome text option 2
 
-%Title%
+%Title_3%
 #ENCOUNTER
 encounter description
 [Option 1 Text get upgrade window
@@ -198,7 +198,7 @@ outcome text option 1
 -EFFECT:LOOSE_SUPPLIES_SMALL]
 outcome text option 2
 
-%Title%
+%Title_4%
 #ENCOUNTER
 encounter description
 [Option 1 Text get wagon window
@@ -207,7 +207,7 @@ outcome text option 1
 [Option 2 Text nothing] 
 outcome text option 2
 
-%Title%
+%Title_5%
 #ENCOUNTER
 encounter description
 [Option 1 Text get_wagon_window

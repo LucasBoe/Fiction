@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scripts/placement_handler.gd" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bwa7d8yrcj3mh" path="res://scenes/wagons/wagon_basic.tscn" id="10_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://5cy08nx7c0ha" path="res://scenes/wagons/wagon_wall.tscn" id="11_yc10j"]
+[ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="11_yc10j"]
 [ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cvns1siwngwfn" path="res://scenes/outer_environment.tscn" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://cjoovptj6mk7" path="res://scripts/supply_ui.gd" id="13_jkv2x"]
@@ -233,15 +233,19 @@ script = ExtResource("1_jkv2x")
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("2_muem4")
+evening_rotation = Vector3(-140, 180, 0)
+evening_energy = 1.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.984808, 0.073387, -0.157379, 0, 0.906308, 0.422618, 0.173648, 0.416198, -0.892539, 0, 4, 0)
-light_color = Color(0.89, 0.807675, 0.5607, 1)
+light_color = Color(0.89, 0.843275, 0.7031, 1)
 light_indirect_energy = 0.5
 light_specular = 0.0
 shadow_enabled = true
 shadow_reverse_cull_face = true
-shadow_opacity = 0.8
+shadow_opacity = 0.33
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.221
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_0ld40")
@@ -302,19 +306,19 @@ visible = false
 [node name="ActiveObjectHolder" type="Node3D" parent="PlacementHandler"]
 
 [node name="Wagon_Barricade" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
-transform = Transform3D(1.00139, 0, 0, 0, 1.00139, 0, 0, 0, 1.00139, 0, 0, -2.54325)
-
-[node name="Wagon_Barricade2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.54325)
+transform = Transform3D(1.00139, 0, 0, 0, 1.00139, 0, 0, 0, 1.00139, 0, 0, 0)
 
 [node name="Wagon_Money" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("13_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.31666)
 
 [node name="Wagon_Basic" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("10_gqmmt")]
 
 [node name="Wagon_Basic2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("10_gqmmt")]
 
-[node name="Wagon_Barricade3" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_yc10j")]
+[node name="Wagon_Basic3" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("10_gqmmt")]
+
+[node name="Wagon_Archer" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_yc10j")]
+
+[node name="Wagon_Archer2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_yc10j")]
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 

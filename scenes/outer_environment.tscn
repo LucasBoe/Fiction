@@ -243,6 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46115, 0, -13.5104)
 transform = Transform3D(-0.23353, 0, 0.97235, 0, 1, 0, -0.97235, 0, -0.23353, 7.53885, 0, 10.4896)
 
 [node name="Grass" type="Node3D" parent="."]
+visible = false
 
 [node name="grass_patch_1_wide" parent="Grass" instance=ExtResource("13_t4hxa")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.26961, 0, -7.69037)
