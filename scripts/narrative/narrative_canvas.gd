@@ -109,20 +109,27 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 		if not n.text.is_empty():
 			n.visible = true
 
-func execute_choice(event : NarrativeEvent, choice : EventChoice):	
+func execute_choice(event : NarrativeEvent, choice : EventChoice):
+	
+	# reset all buttons
 	for button in event_choice_buttons:
 		_disconnect_all_from(button)
 		button.disabled = false
-		
+	
+	# append keywords
 	chosen_keywords.append_array(choice.location_keywords)
 	
-	#append feedback text
+	# remove cost
+	if choice.cost >= 0:
+		MoneyHandler.change_money(-choice.cost)
+	
+	# append feedback text
 	if not choice.feedback_text.is_empty():
 		previous_feedback_text = choice.feedback_text
 	elif event.type == NarrativeEvent.EventType.ENCOUNTER:
 		previous_feedback_text = choice.final_text
 	
-	#append final text
+	# append final text
 	if event.type == NarrativeEvent.EventType.MAIN:
 		final_text = choice.final_text
 		var next_event = parser.get_events(NarrativeEvent.EventType.ENCOUNTER).pick_random()

@@ -23,6 +23,7 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.is_action("kill_all"):
 			for e in enemies:
-				e.queue_free()
+				if is_instance_valid(e):
+					e.queue_free()
 			enemies.clear()
 			all_enemies_unregistered.emit()

@@ -54,9 +54,12 @@ func _physics_process(delta: float) -> void:
 		if direction.length() > 0.01:
 			direction = direction.normalized()
 			velocity = direction * speed
+			DebugDraw3D.draw_line(global_position, global_position + direction)
 		else:
 			velocity = Vector3.ZERO
+			DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
 	else:
 		velocity = Vector3.ZERO
+		DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
 
 	move_and_slide()
