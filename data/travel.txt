@@ -169,3 +169,50 @@ As we move through the forest, the trees close in and the light begins to fade. 
 We clear away the leaves and uncover a small buried bundle wrapped in leather. Inside are preserved rations, metal nails, and some lantern oil — recently hidden and still usable.
 [Leave it undisturbed]
 We move past the place without disturbing it.
+
+%Title%
+#ENCOUNTER
+encounter description
+[Option 1 Text get big supplies
+-EFFECT:GET_SUPPLIES_BIG]
+outcome text option 1
+[Option 2 Text loose supples small
+-EFFECT:LOOSE_SUPPLIES_SMALL]
+outcome text option 2
+%Title%
+#ENCOUNTER
+encounter description
+[Option 1 Text get upgrade window
+-EFFECT:GET_UPGRADE_WINDOW]
+outcome text option 1
+[Option 2 Text nothing]
+outcome text option 2
+
+%Title%
+#ENCOUNTER
+encounter description
+[Option 1 Text get upgrade window
+-EFFECT:GET_UPGRADE_WINDOW]
+outcome text option 1
+[Option 2 Text loose supplies_small
+-EFFECT:LOOSE_SUPPLIES_SMALL]
+outcome text option 2
+
+%Title%
+#ENCOUNTER
+encounter description
+[Option 1 Text get wagon window
+-EFFECT:GET_WAGON_WINDOW]
+outcome text option 1
+[Option 2 Text nothing] 
+outcome text option 2
+
+%Title%
+#ENCOUNTER
+encounter description
+[Option 1 Text get_wagon_window
+-EFFECT:GET_WAGON_WINDOW]
+outcome text option 1
+[Option 2 Text damage_random_wagon
+-EFFECT:DAMAGE_WAGON_RANDOM]
+outcome text option 2
