@@ -27,7 +27,9 @@ static func boxcast_for_objects(
 	params.collision_mask = collision_mask
 	params.collide_with_bodies = true
 	params.collide_with_areas = true
-	params.exclude = exclude
+	
+	if exclude != null:
+		params.exclude = exclude
 	
 	# Returns Array[Dictionary] with keys: "collider", "rid", "shape", "collider_id"
 	return space_state.intersect_shape(params, max_results)

@@ -33,12 +33,15 @@ func reset_placement():
 	#migrate all placed objects to inactive parent
 	for child in active_holder.get_children():
 		child.reparent(inactive_holder)
+		child.visible = false
+		child.global_position = Vector3(0,-10,0)
 
 func _align_all_placeables():
 	var placement_position = Vector3(-7.5, 0, -4.5)
 	
 	for child in inactive_holder.get_children():
-		child.reparent(active_holder)
+		child.reparent(active_holder)	
+		child.visible = true
 		
 	for child in active_holder.get_children():
 		child.global_position = placement_position
