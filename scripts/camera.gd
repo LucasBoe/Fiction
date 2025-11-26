@@ -31,6 +31,10 @@ func _ready():
 	set_camera(camera_mode.PERSPECTIVE)
 
 func _process(delta):
+	
+	if current_camera_mode == camera_mode.NARRATIVE:
+		return
+	
 	handle_toggle()
 	handle_zoom(delta)
 	handle_move(delta)
