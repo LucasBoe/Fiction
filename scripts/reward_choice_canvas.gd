@@ -32,7 +32,7 @@ func show_choice(reward : RewardBuilding.RewardType):
 			if wagon.upgrades.size() == 0:
 				continue
 				
-			if pool.any(func(w : WagonUpgrade): return w.original_wagon.name == wagon.name):
+			if pool.any(func(w: WagonUpgrade): return upgrade_is_for_wagon(w, wagon)):
 				continue
 				
 			pool.append_array(wagon.upgrades)
@@ -49,6 +49,16 @@ func show_choice(reward : RewardBuilding.RewardType):
 			
 	visible = false
 	
+func upgrade_is_for_wagon(w : WagonUpgrade, wagon):
+	
+	if wagon == null:
+		return false
+		
+	if w.original_wagon == null:
+		return false
+	
+	return w.original_wagon.name == wagon.name
+
 func create_button_smith(title, price, original_wagon, new_wagon):
 	var button = create_button(title, price)
 	button.pressed.connect(pick.bind(price, new_wagon, original_wagon))
