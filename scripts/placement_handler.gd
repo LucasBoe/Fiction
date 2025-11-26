@@ -45,13 +45,13 @@ func _align_all_placeables():
 		child.rotation = Vector3.ZERO
 		if (child is Moveable):
 			var m = (child as Moveable)
-			var local_offset = Vector3(0 if _is_odd(m.grid_size.x) else 0.5, 0, 0 if _is_odd(m.grid_size.y) else 0.5)
+			var local_offset = Vector3(0, 0, 0 if _is_odd(m.grid_size.y) else 0.5)
 			child.global_position += local_offset
 			m.rotation_in_degrees = 0
 			placement_position += Vector3(0, 0, m.grid_size.y)
 			child.global_position += Vector3(0 if _is_odd(m.grid_size.x) else .5,0,0)
 		else:
-			placement_position += Vector3i.BACK
+			placement_position += Vector3.BACK
 
 func _button_pressed():
 	

@@ -13,10 +13,10 @@ size = Vector3(3.01236, 0.805603, 0.837952)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1.97223, 1.02826, 1)
 
-[node name="Wagon_Barricade" type="StaticBody3D"]
+[node name="Wagon_Wall" type="StaticBody3D"]
 script = ExtResource("1_qi1ia")
 display_name = "Big Wall Wagon"
-grid_size = Vector2i(2, 1)
+grid_size = Vector2i(3, 1)
 
 [node name="Health" parent="." instance=ExtResource("2_co4em")]
 max_health = 3000
