@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3w1rxkghs2ef"]
+
+[ext_resource type="PackedScene" uid="uid://bcyi8ox8qua0m" path="res://scenes/foliage/grass/bush_1_large.tscn" id="1_4fs1j"]
+[ext_resource type="PackedScene" uid="uid://bhi245ypa5gnk" path="res://scenes/foliage/grass/bush_1_medium.tscn" id="2_usax7"]
+[ext_resource type="PackedScene" uid="uid://b0cnaiynhw5st" path="res://scenes/foliage/grass/bush_1_small.tscn" id="3_v4tvj"]
+[ext_resource type="PackedScene" uid="uid://ckguf0bap0ljc" path="res://scenes/foliage/grass/bush_2_large.tscn" id="4_tjvvp"]
+[ext_resource type="PackedScene" uid="uid://b3x1th17yaqdw" path="res://scenes/foliage/grass/bush_2_medium.tscn" id="5_xhpn4"]
+[ext_resource type="PackedScene" uid="uid://giak7fqydrpe" path="res://scenes/foliage/grass/bush_2_small.tscn" id="6_ssbmr"]
+[ext_resource type="PackedScene" uid="uid://58gfyu8kpw08" path="res://scenes/foliage/grass/bush_3_large.tscn" id="7_rnowc"]
+[ext_resource type="PackedScene" uid="uid://i773ml6oa2u7" path="res://scenes/foliage/grass/bush_3_small.tscn" id="8_yh0y1"]
+
+[node name="grass_patch_2_wide" type="Node3D"]
+
+[node name="bush_1_large" parent="." instance=ExtResource("1_4fs1j")]
+transform = Transform3D(0.910532, 0, 0.413438, 0, 1, 0, -0.413438, 0, 0.910532, -0.742925, 0, 0.531688)
+
+[node name="Bush_1_medium" parent="." instance=ExtResource("2_usax7")]
+transform = Transform3D(0.971022, 0, -0.238991, 0, 1, 0, 0.238991, 0, 0.971022, -0.613728, -2.38419e-07, 0.944056)
+
+[node name="Bush_1_small" parent="." instance=ExtResource("3_v4tvj")]
+transform = Transform3D(0.985115, 0, -0.171895, 0, 1, 0, 0.171895, 0, 0.985115, -0.398747, 0, 0.728008)
+
+[node name="Bush_2_large" parent="." instance=ExtResource("4_tjvvp")]
+transform = Transform3D(0.993584, 0, 0.113099, 0, 1, 0, -0.113099, 0, 0.993584, 0, 0, 0)
+
+[node name="bush_2_medium" parent="." instance=ExtResource("5_xhpn4")]
+transform = Transform3D(0.982771, 0, -0.184826, 0, 1, 0, 0.184826, 0, 0.982771, 0.276702, 0, -0.0987072)
+
+[node name="bush_2_small" parent="." instance=ExtResource("6_ssbmr")]
+transform = Transform3D(0.992401, 0, -0.123047, 0, 1, 0, 0.123047, 0, 0.992401, 1.92482, 0, 0.346072)
+
+[node name="Bush_3_large" parent="." instance=ExtResource("7_rnowc")]
+transform = Transform3D(0.954875, 0, -0.297008, 0, 1, 0, 0.297008, 0, 0.954875, 0.971924, 0, -1.3561)
+
+[node name="Bush_3_small" parent="." instance=ExtResource("8_yh0y1")]
+transform = Transform3D(0.982635, 0, -0.185547, 0, 1, 0, 0.185547, 0, 0.982635, 1.13939, 2.38419e-07, -1.36968)
+
+[node name="Bush_1_small2" parent="." instance=ExtResource("3_v4tvj")]
+transform = Transform3D(0.886946, 0, 0.461872, 0, 1, 0, -0.461872, 0, 0.886946, 0.694368, 0, -1.46078)
+
+[node name="bush_2_medium2" parent="." instance=ExtResource("5_xhpn4")]
+transform = Transform3D(0.965486, 0, 0.260454, 0, 1, 0, -0.260454, 0, 0.965486, 0.115876, 0, -0.300904)
+
+[node name="bush_2_small2" parent="." instance=ExtResource("6_ssbmr")]
+transform = Transform3D(0.761504, 0, -0.64816, 0, 1, 0, 0.64816, 0, 0.761504, -0.65956, 0, -1.11246)
+
+[node name="Bush_3_small2" parent="." instance=ExtResource("8_yh0y1")]
+transform = Transform3D(0.983493, 0, 0.180948, 0, 1, 0, -0.180948, 0, 0.983493, 0.770432, 0, -0.400843)

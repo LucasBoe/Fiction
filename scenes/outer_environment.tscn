@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvns1siwngwfn"]
+[gd_scene load_steps=19 format=3 uid="uid://cvns1siwngwfn"]
 
 [ext_resource type="PackedScene" uid="uid://cs66pedltoe0j" path="res://scenes/foliage/trees/tree_1_large.tscn" id="1_gbr4b"]
 [ext_resource type="PackedScene" uid="uid://cqvy4brk32dcc" path="res://scenes/foliage/trees/tree_2_large.tscn" id="2_aimym"]
@@ -12,6 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://kic4inkgep85" path="res://scenes/foliage/rocks/large_1_rock.tscn" id="10_r03xc"]
 [ext_resource type="PackedScene" uid="uid://cedkfk2g0rowa" path="res://scenes/foliage/rocks/large_2_rock.tscn" id="11_slvwk"]
 [ext_resource type="PackedScene" uid="uid://bpgvmd444wupy" path="res://scenes/foliage/rocks/large_3_rock.tscn" id="12_51qq1"]
+[ext_resource type="PackedScene" uid="uid://p8bt3yljsxhg" path="res://scenes/foliage/grass/grass_patch_1_wide.tscn" id="13_t4hxa"]
+[ext_resource type="PackedScene" uid="uid://bh8kal8it7bew" path="res://scenes/foliage/grass/grass_1_patch.tscn" id="13_u8q61"]
+[ext_resource type="PackedScene" uid="uid://d3w1rxkghs2ef" path="res://scenes/foliage/grass/grass_patch_2_wide.tscn" id="14_54c8u"]
+[ext_resource type="PackedScene" uid="uid://brgbt2xdlamts" path="res://scenes/foliage/grass/grass_2_patch.tscn" id="14_slvwk"]
+[ext_resource type="PackedScene" uid="uid://blchhmg7fpp5n" path="res://scenes/foliage/grass/grass_3_patch.tscn" id="15_51qq1"]
+[ext_resource type="PackedScene" uid="uid://dtol424pygimf" path="res://scenes/foliage/grass/grass_patch_3_wide.tscn" id="18_lx1yp"]
 
 [node name="OuterEnvironment" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.80654, -1.40731, 8.2564)
@@ -235,3 +241,62 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46115, 0, -13.5104)
 
 [node name="large_3_rock2" parent="Rocks" instance=ExtResource("12_51qq1")]
 transform = Transform3D(-0.23353, 0, 0.97235, 0, 1, 0, -0.97235, 0, -0.23353, 7.53885, 0, 10.4896)
+
+[node name="Grass" type="Node3D" parent="."]
+
+[node name="grass_patch_1_wide" parent="Grass" instance=ExtResource("13_t4hxa")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.26961, 0, -7.69037)
+
+[node name="grass_patch_1_wide2" parent="Grass" instance=ExtResource("13_t4hxa")]
+transform = Transform3D(0.980706, 0, -1.135, 0, 1.5, 0, 1.135, 0, 0.980706, 1.71882, 0, -13.3731)
+
+[node name="grass_patch_1_wide3" parent="Grass" instance=ExtResource("13_t4hxa")]
+transform = Transform3D(-1.07473, 0, 1.0464, 0, 1.5, 0, -1.0464, 0, -1.07473, 19.7496, 4.76837e-07, -3.75766)
+
+[node name="grass_patch_1_wide4" parent="Grass" instance=ExtResource("13_t4hxa")]
+transform = Transform3D(0.335308, 0, -1.46204, 0, 1.5, 0, 1.46204, 0, 0.335308, 6.15709, 4.76837e-07, 9.14534)
+
+[node name="grass_patch_1_wide5" parent="Grass" instance=ExtResource("13_t4hxa")]
+transform = Transform3D(-1.36652, 0, 0.618559, 0, 1.5, 0, -0.618559, 0, -1.36652, -9.11336, 4.76837e-07, 6.1558)
+
+[node name="grass_patch_2_wide" parent="Grass" instance=ExtResource("14_54c8u")]
+transform = Transform3D(1.49998, -0.0026149, 0.0065005, 0.00263172, 1.49999, -0.00387791, -0.00649371, 0.00388928, 1.49998, 17.4462, 0, -11.6082)
+
+[node name="grass_patch_2_wide2" parent="Grass" instance=ExtResource("14_54c8u")]
+transform = Transform3D(0.44491, 0.00292283, 1.4325, 0.00263172, 1.49999, -0.00387792, -1.4325, 0.0036635, 0.444903, -15.1257, 0, -4.80059)
+
+[node name="grass_patch_2_wide3" parent="Grass" instance=ExtResource("14_54c8u")]
+transform = Transform3D(-1.33084, 0.00412393, 0.691986, 0.00263172, 1.49999, -0.00387792, -0.691994, -0.00222652, -1.33084, -12.5051, 7.15256e-07, -13.9684)
+
+[node name="grass_1_patch" parent="Grass" instance=ExtResource("13_u8q61")]
+transform = Transform3D(0.807472, 0, 1.26412, 0, 1.5, 0, -1.26412, 0, 0.807472, -7.11503, -8.34465e-07, -3.23828)
+
+[node name="grass_1_patch2" parent="Grass" instance=ExtResource("13_u8q61")]
+transform = Transform3D(0.807472, 0, 1.26412, 0, 1.5, 0, -1.26412, 0, 0.807472, 14.0415, -8.34465e-07, 2.6344)
+
+[node name="grass_2_patch" parent="Grass" instance=ExtResource("14_slvwk")]
+transform = Transform3D(-0.305181, 0, 1.46863, 0, 1.5, 0, -1.46863, 0, -0.305181, 15.9225, 0, -2.09536)
+
+[node name="grass_2_patch2" parent="Grass" instance=ExtResource("14_slvwk")]
+transform = Transform3D(-0.470019, 0, -1.42446, 0, 1.5, 0, 1.42446, 0, -0.470019, 6.24, 0, -10.0076)
+
+[node name="grass_3_patch" parent="Grass" instance=ExtResource("15_51qq1")]
+transform = Transform3D(-1.36068, 0, 0.631317, 0, 1.5, 0, -0.631317, 0, -1.36068, 12.3966, -1.19209e-07, -1.59276)
+
+[node name="grass_patch_3_wide" parent="Grass" instance=ExtResource("18_lx1yp")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.1205, 1.19209e-07, -0.242074)
+
+[node name="grass_patch_3_wide2" parent="Grass" instance=ExtResource("18_lx1yp")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -3.83479, -5.96046e-07, -12.6587)
+
+[node name="grass_patch_3_wide3" parent="Grass" instance=ExtResource("18_lx1yp")]
+transform = Transform3D(-1.44889, 0, 0.388228, 0, 1.5, 0, -0.388228, 0, -1.44889, 12.3217, -5.96046e-07, -7.37409)
+
+[node name="grass_patch_3_wide4" parent="Grass" instance=ExtResource("18_lx1yp")]
+transform = Transform3D(0.241294, 0, 1.48047, 0, 1.5, 0, -1.48047, 0, 0.241294, 10.3041, -1.19209e-07, 5.64791)
+
+[node name="grass_patch_3_wide5" parent="Grass" instance=ExtResource("18_lx1yp")]
+transform = Transform3D(1.16147, 0, -0.9492, 0, 1.5, 0, 0.9492, 0, 1.16147, -4.47335, -1.19209e-07, 12.5563)
+
+[node name="grass_patch_3_wide6" parent="Grass" instance=ExtResource("18_lx1yp")]
+transform = Transform3D(1.4941, 0, 0.132898, 0, 1.5, 0, -0.132898, 0, 1.4941, -15.1083, -1.3113e-06, 7.4539)

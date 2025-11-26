@@ -153,7 +153,7 @@ image = SubResource("Image_gqmmt")
 name = "rocky_forest"
 albedo_texture = ExtResource("17_gqmmt")
 normal_texture = SubResource("ImageTexture_og1vs")
-uv_scale = 0.6
+uv_scale = 0.5
 
 [sub_resource type="Image" id="Image_yc10j"]
 data = {
@@ -172,7 +172,7 @@ name = "grass"
 id = 1
 albedo_texture = ExtResource("18_yc10j")
 normal_texture = SubResource("ImageTexture_2f3dj")
-uv_scale = 0.6
+uv_scale = 0.5
 
 [sub_resource type="Image" id="Image_jscy8"]
 data = {
@@ -183,15 +183,16 @@ data = {
 "width": 128
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_tel4y"]
+[sub_resource type="ImageTexture" id="ImageTexture_pm3ni"]
 image = SubResource("Image_jscy8")
 
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_qkpxi"]
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_y6deb"]
 name = "gravel"
 id = 2
+albedo_color = Color(1, 0.915, 0.83, 1)
 albedo_texture = ExtResource("19_jscy8")
-normal_texture = SubResource("ImageTexture_tel4y")
-uv_scale = 0.6
+normal_texture = SubResource("ImageTexture_pm3ni")
+uv_scale = 0.5
 
 [sub_resource type="Image" id="Image_pm3ni"]
 data = {
@@ -208,13 +209,14 @@ image = SubResource("Image_pm3ni")
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_j8jky"]
 name = "ground"
 id = 3
+albedo_color = Color(1, 0.952, 0.82, 1)
 albedo_texture = ExtResource("20_pm3ni")
 normal_texture = SubResource("ImageTexture_dgi5k")
-uv_scale = 0.6
+uv_scale = 0.5
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_pm3ni"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_jscy8")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_2wyq8"), SubResource("Terrain3DTextureAsset_yq6so"), SubResource("Terrain3DTextureAsset_qkpxi"), SubResource("Terrain3DTextureAsset_j8jky")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_2wyq8"), SubResource("Terrain3DTextureAsset_yq6so"), SubResource("Terrain3DTextureAsset_y6deb"), SubResource("Terrain3DTextureAsset_j8jky")])
 
 [node name="main" type="Node"]
 
@@ -225,13 +227,13 @@ script = ExtResource("1_jkv2x")
 script = ExtResource("2_muem4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, -0.871214, 0.490904, 0, -0.490904, -0.871214, -0.0302546, 9.99828, -0.0361762)
+transform = Transform3D(1, 0, 0, 0, -0.871214, 0.490904, 0, -0.490904, -0.871214, 0, 4, 0)
 light_color = Color(0.89, 0.807675, 0.5607, 1)
 light_indirect_energy = 0.5
-light_volumetric_fog_energy = 0.5
+light_specular = 0.0
 shadow_enabled = true
-shadow_opacity = 0.5
-shadow_blur = 3.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.8
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_0ld40")
