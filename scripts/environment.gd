@@ -4,9 +4,9 @@ class_name EnvironmentHolder
 @onready var directional_light: DirectionalLight3D = $DirectionalLight3D
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 
-@export var day_rotation := Vector3(270,-25,0)
-@export var evening_rotation := Vector3(335,-25,0)
-@export var night_rotation := Vector3(450,-25,0)
+@export var day_rotation := Vector3(-25,180,0)
+@export var evening_rotation := Vector3(-160,180,0)
+@export var night_rotation := Vector3(-270,180,0)
 
 @export var day_energy := 1.0
 @export var evening_energy := 0.7
@@ -50,8 +50,8 @@ func set_day():
 
 	var tween := _make_tween()
 	tween.tween_property(directional_light, 
-		"rotation_degrees", 
-		day_rotation, 
+		"rotation_degrees:x", 
+		day_rotation.x, 
 		transition_duration)
 	
 	tween.parallel().tween_property(
@@ -76,8 +76,8 @@ func set_evening():
 	var tween := _make_tween()
 	
 	tween.tween_property(directional_light, 
-		"rotation_degrees", 
-		evening_rotation, 
+		"rotation_degrees:x", 
+		evening_rotation.x, 
 		transition_duration)
 	
 	tween.parallel().tween_property(
@@ -102,8 +102,8 @@ func set_night():
 	var tween := _make_tween()
 	tween.tween_property(
 		directional_light, 
-		"rotation_degrees", 
-		night_rotation, 
+		"rotation_degrees:x", 
+		night_rotation.x, 
 		transition_duration)
 
 	tween.parallel().tween_property(
@@ -119,4 +119,4 @@ func set_night():
 		transition_duration)
 	
 	tween.finished.connect(func():
-		directional_light.rotation_degrees = Vector3(0,0,0))
+		directional_light.rotation_degrees.x = 90)

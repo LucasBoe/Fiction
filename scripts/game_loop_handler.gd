@@ -36,7 +36,7 @@ func _load_next_map() -> void:
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
 	RaycastHandler.set_modifications_allowed(true)
-	Globals.environment.set_day()	
+	Globals.environment.set_evening()	
 	await placement_handler.placement_finished
 	RaycastHandler.set_modifications_allowed(false)
 	Globals.environment.set_night()
