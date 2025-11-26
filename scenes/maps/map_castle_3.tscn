@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfenjhkwqjotb"]
+[gd_scene load_steps=20 format=3 uid="uid://dfenjhkwqjotb"]
 
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_ayv5t"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_33xuh"]
@@ -10,6 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://crgj0ak63hjnu" path="res://scenes/buildings/wall_1x3.tscn" id="10_8uibf"]
 [ext_resource type="PackedScene" uid="uid://6l5ghah5ecm" path="res://scenes/buildings/house_1x2.tscn" id="10_sy0e7"]
 [ext_resource type="PackedScene" uid="uid://c1uwdmcluvfp3" path="res://scenes/foliage/trees/tree_1_strange.tscn" id="10_ttd6m"]
+[ext_resource type="PackedScene" uid="uid://bh8kal8it7bew" path="res://scenes/foliage/grass/grass_1_patch.tscn" id="11_bfjms"]
+[ext_resource type="PackedScene" uid="uid://blchhmg7fpp5n" path="res://scenes/foliage/grass/grass_3_patch.tscn" id="12_euukg"]
+[ext_resource type="PackedScene" uid="uid://k3do0oioqbn5" path="res://scenes/decoration/debris_1.tscn" id="13_sy0e7"]
+[ext_resource type="PackedScene" uid="uid://co06o23jop7rx" path="res://scenes/decoration/debris_2.tscn" id="14_tpmoh"]
+[ext_resource type="PackedScene" uid="uid://b0cnaiynhw5st" path="res://scenes/foliage/grass/bush_1_small.tscn" id="15_qcuft"]
+[ext_resource type="PackedScene" uid="uid://58gfyu8kpw08" path="res://scenes/foliage/grass/bush_3_large.tscn" id="16_hvrgu"]
+[ext_resource type="PackedScene" uid="uid://ckguf0bap0ljc" path="res://scenes/foliage/grass/bush_2_large.tscn" id="17_rf0ct"]
+[ext_resource type="PackedScene" uid="uid://i773ml6oa2u7" path="res://scenes/foliage/grass/bush_3_small.tscn" id="18_bx6pt"]
+[ext_resource type="PackedScene" uid="uid://giak7fqydrpe" path="res://scenes/foliage/grass/bush_2_small.tscn" id="19_ecii4"]
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_ayv5t")
@@ -52,3 +61,42 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.5, 
 
 [node name="tree_1_strange" parent="." instance=ExtResource("10_ttd6m")]
 transform = Transform3D(0.493912, 0, 0.869512, 0, 1, 0, -0.869512, 0, 0.493912, -2.19361, 0, 1.85763)
+
+[node name="grass_1_patch" parent="." instance=ExtResource("11_bfjms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27176, 0, 2.60963)
+
+[node name="grass_3_patch" parent="." instance=ExtResource("12_euukg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.38579, 0, -2.62706)
+
+[node name="debris_1" parent="." instance=ExtResource("13_sy0e7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.03724, 0, -2.2112)
+
+[node name="debris_4" parent="." instance=ExtResource("13_sy0e7")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2.57308, 0, 2.22925)
+
+[node name="debris_2" parent="." instance=ExtResource("14_tpmoh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.07925, 0, -3.01909)
+
+[node name="debris_3" parent="." instance=ExtResource("14_tpmoh")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -3.59342, 0, -4.16599)
+
+[node name="Bush_1_small" parent="." instance=ExtResource("15_qcuft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.739, 0, -4.815)
+
+[node name="Bush_3_large" parent="." instance=ExtResource("16_hvrgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94481, 0, -0.744625)
+
+[node name="Bush_2_large" parent="." instance=ExtResource("17_rf0ct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13703, 0, 2.07613)
+
+[node name="Bush_1_small2" parent="." instance=ExtResource("15_qcuft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41068, 0, 2.20883)
+
+[node name="grass_1_patch2" parent="." instance=ExtResource("11_bfjms")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -3.86118, 0, -5.1678)
+
+[node name="Bush_3_small" parent="." instance=ExtResource("18_bx6pt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.888497, 0, 0.614898)
+
+[node name="bush_2_small" parent="." instance=ExtResource("19_ecii4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930389, 0, 0.704836)
