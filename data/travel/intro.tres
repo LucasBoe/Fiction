@@ -7,8 +7,9 @@
 resource_local_to_scene = true
 script = ExtResource("1_wdyy5")
 button_text = "Ready!"
+cost = 0
 feedback_text = "Use your wagons to defend the village.
-Make sure your KING'S WAGON is not destroyed."
+Make sure your [color=orange]King's Wagon[/color] is not destroyed."
 final_text = ""
 effects = Array[int]([])
 location_keywords = Array[int]([])

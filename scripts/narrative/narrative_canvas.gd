@@ -8,11 +8,14 @@ extends CanvasLayer
 @onready var narrative_text_label = $Control/NarrativePopup/MarginContainer/VBoxContainer/MarginContainer/RichTextLabel
 @onready var choice_button_1 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button1
 @onready var choice_button_2 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2
+@onready var choice_button_1_label = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button1/Label
+@onready var choice_button_2_label = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2/Label
 
 @onready var intro_event = load("res://data/travel/intro.tres")
 @onready var parser = $TextFileParser
 
 var event_choice_buttons : Array[Button]
+var event_choice_button_labels : Array[RichTextLabel]
 
 var narrative_event_folder_path = "res://data/travel/"
 var narrative_event_pool : Array[NarrativeEvent]
@@ -32,6 +35,9 @@ func _ready() -> void:
 	
 	event_choice_buttons.append(choice_button_1)
 	event_choice_buttons.append(choice_button_2)
+	
+	event_choice_button_labels.append(choice_button_1_label)
+	event_choice_button_labels.append(choice_button_2_label)
 	
 	#load all narrative events
 	#var paths = FileUtil.get_all_file_paths(narrative_event_folder_path)
@@ -67,33 +73,34 @@ func _show_event(event):
 	narrative_text_label.text = try_merge(previous_feedback_text, event.text)
 	try_create_button(0, event)
 	try_create_button(1, event)
-	_animate_text(narrative_text_label, event_choice_buttons)
+	_animate_text(narrative_text_label)
 	
 	popup_parent.visible = true
 
 func try_create_button(index, event):	
 	var button : Button = event_choice_buttons[index]
+	var label = event_choice_button_labels[index]
 	
 	if (event.choices.size() <= index):
-		button.text = ""
+		label = ""
 		return
 	
-	populate_button(button, index, event)
+	populate_button(button, label, index, event)
 	
-func populate_button(button : Button, index, event):
+func populate_button(button : Button, label : RichTextLabel, index, event):
 	var choice =  event.choices[index]
 	button.show()
 	if (choice.cost > 0):
-		button.text = str(choice.button_text	, " (",choice.cost,")")
+		label.text = str(choice.button_text	, " ([color=yellow]",choice.cost,"$[/color])")
 	else:
-		button.text = choice.button_text	
+		label.text = choice.button_text	
 	button.disabled = MoneyHandler.current_money < choice.cost
 	button.pressed.connect(execute_choice.bind(event, choice))
 	
-func _animate_text(label : RichTextLabel, elements : Array[Button]):	
+func _animate_text(label : RichTextLabel):	
 	_skip_text_animation = false
 	
-	for n in elements:
+	for n in event_choice_buttons:
 		n.visible = false
 		
 	label.visible_characters = 0
@@ -115,9 +122,11 @@ func _animate_text(label : RichTextLabel, elements : Array[Button]):
 		else:
 			await get_tree().create_timer(.05).timeout
 			
-	for n in elements:
-		if not n.text.is_empty():
-			n.visible = true
+	for i in event_choice_buttons.size():
+		var l = event_choice_button_labels[i]
+		var b = event_choice_buttons[i]
+		if not l.text.is_empty():
+			b.visible = true
 
 func execute_choice(event : NarrativeEvent, choice : EventChoice):
 	
@@ -160,9 +169,9 @@ func execute_choice(event : NarrativeEvent, choice : EventChoice):
 		await FadeEffectCanvas.fade_in_out()
 		narrative_text_label.text = try_merge(previous_feedback_text, final_text)
 		choice_button_1.pressed.connect(_end_travel)
-		choice_button_1.text = "continue"
-		choice_button_2.text = ""	
-		_animate_text(narrative_text_label, event_choice_buttons)
+		choice_button_1_label.text = "continue"
+		choice_button_2_label.text = ""	
+		_animate_text(narrative_text_label)
 
 func _end_travel():
 	

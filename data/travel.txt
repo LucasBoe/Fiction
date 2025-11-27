@@ -1,25 +1,25 @@
 %Village & Farm 1%
 #MAIN
-After a few hours of travel under the dim sunlight you reach a crossing and the last signpost has long since rotted away.
-To the west, the wind carries the faint smell of smoke — not the choking kind of burning, but the thin, lonely kind one finds rising from a distant hearth. 
-To the east, the land slopes downward into unseen lowlands. No rooftops break the horizon. No birds sing on that side. Only silence, and the far-off creak of something tall swaying where no trees should stand.
+After a few hours of travel under the dim sunlight you reach a crossing and the last signpost has long since rotted away.§
+The path to the <west> carries a faint smell of smoke, a thin and lonely kind, that one finds rising from a distant hearth.§
+The path to the <east> goes downward into unseen lowlands. No rooftops break the horizon, but one from our group thinks to remember that there should be lone stead of his cousin if we follow that route.
 
-[Go west
+[Go towards the smell of smoke
 -KEY:village
--TEXT:Der Weg zur Burg ist steinig und schwer.]
-We reach a village in silence. Faces appear at windows, then vanish again. No one cheers. No one speaks. Behind us, the road feels longer than it should. Ahead, it offers no promises.
-[Go east
+-TEXT:We continue our journey towards the smell of smoke.]
+We reach a village in silence and prepare for the following night.
+[Believe your kind
 -KEY:farm
--TEXT:Der Weg zur Burg ist steinig und schwer.]
+-TEXT:We follow the advice and continue downwards into the unseen...]
 
-The land dips and the earth darkens. We find the farm low and hidden, sheltered by trees rather than walls. Nobody greets us. Then, slowly, barn doors crack, and faces emerge and you see hope in their faces.
+The land dips and the earth darkens. We find the farm low and hidden, sheltered by trees. Nobody greets us. Then, slowly, barn doors crack, and faces emerge and you see hope in their faces.
 
 
 %Village & Farm 2%
 #MAIN
-We travel for hours with no marker to measure our progress, only the slow turn of the sky and the creak of the wagons.
-To the west, thin threads of smoke drift and vanish between the low hills, too steady to be a camp.
-To the east, the wind carries the faint smell of soil and hay, and the ground shows the broken marks of old wagon wheels.
+We travel for hours with no marker to measure our progress, only the slow turn of the sky and the creak of the wagons. Then we stop at a crossing.§
+To the <west>, thin threads of smoke drift and vanish between the low hills, too steady to be  nothing.§
+To the <east>, the wind carries the faint smell of soil and hay, and the ground shows the broken marks of old wagon wheels.
 
 [Go west
 -KEY:village]
@@ -32,40 +32,40 @@ A wide, silent field opens before us and a modest farmhouse slowly emerges from 
 
 %Village & Farm 3%
 #MAIN
-We travel through a narrow stretch of land where the sky feels pressed low above us, and even the birds seem unwilling to pass.
-To the west, a faint road branches away through tall grass, marked by old wheel tracks and
-to the east, the soil beneath us grows brittle and dry, and the distant scent of straw and animals lingers.
+We travel through some plains where only dry grass and some resistant herbs grow. Next to what seams to be the only tree around the road splits.§
+To the <left> a faint road continues away through tall grass, marked by old wheel tracks. 
+To the <right> the grass grows shorter and soil grows brittle and dry and the distant scent of straw and animals lingers.
 
-[Go west
+[Turn left
 -KEY:village]
-We arrive at a small village gathered tightly around a dry well.
+We arrive at a small village gathered tightly around a dry well.§
 The people here seem worn thin by long nights and welcome our presence without a word.
 
-[Go east
+[Turn right
 -KEY:farm]
-A silent farm stands alone among wide, empty fields of withered crops.
+A silent farm stands alone among wide, empty fields of withered crops.§
 Those who remain watch us closely, torn between relief and fear of drawing attention.
 
 
 %Castle & Farm 1%
 #MAIN
-We reach a narrow crossing marked by a splintered, half-rotted sign.
-To the east, the path dips into a small valley and rises again, where the faint tip of a distant tower can just be seen against the hill.
-To the west, the path is nearly lost to weeds, marked only by trampled earth and old remains of animal dung.
+We reach a narrow crossing marked by a splintered, half-rotted sign.§
+To the <east>, the path dips into a small valley and rises again, where the faint tip of a distant tower can just be seen against the hill.§
+To the <west>, the path is nearly lost to weeds, marked only by trampled earth and old remains of animal dung.
 [Go east
 -KEY:castle]
-The road climbs from the valley to the base of an old castle.
+The road climbs from the valley to the base of an old castle.§
 Those within its walls watch us carefully as we arrive.
 
 [Go west
 -KEY:farm]
-A small farm emerges from the brush along the narrow path.
+A small farm emerges from the brush along the narrow path.§
 The people living here are wary but relieved to see us.
 
 %Castle & Farm 2%
 #MAIN
-We reach a slow-moving river, its surface dark and quiet beneath an old stone bridge. Beyond the bridge, a thin line of smoke curls into the sky, and the distant sound of hammer strikes echoes across the water.
-Next to the bridge a narrow path follows the riverbank, soft earth pressed down by steady use. One of my people nods in recognition, certain that a farm lies not far along the water’s edge.
+We reach a slow-moving river, its surface dark and quiet beneath an old stone bridge.§ <Beyond the bridge>, a thin line of smoke curls into the sky, and the distant sound of hammer strikes echoes across the water.§
+Next to the bridge a <narrow path> follows the riverbank, soft earth pressed down by steady use. One of my people nods in recognition, certain that a farm lies not far along the water’s edge.
 
 [Cross the stone bridge
 -KEY:castle]
@@ -79,9 +79,9 @@ Its people live quietly here, thankful to see armed protection arrive.
 
 %Castle & Farm 3%
 #MAIN
-We reach a small clearing in the thick forest, where the trees finally give way to a circle of pale light. At its center stands an old stone sign, split in two and covered in heavy moss.
-To the east, the carved name Mordheim is still faintly readable, the arrow pointing deeper into the forest toward what must be an ancient castle hidden somewhere beyond sight.
-To the west, the second carving has almost completely faded and is unknown.
+We reach a small clearing in the thick forest, where the trees finally give way to a circle of pale light. At its center stands an old stone sign, split in two and covered in heavy moss.§
+To the east, the carved name Mordheim is still faintly readable, the arrow pointing <deeper into the forest> toward what must be an ancient castle hidden somewhere beyond sight.
+To the west, the second carving has almost completely faded and is <unknown>.
 [Go deeper into the forest
 -KEY:castle]
 The forest thins, revealing the broken towers of Castle Mordheim.
@@ -94,9 +94,9 @@ The people here have learned to stay hidden, and welcome our arrival quietly.
 
 %Castle & Village 1%
 #MAIN
-Our path leads past a bare field where black crows circle overhead, watching our slow progress. 
-To the north, a thin column of dark smoke rises from the broken top of a large ruined tower, standing alone against the empty sky.
-To the west, the breeze carries with it the unmistakable scent of roasted fish, warm and sharp, hinting at a small settlement near water just beyond the field.
+Our path leads past a bare field where black crows circle overhead, watching our slow progress.§
+To the north, a thin column of <dark smoke> rises from the broken top of a large ruined tower, standing alone against the empty sky.§
+To the west, the breeze carries with it the unmistakable scent of <roasted fish>, warm and sharp, hinting at a small settlement near water just beyond the field.
 [Go towards the smoke
 -KEY:castle]
 The field gives way to cracked stone and fallen walls around a towering ruin.
@@ -109,9 +109,9 @@ The people here live from the river and greet us with quiet relief.
 
 %Castle & Village 2%
 #MAIN
-We reach a rotten crossing where water and earth meet, and an old, vine-covered sign still stands, its markings barely readable beneath layers of green decay.
-To the east, a narrow wooden path stretches out over the dark water. Old lances jut from the ground along it, their broken tips crowned with scraps of faded cloth that sway softly in the breeze
-To the west, a faint trail follows a quiet stream deeper into the swamp, where the ground seems strangely firmer and the tangled water gives way to a thicker forest.
+We reach a rotten crossing where water and earth meet, and an old, vine-covered sign still stands, its markings barely readable beneath layers of green decay.§
+To the east, a narrow <wooden path> stretches out over the dark water. Old lances jut from the ground along it, their broken tips crowned with scraps of faded cloth that sway softly in the breeze.§
+To the west, a faint trail follows a <quiet stream> deeper into the swamp, where the ground seems strangely firmer and the tangled water gives way to a thicker forest.
 [Follow the wooden path
 -KEY:castle]
 The wooden path carries us beyond the worst of the mire.
@@ -124,16 +124,16 @@ Those who live here survive in secrecy, and greet us with weary relief.
 
 %Broken Wagon Friendly%
 #ENCOUNTER
-A broken wagon blocks your path. A family is standing next to it asking you for help.
+During mid day we see a group of villagers next to the rock road standing around a wagon with a broken axis. The people who seem to want to travel to the capital too ask for our help.
 
 [Offer to repair
 -COST:25
 -EFFECT:GET_WAGON_WINDOW]
-The family is super happy your repaired their wagon and decides to join forces.
+The villagers are super relieved that you repair their wagon and decide to join your forces.
 
 [Reject
 -EFFECT:DAMAGE_WAGON_RANDOM]
-The family is super duper pissed and kicks your wagons ass.
+The hopeless villagers get angry that you as the king don’t help them and try to burn down one of your wagons in anger. You and your guards handle them quickly but sadly one of your wagons took some damage nonetheless.  
 
 %Forest Carpenter%
 #ENCOUNTER
@@ -149,10 +149,10 @@ The forest path narrows suddenly, blocked by a fallen wagon dragged across the r
 [Move the barrier aside
 -EFFECT:DAMAGE_WAGON_RANDOM]
 We pull the barrier aside and force the wagons through. The rough movement strains weakened frames — and one wagon gives way beneath the pressure, its axle splitting with a loud crack. That did some damage…
-[Follow the shavings and investigate
+[Send a scout to investigate
 -COST:10
 -EFFECT:REPAIR_ALL_WAGONS]
-We leave the barrier where it lies and follow the faint trail of shavings into the trees. Hidden between trunks, a metalworker tends a small forge, reshaping tools and wagon parts salvaged from the road. He nods once and offers his skill to repair our wagons in exchange for a small amount of supplies, then joins our group when the work is done.
+We send a scout to the follow the shavings and he quickly returns with good news. Hidden between trunks, a metalworker tends a small forge, reshaping tools and wagon parts salvaged from the road. He nods once and offers his skill to repair our wagons in exchange for a small amount of supplies, then joins our group when the work is done.
 %Riverbank Glimmer%
 #ENCOUNTER
 We travel alongside a slow-moving river, its dark surface barely disturbed as it slips past the road. Between the reeds, something glints once and disappears beneath the water. One of my people insists it was only a trick of the light. Another swears there may be something worth finding in the shallows.
@@ -169,16 +169,13 @@ As we move through the forest, the trees close in and the light begins to fade. 
 We clear away the leaves and uncover a small buried bundle wrapped in leather. Inside are preserved rations, metal nails, and some lantern oil — recently hidden and still usable.
 [Leave it undisturbed]
 We move past the place without disturbing it.
-
-%Title_1%
+%Abandonded Village%
 #ENCOUNTER
-encounter description
-[Option 1 Text get big supplies
--EFFECT:GET_SUPPLIES_BIG]
-outcome text option 1
-[Option 2 Text loose supples small
+The road has been easy to take, and your caravans travelled several miles. Suddenly you hear voices from far away, coming from an abandoned village behind a small hill that is supposed to be empty.
+[take the detour to the village
 -EFFECT:LOOSE_SUPPLIES_SMALL]
-outcome text option 2
+You take the detour to the abandoned village only to find some strange settlers that don’t seem like good company. Fully armed and superior in number they take some of your belongings.
+[continue the path]                                                                                                                   This journey has been peacefully, so you continue your road without a look in to the abandonded village.
 %Title_2%
 #ENCOUNTER
 encounter description
@@ -188,31 +185,23 @@ outcome text option 1
 [Option 2 Text nothing]
 outcome text option 2
 
-%Title_3%
+%The narrow mountain path%
 #ENCOUNTER
-encounter description
-[Option 1 Text get upgrade window
+Our route goes through a small and high chain of mountains and we have to take a narrow road next to an Abhang as we hear metal clinging not far of the track where a small path cuts the grass.
+
+[Check out the sounds source
 -EFFECT:GET_UPGRADE_WINDOW]
 outcome text option 1
-[Option 2 Text loose supplies_small
+[Follow the mountain road 
 -EFFECT:LOOSE_SUPPLIES_SMALL]
 outcome text option 2
 
-%Title_4%
+%Between the Trees%
 #ENCOUNTER
-encounter description
-[Option 1 Text get wagon window
+While traveling through a thick forest one of you archers spies some thin smoke between the thick trunks not far from the road and after halting the caravan the smell of iron and wood manifests in your noses.
+[Investigate the place
 -EFFECT:GET_WAGON_WINDOW]
-outcome text option 1
-[Option 2 Text nothing] 
+We send some people to investigate where the smokes and smell comes from. We find an old burned down camp. It looks like the people who stayed here had to leave in a hurry. But to our surprise we find a wagon quite well in shape that we can take with us.
+[Continue the travel and ignore it] 
 outcome text option 2
-
-%Title_5%
-#ENCOUNTER
-encounter description
-[Option 1 Text get_wagon_window
--EFFECT:GET_WAGON_WINDOW]
-outcome text option 1
-[Option 2 Text damage_random_wagon
--EFFECT:DAMAGE_WAGON_RANDOM]
-outcome text option 2
+We don’t risk getting caught in a trap and continue one the road we are on, leaving the place untouched. 
