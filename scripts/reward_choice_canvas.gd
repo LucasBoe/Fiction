@@ -18,21 +18,23 @@ func show_choice(reward : RewardBuilding.RewardType):
 		header_label.text = "The [color= orange]Wagon Maker [/color]can do something for you:"
 		create_button_wagon_maker(
 			"Get his leftover  [color= orange] Supplies [/color]",
-			"res://ui/supplies_icon.png")
+			load("res://ui/supplies_icon.png"))
 		create_button_wagon_maker(
 			" [color= orange] Repair [/color]all wagons",
-			"res://ui/supplies_icon.png",
+			load("res://ui/supplies_icon.png"),
 			20)
 		create_button_wagon_maker(
 			"Build a[color= orange] Simple Wagon [/color]",
-			"res://ui/basic_icon.png",
+			load("res://ui/basic_icon.png"),
 			30)
 	
 		await on_picked_reward_signal
 		
 	if reward == RewardBuilding.RewardType.SMITH:
-		header_label.text = "The greatful blacksmith allows you to choose:"
-		create_button_wagon_maker("Nothing", null)
+		header_label.text = "The [color= orange]Smith [/color]can upgrade one of your wagons:"
+		create_button_wagon_maker(
+			"Get his leftover  [color= orange] Supplies [/color]",
+			load("res://ui/supplies_icon.png"))
 		
 		#pool upgrades
 		var pool = WagonUpgrade.get_all_possible_upgrades()
@@ -42,7 +44,7 @@ func show_choice(reward : RewardBuilding.RewardType):
 		while i > 0 and pool.size() > 0:
 			var upgrade : WagonUpgrade = pool.pick_random()
 			pool.erase(upgrade)
-			create_button_smith(upgrade.upgrade_name, null, upgrade.upgrade_cost, upgrade.original_wagon, upgrade.upgrade_wagon.resource_path)
+			create_button_smith(upgrade.upgrade_name, upgrade.upgrade_cost, upgrade.upgrade_icon, upgrade.original_wagon, upgrade.upgrade_wagon.resource_path)
 			i-=1
 		
 		await on_picked_reward_signal
@@ -51,8 +53,8 @@ func show_choice(reward : RewardBuilding.RewardType):
 	
 
 
-func create_button_smith(title, icon, price, original_wagon, new_wagon):
-	var button = create_button(title, price, icon)
+func create_button_smith(title, price, upgradeIcon, original_wagon, new_wagon):
+	var button = create_button(title, price, upgradeIcon)
 	button.pressed.connect(pick.bind(price, new_wagon, original_wagon))
 	
 func create_button_wagon_maker(title, icon, price = -10, wagon = ""):
@@ -68,8 +70,8 @@ func create_button(title, price, icon):
 	button.disabled = MoneyHandler.current_money < price
 	instance.find_child("NameLabel", true, false).text = title
 	if icon !=  null:
-		instance.find_child("IconRect", true, false).texture = load(icon);
-	instance.find_child("PriceLabel", true, false).text = str(price, "$")
+		instance.find_child("IconRect", true, false).texture = icon;
+	instance.find_child("PriceLabel", true, false).text = str(-price, " Supplies")
 	choice_instances.append(instance)
 	return button
 

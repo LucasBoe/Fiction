@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://diyvaqghfok1b"]
+[gd_scene load_steps=7 format=3 uid="uid://diyvaqghfok1b"]
 
 [ext_resource type="Script" uid="uid://bhy4lhrhk1cbl" path="res://scripts/autoload/reward_handler.gd" id="1_gr6x3"]
 [ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="2_hnfjh"]
 [ext_resource type="Script" uid="uid://bm1ko5i1aars7" path="res://scripts/reward_choice_canvas.gd" id="3_sd2vp"]
 [ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="4_plse1"]
 [ext_resource type="Texture2D" uid="uid://yapy1n8utfd1" path="res://ui/healthbar_center_overlay.png" id="5_iterj"]
-[ext_resource type="Texture2D" uid="uid://b7fhr42sr7ght" path="res://ui/barricade_icon.png" id="6_sd2vp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gr6x3"]
 
@@ -90,7 +89,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 8
@@ -109,18 +108,18 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="IconRect" type="TextureRect" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy/MarginContainer"]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(80, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("6_sd2vp")
-expand_mode = 2
+expand_mode = 4
 stretch_mode = 5
 
 [node name="PriceLabel" type="Label" parent="RewardChoiceCanvas/Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
 text = "100$"
 horizontal_alignment = 1
