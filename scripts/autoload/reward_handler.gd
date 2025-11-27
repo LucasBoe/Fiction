@@ -73,6 +73,8 @@ func give_rewards():
 	for building in reward_buildings:
 		await reward_choice_canvas.show_choice(building.reward)
 		
+	await get_tree().create_timer(2).timeout	
+		
 	all_rewards_given_signal.emit()
 
 func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay = 0.0):

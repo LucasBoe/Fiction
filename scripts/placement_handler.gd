@@ -27,6 +27,9 @@ func run_placement_phase():
 	button.text = "Finish Placement"
 	button.pressed.connect(_button_pressed)
 	canvas.add_child(button)
+	
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	button.global_position = Vector2((screen_size.x - button.size.x) / 2, screen_size.y - 112)
 	emit_signal("placement_started")
 
 func reset_placement():
