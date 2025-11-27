@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var root_control = $Root
-@onready var name_label = $Root/MarginContainer/Root/MarginContainer/VBoxContainer/NameLabel
+@onready var root_control = $PopupRoot
+@onready var name_label = $PopupRoot/MarginContainer/Root/MarginContainer/VBoxContainer/NameLabel
 
 func _ready():
 	await get_tree().process_frame
