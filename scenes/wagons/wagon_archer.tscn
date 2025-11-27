@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdld48i2gfx8s"]
+[gd_scene load_steps=15 format=3 uid="uid://cdld48i2gfx8s"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
 [ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_1givq"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_b8lbu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_fw700"]
+[ext_resource type="Texture2D" uid="uid://c3v4fr61hvdj3" path="res://ui/archer_tower_upgrade_icon.png" id="3_8x6jf"]
 [ext_resource type="PackedScene" uid="uid://xfjdwg50g6na" path="res://scenes/wagons/wagon_archer_tower.tscn" id="3_yvlq0"]
 [ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="4_5uj0l"]
 [ext_resource type="PackedScene" uid="uid://c1dj43eabcpxr" path="res://meshes/wagons/wagon_archer.tscn" id="4_fs8ih"]
@@ -16,6 +17,7 @@ script = ExtResource("2_1givq")
 upgrade_cost = 50
 upgrade_name = "Archer Tower"
 upgrade_wagon = ExtResource("3_yvlq0")
+upgrade_icon = ExtResource("3_8x6jf")
 metadata/_custom_type_script = "uid://da2xy0db0tifk"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]

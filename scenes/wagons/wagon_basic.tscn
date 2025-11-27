@@ -1,18 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwa7d8yrcj3mh"]
+[gd_scene load_steps=14 format=3 uid="uid://bwa7d8yrcj3mh"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_amqdm"]
 [ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_ncwio"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_wasyv"]
+[ext_resource type="Texture2D" uid="uid://byveydforwm8f" path="res://ui/barricade_upgrade_icon.png" id="3_f3dhe"]
 [ext_resource type="PackedScene" uid="uid://difbqk0glhsqm" path="res://meshes/wagons/wagon_basic.tscn" id="3_liv0p"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="3_rygwq"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="4_f3dhe"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_ncwio"]
+[ext_resource type="Texture2D" uid="uid://n0f3dld2g0x8" path="res://ui/archer_upgrade_icon.png" id="5_f3dhe"]
 
 [sub_resource type="Resource" id="Resource_msny4"]
 script = ExtResource("2_ncwio")
 upgrade_cost = 40
 upgrade_name = "Barricade"
 upgrade_wagon = ExtResource("3_rygwq")
+upgrade_icon = ExtResource("3_f3dhe")
 metadata/_custom_type_script = "uid://da2xy0db0tifk"
 
 [sub_resource type="Resource" id="Resource_1jmxl"]
@@ -20,6 +23,7 @@ script = ExtResource("2_ncwio")
 upgrade_cost = 70
 upgrade_name = "Archer"
 upgrade_wagon = ExtResource("4_f3dhe")
+upgrade_icon = ExtResource("5_f3dhe")
 metadata/_custom_type_script = "uid://da2xy0db0tifk"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]

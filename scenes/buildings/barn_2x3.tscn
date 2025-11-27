@@ -16,7 +16,7 @@ size = Vector3(3, 1, 2)
 script = ExtResource("2_ocmk0")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
-reward_amount_base = 50
+reward_amount_base = 20
 display_name = "Barn"
 
 [node name="Barn_2x3" parent="." index="0"]

@@ -5,6 +5,7 @@ var original_wagon : Wagon
 @export var upgrade_cost = 0
 @export var upgrade_name : String
 @export var upgrade_wagon : PackedScene
+@export var upgrade_icon : Texture2D
 
 static func execute(upgrade : WagonUpgrade):
 	execute_wagon_upgrade(upgrade.upgrade_wagon.resource_path, upgrade.original_wagon)

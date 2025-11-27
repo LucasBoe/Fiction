@@ -18,7 +18,6 @@ size = Vector3(2, 1, 2)
 script = ExtResource("2_viv3f")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
-reward_amount_base = 20
 display_name = "House"
 
 [node name="House_2x2" parent="." index="0"]
