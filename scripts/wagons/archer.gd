@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var shooting_range: float = 9.0
+@export var shooting_range: float = 4.0
 @export var shooting_cooldown : float = 1.5
 
 @export var projectile_speed: float = 4.0

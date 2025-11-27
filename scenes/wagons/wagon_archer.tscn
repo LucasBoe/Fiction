@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdld48i2gfx8s"]
+[gd_scene load_steps=16 format=3 uid="uid://cdld48i2gfx8s"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_qnmmq"]
 [ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_1givq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="5_8hdq7"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="6_b8lbu"]
 [ext_resource type="PackedScene" uid="uid://cvedusjtkvpjo" path="res://scenes/archer.tscn" id="10_1givq"]
+[ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="12_8x6jf"]
 
 [sub_resource type="Resource" id="Resource_8x6jf"]
 script = ExtResource("2_1givq")
@@ -80,3 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
 
 [node name="archer" parent="Archer2" instance=ExtResource("10_1givq")]
 transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)
+
+[node name="RangeVisualization" parent="." instance=ExtResource("12_8x6jf")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0.1, 0)
