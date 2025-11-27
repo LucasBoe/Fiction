@@ -1,0 +1,19 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvedusjtkvpjo"]
+
+[ext_resource type="PackedScene" uid="uid://d0jyk1x6r86wr" path="res://meshes/humans/archer.glb" id="1_vlvv2"]
+[ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_d71b8"]
+[ext_resource type="Material" uid="uid://dypxplk0jllt" path="res://materials/fabric_red.tres" id="3_mak8i"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="4_1s68y"]
+[ext_resource type="Material" uid="uid://d2ofgwlxe08bj" path="res://materials/fabric_grey.tres" id="5_88c65"]
+[ext_resource type="Material" uid="uid://2qassnebdv2j" path="res://materials/skin.tres" id="6_6mylm"]
+[ext_resource type="Material" uid="uid://bgd1qgpt0fpog" path="res://materials/fabric_white.tres" id="7_vbhtm"]
+
+[node name="archer" instance=ExtResource("1_vlvv2")]
+
+[node name="male_player" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_d71b8")
+surface_material_override/1 = ExtResource("3_mak8i")
+surface_material_override/2 = ExtResource("4_1s68y")
+surface_material_override/3 = ExtResource("5_88c65")
+surface_material_override/4 = ExtResource("6_6mylm")
+surface_material_override/5 = ExtResource("7_vbhtm")

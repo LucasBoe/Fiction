@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bfc5dwhuyvxpv" path="res://meshes/wagons/wagon_archer_tower.tscn" id="4_ie0vh"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="5_27y3g"]
 [ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="5_goo4k"]
-[ext_resource type="ArrayMesh" uid="uid://bmksaghu3xk6k" path="res://meshes/humans/human_base.obj" id="6_1pskq"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="6_ucjej"]
+[ext_resource type="PackedScene" uid="uid://cvedusjtkvpjo" path="res://scenes/archer.tscn" id="8_ucjej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
 size = Vector3(2, 1, 1)
@@ -61,10 +61,8 @@ shooting_range = 15.0
 [node name="ShootingOrigin" type="Node3D" parent="Archer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("6_1pskq")
-skeleton = NodePath("../..")
+[node name="archer" parent="Archer" instance=ExtResource("8_ucjej")]
+transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)
 
 [node name="Archer3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0376202, 1.52928, 0.0510263)
@@ -74,10 +72,8 @@ shooting_range = 15.0
 [node name="ShootingOrigin" type="Node3D" parent="Archer3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer3"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("6_1pskq")
-skeleton = NodePath("../..")
+[node name="archer" parent="Archer3" instance=ExtResource("8_ucjej")]
+transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)
 
 [node name="Archer2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51856, 0.966419, 0.014389)
@@ -87,7 +83,5 @@ shooting_range = 15.0
 [node name="ShootingOrigin" type="Node3D" parent="Archer2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Archer2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("6_1pskq")
-skeleton = NodePath("../..")
+[node name="archer" parent="Archer2" instance=ExtResource("8_ucjej")]
+transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)

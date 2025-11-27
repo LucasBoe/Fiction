@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://b0pioolpwlgp6"]
 
-[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="1_u2epg"]
+[ext_resource type="Shader" uid="uid://dmtcoj6j38521" path="res://shaders/wind.gdshader" id="1_u2epg"]
 [ext_resource type="Texture2D" uid="uid://28ry6fkn0f2i" path="res://texture/trees/tree_slim_branch.png" id="1_w2lnw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_u2epg"]

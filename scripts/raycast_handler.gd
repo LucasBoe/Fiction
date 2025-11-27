@@ -53,7 +53,7 @@ func _process(delta):
 		else:
 			currently_dragging.global_position = raw_pos + pickup_offset
 		
-		DebugDraw3D.draw_box(check_pos + check_offset, Quaternion.IDENTITY,size, Color.RED if obstructed else Color.GREEN)
+		DebugDraw3D.draw_box(check_pos + check_offset, Quaternion.IDENTITY,size, Color.DARK_RED if obstructed else Color.GRAY)
 		
 		if Input.is_action_just_pressed("rotate_dragging"):
 			pickup_offset = Vector3(pickup_offset.z, pickup_offset.y, pickup_offset.x)

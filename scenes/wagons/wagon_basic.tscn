@@ -35,7 +35,7 @@ upgrades = Array[ExtResource("2_ncwio")]([SubResource("Resource_msny4"), SubReso
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("2_wasyv")]
-max_health = 500
+max_health = 700
 
 [node name="wagon_basic2" parent="." instance=ExtResource("3_liv0p")]
 

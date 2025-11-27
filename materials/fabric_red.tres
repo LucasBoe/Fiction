@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bkeklljliylt1" path="res://texture/fabric.png" id="1_c63ys"]
 
 [resource]
+cull_mode = 2
 albedo_color = Color(0.985329, 0.600118, 0.593574, 1)
 albedo_texture = ExtResource("1_c63ys")
 texture_filter = 0

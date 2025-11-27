@@ -21,7 +21,7 @@ func _ready():
 		_original_energy = lantern_light.light_energy
 		
 		Globals.environment.set_day_signal.connect(on_set_day)
-		Globals.environment.set_evening_signal.connect(on_set_day)
+		Globals.environment.set_evening_signal.connect(on_set_night)
 		Globals.environment.set_night_signal.connect(on_set_night)
 		
 	for upgrade in upgrades:
