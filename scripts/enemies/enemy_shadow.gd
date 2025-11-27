@@ -10,6 +10,9 @@ var target_position
 func _ready():
 	super._ready()
 	
+	#create unique delay
+	await get_tree().create_timer((1.0 / attack_speed) * randf()).timeout
+	
 	while true: 
 		await get_tree().create_timer(1.0 / attack_speed).timeout
 		refresh()
@@ -29,6 +32,7 @@ func refresh():
 	#damage potential targets in range
 	var radius = 1.5
 	var objects = PhysicsUtil.boxcast_for_objects(get_world_3d().direct_space_state, global_position, Vector3.ONE * radius, [self])
+	
 	for object in objects:
 		var target = object.collider
 		
@@ -41,6 +45,8 @@ func refresh():
 		if (is_wagon or is_house) and target.health.current_health > 0:
 			target.health.take_damage(15)
 			DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
+			JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
+			SoundPlayer.play3D(SoundPlayer.enemy_attack, global_position)
 			print("damage ", target, ": ", 15)
 
 func _physics_process(delta: float) -> void:
@@ -54,12 +60,12 @@ func _physics_process(delta: float) -> void:
 		if direction.length() > 0.01:
 			direction = direction.normalized()
 			velocity = direction * speed
-			DebugDraw3D.draw_line(global_position, global_position + direction)
+			#DebugDraw3D.draw_line(global_position, global_position + direction)
 		else:
 			velocity = Vector3.ZERO
-			DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
+			#DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
 	else:
 		velocity = Vector3.ZERO
-		DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
+		#DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
 
 	move_and_slide()

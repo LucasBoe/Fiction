@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4rqihu0ytmqv"]
+[gd_scene load_steps=11 format=3 uid="uid://b4rqihu0ytmqv"]
 
 [ext_resource type="Script" uid="uid://cga0pb641gqx7" path="res://scripts/autoload/sound_player.gd" id="1_1as15"]
 [ext_resource type="AudioStream" uid="uid://bn42ewxbxmx6a" path="res://audio/sounds/ui_step.wav" id="2_wisn8"]
 [ext_resource type="AudioStream" uid="uid://1nlvyst4vur4" path="res://audio/sounds/ui_click.wav" id="3_t7yms"]
 [ext_resource type="AudioStream" uid="uid://1ipi552cjdfp" path="res://audio/sounds/wagon_pick_up.wav" id="4_wisn8"]
 [ext_resource type="AudioStream" uid="uid://bt6ai0nw1xy0d" path="res://audio/sounds/wagon_place.wav" id="5_t7yms"]
+[ext_resource type="AudioStream" uid="uid://di7bhn5r6gv4j" path="res://audio/sounds/arrow.wav" id="6_jn2lp"]
+[ext_resource type="AudioStream" uid="uid://x00ok6ixgx8y" path="res://audio/sounds/ghost_talk_1.wav" id="7_1qfu0"]
+[ext_resource type="AudioStream" uid="uid://bi1b2hfsclf0w" path="res://audio/sounds/enemy_attack.wav" id="8_w7vl0"]
+[ext_resource type="AudioStream" uid="uid://cp3lvl7wjfmr1" path="res://audio/sounds/treasure.wav" id="9_issg3"]
+[ext_resource type="AudioStream" uid="uid://ca7cc63m7xehk" path="res://audio/sounds/coin.wav" id="9_uv37x"]
 
 [node name="SoundPlayer" type="Node3D"]
 script = ExtResource("1_1as15")
@@ -16,6 +21,9 @@ volume_db = -18.0
 [node name="UiClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_t7yms")
 
+[node name="Treasure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_issg3")
+
 [node name="WagonPickUp" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_wisn8")
 volume_db = -8.0
@@ -23,3 +31,22 @@ volume_db = -8.0
 [node name="WagonPlace" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_t7yms")
 volume_db = -8.0
+
+[node name="ArrowShot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_jn2lp")
+max_distance = 40.0
+
+[node name="GhostTalk" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_1qfu0")
+volume_db = -6.0
+max_distance = 30.0
+
+[node name="EnemyAttack" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_w7vl0")
+volume_db = -6.0
+max_distance = 30.0
+
+[node name="Coin" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_uv37x")
+volume_db = 6.0
+max_distance = 50.0

@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bdxltprtn8w65"]
 
 [ext_resource type="Texture2D" uid="uid://cjc5kotevpyhh" path="res://External/Bushes_Color_Noise.png" id="1_oysvd"]
-[ext_resource type="Shader" uid="uid://dmtcoj6j38521" path="res://shaders/wind.gdshader" id="1_uibgx"]
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="1_uibgx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0s3n2"]
 

@@ -42,6 +42,7 @@ func give_rewards():
 			var reward_instance = reward_dummy.duplicate()
 			add_child(reward_instance)
 			reward_instance.visible = true
+			reward_instance.name = str(3.0)
 			reward_instance.global_position = child.global_position + Vector3.UP
 			reward_instance.scale = Vector3.ZERO	
 			reward_instances.append(reward_instance)
@@ -51,20 +52,19 @@ func give_rewards():
 			tween.parallel().tween_property(reward_instance, "scale", Vector3.ONE * .3, 0.5)
 			
 		total_reward += reward_amount
+		print(total_reward)
 		
 	await get_tree().create_timer(.5).timeout
 		
 	var curve_fly_duration = 1.0
-	var curve_fly_step_delay = 0.1
+	var curve_fly_step_delay = 0.05
 	
 	var delay = 0.0
 	for reward in reward_instances:
-		animate_over_time(reward, money_cart.global_position, curve_fly_duration, delay)
+		animate_over_time(reward, money_cart.global_position, curve_fly_duration, null, delay)
 		delay += curve_fly_step_delay
 		
 	await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout	
-		
-	MoneyHandler.change_money(total_reward)
 		
 	for reward in reward_instances:
 		reward.queue_free()
@@ -93,6 +93,9 @@ func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay
 		
 		t -= get_process_delta_time() / duration
 		await get_tree().process_frame
+		
+	SoundPlayer.play3D(SoundPlayer.coin, node.global_position)
+	MoneyHandler.change_money(node.name.to_float())
 
 func ease_in_out_sine(x: float) -> float:
 	return -(cos(PI * x) - 1.0) / 2.0
