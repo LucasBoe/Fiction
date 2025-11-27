@@ -16,7 +16,7 @@ size = Vector3(2, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1.97223, 1.02826, 1)
 
-[node name="Wagon_Archer" type="StaticBody3D"]
+[node name="Wagon_Archer_Tower" type="StaticBody3D"]
 script = ExtResource("1_ie0vh")
 display_name = "Archer Tower Wagon"
 grid_size = Vector2i(2, 1)
@@ -57,7 +57,6 @@ transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.0008146
 [node name="Archer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.559609, 0.966419, 0.0510263)
 script = ExtResource("5_goo4k")
-shooting_range = 15.0
 
 [node name="ShootingOrigin" type="Node3D" parent="Archer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
@@ -68,7 +67,7 @@ transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)
 [node name="Archer3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0376202, 1.52928, 0.0510263)
 script = ExtResource("5_goo4k")
-shooting_range = 15.0
+shooting_range = 5.0
 
 [node name="ShootingOrigin" type="Node3D" parent="Archer3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
@@ -79,7 +78,6 @@ transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)
 [node name="Archer2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51856, 0.966419, 0.014389)
 script = ExtResource("5_goo4k")
-shooting_range = 15.0
 
 [node name="ShootingOrigin" type="Node3D" parent="Archer2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
@@ -88,3 +86,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445793, 0.147873)
 transform = Transform3D(0.491872, 0, 0, 0, 0.491872, 0, 0, 0, 0.491872, 0, 0, 0)
 
 [node name="RangeVisualization" parent="." instance=ExtResource("9_8qejw")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.1, 0)
