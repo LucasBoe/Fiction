@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cglsbfprflw2o"]
+[gd_scene load_steps=9 format=3 uid="uid://cglsbfprflw2o"]
 
 [ext_resource type="Script" uid="uid://ck478cmag5lt0" path="res://scripts/progression_ui_handler.gd" id="1_08fop"]
 [ext_resource type="FontFile" uid="uid://cr2xjor5aogwh" path="res://fonts/Pixeled English Font.ttf" id="2_vs0y8"]
 [ext_resource type="Texture2D" uid="uid://bufm817cvg4ad" path="res://ui/banner_header_center_overlay.png" id="3_4xjbi"]
+[ext_resource type="Script" uid="uid://b4k86m4ligdsv" path="res://scripts/progression_bar.gd" id="4_u8cbr"]
+[ext_resource type="Texture2D" uid="uid://boxy66g3abt52" path="res://ui/travel/gradiant.png" id="5_8705f"]
+[ext_resource type="Texture2D" uid="uid://dntujh3b5vmbu" path="res://ui/travel/location_unknown.png" id="5_u8cbr"]
+[ext_resource type="Texture2D" uid="uid://dgdtkgmxneaec" path="res://ui/travel/indicator.png" id="6_8705f"]
+[ext_resource type="Texture2D" uid="uid://buarnyvglrs07" path="res://ui/travel/travel_unknown.png" id="6_ki4q5"]
 
 [node name="ProgressionUI" type="CanvasLayer"]
+layer = 80
 script = ExtResource("1_08fop")
 
-[node name="Root" type="Control" parent="."]
+[node name="PopupRoot" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
@@ -17,7 +23,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(460, 46)
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Root"]
+[node name="MarginContainer" type="MarginContainer" parent="PopupRoot"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,21 +34,21 @@ theme_override_constants/margin_left = -32
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = -32
 
-[node name="Root" type="MarginContainer" parent="Root/MarginContainer"]
+[node name="Root" type="MarginContainer" parent="PopupRoot/MarginContainer"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Root/MarginContainer/Root"]
+[node name="ColorRect" type="ColorRect" parent="PopupRoot/MarginContainer/Root"]
 layout_mode = 2
 color = Color(0, 0, 0, 0.701961)
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/MarginContainer/Root"]
+[node name="MarginContainer" type="MarginContainer" parent="PopupRoot/MarginContainer/Root"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Root/MarginContainer/Root/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRoot/MarginContainer/Root/MarginContainer"]
 layout_mode = 2
 
-[node name="UpperLabel" type="Label" parent="Root/MarginContainer/Root/MarginContainer/VBoxContainer"]
+[node name="UpperLabel" type="Label" parent="PopupRoot/MarginContainer/Root/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.854902, 0.654902, 0.466667, 1)
@@ -51,7 +57,7 @@ text = "you arrive at"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="NameLabel" type="Label" parent="Root/MarginContainer/Root/MarginContainer/VBoxContainer"]
+[node name="NameLabel" type="Label" parent="PopupRoot/MarginContainer/Root/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 0.670588, 0, 1)
@@ -60,10 +66,10 @@ theme_override_font_sizes/font_size = 32
 text = "Hammercastle"
 horizontal_alignment = 1
 
-[node name="Overlays" type="Control" parent="Root/MarginContainer/Root"]
+[node name="Overlays" type="Control" parent="PopupRoot/MarginContainer/Root"]
 layout_mode = 2
 
-[node name="Upper" type="TextureRect" parent="Root/MarginContainer/Root/Overlays"]
+[node name="Upper" type="TextureRect" parent="PopupRoot/MarginContainer/Root/Overlays"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -76,7 +82,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_4xjbi")
 stretch_mode = 2
 
-[node name="Lower" type="TextureRect" parent="Root/MarginContainer/Root/Overlays"]
+[node name="Lower" type="TextureRect" parent="PopupRoot/MarginContainer/Root/Overlays"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -92,3 +98,72 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_4xjbi")
 stretch_mode = 2
 flip_v = true
+
+[node name="PermanentRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 8
+mouse_filter = 2
+script = ExtResource("4_u8cbr")
+
+[node name="TextureRect" type="TextureRect" parent="PermanentRoot"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("5_8705f")
+
+[node name="MarginContainer" type="MarginContainer" parent="PermanentRoot"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -38.0
+offset_bottom = -6.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PermanentRoot/MarginContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Location" type="TextureRect" parent="PermanentRoot/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("5_u8cbr")
+stretch_mode = 2
+
+[node name="Path" type="MarginContainer" parent="PermanentRoot/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 8
+
+[node name="PatchRect" type="NinePatchRect" parent="PermanentRoot/MarginContainer/HBoxContainer/Path"]
+custom_minimum_size = Vector2(32, 4)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("6_ki4q5")
+patch_margin_left = 6
+patch_margin_right = 6
+
+[node name="Indicator" type="TextureRect" parent="PermanentRoot"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 10.0
+pivot_offset = Vector2(6, 5)
+texture = ExtResource("6_8705f")
+stretch_mode = 2

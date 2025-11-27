@@ -15,6 +15,7 @@ static func execute_wagon_upgrade(wagon_path, original_wagon = null):
 		var scene = ResourceLoader.load(wagon_path)
 		var instance = scene.instantiate()
 		Globals.placement_handler.active_holder.add_child(instance)
+		instance.global_position = Vector3(0,-10,0)
 		
 		if original_wagon != null:
 			original_wagon.queue_free()
