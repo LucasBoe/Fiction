@@ -1,14 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://b243tnjy67ovi"]
+[gd_scene load_steps=17 format=3 uid="uid://b243tnjy67ovi"]
 
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_3tox0"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_clmvi"]
 [ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_sm2jn"]
 [ext_resource type="PackedScene" uid="uid://dvmhnhf158up0" path="res://scenes/buildings/ruin_2x2.tscn" id="5_01m15"]
-[ext_resource type="PackedScene" uid="uid://crgj0ak63hjnu" path="res://scenes/buildings/wall_1x3.tscn" id="6_1dq4n"]
 [ext_resource type="PackedScene" uid="uid://6l5ghah5ecm" path="res://scenes/buildings/house_1x2.tscn" id="8_bsq2t"]
+[ext_resource type="PackedScene" uid="uid://dmdgc8sy3tfnh" path="res://scenes/buildings/wall_1x4.tscn" id="8_ltnoy"]
 [ext_resource type="PackedScene" uid="uid://c4wm12ek3vnmp" path="res://scenes/buildings/ruin_1x1.tscn" id="9_hv3y8"]
 [ext_resource type="PackedScene" uid="uid://crd7qkxr1o3b" path="res://scenes/buildings/house_2x2.tscn" id="10_0fk0m"]
-[ext_resource type="PackedScene" uid="uid://ckeo2owgkkvcm" path="res://scenes/buildings/wall_corner_2x2.tscn" id="10_3tox0"]
 [ext_resource type="PackedScene" uid="uid://c1uwdmcluvfp3" path="res://scenes/foliage/trees/tree_1_strange.tscn" id="10_clmvi"]
 [ext_resource type="PackedScene" uid="uid://k3do0oioqbn5" path="res://scenes/decoration/debris_1.tscn" id="11_bsq2t"]
 [ext_resource type="PackedScene" uid="uid://co06o23jop7rx" path="res://scenes/decoration/debris_2.tscn" id="12_hv3y8"]
@@ -37,58 +36,57 @@ script = ExtResource("3_sm2jn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
 
 [node name="house_1x2" parent="Houses" instance=ExtResource("8_bsq2t")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 2.5)
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 1, 0, 5.5)
 
 [node name="house_1x3" parent="Houses" instance=ExtResource("8_bsq2t")]
-transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 1, 0, -3.5)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.5, 0, -3)
 
 [node name="ruin_1x1" parent="Houses" instance=ExtResource("9_hv3y8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="house_2x2" parent="Houses" instance=ExtResource("10_0fk0m")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -3)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -1)
 
 [node name="house_2x3" parent="Houses" instance=ExtResource("10_0fk0m")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.99575, 0.0101147, 0.995156)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.00425005, 0.0101147, 0.995156)
 
 [node name="house_2x4" parent="Houses" instance=ExtResource("10_0fk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00425, 0.0101147, 2.99516)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00425, 0.0101147, -2.00484)
 
-[node name="wall_1x32" parent="Houses" instance=ExtResource("6_1dq4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.5)
+[node name="wall_1x7" parent="Houses" instance=ExtResource("8_ltnoy")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.5, 0, -1.5)
 
-[node name="wall_corner_2x2" parent="Houses" instance=ExtResource("10_3tox0")]
-transform = Transform3D(-0.000624436, -0.000507158, 1, 0.000896062, 0.999999, 0.00050771, -0.999999, 0.000896375, -0.000623987, -4, 0, -2)
+[node name="Deco" type="Node3D" parent="."]
 
-[node name="tree_1_strange" parent="." instance=ExtResource("10_clmvi")]
+[node name="tree_1_strange" parent="Deco" instance=ExtResource("10_clmvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.573458, -2.38419e-07, -0.543951)
 
-[node name="debris_1" parent="." instance=ExtResource("11_bsq2t")]
+[node name="debris_1" parent="Deco" instance=ExtResource("11_bsq2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48223, 0, -4.71339)
 
-[node name="debris_2" parent="." instance=ExtResource("12_hv3y8")]
+[node name="debris_2" parent="Deco" instance=ExtResource("12_hv3y8")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -2.29523, 0, 4.72798)
 
-[node name="debris_3" parent="." instance=ExtResource("12_hv3y8")]
+[node name="debris_3" parent="Deco" instance=ExtResource("12_hv3y8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.61795, 0, -1.50489)
 
-[node name="grass_1_patch" parent="." instance=ExtResource("13_0fk0m")]
+[node name="grass_1_patch" parent="Deco" instance=ExtResource("13_0fk0m")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.34495, 0, 3.78289)
 
-[node name="grass_3_patch" parent="." instance=ExtResource("14_ect0x")]
+[node name="grass_3_patch" parent="Deco" instance=ExtResource("14_ect0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.913659, 0, -0.87313)
 
-[node name="Bush_1_small" parent="." instance=ExtResource("15_dou5a")]
+[node name="Bush_1_small" parent="Deco" instance=ExtResource("15_dou5a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01763, 2.38419e-07, -3.22396)
 
-[node name="bush_1_large" parent="." instance=ExtResource("16_owjlq")]
+[node name="bush_1_large" parent="Deco" instance=ExtResource("16_owjlq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43464, 0.0509062, -4.95365)
 
-[node name="Bush_1_small2" parent="." instance=ExtResource("15_dou5a")]
+[node name="Bush_1_small2" parent="Deco" instance=ExtResource("15_dou5a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03013, 0, 2.30407)
 
-[node name="bush_1_large2" parent="." instance=ExtResource("16_owjlq")]
+[node name="bush_1_large2" parent="Deco" instance=ExtResource("16_owjlq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21253, 0, 0.134418)
 
-[node name="Bush_3_small" parent="." instance=ExtResource("17_p0upu")]
+[node name="Bush_3_small" parent="Deco" instance=ExtResource("17_p0upu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9543, 0.273681, -1.8109)
