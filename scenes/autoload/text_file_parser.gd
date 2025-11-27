@@ -6,7 +6,9 @@ var events : Dictionary
 
 func _ready():
 	var file = FileAccess.open(text_source_file_path, FileAccess.READ)
-	var content = file.get_as_text().replace("\n", "").split("%", false)
+	var text = file.get_as_text().replace("\n", "")
+	text = text.replace("§", "\n")
+	var content = text.split("%", false)
 	
 	while content.size() > 0:
 		var title = content[0]
@@ -32,11 +34,11 @@ func parse_body(content : String):
 	# Split into main text and the "choices section"
 	var first_choice_index := content.find("[")
 	if first_choice_index == -1:
-		event.text = content.strip_edges()
+		event.text = apply_colors(content.strip_edges())
 		return event
 
 	# Parse choices: [ ... ] body text ... [ ... ] body text ...
-	event.text = content.substr(0, first_choice_index).strip_edges()
+	event.text = apply_colors(content.substr(0, first_choice_index).strip_edges())
 	var choices_raw := content.substr(first_choice_index)
 	var regex := RegEx.new()
 	regex.compile("\\[([^\\]]*)\\]") # [ button label... ]
@@ -106,3 +108,5 @@ func get_events(type):
 			
 	return filtered
 	
+func apply_colors(text) -> String:
+	return text.replace("<", "[color=orange]").replace(">", "[/color]")

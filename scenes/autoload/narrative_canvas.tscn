@@ -54,9 +54,9 @@ patch_margin_bottom = 58
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/NarrativePopup"]
 layout_mode = 2
-theme_override_constants/margin_left = 32
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/NarrativePopup/MarginContainer"]
@@ -73,7 +73,8 @@ layout_mode = 2
 theme = ExtResource("3_uwomx")
 theme_override_colors/default_color = Color(0.694118, 0.635294, 0.52549, 1)
 theme_override_font_sizes/normal_font_size = 11
-text = "You reach a fork in the road. In the middle stands a signpost with a sign pointing north that says “Hammercastle.” The sign pointing south has been broken off and is nowhere to be seen."
+bbcode_enabled = true
+text = "You reach a fork in the road. In the middle stands a signpost with a sign pointing north that says [color=orange]Hammercastle[/color]. The sign pointing south has been broken off and is nowhere to be seen."
 fit_content = true
 visible_characters_behavior = 1
 
@@ -81,16 +82,44 @@ visible_characters_behavior = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_constants/separation = 24
+theme_override_constants/separation = 8
 
 [node name="Button1" type="Button" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_uwomx")
+
+[node name="Label" type="RichTextLabel" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 0.860777, 0.701169, 1)
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
 text = "Go south"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_uwomx")
+
+[node name="Label" type="RichTextLabel" parent="Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 0.862745, 0.701961, 1)
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
 text = "Go south"
+horizontal_alignment = 1
+vertical_alignment = 1
