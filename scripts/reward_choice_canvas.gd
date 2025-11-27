@@ -18,7 +18,7 @@ func show_choice(reward : RewardBuilding.RewardType):
 		header_label.text = "The greatful wageon maker allows you to choose:"
 		create_button_wagon_maker("Nothing")
 		create_button_wagon_maker("Repair All", 20)
-		create_button_wagon_maker("Simple Wagon", 30, "res://scenes/wagons/wagon_barricade.tscn")
+		create_button_wagon_maker("Simple Wagon", 30, "res://scenes/wagons/wagon_basic.tscn")
 	
 		await on_picked_reward_signal
 		
