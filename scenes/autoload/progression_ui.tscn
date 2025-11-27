@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://buarnyvglrs07" path="res://ui/travel/travel_unknown.png" id="6_ki4q5"]
 
 [node name="ProgressionUI" type="CanvasLayer"]
+layer = 80
 script = ExtResource("1_08fop")
 
 [node name="PopupRoot" type="Control" parent="."]
