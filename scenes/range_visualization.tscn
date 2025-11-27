@@ -2,7 +2,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8avvr"]
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(0.0290099, 0.616502, 0.57975, 1)
 
 [sub_resource type="Curve" id="Curve_8avvr"]
 
@@ -53,7 +53,7 @@ radial_segments = 32
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 0.196078)
+albedo_color = Color(0.101961, 0.619608, 0.537255, 0.0980392)
 
 [node name="RangeVisualization" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

@@ -34,13 +34,12 @@ func on_set_day():
 	if not lantern_light:
 		return
 	
-	
 	var tween := create_tween()
 	tween.tween_property(lantern_light, "light_energy", 0.0, day_tween_time)
 
 func on_set_evening():
 	if range_visualization != null:
-		range_visualization.show()
+		range_visualization.get_child(0).show()
 		
 	if not lantern_light:
 		return
@@ -51,7 +50,7 @@ func on_set_evening():
 
 func on_set_night():
 	if range_visualization != null:
-		range_visualization.hide()
+		range_visualization.get_child(0).hide()
 		
 	if not lantern_light:
 		return

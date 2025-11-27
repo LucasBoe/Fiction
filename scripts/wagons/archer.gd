@@ -40,7 +40,7 @@ func _get_enemy_in_range(range: float) -> Node3D:
 		if not is_instance_valid(enemy):
 			continue
 
-		var dist := global_position.distance_to(enemy.global_position)
+		var dist := get_parent_node_3d().global_position.distance_to(enemy.global_position)
 
 		if dist <= closest_dist:
 			closest_dist = dist
