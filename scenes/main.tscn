@@ -46,7 +46,7 @@ region_min_size = 1.0
 
 [sub_resource type="Curve" id="Curve_jkv2x"]
 _limits = [0.0, 51.1714, 0.0, 16.0]
-_data = [Vector2(0, 0), 0.0, 4.80973, 0, 0, Vector2(16, 51.1714), 6.37987, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 4.9191, 0, 0, Vector2(11.2, 51.1714), 4.86519, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yc10j"]
