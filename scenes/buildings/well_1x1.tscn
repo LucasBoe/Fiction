@@ -13,6 +13,7 @@
 script = ExtResource("2_k8uxb")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
+reward_amount_base = 5
 display_name = "Well"
 
 [node name="Well" parent="." index="0"]

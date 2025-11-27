@@ -22,11 +22,11 @@ func show_choice(reward : RewardBuilding.RewardType):
 		create_button_wagon_maker(
 			" [color= orange] Repair [/color]all wagons",
 			load("res://ui/supplies_icon.png"),
-			20)
+			30)
 		create_button_wagon_maker(
 			"Build a[color= orange] Simple Wagon [/color]",
 			load("res://ui/basic_icon.png"),
-			30)
+			50)
 	
 		await on_picked_reward_signal
 		
