@@ -9,7 +9,71 @@ class_name MapData
 var houses : Array
 var blocked_positions : Array[Vector2i]
 var display_name : String
-const names = ["Alderbrook","Amberfield","Ashbourne","Baywick","Birch Hollow","Blackwater","Blue Harbor","Briar Glen","Bristlecone","Brookhaven","Cedarfall","Cedar Vale","Cloverford","Coldstream","Copper Cove","Cinder Ridge","Crystalford","Dawnhaven","Driftwood Bay","Eaglecrest","Elmspire","Emberfield","Fableton","Fairmeadow","Fern Hollow","Foxglove","Frost Harbor","Gildershire","Goldenbrook","Greenhaven","Hallowmere","Harborview","Hazelwick","Hearthstead","Highgate","Hillcrest","Hollowbrook","Honeybridge","Ironwood","Iverton","Juniper Ridge","Kestrel Point","Kingsvale","Lakebright","Lantern Bay","Larkspur","Larkvale","Laurelspine","Lilac Grove","Linden Falls","Little Wren","Mapleford","Marshlight","Meadowrun","Millstone","Mistwood","Moonhaven","Mossy Glen","Northwind","Oakfield","Oakhollow","Osprey Point","Pebblebrook","Pine Harbor","Pinecrest","Redfern","Riverbend","Riverhollow","Rosemead","Rowanbridge","Sable Creek","Sage Meadow","Sandbar","Seabright","Seagrass","Silverpine","Silverrun","Skylark","Snowvale","Sparrow Falls","Springtide","Starling","Steeplechase","Stonemere","Stormhaven","Sunfield","Sunhollow","Thimblewick","Thornberry","Thistlewick","Tidewater","Timberfall","Tranquil Bay","Tumblebrook","Velvet Harbor","Westering","Westmere","Whitebridge","Willowfen","Windemere"]
+const village_names = [
+	"Blackmere",
+	"Grimwood",
+	"Ashbrook",
+	"Thornvale",
+	"Ravenspire",
+	"Barrowstead",
+	"Dreadholm",
+	"Crowmark",
+	"Wyrdfell",
+	"Deadwater",
+	"Nightford",
+	"Murkmire",
+	"Gallowsend",
+	"Bleakhaven",
+	"Bramblehold",
+	"Wolfmere",
+	"Ironfall",
+	"Shadowfen",
+	"Vilewood",
+	"Darkreach"
+]
+const castle_names = [
+	"Frostheim Ruin",
+	"The Broken Hall of Hjal",
+	"Grimrock Hold",
+	"Coldwach",
+	"Jorund’s Fall",
+	"Hailspire",
+	"The Bleakhold",
+	"Stormcrag",
+	"The Ruins of Kjorstag",
+	"Ashenreach",
+	"Stone-Winter Watch",
+	"Hroth’s Rest",
+	"The Shorn Keep",
+	"Skarvum Ruin",
+	"Thundermoor Post",
+	"The Fallen Longhall",
+	"Icevein Hold",
+	"The Ruin at Draugrfall",
+	"The Old Hold of Skell"
+]
+const farm_names = [
+	"Blackroot Farm",
+	"Bramblefield",
+	"Crow’s Acre",
+	"Rotwillow Farm",
+	"Elderfall Croft",
+	"Ashthorn Farm",
+	"Barrowfield",
+	"Widow’s Patch",
+	"Gallowsoil Farm",
+	"Wyrdacre",
+	"Duskmere Field",
+	"Greybark Farm",
+	"Thornreach Croft",
+	"Bleedroot Farm",
+	"Nightseed Farm",
+	"Murkwheat Fields",
+	"Hollowcrop",
+	"Raveland Farm",
+	"Rustleaf Croft",
+	"Cinderfield Farm"
+]
 
 enum LocationKeyword {
 	VILLAGE,
@@ -19,10 +83,17 @@ enum LocationKeyword {
 
 func _ready():
 	houses = find_child("Houses").get_children()
-	display_name = names.pick_random()
+	display_name = get_random_name(keywords[0])
 	blocked_positions = find_blocked_position()
 	GridVisualizer.refresh_blocked(blocked_positions)
-	
+
+func get_random_name(keyword : LocationKeyword) -> String:
+	if keyword == LocationKeyword.VILLAGE:
+		return village_names.pick_random()
+	elif keyword == LocationKeyword.CASTLE:
+		return castle_names.pick_random()
+	return farm_names.pick_random()
+
 func find_blocked_position():
 	var blocked : Array[Vector2i]
 	

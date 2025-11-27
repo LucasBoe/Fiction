@@ -203,7 +203,7 @@ func try_merge(textA, textB):
 	elif textB == null or textB.is_empty():
 		return textA
 	
-	return str(textA, "\n", textB)
+	return str(textA, "\n", "\n", textB)
 	
 func execute_effects(effects : Array[EventChoice.EventChoiceEffects]):
 	for effect : EventChoice.EventChoiceEffects in effects:
