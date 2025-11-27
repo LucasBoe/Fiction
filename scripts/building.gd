@@ -19,6 +19,7 @@ var _original_energy := {}
 func _ready():
 	if is_enemy_target or can_be_damaged_by_enemy:
 		health = $Health
+		health.is_empty.connect(destroy)
 		
 	if lights_root:
 		_collect_lights(lights_root)
@@ -56,3 +57,8 @@ func on_set_night():
 		var tween := create_tween()
 		tween.tween_interval(1)
 		tween.tween_property(l, "light_energy", target_energy, night_tween_time)
+
+func destroy():
+	(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
+	queue_free()
+	((Globals.map_loader.get_parent()) as NavigationRegion3D).bake_navigation_mesh()

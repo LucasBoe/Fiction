@@ -21,7 +21,7 @@ height = 0.963322
 
 [node name="EnemyShadow" type="CharacterBody3D"]
 script = ExtResource("1_ani8c")
-speed = 2.0
+speed = 3.0
 damage_per_tick = 5
 
 [node name="Health" parent="." instance=ExtResource("2_5cnh8")]
