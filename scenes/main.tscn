@@ -74,7 +74,7 @@ noise = SubResource("FastNoiseLite_muem4")
 render_priority = 0
 shader = ExtResource("16_jbj1t")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_dp3eg")
-shader_parameter/density = 1.0
+shader_parameter/density = 0.5
 shader_parameter/speed = Vector2(0.001, 0.005)
 shader_parameter/fog_color = Vector4(0.3, 0.35, 0.4, 1)
 shader_parameter/clear_radius = 0.15
@@ -322,7 +322,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 [node name="Wagon_Archer" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_yc10j")]
 
 [node name="Wagon_Archer2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_yc10j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1.00582, 0, 0, 0, 1.00582, 0, 0, 0, 1.00582, 0, 0, 1)
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 
