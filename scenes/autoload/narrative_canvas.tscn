@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cemj8rbwpuygu"]
+[gd_scene load_steps=6 format=3 uid="uid://cemj8rbwpuygu"]
 
 [ext_resource type="Script" uid="uid://ds26wnxukcgp" path="res://scripts/narrative/narrative_canvas.gd" id="1_2i8tp"]
 [ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="2_hac41"]
 [ext_resource type="Script" uid="uid://c3m8qqsdekftg" path="res://scenes/autoload/text_file_parser.gd" id="2_uwomx"]
 [ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="3_uwomx"]
+[ext_resource type="FontFile" uid="uid://cblvk8fk77d1h" path="res://fonts/C&C Red Alert.ttf" id="5_uwomx"]
 
 [node name="NarrativeCanvas" type="CanvasLayer"]
 layer = 60
@@ -98,7 +99,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 0.860777, 0.701169, 1)
-theme_override_font_sizes/normal_font_size = 11
+theme_override_fonts/normal_font = ExtResource("5_uwomx")
+theme_override_font_sizes/normal_font_size = 13
 bbcode_enabled = true
 text = "Go south"
 horizontal_alignment = 1
@@ -118,7 +120,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 0.862745, 0.701961, 1)
-theme_override_font_sizes/normal_font_size = 11
+theme_override_fonts/normal_font = ExtResource("5_uwomx")
+theme_override_font_sizes/normal_font_size = 13
 bbcode_enabled = true
 text = "Go south"
 horizontal_alignment = 1
