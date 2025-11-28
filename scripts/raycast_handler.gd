@@ -2,10 +2,15 @@ extends Node3D
 
 @onready var cursor_3d = $Cursor
 
+var lmb_pressed
+
 var currently_hovered_moveable
 var currently_dragging : Moveable
 var pickup_offset : Vector3
 var pickup_location : Vector3
+
+var currently_hovered_reward
+var previously_hovered_reward
 
 var are_modifications_allowed = false
 
@@ -19,12 +24,35 @@ func set_modifications_allowed(allowed):
 
 func _process(delta):
 	
-	if not are_modifications_allowed:
-		return
-	
 	var space_state = get_world_3d().direct_space_state
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var cam = Globals.current_camera
+	
+	lmb_pressed = Input.is_mouse_button_pressed(1)
+	
+	if are_modifications_allowed:
+		handle_modifications(space_state, mouse_pos, cam)
+	else:
+		handle_reward_claim(space_state, mouse_pos, cam)
+		
+func handle_reward_claim(space_state, mouse_pos, cam):
+	previously_hovered_reward = currently_hovered_reward
+	currently_hovered_reward = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, RewardTrigger)
+	
+	if previously_hovered_reward != currently_hovered_reward:
+		if previously_hovered_reward != null:
+			previously_hovered_reward.notify_exit()
+			
+		if currently_hovered_reward != null:		
+			currently_hovered_reward.notify_enter()
+			
+	if currently_hovered_reward == null:
+		return
+		
+	if lmb_pressed:
+		currently_hovered_reward.trigger_reward()
+
+func handle_modifications(space_state, mouse_pos, cam):
 	
 	currently_hovered_moveable = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, Moveable)
 	
@@ -35,7 +63,6 @@ func _process(delta):
 	
 	cursor_3d.visible = currently_dragging == null
 	
-	var lmb_pressed = Input.is_mouse_button_pressed(1)
 	
 	if currently_dragging:
 			

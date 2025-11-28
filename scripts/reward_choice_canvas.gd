@@ -11,7 +11,7 @@ func _ready():
 	choice_dummy.visible = false
 	visible = false
 
-func show_choice(reward : RewardBuilding.RewardType):
+func show_choice(reward : RewardBuilding.RewardType, callback = null):
 	visible = true
 	
 	if reward == RewardBuilding.RewardType.WAGON_MAKER:

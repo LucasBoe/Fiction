@@ -11,16 +11,22 @@ class_name Building
 @export var night_tween_time: float = 4
 
 var health : Health
+var reward_trigger : RewardTrigger
 
 @onready var lights_root: Node3D = $Lights
 var _lights: Array[Light3D] = []
 var _original_energy := {}
 
 func _ready():
+	
 	if is_enemy_target or can_be_damaged_by_enemy:
 		health = $Health
 		health.is_empty.connect(destroy)
 		
+	reward_trigger = find_child("RewardTrigger")
+	if reward_trigger:
+		reward_trigger.visible = false
+	
 	if lights_root:
 		_collect_lights(lights_root)
 		if _lights.size() > 0:
@@ -62,3 +68,4 @@ func destroy():
 	(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
 	queue_free()
 	((Globals.map_loader.get_parent()) as NavigationRegion3D).bake_navigation_mesh()
+	

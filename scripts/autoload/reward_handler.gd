@@ -4,12 +4,19 @@ extends Node3D
 @onready var reward_choice_canvas : RewardChoiceCanvas = $RewardChoiceCanvas
 
 var reward_instances : Array[MeshInstance3D]
+var reward_triggers : Array[RewardTrigger]
 
 signal all_rewards_chose_signal
 signal all_rewards_given_signal
 
 func _ready():
 	reward_dummy.visible = false
+	
+func register_trigger(trigger):
+	reward_triggers.append(trigger)
+	
+func unregister_trigger(trigger):
+	reward_triggers.erase(trigger)
 
 func give_rewards():
 	var map = Globals.map_loader.currently_loaded_map
@@ -21,7 +28,7 @@ func give_rewards():
 	
 	var total_reward = 0
 	
-	var reward_buildings : Array[RewardBuilding]
+	#var reward_buildings : Array[RewardBuilding]
 	
 	for child in map.houses:
 		if child is not Building:
@@ -32,48 +39,58 @@ func give_rewards():
 			continue
 		
 		# filter out specific reward buildings
-		if building is RewardBuilding:
-			if not building.health._is_empty():
-				reward_buildings.append(building)
+		#if building is RewardBuilding:
+			#if not building.health._is_empty():
+				#reward_buildings.append(building)	
+				
+		if building.reward_trigger != null:
+			if (not building.health._is_empty()):
+				building.reward_trigger.visible = true
+			else:
+				reward_triggers.erase(building.reward_trigger)
 			
-		# apply genereal reward based on destruction	
-		var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
-		for i in reward_amount / 3.0:
-			var reward_instance = reward_dummy.duplicate()
-			add_child(reward_instance)
-			reward_instance.visible = true
-			reward_instance.name = str(3.0)
-			reward_instance.global_position = child.global_position + Vector3.UP
-			reward_instance.scale = Vector3.ZERO	
-			reward_instances.append(reward_instance)
-			var tween := reward_instance.create_tween()
-			tween.set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property(reward_instance, "global_position", child.global_position + Vector3(randf_range(-.5,.5), 1, randf_range(-.5,.5)), 0.5)
-			tween.parallel().tween_property(reward_instance, "scale", Vector3.ONE * .3, 0.5)
-			
-		total_reward += reward_amount
-		print(total_reward)
+		## apply genereal reward based on destruction	
+		#var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
+		#for i in reward_amount / 3.0:
+			#var reward_instance = reward_dummy.duplicate()
+			#add_child(reward_instance)
+			#reward_instance.visible = true
+			#reward_instance.name = str(3.0)
+			#reward_instance.global_position = child.global_position + Vector3.UP
+			#reward_instance.scale = Vector3.ZERO	
+			#reward_instances.append(reward_instance)
+			#var tween := reward_instance.create_tween()
+			#tween.set_ease(Tween.EASE_IN_OUT)
+			#tween.tween_property(reward_instance, "global_position", child.global_position + Vector3(randf_range(-.5,.5), 1, randf_range(-.5,.5)), 0.5)
+			#tween.parallel().tween_property(reward_instance, "scale", Vector3.ONE * .3, 0.5)
+			#
+		#total_reward += reward_amount
+		#print(total_reward)
 		
-	await get_tree().create_timer(.5).timeout
-		
-	var curve_fly_duration = 1.0
-	var curve_fly_step_delay = 0.05
+	#await get_tree().create_timer(.5).timeout
+		#
+	#var curve_fly_duration = 1.0
+	#var curve_fly_step_delay = 0.05
+	#
+	#var delay = 0.0
+	#for reward in reward_instances:
+		#animate_over_time(reward, money_cart.global_position, curve_fly_duration, null, delay)
+		#delay += curve_fly_step_delay
+		#
+	#await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout	
+		#
+	#for reward in reward_instances:
+		#reward.queue_free()
+	#reward_instances.clear()
 	
-	var delay = 0.0
-	for reward in reward_instances:
-		animate_over_time(reward, money_cart.global_position, curve_fly_duration, null, delay)
-		delay += curve_fly_step_delay
-		
-	await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout	
-		
-	for reward in reward_instances:
-		reward.queue_free()
-	reward_instances.clear()
+	#for building in reward_buildings:
+		#await reward_choice_canvas.show_choice(building.reward)
+		#
 	
-	for building in reward_buildings:
-		await reward_choice_canvas.show_choice(building.reward)
+	while reward_triggers.size() > 0 or reward_choice_canvas.visible:
+		await get_tree().process_frame
 		
-	await get_tree().create_timer(2).timeout	
+	await get_tree().create_timer(2).timeout
 		
 	all_rewards_given_signal.emit()
 

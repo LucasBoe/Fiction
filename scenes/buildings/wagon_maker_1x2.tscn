@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwr4ji4gk7meu"]
+[gd_scene load_steps=14 format=3 uid="uid://bwr4ji4gk7meu"]
 
 [ext_resource type="PackedScene" uid="uid://2cte4sm1bg88" path="res://meshes/buildings/wagonMaker_1x2.glb" id="1_3n6ov"]
 [ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_1m81v"]
@@ -10,6 +10,8 @@
 [ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="8_o5t0c"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_v47fx"]
 [ext_resource type="PackedScene" uid="uid://cmjhjeua7dicr" path="res://scenes/window_light.tscn" id="10_o5t0c"]
+[ext_resource type="PackedScene" uid="uid://dupa77trqbvmv" path="res://scenes/reward_trigger.tscn" id="11_hcrx1"]
+[ext_resource type="PackedScene" uid="uid://ryddrs3qhijp" path="res://scenes/decoration/sack.tscn" id="12_wkdje"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3n6ov"]
 size = Vector3(2, 1, 1)
@@ -49,3 +51,9 @@ transform = Transform3D(9.24274e-05, 0.74641, -0.665487, -0.000171603, 0.665487,
 
 [node name="WindowLight2" parent="Lights" index="2" instance=ExtResource("10_o5t0c")]
 transform = Transform3D(-0.000133777, -0.548736, 0.835996, -0.000141811, 0.835996, 0.548736, -1, -4.51452e-05, -0.000189654, -0.469238, 0.995392, 0.527821)
+
+[node name="RewardTrigger" parent="." index="4" instance=ExtResource("11_hcrx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="sack" parent="RewardTrigger" index="3" instance=ExtResource("12_wkdje")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0243583, -0.210797, 0.00974351)
