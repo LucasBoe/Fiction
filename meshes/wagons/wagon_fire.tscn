@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkr2ius3e7m68"]
+
+[ext_resource type="PackedScene" uid="uid://cv6fgpebnnj7n" path="res://meshes/wagons/wagon_fire.glb" id="1_jpiik"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_jyb65"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_rkj5v"]
+
+[node name="wagon_fire" instance=ExtResource("1_jpiik")]
+surface_material_override/0 = ExtResource("2_jyb65")
+surface_material_override/1 = ExtResource("3_rkj5v")

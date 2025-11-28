@@ -2,7 +2,7 @@ extends Wagon
 class_name WagonFire
 
 @onready var area : Area3D = $Area3D
-@onready var canon_mesh = $CanonMesh
+@onready var canon_mesh = $Visuals/wagon_fire_spinner
 
 @export var damage_per_second = 1.0
 @export var rotation_speed = 5.0

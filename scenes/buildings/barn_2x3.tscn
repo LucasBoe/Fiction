@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1i0sfero84vb"]
+[gd_scene load_steps=14 format=3 uid="uid://c1i0sfero84vb"]
 
 [ext_resource type="PackedScene" uid="uid://cx5ogq8y4fikq" path="res://meshes/buildings/barn_2x3.glb" id="1_sirkh"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_buocy"]
@@ -8,6 +8,10 @@
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="5_ryjx5"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="6_3n31h"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_vgbpj"]
+[ext_resource type="PackedScene" uid="uid://dupa77trqbvmv" path="res://scenes/reward_trigger.tscn" id="9_28ebe"]
+[ext_resource type="PackedScene" uid="uid://bdtb4mhooyax" path="res://scenes/decoration/1_box.tscn" id="10_klnuy"]
+[ext_resource type="PackedScene" uid="uid://bsf86vjc8cwc4" path="res://scenes/decoration/2_box.tscn" id="11_1jcme"]
+[ext_resource type="PackedScene" uid="uid://di2yos6lnw6kr" path="res://scenes/decoration/barrel_1.tscn" id="12_pboy1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28ebe"]
 size = Vector3(3, 1, 2)
@@ -37,3 +41,15 @@ shape = SubResource("BoxShape3D_28ebe")
 
 [node name="Health" parent="." index="2" instance=ExtResource("8_vgbpj")]
 max_health = 1000
+
+[node name="RewardTrigger" parent="." index="3" instance=ExtResource("9_28ebe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77707, 0)
+
+[node name="1_box" parent="RewardTrigger" index="2" instance=ExtResource("10_klnuy")]
+transform = Transform3D(1.78169, 0, 0, 0, 1.70281, 0.305742, 0, -0.296607, 1.75526, 0.164962, -0.212225, -0.101449)
+
+[node name="2_box" parent="RewardTrigger" index="3" instance=ExtResource("11_1jcme")]
+transform = Transform3D(1.74905, -0.329301, 0, 0.337813, 1.68864, -0.174419, 0.03323, 0.166109, 1.77313, 0.0590715, -0.0474911, 0.257829)
+
+[node name="barrel_1" parent="RewardTrigger" index="4" instance=ExtResource("12_pboy1")]
+transform = Transform3D(1.78169, 0, 0, 0, 1.72845, 0, 0, 0, 1.78169, -0.240182, -0.0474911, -0.0157038)
