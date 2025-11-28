@@ -6,6 +6,7 @@ var lmb_pressed
 
 var currently_hovered_moveable
 var currently_dragging : Moveable
+var pickup_rotation_in_degrees : float
 var pickup_offset : Vector3
 var pickup_location : Vector3
 
@@ -92,6 +93,9 @@ func handle_modifications(space_state, mouse_pos, cam):
 		if not lmb_pressed:
 			
 			if obstructed:
+				currently_dragging.rotation_in_degrees = pickup_rotation_in_degrees
+				var rot = deg_to_rad(currently_dragging.rotation_in_degrees)
+				currently_dragging.rotation = Vector3(0,rot,0)
 				currently_dragging.global_position = pickup_location
 				
 			JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
@@ -102,6 +106,7 @@ func handle_modifications(space_state, mouse_pos, cam):
 	elif currently_hovered_moveable and lmb_pressed:
 		pickup_location = currently_hovered_moveable.global_position
 		pickup_offset = currently_hovered_moveable.global_position - grid_pos
+		pickup_rotation_in_degrees = currently_hovered_moveable.rotation_in_degrees
 		currently_dragging = currently_hovered_moveable
 		JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
 		GridVisualizer.show_grid()

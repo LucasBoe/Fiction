@@ -1,6 +1,7 @@
 extends CanvasLayer
 class_name RewardChoiceCanvas
 
+@onready var margin_root = $Control/MarginContainer
 @onready var header_label = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/Label
 @onready var choice_dummy = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy
 @onready var close_button = $Control/MarginContainer/VBoxContainer/Control/CloseButton
@@ -55,6 +56,8 @@ func show_choice(reward : RewardBuilding.RewardType, callback = null):
 			pool.erase(upgrade)
 			create_button_smith(upgrade.upgrade_name, upgrade.upgrade_cost, upgrade.upgrade_icon, upgrade.original_wagon, upgrade.upgrade_wagon.resource_path)
 			i-=1
+	
+	#margin_root.size = margin_root.get_combined_minimum_size()
 
 func create_button_smith(title, price, upgradeIcon, original_wagon, new_wagon):
 	var button = create_button(title, price, upgradeIcon)

@@ -13,9 +13,6 @@ var _total_distance := 1.0
 var _base_height := .3
 var _moving := false
 
-func _ready() -> void:
-	$Area3D.enemy_damaged.connect(_on_enemy_damaged)
-
 func _on_enemy_damaged(enemy : Enemy):
 	enemy.health.take_damage(_damage)
 	self.queue_free()
@@ -58,6 +55,8 @@ func _physics_process(delta: float) -> void:
 
 	if t >= 1.0:
 		t = 1.0
+		if is_instance_valid(_target):
+			_on_enemy_damaged(_target)
 		_moving = false
 
 	if is_instance_valid(_target):

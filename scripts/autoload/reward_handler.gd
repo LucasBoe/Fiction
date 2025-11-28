@@ -2,7 +2,6 @@ extends Node3D
 
 @onready var reward_dummy : MeshInstance3D = $RewardDummy
 @onready var reward_choice_canvas : RewardChoiceCanvas = $RewardChoiceCanvas
-
 var reward_instances : Array[MeshInstance3D]
 var reward_triggers : Array[RewardTrigger]
 
@@ -86,8 +85,13 @@ func give_rewards():
 	#for building in reward_buildings:
 		#await reward_choice_canvas.show_choice(building.reward)
 		#
-	
-	while reward_triggers.size():
+	while true:
+		# Remove freed / invalid instances
+		reward_triggers = reward_triggers.filter(func(t): return is_instance_valid(t))
+
+		if reward_triggers.is_empty():
+			break
+
 		await get_tree().process_frame
 		
 	await get_tree().create_timer(2).timeout
