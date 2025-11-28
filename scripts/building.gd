@@ -67,5 +67,5 @@ func on_set_night():
 func destroy():
 	(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
 	queue_free()
-	((Globals.map_loader.get_parent()) as NavigationRegion3D).bake_navigation_mesh()
+	Globals.map_loader.get_parent().trigger_rebake()
 	

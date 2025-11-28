@@ -16,7 +16,7 @@ shader_parameter/snap_enabled = true
 shader_parameter/snap_resolution = 120.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5cnh8"]
-radius = 0.133005
+radius = 0.09
 height = 0.963322
 
 [node name="EnemyShadow" type="CharacterBody3D"]
