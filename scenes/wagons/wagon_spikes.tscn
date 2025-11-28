@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://brc1c1fk5ajwc"]
+
+[ext_resource type="Script" uid="uid://hkmfqnxgfwsd" path="res://scripts/wagons/wagon_spikes.gd" id="1_vcyf4"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_g66xa"]
+[ext_resource type="PackedScene" uid="uid://e6vikdxmpudk" path="res://meshes/wagons/wagon_barricade.tscn" id="6_ltttd"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_0670v"]
+[ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="8_oh3xv"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="9_mvuw5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
+size = Vector3(1.82397, 0.805603, 0.837952)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
+size = Vector3(1.97223, 1.02826, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b8pn2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyn8p"]
+size = Vector3(2, 1, 3)
+
+[node name="Wagon_Spikes" type="StaticBody3D"]
+script = ExtResource("1_vcyf4")
+grid_size = Vector2i(2, 3)
+
+[node name="Health" parent="." instance=ExtResource("5_g66xa")]
+max_health = 1000
+
+[node name="wagon_barricade2" parent="." instance=ExtResource("6_ltttd")]
+
+[node name="LanternLight" parent="." instance=ExtResource("7_0670v")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.000759602, 1.47639, -0.00502133)
+
+[node name="Lantern" parent="." instance=ExtResource("8_oh3xv")]
+transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 0.192626, 0.837514, -0.373531)
+
+[node name="Lantern2" parent="." instance=ExtResource("8_oh3xv")]
+transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, -0.327452, 0.837514, 0.3693)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0250244, 0.597198, 0.0176697)
+shape = SubResource("BoxShape3D_xliut")
+
+[node name="WagonBody" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_mvuw5")
+
+[node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
+shape = SubResource("BoxShape3D_hsfs4")
+disabled = true
+
+[node name="Spikes1" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Spikes1"]
+transform = Transform3D(0.09117, 0, 0, 0, 0.0667633, 0, 0, 0, 1, -0.650806, 0.647981, 0)
+mesh = SubResource("BoxMesh_b8pn2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Spikes1"]
+transform = Transform3D(0.09117, 0, 0, 0, 0.0667633, 0, 0, 0, 1, 0.442869, 0.647981, 0)
+mesh = SubResource("BoxMesh_b8pn2")
+
+[node name="Spikes2" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spikes2"]
+transform = Transform3D(0.09117, 0, 0, 0, 0.0667633, 0, 0, 0, 1, -0.0523791, 0.647981, 0)
+mesh = SubResource("BoxMesh_b8pn2")
+skeleton = NodePath("../../Spikes2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_gyn8p")
