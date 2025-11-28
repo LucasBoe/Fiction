@@ -87,7 +87,7 @@ func give_rewards():
 		#await reward_choice_canvas.show_choice(building.reward)
 		#
 	
-	while reward_triggers.size() > 0 or reward_choice_canvas.visible:
+	while reward_triggers.size():
 		await get_tree().process_frame
 		
 	await get_tree().create_timer(2).timeout

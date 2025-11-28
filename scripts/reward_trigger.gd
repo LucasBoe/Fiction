@@ -105,7 +105,7 @@ func ease_in_out_sine(x: float) -> float:
 	
 func on_close_reward_window(chose_reward):
 	if chose_reward:
-		queue_free()
 		RewardHandler.unregister_trigger(self)
+		queue_free()
 	else:
 		triggered = false
