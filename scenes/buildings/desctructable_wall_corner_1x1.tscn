@@ -11,6 +11,8 @@ size = Vector3(0.914856, 1, 0.962402)
 
 [node name="wall_corner_1x1_corner" instance=ExtResource("1_lqgck")]
 script = ExtResource("2_hvlpl")
+can_be_damaged_by_enemy = true
+reward_amount_base = 0
 
 [node name="Health" parent="." index="0" instance=ExtResource("3_drkjy")]
 max_health = 200

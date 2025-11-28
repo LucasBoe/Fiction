@@ -22,7 +22,10 @@ func _ready():
 	
 	if is_enemy_target or can_be_damaged_by_enemy:
 		health = $Health
-		health.is_empty.connect(destroy)
+		if health == null:
+			print(name, " want's to be damaged but does not cointain health object")
+		else:
+			health.is_empty.connect(destroy)
 		
 	reward_trigger = find_child("RewardTrigger")
 	if reward_trigger:

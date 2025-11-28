@@ -9,6 +9,7 @@ size = Vector3(0.913323, 1, 0.914001)
 
 [node name="wall_corner_2x2" instance=ExtResource("1_os8te")]
 script = ExtResource("2_diip3")
+reward_amount_base = 0
 
 [node name="wall_corner_2x2" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_2a7au")

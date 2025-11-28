@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvfve5pqta7aa"]
+[gd_scene load_steps=7 format=3 uid="uid://bsegebvlsixkl"]
 
 [ext_resource type="PackedScene" uid="uid://dv5vaepwavwq1" path="res://meshes/buildings/wall_1x3.glb" id="1_era0y"]
 [ext_resource type="Script" uid="uid://csst8eb4ymvyq" path="res://scripts/NoNavMeshBuilding.gd" id="2_5e4yn"]
@@ -11,6 +11,8 @@ size = Vector3(1.97922, 1, 1)
 
 [node name="wall_1x2_destructable" instance=ExtResource("1_era0y")]
 script = ExtResource("2_5e4yn")
+can_be_damaged_by_enemy = true
+reward_amount_base = 0
 
 [node name="Health" parent="." index="0" instance=ExtResource("3_wpn2v")]
 max_health = 400
