@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://brc1c1fk5ajwc"]
 
-[ext_resource type="Script" uid="uid://hkmfqnxgfwsd" path="res://scripts/wagons/wagon_spikes.gd" id="1_vcyf4"]
+[ext_resource type="Script" path="res://scripts/wagons/wagon_spikes.gd" id="1_vcyf4"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_g66xa"]
 [ext_resource type="PackedScene" uid="uid://e6vikdxmpudk" path="res://meshes/wagons/wagon_barricade.tscn" id="6_ltttd"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_0670v"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="9_mvuw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
-size = Vector3(1.82397, 0.805603, 0.837952)
+size = Vector3(1.8, 1, 1.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1.97223, 1.02826, 1)

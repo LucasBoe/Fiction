@@ -31,8 +31,13 @@ static func boxcast_for_objects(
 	if exclude != null:
 		params.exclude = exclude
 	
+	var intersection = space_state.intersect_shape(params, max_results)
+	for i in intersection:
+		if i.collider is Area3D:
+			intersection.erase(i)
+			
 	# Returns Array[Dictionary] with keys: "collider", "rid", "shape", "collider_id"
-	return space_state.intersect_shape(params, max_results)
+	return intersection
 
 static  func raycast_for_object(space_state, mouse_pos, cam, target_class_type):
 	var origin = cam.project_ray_origin(mouse_pos)

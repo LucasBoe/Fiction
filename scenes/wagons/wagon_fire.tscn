@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bglr6y4wkwou0"]
 
-[ext_resource type="Script" uid="uid://bu0efikpyo5ja" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
+[ext_resource type="Script" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
 [ext_resource type="PackedScene" uid="uid://bkr2ius3e7m68" path="res://meshes/wagons/wagon_fire.tscn" id="5_50edh"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_o8ouu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_1jx8e"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="12_q3c7r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
+size = Vector3(1.2, 1, 1.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1, 1.028, 1)
