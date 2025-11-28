@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://6l5ghah5ecm"]
+[gd_scene load_steps=17 format=3 uid="uid://6l5ghah5ecm"]
 
 [ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_wbnbi"]
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_j54jo"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="3_mr4cv"]
+[ext_resource type="PackedScene" uid="uid://1lyrvt0tnwep" path="res://scenes/debris/house_1x2_debris.tscn" id="3_yn47h"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_8dfc8"]
 [ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="5_e4ukk"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_sfm7d"]
@@ -22,6 +23,7 @@ size = Vector3(2, 1, 2)
 script = ExtResource("2_j54jo")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
+debris_mesh = ExtResource("3_yn47h")
 display_name = "House"
 
 [node name="House_2x2" parent="." index="0"]
@@ -62,11 +64,11 @@ transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107
 [node name="RewardTrigger" parent="." index="5" instance=ExtResource("11_tswc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="1_box" parent="RewardTrigger" index="3" instance=ExtResource("12_yn47h")]
+[node name="1_box" parent="RewardTrigger" index="2" instance=ExtResource("12_yn47h")]
 transform = Transform3D(1.78169, 0, 0, 0, 1.70281, 0.305742, 0, -0.296607, 1.75526, 0.164962, -0.212225, -0.101449)
 
-[node name="2_box" parent="RewardTrigger" index="4" instance=ExtResource("13_xky1n")]
+[node name="2_box" parent="RewardTrigger" index="3" instance=ExtResource("13_xky1n")]
 transform = Transform3D(1.74905, -0.329301, 0, 0.337813, 1.68864, -0.174419, 0.03323, 0.166109, 1.77313, 0.0590715, -0.0474911, 0.257829)
 
-[node name="barrel_1" parent="RewardTrigger" index="5" instance=ExtResource("14_2s8qu")]
+[node name="barrel_1" parent="RewardTrigger" index="4" instance=ExtResource("14_2s8qu")]
 transform = Transform3D(1.78169, 0, 0, 0, 1.72845, 0, 0, 0, 1.78169, -0.240182, -0.0474911, -0.0157038)

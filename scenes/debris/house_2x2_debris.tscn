@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqjfs6itk6es2"]
+
+[ext_resource type="PackedScene" uid="uid://co06o23jop7rx" path="res://scenes/decoration/debris_2.tscn" id="1_5r000"]
+[ext_resource type="PackedScene" uid="uid://jejo6ahbgg58" path="res://scenes/decoration/plank_1.tscn" id="2_k5c1e"]
+[ext_resource type="PackedScene" uid="uid://bw2ou4e37kgmq" path="res://scenes/decoration/plank_2.tscn" id="3_0pq1j"]
+[ext_resource type="PackedScene" uid="uid://k3do0oioqbn5" path="res://scenes/decoration/debris_1.tscn" id="4_3olbu"]
+
+[node name="house_1x2_debris" type="Node3D"]
+
+[node name="debris_2" parent="." instance=ExtResource("1_5r000")]
+transform = Transform3D(1, 0, 0, 0, 0.490348, 0, 0, 0, 1, 0.598042, 0, 0.463125)
+
+[node name="debris_3" parent="." instance=ExtResource("1_5r000")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 0.490348, 0, -0.866025, 0, -0.5, 0.364825, 0, -0.466773)
+
+[node name="plank_1" parent="." instance=ExtResource("2_k5c1e")]
+transform = Transform3D(0.0540463, -0.34879, 0.935642, -0.98125, 0.155055, 0.114482, -0.185006, -0.924286, -0.333871, 0.677125, 0, 0.0693835)
+
+[node name="plank_3" parent="." instance=ExtResource("2_k5c1e")]
+transform = Transform3D(-2.7808e-08, 0.636173, 0.771547, -0.998051, -0.0481502, 0.0397018, 0.0624073, -0.770043, 0.634933, -0.564, 0, 0.815)
+
+[node name="plank_2" parent="." instance=ExtResource("3_0pq1j")]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 0.0434958, 0, 0.0133783)
+
+[node name="debris_1" parent="." instance=ExtResource("4_3olbu")]
+transform = Transform3D(0.980422, 0, 0.853681, 0, 0.196964, 0, -0.853681, 0, 0.980422, -0.330094, 0, -0.243208)

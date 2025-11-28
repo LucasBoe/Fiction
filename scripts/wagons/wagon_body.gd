@@ -2,7 +2,7 @@ extends StaticBody3D
 class_name WagonBody
 
 @onready var health : Health = $"../Health"
-@onready var destroyedWagon = preload("res://scenes/wagons/wagon_1x2_debris.tscn")
+@onready var destroyedWagon = preload("res://scenes/debris/wagon_1x2_debris.tscn")
 
 func _ready() -> void:
 	

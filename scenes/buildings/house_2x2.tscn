@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://crd7qkxr1o3b"]
+[gd_scene load_steps=17 format=3 uid="uid://crd7qkxr1o3b"]
 
 [ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_17r57"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_1i8xn"]
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_viv3f"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="3_viv3f"]
+[ext_resource type="PackedScene" uid="uid://cqjfs6itk6es2" path="res://scenes/debris/house_2x2_debris.tscn" id="3_xp7qk"]
 [ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="4_2odmd"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="5_w5fcj"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="6_iyejd"]
@@ -22,6 +23,7 @@ size = Vector3(2, 1, 2)
 script = ExtResource("2_viv3f")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
+debris_mesh = ExtResource("3_xp7qk")
 display_name = "House"
 
 [node name="House_2x2" parent="." index="0"]

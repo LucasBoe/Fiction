@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1i0sfero84vb"]
+[gd_scene load_steps=15 format=3 uid="uid://c1i0sfero84vb"]
 
 [ext_resource type="PackedScene" uid="uid://cx5ogq8y4fikq" path="res://meshes/buildings/barn_2x3.glb" id="1_sirkh"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_buocy"]
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_ocmk0"]
+[ext_resource type="PackedScene" uid="uid://dpx5qouxjik4r" path="res://scenes/debris/house_2x3_debris.tscn" id="3_klnuy"]
 [ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="3_ocmk0"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="4_vgbpj"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="5_ryjx5"]
@@ -21,6 +22,7 @@ script = ExtResource("2_ocmk0")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
 reward_amount_base = 20
+debris_mesh = ExtResource("3_klnuy")
 display_name = "Barn"
 
 [node name="Barn_2x3" parent="." index="0"]

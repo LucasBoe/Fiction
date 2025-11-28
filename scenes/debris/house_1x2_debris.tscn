@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://1lyrvt0tnwep"]
+
+[ext_resource type="PackedScene" uid="uid://co06o23jop7rx" path="res://scenes/decoration/debris_2.tscn" id="1_iipo6"]
+[ext_resource type="PackedScene" uid="uid://jejo6ahbgg58" path="res://scenes/decoration/plank_1.tscn" id="2_wdx26"]
+[ext_resource type="PackedScene" uid="uid://bw2ou4e37kgmq" path="res://scenes/decoration/plank_2.tscn" id="3_d1ptc"]
+[ext_resource type="PackedScene" uid="uid://k3do0oioqbn5" path="res://scenes/decoration/debris_1.tscn" id="4_wdx26"]
+
+[node name="house_1x2_debris" type="Node3D"]
+
+[node name="debris_2" parent="." instance=ExtResource("1_iipo6")]
+transform = Transform3D(1, 0, 0, 0, 0.490348, 0, 0, 0, 1, -0.501047, 0, -0.189787)
+
+[node name="plank_1" parent="." instance=ExtResource("2_wdx26")]
+transform = Transform3D(-2.7808e-08, 0.636173, 0.771547, -0.998051, -0.0481502, 0.0397018, 0.0624073, -0.770043, 0.634933, 0.335728, 0.0491224, 0.196365)
+
+[node name="plank_2" parent="." instance=ExtResource("3_d1ptc")]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="debris_1" parent="." instance=ExtResource("4_wdx26")]
+transform = Transform3D(1, 0, 0, 0, 0.151511, 0, 0, 0, 1, 0.297384, 0, 0.00113338)

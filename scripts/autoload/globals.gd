@@ -10,3 +10,5 @@ const MAX_LOCATIONS = 8
 
 signal reward_phase_begin_signal
 signal reward_phase_end_signal
+signal before_rebuild_navigation
+signal after_rebuild_navigation

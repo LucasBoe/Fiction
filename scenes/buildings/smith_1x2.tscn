@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://duq0kcbuervo1"]
+[gd_scene load_steps=16 format=3 uid="uid://duq0kcbuervo1"]
 
 [ext_resource type="PackedScene" uid="uid://caxlqr3uhaypb" path="res://meshes/buildings/smith_1x2.glb" id="1_pema0"]
 [ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_3f57p"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_nxwk6"]
 [ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_3f57p"]
+[ext_resource type="PackedScene" uid="uid://1lyrvt0tnwep" path="res://scenes/debris/house_1x2_debris.tscn" id="3_h47ri"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="4_ug0mn"]
 [ext_resource type="Material" uid="uid://cbrq65kcjolgc" path="res://materials/wooden_shingles.tres" id="5_lxmwq"]
 [ext_resource type="Material" uid="uid://stq57ackhr6q" path="res://materials/clay_wall.tres" id="6_pdo8e"]
@@ -22,6 +23,7 @@ script = ExtResource("2_3f57p")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
 reward_amount_base = 0
+debris_mesh = ExtResource("3_h47ri")
 display_name = "Blacksmith"
 
 [node name="Smith" parent="." index="0"]

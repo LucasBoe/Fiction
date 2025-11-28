@@ -4,6 +4,7 @@ class_name Building
 @export var is_enemy_target = false # will be actively focused
 @export var can_be_damaged_by_enemy = false # not focused but will receive damage
 @export var reward_amount_base = 10
+@export var debris_mesh = preload("res://scenes/debris/house_1x1_debris.tscn")
 
 @export var display_name = ""
 
@@ -67,6 +68,11 @@ func on_set_night():
 func destroy():
 	if Globals.map_loader.currently_loaded_map != null:
 		(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
+	
+	var instance = debris_mesh.instantiate() as Node3D
+	instance.global_transform = global_transform
+	get_parent().add_child(instance)
+	
 	queue_free()
 	Globals.map_loader.rebuild_navigation()
 	
