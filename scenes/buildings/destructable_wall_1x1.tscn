@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://ku8naiitpjc4"]
+
+[ext_resource type="PackedScene" uid="uid://dv5vaepwavwq1" path="res://meshes/buildings/wall_1x3.glb" id="1_5ogas"]
+[ext_resource type="Script" uid="uid://csst8eb4ymvyq" path="res://scripts/NoNavMeshBuilding.gd" id="2_5ogas"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="3_12xay"]
+[ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="3_st5et"]
+[ext_resource type="PackedScene" uid="uid://vaprich4k3ew" path="res://meshes/buildings/1x1_fence.tscn" id="4_iruae"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svdey"]
+
+[node name="wall_1x1_destructable" instance=ExtResource("1_5ogas")]
+script = ExtResource("2_5ogas")
+
+[node name="Health" parent="." index="0" instance=ExtResource("3_12xay")]
+max_health = 200
+
+[node name="wall_1x3" parent="." index="1"]
+transform = Transform3D(0.66, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+surface_material_override/0 = ExtResource("3_st5et")
+
+[node name="fence_1x1" parent="." index="2" instance=ExtResource("4_iruae")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010126, 0.5, 0)
+shape = SubResource("BoxShape3D_svdey")

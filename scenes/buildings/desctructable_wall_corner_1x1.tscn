@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://celebggrptf37"]
+
+[ext_resource type="PackedScene" uid="uid://bnk7vsh3bkhxj" path="res://meshes/buildings/wall_corner_2x2.glb" id="1_lqgck"]
+[ext_resource type="Script" uid="uid://csst8eb4ymvyq" path="res://scripts/NoNavMeshBuilding.gd" id="2_hvlpl"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="3_drkjy"]
+[ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="3_uo2dc"]
+[ext_resource type="PackedScene" uid="uid://cvsu7v2ki0821" path="res://meshes/buildings/fence_1x1_corner.tscn" id="4_hvlpl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_os8te"]
+size = Vector3(0.914856, 1, 0.962402)
+
+[node name="wall_corner_1x1_corner" instance=ExtResource("1_lqgck")]
+script = ExtResource("2_hvlpl")
+
+[node name="Health" parent="." index="0" instance=ExtResource("3_drkjy")]
+max_health = 200
+
+[node name="wall_corner_2x2" parent="." index="1"]
+visible = false
+surface_material_override/0 = ExtResource("3_uo2dc")
+
+[node name="fence_1x1_corner" parent="." index="2" instance=ExtResource("4_hvlpl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_os8te")

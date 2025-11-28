@@ -1,20 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvfve5pqta7aa"]
+[gd_scene load_steps=7 format=3 uid="uid://cvfve5pqta7aa"]
 
 [ext_resource type="PackedScene" uid="uid://dv5vaepwavwq1" path="res://meshes/buildings/wall_1x3.glb" id="1_era0y"]
-[ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_5e4yn"]
+[ext_resource type="Script" uid="uid://csst8eb4ymvyq" path="res://scripts/NoNavMeshBuilding.gd" id="2_5e4yn"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="3_4gp1q"]
+[ext_resource type="PackedScene" uid="uid://be6fno4ndpe2c" path="res://meshes/buildings/1x2_fence.tscn" id="3_5e4yn"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="3_wpn2v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svdey"]
 size = Vector3(1.97922, 1, 1)
 
-[node name="wall_1x2" instance=ExtResource("1_era0y")]
+[node name="wall_1x2_destructable" instance=ExtResource("1_era0y")]
 script = ExtResource("2_5e4yn")
 
-[node name="wall_1x3" parent="." index="0"]
+[node name="Health" parent="." index="0" instance=ExtResource("3_wpn2v")]
+max_health = 400
+
+[node name="fence_1x2" parent="." index="1" instance=ExtResource("3_5e4yn")]
+
+[node name="wall_1x3" parent="." index="2"]
 transform = Transform3D(0.66, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 surface_material_override/0 = ExtResource("3_4gp1q")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
 collision_layer = 9
 collision_mask = 9
 
