@@ -2,6 +2,7 @@ extends StaticBody3D
 class_name RewardTrigger
 
 @onready var building : Building = $".."
+@onready var mesh = $MeshInstance3D
 
 var reward_instances : Array
 var triggered = false
@@ -14,6 +15,35 @@ func _ready() -> void:
 		var mat = mesh.get_surface_override_material(0).duplicate()
 		mat.albedo_color = Color.BLUE   # or Color(1, 0, 0)
 		mesh.set_surface_override_material(0,mat)
+		
+	RewardHandler.preview_rewards_signal.connect(_on_preview_rewards_signal)
+	RewardHandler.show_rewards_signal.connect(_on_show_rewards_signal)
+	RewardHandler.hide_rewards_signal.connect(_on_hide_rewards_signal)
+
+func _on_preview_rewards_signal():
+	
+	var reward_building = building as RewardBuilding
+	if reward_building != null:
+		if reward_building.health._is_empty():
+			hide()
+			return
+	
+	show()
+	mesh.hide()
+
+func _on_show_rewards_signal():
+	
+	var reward_building = building as RewardBuilding
+	if reward_building != null:
+		if reward_building.health._is_empty():
+			hide()
+			return
+	
+	show()
+	mesh.show()
+	
+func _on_hide_rewards_signal():
+	hide()
 
 func notify_enter():
 	scale = Vector3(1.1, 1.1, 1.1)

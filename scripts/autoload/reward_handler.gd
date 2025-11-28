@@ -8,6 +8,10 @@ var reward_triggers : Array[RewardTrigger]
 signal all_rewards_chose_signal
 signal all_rewards_given_signal
 
+signal preview_rewards_signal
+signal show_rewards_signal
+signal hide_rewards_signal
+
 func _ready():
 	reward_dummy.visible = false
 	
@@ -43,9 +47,7 @@ func give_rewards():
 				#reward_buildings.append(building)	
 				
 		if building.reward_trigger != null:
-			if (not building.health._is_empty()):
-				building.reward_trigger.visible = true
-			else:
+			if (building.health._is_empty()):
 				reward_triggers.erase(building.reward_trigger)
 			
 		## apply genereal reward based on destruction	

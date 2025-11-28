@@ -46,7 +46,9 @@ func _load_next_map() -> void:
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
 	RaycastHandler.set_modifications_allowed(true)
+	RewardHandler.preview_rewards_signal.emit()
 	await placement_handler.placement_finished
+	RewardHandler.hide_rewards_signal.emit()
 	RaycastHandler.set_modifications_allowed(false)
 	Globals.environment.set_night()
 	print("placement finished")
@@ -63,6 +65,7 @@ func _run_wave_phase() -> void:
 func _reward_phase() -> void:
 	Globals.reward_phase_begin_signal.emit()
 	Globals.environment.set_day()
+	RewardHandler.show_rewards_signal.emit()
 	RewardHandler.give_rewards()
 	await RewardHandler.all_rewards_given_signal
 	Globals.reward_phase_end_signal.emit()
