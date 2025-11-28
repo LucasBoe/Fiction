@@ -1,8 +1,7 @@
 extends CharacterBody3D
 class_name Enemy
 
-@export var damage_per_tick := 10
-@export var damage_interval := 1.0   # 1 second
+@export var damage_per_second := 10
 
 @onready var health : Health = $Health
 

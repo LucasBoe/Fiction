@@ -21,8 +21,8 @@ height = 0.963322
 
 [node name="EnemyShadow" type="CharacterBody3D"]
 script = ExtResource("1_ani8c")
-speed = 3.0
-damage_per_tick = 5
+speed = 2.3
+damage_per_second = 8
 
 [node name="Health" parent="." instance=ExtResource("2_5cnh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

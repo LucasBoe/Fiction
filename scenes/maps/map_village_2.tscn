@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjej14ug8oy0c"]
+[gd_scene load_steps=20 format=3 uid="uid://cjej14ug8oy0c"]
 
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_t83pj"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_blibe"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwr4ji4gk7meu" path="res://scenes/buildings/wagon_maker_1x2.tscn" id="8_n6f5a"]
 [ext_resource type="PackedScene" uid="uid://6l5ghah5ecm" path="res://scenes/buildings/house_1x2.tscn" id="9_amahm"]
 [ext_resource type="PackedScene" uid="uid://ki1qd1vity5r" path="res://scenes/buildings/well_1x1.tscn" id="9_kfruw"]
+[ext_resource type="PackedScene" uid="uid://ccn1vdwxa5y2l" path="res://scenes/buildings/destructable_wall_1x4.tscn" id="9_linr8"]
 [ext_resource type="PackedScene" uid="uid://c1uwdmcluvfp3" path="res://scenes/foliage/trees/tree_1_strange.tscn" id="10_kfruw"]
 [ext_resource type="PackedScene" uid="uid://dx144bpv8r2qw" path="res://scenes/buildings/wall_1x2.tscn" id="10_t83pj"]
 [ext_resource type="PackedScene" uid="uid://crd7qkxr1o3b" path="res://scenes/buildings/house_2x2.tscn" id="11_hwcfx"]
@@ -38,10 +39,10 @@ script = ExtResource("3_gdsib")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0, 2)
 
 [node name="house_1x2" parent="Houses" instance=ExtResource("9_amahm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2.5)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, -3.5)
 
 [node name="house_1x3" parent="Houses" instance=ExtResource("9_amahm")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.5, 0, -4)
+transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 0, 0, -3.5)
 
 [node name="house_2x2" parent="Houses" instance=ExtResource("11_hwcfx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -3)
@@ -52,8 +53,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 [node name="wall_corner_2x3" parent="Houses" instance=ExtResource("7_kc0aw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 2)
 
+[node name="wall_corner_2x5" parent="Houses" instance=ExtResource("7_kc0aw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -4)
+
+[node name="destructable_wall_1x4" parent="Houses" instance=ExtResource("9_linr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+
+[node name="destructable_wall_1x5" parent="Houses" instance=ExtResource("9_linr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.5)
+
+[node name="destructable_wall_1x6" parent="Houses" instance=ExtResource("9_linr8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 0, 1)
+
 [node name="wall_1x32" parent="Houses" instance=ExtResource("10_t83pj")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, 2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 0, 0)
 
 [node name="tree_1_strange" parent="." instance=ExtResource("10_kfruw")]
 transform = Transform3D(0.190055, 0, 0.981773, 0, 1, 0, -0.981773, 0, 0.190055, -2.19886, 2.08616e-07, 2.03022)

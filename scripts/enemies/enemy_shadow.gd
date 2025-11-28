@@ -42,12 +42,14 @@ func refresh():
 		if is_house:
 			target = target.get_parent()
 		
+		var damage = damage_per_second / attack_speed
+		
 		if (is_wagon or is_house) and target.health.current_health > 0:
-			target.health.take_damage(15)
+			target.health.take_damage(damage)
 			DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
 			JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 			SoundPlayer.play3D(SoundPlayer.enemy_attack, global_position)
-			print("damage ", target, ": ", 15)
+			print("damage ", target, ": ", damage)
 
 func _physics_process(delta: float) -> void:
 	

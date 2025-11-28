@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c6mcrfw1dv608"]
+[gd_scene load_steps=27 format=3 uid="uid://c6mcrfw1dv608"]
 
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_xpgn2"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_uuaxs"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://blchhmg7fpp5n" path="res://scenes/foliage/grass/grass_3_patch.tscn" id="23_0qjyp"]
 [ext_resource type="PackedScene" uid="uid://i773ml6oa2u7" path="res://scenes/foliage/grass/bush_3_small.tscn" id="24_agvqd"]
 [ext_resource type="PackedScene" uid="uid://b3x1th17yaqdw" path="res://scenes/foliage/grass/bush_2_medium.tscn" id="25_c5l1r"]
+[ext_resource type="PackedScene" uid="uid://ccn1vdwxa5y2l" path="res://scenes/buildings/destructable_wall_1x4.tscn" id="26_vx2cy"]
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_xpgn2")
@@ -44,29 +45,32 @@ script = ExtResource("3_payof")
 [node name="ruin_2x2" parent="Houses" instance=ExtResource("5_tjyws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
 
-[node name="wall_1x32" parent="Houses" instance=ExtResource("6_oai6b")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 0, -2.5)
+[node name="wall_1x34" parent="Houses" instance=ExtResource("6_oai6b")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, -4.5)
 
 [node name="wagonMaker_1x2" parent="Houses" instance=ExtResource("7_2om6k")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0, 1.5)
 
 [node name="house_1x3" parent="Houses" instance=ExtResource("8_jv1ux")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.5, 0, -2)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.5, 0, 1)
 
 [node name="house_2x3" parent="Houses" instance=ExtResource("10_3mvug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00425, 0.0101147, 1.99516)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00425, 0.0101147, 0.99516)
 
 [node name="well_1x1" parent="Houses" instance=ExtResource("10_uuaxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
 
 [node name="smith_1x2" parent="Houses" instance=ExtResource("11_payof")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3.5)
 
 [node name="wall_corner_2x2" parent="Houses" instance=ExtResource("12_payof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 
 [node name="wall_1x33" parent="Houses" instance=ExtResource("13_dbadc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, 2)
+
+[node name="wall_1x35" parent="Houses" instance=ExtResource("13_dbadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4.5)
 
 [node name="tree_1_slim" parent="." instance=ExtResource("13_tjyws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25823, 0, 3.80493)
@@ -136,3 +140,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05806, 0, -0.946423)
 
 [node name="Bush_1_medium3" parent="." instance=ExtResource("20_vdavg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0901, 1.19209e-07, 2.70238)
+
+[node name="destructable_wall_1x4" parent="." instance=ExtResource("26_vx2cy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4.5)
+
+[node name="destructable_wall_1x5" parent="." instance=ExtResource("26_vx2cy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+
+[node name="destructable_wall_1x6" parent="." instance=ExtResource("26_vx2cy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, -0.009, -1.5)
