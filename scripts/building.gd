@@ -1,9 +1,8 @@
-extends Node
+extends Node3D
 class_name Building
 
 @export var is_enemy_target = false # will be actively focused
 @export var can_be_damaged_by_enemy = false # not focused but will receive damage
-@export var effect_NavMesh_of_enemies = true
 @export var reward_amount_base = 10
 
 @export var display_name = ""
@@ -37,11 +36,6 @@ func _ready():
 			Globals.environment.set_day_signal.connect(on_set_day)
 			Globals.environment.set_evening_signal.connect(on_set_day)
 			Globals.environment.set_night_signal.connect(on_set_night)
-		
-	
-	if  !effect_NavMesh_of_enemies:
-		await get_tree().create_timer(1.0).timeout
-		$StaticBody3D/CollisionShape3D.disabled = false;
 
 func _collect_lights(node: Node):
 	for child in node.get_children():
@@ -71,7 +65,8 @@ func on_set_night():
 		tween.tween_property(l, "light_energy", target_energy, night_tween_time)
 
 func destroy():
-	(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
+	if Globals.map_loader.currently_loaded_map != null:
+		(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
 	queue_free()
-	Globals.map_loader.get_parent().trigger_rebake()
+	Globals.map_loader.rebuild_navigation()
 	

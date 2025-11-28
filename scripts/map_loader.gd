@@ -12,6 +12,7 @@ var map_infos : Array
 var map_number = 0
 
 signal loaded_map
+signal unloaded_map
 
 func _ready():
 	Globals.map_loader = self
@@ -54,6 +55,7 @@ func load_random_map():
 func unload_current_map():
 	currently_loaded_map.queue_free()
 	currently_loaded_map = null
+	unloaded_map.emit()
 
 func load_map_from_path(path):
 	
@@ -63,7 +65,19 @@ func load_map_from_path(path):
 	map_number+= 1
 	var scene = ResourceLoader.load(path)
 	currently_loaded_map = scene.instantiate()
+	rebuild_navigation()
 	add_child(currently_loaded_map)
 	print("Loaded Map!")
 	emit_signal("loaded_map")
+
+func rebuild_navigation():
+	Globals.before_rebuild_navigation.emit()
+	await get_tree().create_timer(.5).timeout
+	#await get_tree().process_frame
+	get_parent().bake_navigation_mesh()
+	await get_tree().create_timer(.5).timeout
+	Globals.after_rebuild_navigation.emit()
 	
+func _process(delta):
+	if Input.is_action_just_released("kill_all"):
+		rebuild_navigation()
