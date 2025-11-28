@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://fnlr8nttcigu"]
+
+[ext_resource type="PackedScene" uid="uid://bafaylito36k" path="res://meshes/wagons/wagon_fire_spinner.glb" id="1_wfncy"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="2_0tlhu"]
+[ext_resource type="Material" uid="uid://dns1w1ncxegwh" path="res://materials/metal_dark.tres" id="3_3bycw"]
+
+[node name="wagon_fire_spinner" instance=ExtResource("1_wfncy")]
+surface_material_override/0 = ExtResource("2_0tlhu")
+surface_material_override/1 = ExtResource("3_3bycw")

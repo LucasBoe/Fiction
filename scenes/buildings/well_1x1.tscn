@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ki1qd1vity5r"]
+[gd_scene load_steps=12 format=3 uid="uid://ki1qd1vity5r"]
 
 [ext_resource type="PackedScene" uid="uid://cjfrnm30fdxej" path="res://meshes/buildings/well_1x1.glb" id="1_6bhmc"]
 [ext_resource type="Material" uid="uid://bma2y4g1tqsi3" path="res://materials/brick_wall.tres" id="2_47k84"]
@@ -6,6 +6,10 @@
 [ext_resource type="Material" uid="uid://cd4h3sifq3ovp" path="res://materials/thatched_roof.tres" id="3_k8uxb"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="4_txf1v"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="6_txf1v"]
+[ext_resource type="PackedScene" uid="uid://dupa77trqbvmv" path="res://scenes/reward_trigger.tscn" id="7_jv3oe"]
+[ext_resource type="PackedScene" uid="uid://bdtb4mhooyax" path="res://scenes/decoration/1_box.tscn" id="8_vq2hf"]
+[ext_resource type="PackedScene" uid="uid://bsf86vjc8cwc4" path="res://scenes/decoration/2_box.tscn" id="9_ijonb"]
+[ext_resource type="PackedScene" uid="uid://di2yos6lnw6kr" path="res://scenes/decoration/barrel_1.tscn" id="10_24sej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bhmc"]
 
@@ -29,3 +33,15 @@ shape = SubResource("BoxShape3D_6bhmc")
 
 [node name="Health" parent="." index="2" instance=ExtResource("6_txf1v")]
 max_health = 100
+
+[node name="RewardTrigger" parent="." index="3" instance=ExtResource("7_jv3oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47684, 0)
+
+[node name="1_box" parent="RewardTrigger" index="2" instance=ExtResource("8_vq2hf")]
+transform = Transform3D(1.78169, 0, 0, 0, 1.70281, 0.305742, 0, -0.296607, 1.75526, 0.164962, -0.212225, -0.101449)
+
+[node name="2_box" parent="RewardTrigger" index="3" instance=ExtResource("9_ijonb")]
+transform = Transform3D(1.74905, -0.329301, 0, 0.337813, 1.68864, -0.174419, 0.03323, 0.166109, 1.77313, 0.0590715, -0.0474911, 0.257829)
+
+[node name="barrel_1" parent="RewardTrigger" index="4" instance=ExtResource("10_24sej")]
+transform = Transform3D(1.78169, 0, 0, 0, 1.72845, 0, 0, 0, 1.78169, -0.240182, -0.0474911, -0.0157038)

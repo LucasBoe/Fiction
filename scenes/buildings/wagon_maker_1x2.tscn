@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bwr4ji4gk7meu"]
+[gd_scene load_steps=16 format=3 uid="uid://bwr4ji4gk7meu"]
 
 [ext_resource type="PackedScene" uid="uid://2cte4sm1bg88" path="res://meshes/buildings/wagonMaker_1x2.glb" id="1_3n6ov"]
 [ext_resource type="Script" uid="uid://bej73bkyfqd2a" path="res://scripts/reward_building.gd" id="2_1m81v"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_v47fx"]
 [ext_resource type="PackedScene" uid="uid://cmjhjeua7dicr" path="res://scenes/window_light.tscn" id="10_o5t0c"]
 [ext_resource type="PackedScene" uid="uid://dupa77trqbvmv" path="res://scenes/reward_trigger.tscn" id="11_hcrx1"]
-[ext_resource type="PackedScene" uid="uid://ryddrs3qhijp" path="res://scenes/decoration/sack.tscn" id="12_wkdje"]
+[ext_resource type="PackedScene" uid="uid://deje72wiyrped" path="res://scenes/decoration/wagon.tscn" id="12_yprcp"]
+[ext_resource type="PackedScene" uid="uid://bw2ou4e37kgmq" path="res://scenes/decoration/plank_2.tscn" id="13_h7p7q"]
+[ext_resource type="PackedScene" uid="uid://jejo6ahbgg58" path="res://scenes/decoration/plank_1.tscn" id="14_7wjye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3n6ov"]
 size = Vector3(2, 1, 1)
@@ -55,5 +57,11 @@ transform = Transform3D(-0.000133777, -0.548736, 0.835996, -0.000141811, 0.83599
 [node name="RewardTrigger" parent="." index="4" instance=ExtResource("11_hcrx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="sack" parent="RewardTrigger" index="3" instance=ExtResource("12_wkdje")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0243583, -0.210797, 0.00974351)
+[node name="wagon" parent="RewardTrigger" index="2" instance=ExtResource("12_yprcp")]
+transform = Transform3D(1.14236, 1.20664, -0.777837, 1.43562, -0.96015, 0.618941, -2.98023e-08, -0.994041, -1.54204, 0.0158108, -0.055423, 0.0401482)
+
+[node name="plank_2" parent="RewardTrigger" index="3" instance=ExtResource("13_h7p7q")]
+transform = Transform3D(1.52616, 0.776665, 1.20863, -1.13525, 1.73259, 0.320139, -0.880457, -0.887737, 1.68223, -0.0896761, -0.301422, 0.0465042)
+
+[node name="plank_1" parent="RewardTrigger" index="4" instance=ExtResource("14_7wjye")]
+transform = Transform3D(0.627501, 1.22826, -0.0701207, -0.6619, 0.766519, -0.573552, -0.41004, 0.642323, 0.818537, -0.266341, -0.266131, -0.209296)

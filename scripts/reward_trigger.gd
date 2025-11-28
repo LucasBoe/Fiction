@@ -94,6 +94,7 @@ func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay
 	MoneyHandler.change_money(node.name.to_float())
 	
 func _process(delta: float) -> void:
+	rotate_y(deg_to_rad(15) * delta)
 	for i in len(reward_instances):
 		var reward = reward_instances[i]
 		var movement = (Vector3(1.0 + (PI * i) / 7.0, 2.0 + PI * i * 2.0, PI * i * 5.0).normalized())
