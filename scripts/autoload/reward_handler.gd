@@ -2,7 +2,6 @@ extends Node3D
 
 @onready var reward_dummy : MeshInstance3D = $RewardDummy
 @onready var reward_choice_canvas : RewardChoiceCanvas = $RewardChoiceCanvas
-
 var reward_instances : Array[MeshInstance3D]
 var reward_triggers : Array[RewardTrigger]
 
