@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=51 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bwa7d8yrcj3mh" path="res://scenes/wagons/wagon_basic.tscn" id="10_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="11_yc10j"]
+[ext_resource type="PackedScene" uid="uid://bglr6y4wkwou0" path="res://scenes/wagons/wagon_fire.tscn" id="12_jscy8"]
 [ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cvns1siwngwfn" path="res://scenes/outer_environment.tscn" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://cjoovptj6mk7" path="res://scripts/supply_ui.gd" id="13_jkv2x"]
@@ -45,8 +46,8 @@ agent_radius = 0.2
 region_min_size = 1.0
 
 [sub_resource type="Curve" id="Curve_jkv2x"]
-_limits = [0.0, 51.1714, 0.0, 16.0]
-_data = [Vector2(0, 0), 0.0, 4.9191, 0, 0, Vector2(11.2, 51.1714), 4.86519, 0.0, 0, 0]
+_limits = [0.0, 100.0, 1.0, 8.0]
+_data = [Vector2(1, 18.819), 0.0, 4.887, 0, 0, Vector2(7.96861, 100), 22.2847, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yc10j"]
@@ -323,6 +324,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Wagon_Archer2" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_yc10j")]
 transform = Transform3D(1.00582, 0, 0, 0, 1.00582, 0, 0, 0, 1.00582, 0, 0, 1)
+
+[node name="Wagon_Fire" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("12_jscy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="PostProcessing" parent="." instance=ExtResource("4_jyhfs")]
 

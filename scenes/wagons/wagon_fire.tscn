@@ -1,0 +1,120 @@
+[gd_scene load_steps=17 format=3 uid="uid://bglr6y4wkwou0"]
+
+[ext_resource type="Script" uid="uid://bu0efikpyo5ja" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_o8ouu"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_1jx8e"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_rt68c"]
+[ext_resource type="PackedScene" uid="uid://c1dj43eabcpxr" path="res://meshes/wagons/wagon_archer.tscn" id="8_gdm6q"]
+[ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="9_73jhp"]
+[ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="12_q3c7r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
+size = Vector3(1, 1.028, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_50edh"]
+radius = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_50edh"]
+top_radius = 0.3
+bottom_radius = 0.2
+height = 1.0
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50edh"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.368627, 0.294118, 0.0901961)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_50edh"]
+colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lt6t8"]
+gradient = SubResource("Gradient_50edh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p2uro"]
+angle_min = -720.0
+angle_max = 696.0
+spread = 20.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 2.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.25
+color_ramp = SubResource("GradientTexture1D_lt6t8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_lt6t8"]
+
+[node name="Wagon_Fire" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_50edh")
+
+[node name="Health" parent="." instance=ExtResource("5_o8ouu")]
+max_health = 180
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qnmmq")
+
+[node name="WagonBody" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_1jx8e")
+
+[node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
+shape = SubResource("BoxShape3D_hsfs4")
+disabled = true
+
+[node name="LanternLight" parent="." instance=ExtResource("7_rt68c")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.05003, 1.44114, -0.00502133)
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="wagon_archer2" parent="Visuals" instance=ExtResource("8_gdm6q")]
+transform = Transform3D(0.579988, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Lantern" parent="Visuals" instance=ExtResource("9_73jhp")]
+transform = Transform3D(1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, 1, 0.319791, 1.13449, -0.24714)
+
+[node name="Lantern2" parent="Visuals" instance=ExtResource("9_73jhp")]
+transform = Transform3D(-1, 0, -1.01332e-07, 0, 1, 0, 1.01332e-07, 0, -1, -0.299482, 1.13449, 0.294017)
+
+[node name="RangeVisualization" parent="." instance=ExtResource("12_q3c7r")]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0.1, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_50edh")
+
+[node name="CanonMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.644, 0)
+mesh = SubResource("CylinderMesh_50edh")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CanonMesh"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.274869, 0)
+material_override = SubResource("StandardMaterial3D_50edh")
+amount = 200
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_p2uro")
+draw_pass_1 = SubResource("QuadMesh_lt6t8")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="CanonMesh"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.00243002, 0.422389, 0)
+material_override = SubResource("StandardMaterial3D_50edh")
+amount = 200
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_p2uro")
+draw_pass_1 = SubResource("QuadMesh_lt6t8")

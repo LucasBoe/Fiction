@@ -3,9 +3,9 @@ class_name Health
 
 @export var max_health = 120
 @export var is_enemy = false
-var current_health
+var current_health : float
 
-signal took_damage(amount : int)
+signal took_damage(amount : float)
 signal health_changed(health : Health)
 signal is_empty
 
@@ -19,7 +19,7 @@ func heal():
 	health_changed.emit(self)
 	print(get_parent().name, " healed from ", health_before, " to ", current_health)
 
-func take_damage(amount: int):
+func take_damage(amount: float):
 	current_health -= amount
 	took_damage.emit(amount)
 	health_changed.emit(self)

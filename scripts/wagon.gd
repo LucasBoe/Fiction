@@ -11,6 +11,8 @@ class_name Wagon
 @export var day_tween_time: float = 1
 @export var night_tween_time: float = 4
 
+@export var is_enemy_target = true
+
 var _original_energy: float = 0.0
 const WAGON_SCENE_PATH = "res://scenes/wagons/"
 
