@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dupa77trqbvmv"]
+
+[ext_resource type="Script" uid="uid://b5mh7whvuwyiy" path="res://scripts/reward_trigger.gd" id="1_2yfxf"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_eo8bb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl5r0"]
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+albedo_color = Color(1, 1, 0, 0.388235)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r4lc6"]
+
+[node name="RewardTrigger" type="StaticBody3D"]
+script = ExtResource("1_2yfxf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_eo8bb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_wl5r0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_r4lc6")

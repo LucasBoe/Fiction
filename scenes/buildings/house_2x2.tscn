@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crd7qkxr1o3b"]
+[gd_scene load_steps=16 format=3 uid="uid://crd7qkxr1o3b"]
 
 [ext_resource type="PackedScene" uid="uid://de1yf6i6tw7jf" path="res://meshes/buildings/house_2x2.glb" id="1_17r57"]
 [ext_resource type="Material" uid="uid://8hxh6jr8i1vm" path="res://materials/dark_planks.tres" id="2_1i8xn"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="8_2odmd"]
 [ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="8_w5fcj"]
 [ext_resource type="PackedScene" uid="uid://cmjhjeua7dicr" path="res://scenes/window_light.tscn" id="10_w5fcj"]
+[ext_resource type="PackedScene" uid="uid://dupa77trqbvmv" path="res://scenes/reward_trigger.tscn" id="11_d6ftu"]
+[ext_resource type="PackedScene" uid="uid://bdtb4mhooyax" path="res://scenes/decoration/1_box.tscn" id="11_rp1lo"]
+[ext_resource type="PackedScene" uid="uid://bsf86vjc8cwc4" path="res://scenes/decoration/2_box.tscn" id="12_d6ftu"]
+[ext_resource type="PackedScene" uid="uid://di2yos6lnw6kr" path="res://scenes/decoration/barrel_1.tscn" id="13_xp7qk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akphn"]
 size = Vector3(2, 1, 2)
@@ -52,3 +56,15 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="WindowLight3" parent="Lights" index="1" instance=ExtResource("10_w5fcj")]
 transform = Transform3D(1, 0, 0, 0, -0.866025, 0.5, 0, -0.5, -0.866025, 0.0276238, 0.378967, 1.10433)
+
+[node name="RewardTrigger" parent="." index="4" instance=ExtResource("11_d6ftu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+
+[node name="1_box" parent="RewardTrigger" index="2" instance=ExtResource("11_rp1lo")]
+transform = Transform3D(1.78169, 0, 0, 0, 1.70281, 0.305742, 0, -0.296607, 1.75526, 0.164962, -0.212225, -0.101449)
+
+[node name="2_box" parent="RewardTrigger" index="3" instance=ExtResource("12_d6ftu")]
+transform = Transform3D(1.74905, -0.329301, 0, 0.337813, 1.68864, -0.174419, 0.03323, 0.166109, 1.77313, 0.0590715, -0.0474911, 0.257829)
+
+[node name="barrel_1" parent="RewardTrigger" index="4" instance=ExtResource("13_xp7qk")]
+transform = Transform3D(1.78169, 0, 0, 0, 1.72845, 0, 0, 0, 1.78169, -0.240182, -0.0474911, -0.0157038)
