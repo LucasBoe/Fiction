@@ -68,7 +68,7 @@ func set_day():
 	)
 
 
-func set_evening():
+func set_evening(trans = transition_duration):
 	set_evening_signal.emit()
 
 	directional_light.visible = true
@@ -78,19 +78,19 @@ func set_evening():
 	tween.tween_property(directional_light, 
 		"rotation_degrees:x", 
 		evening_rotation.x, 
-		transition_duration)
+		trans)
 	
 	tween.parallel().tween_property(
 		directional_light,
 		"light_energy",
 		evening_energy,
-		transition_duration)
+		trans)
 		
 	tween.parallel().tween_property(
 		world_environment.environment,
 		"background_energy_multiplier",
 		evening_background_multiplier,
-		transition_duration)
+		trans)
 
 
 func set_night():

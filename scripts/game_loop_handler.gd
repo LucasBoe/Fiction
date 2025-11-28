@@ -40,7 +40,7 @@ func _unload_current_map() -> void:
 func _load_next_map() -> void:
 	Globals.current_camera.get_parent_node_3d().rotate_y(deg_to_rad(90))
 	map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
-	Globals.environment.set_evening()	
+	Globals.environment.set_evening(.1)	
 	print("loaded new map")
 
 func _wait_for_placement() -> void:
