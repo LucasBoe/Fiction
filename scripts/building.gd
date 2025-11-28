@@ -72,6 +72,7 @@ func destroy():
 	var instance = debris_mesh.instantiate() as Node3D
 	instance.global_transform = global_transform
 	get_parent().add_child(instance)
+	SoundPlayer.play3D(SoundPlayer.building_destroy, self.world_position)
 	
 	queue_free()
 	Globals.map_loader.rebuild_navigation()

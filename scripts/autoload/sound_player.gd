@@ -8,10 +8,12 @@ extends Node3D
 #3D
 @onready var wagon_pick_up = $WagonPickUp
 @onready var wagon_place = $WagonPlace
+@onready var wagon_destroy = $WagonDestroy
 @onready var arrow_shot = $ArrowShot
 @onready var ghost_talk = $GhostTalk
 @onready var enemy_attack = $EnemyAttack
 @onready var coin = $Coin
+@onready var building_destroy = $BuildingDestroy
 
 @onready var ghost_talks = ["res://audio/sounds/ghost_talk_1.wav", "res://audio/sounds/ghost_talk_2.wav", "res://audio/sounds/ghost_talk_3.wav", "res://audio/sounds/ghost_talk_4.wav", "res://audio/sounds/ghost_talk_5.wav", "res://audio/sounds/ghost_talk_6.wav"]
 

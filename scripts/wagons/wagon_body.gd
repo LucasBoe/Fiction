@@ -15,5 +15,6 @@ func on_health_is_empty():
 	var instance = destroyedWagon.instantiate() as Node3D
 	instance.global_transform = global_transform
 	get_tree().root.add_child(instance)
+	SoundPlayer.play3D(SoundPlayer.wagon_destroy, self.world_position)
 	
 	self.get_parent().queue_free()
