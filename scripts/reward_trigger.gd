@@ -25,7 +25,8 @@ func trigger_reward():
 	
 	if triggered:
 		return
-	
+		
+	triggered = true
 	
 	if building.health._is_empty():
 		queue_free()
@@ -33,10 +34,8 @@ func trigger_reward():
 		return	
 		
 	if building is RewardBuilding:
-		RewardHandler.reward_choice_canvas.show_choice(building.reward, self)
-		RewardHandler.unregister_trigger(self)
+		RewardHandler.reward_choice_canvas.show_choice(building.reward, on_close_reward_window)
 	else:
-		triggered = true
 		var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
 		for i in reward_amount / 3.0:
 			var reward_instance = get_child(3).duplicate()
@@ -107,3 +106,5 @@ func on_close_reward_window(chose_reward):
 	if chose_reward:
 		queue_free()
 		RewardHandler.unregister_trigger(self)
+	else:
+		triggered = false

@@ -1,18 +1,29 @@
 extends CanvasLayer
 class_name RewardChoiceCanvas
 
-@onready var header_label = $Control/MarginContainer/MarginContainer/VBoxContainer/Label
-@onready var choice_dummy = $Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy
+@onready var header_label = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/Label
+@onready var choice_dummy = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy
+@onready var close_button = $Control/MarginContainer/VBoxContainer/Control/CloseButton
+
 var choice_instances : Array
+var choice_callback = null
 
 signal on_picked_reward_signal
 
 func _ready():
 	choice_dummy.visible = false
-	visible = false
+	hide()
+	close_button.pressed.connect(try_call_callback)
 
 func show_choice(reward : RewardBuilding.RewardType, callback = null):
-	visible = true
+	show()
+	
+	if (callback != null):
+		close_button.visible = true
+	else:
+		close_button.visible = false
+	
+	choice_callback = callback
 	
 	if reward == RewardBuilding.RewardType.WAGON_MAKER:
 		header_label.text = "The [color= orange]Wagon Maker [/color]can do something for you:"
@@ -27,10 +38,8 @@ func show_choice(reward : RewardBuilding.RewardType, callback = null):
 			"Build a[color= orange] Simple Wagon [/color]",
 			load("res://ui/basic_icon.png"),
 			50)
-	
-		await on_picked_reward_signal
 		
-	if reward == RewardBuilding.RewardType.SMITH:
+	elif reward == RewardBuilding.RewardType.SMITH:
 		header_label.text = "The [color= orange]Smith [/color]can upgrade one of your wagons:"
 		create_button_wagon_maker(
 			"Get his leftover  [color= orange] Supplies [/color]",
@@ -46,12 +55,6 @@ func show_choice(reward : RewardBuilding.RewardType, callback = null):
 			pool.erase(upgrade)
 			create_button_smith(upgrade.upgrade_name, upgrade.upgrade_cost, upgrade.upgrade_icon, upgrade.original_wagon, upgrade.upgrade_wagon.resource_path)
 			i-=1
-		
-		await on_picked_reward_signal
-			
-	visible = false
-	
-
 
 func create_button_smith(title, price, upgradeIcon, original_wagon, new_wagon):
 	var button = create_button(title, price, upgradeIcon)
@@ -63,8 +66,11 @@ func create_button_wagon_maker(title, icon, price = -10, wagon = ""):
 
 func create_button(title, price, icon):
 	var instance = choice_dummy.duplicate()
+	choice_instances.append(instance)
 	instance.visible = true
 	choice_dummy.get_parent().add_child(instance)	
+	
+	print("create button with title ", title)
 	
 	var button = instance.get_node("Button")
 	button.disabled = MoneyHandler.current_money < price
@@ -72,7 +78,6 @@ func create_button(title, price, icon):
 	if icon !=  null:
 		instance.find_child("IconRect", true, false).texture = icon;
 	instance.find_child("PriceLabel", true, false).text = str(-price, " Supplies")
-	choice_instances.append(instance)
 	return button
 
 func pick(price, wagon, original_wagon = null):
@@ -92,3 +97,17 @@ func pick(price, wagon, original_wagon = null):
 		WagonUpgrade.execute_wagon_upgrade(wagon, original_wagon)
 	
 	on_picked_reward_signal.emit()
+	choice_callback.call(true)
+	
+	hide()
+
+func try_call_callback():
+	
+	for choice in choice_instances:
+		choice.queue_free()
+	choice_instances.clear()
+		
+	if choice_callback != null:
+		choice_callback.call(false)
+		
+	hide()
