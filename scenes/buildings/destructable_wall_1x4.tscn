@@ -12,6 +12,8 @@ size = Vector3(4, 1, 1)
 
 [node name="destructable_wall_1x4" instance=ExtResource("1_nle3e")]
 script = ExtResource("2_c0pmk")
+can_be_damaged_by_enemy = true
+reward_amount_base = 0
 
 [node name="Health" parent="." index="0" instance=ExtResource("3_c0pmk")]
 max_health = 400

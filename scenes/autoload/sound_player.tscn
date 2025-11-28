@@ -35,7 +35,6 @@ volume_db = -8.0
 
 [node name="WagonDestroy" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_5ylmv")
-volume_db = -8.0
 
 [node name="ArrowShot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_jn2lp")
@@ -57,5 +56,4 @@ volume_db = 6.0
 max_distance = 50.0
 
 [node name="BuildingDestroy" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_t7yms")
-volume_db = -8.0
+stream = ExtResource("7_5ylmv")
