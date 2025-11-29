@@ -1,0 +1,63 @@
+extends Node3D
+
+@export var shooting_range: float = 4.0
+@export var shooting_cooldown : float = 1.5
+
+@export var projectile_speed: float = 4.0
+@export var impact_range: float = 1.0
+@export var projectile_damage: int = 1
+
+@onready var shooting_origin: Node3D
+@onready var projectile = preload("res://scenes/projectiles/mortar_projectile.tscn")
+
+
+func _ready() -> void:
+	shooting_origin = get_child(0)
+	start_shoot_loop()
+
+func _process(delta: float) -> void:
+	var enemy := _get_enemy_in_range(shooting_range)
+	
+	if enemy != null:
+		_look_at(enemy)
+
+func start_shoot_loop() -> void:
+	while true:
+		var enemy := _get_enemy_in_range(shooting_range)
+		
+		if enemy != null:
+			_shoot(enemy)
+			await get_tree().create_timer(shooting_cooldown).timeout
+		else:
+			await get_tree().process_frame   # try again next frame
+
+func _get_enemy_in_range(range: float) -> Node3D:
+	var enemies: Array[Node3D] = EntityHandler._get_enemies()
+
+	var closest_enemy: Node3D = null
+	var closest_dist := range
+
+	for enemy in enemies:
+		if not is_instance_valid(enemy):
+			continue
+
+		var dist := get_parent_node_3d().global_position.distance_to(enemy.global_position)
+
+		if dist <= closest_dist:
+			closest_dist = dist
+			closest_enemy = enemy
+
+	return closest_enemy
+
+func _look_at(target: Node3D):
+	var target_position = target.global_position
+	target_position.y = global_position.y
+	look_at(target_position, Vector3.UP, true)
+
+func _shoot(target: Node3D):
+	#print("shooting at" + target.name)
+	SoundPlayer.play3D(SoundPlayer.arrow_shot, shooting_origin.global_position)
+	var projectile := projectile.instantiate()
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = shooting_origin.global_position
+	projectile._set_target(projectile_speed, target, projectile_damage, impact_range)

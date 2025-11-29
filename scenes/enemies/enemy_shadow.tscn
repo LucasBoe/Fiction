@@ -26,7 +26,7 @@ damage_per_second = 8
 
 [node name="Health" parent="." instance=ExtResource("2_5cnh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-max_health = 3
+max_health = 4
 is_enemy = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

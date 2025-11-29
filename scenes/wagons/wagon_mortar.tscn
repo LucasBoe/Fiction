@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=3 uid="uid://df52l5ahw7tn0"]
+
+[ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_5ngr6"]
+[ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_sny80"]
+[ext_resource type="Texture2D" uid="uid://c3v4fr61hvdj3" path="res://ui/archer_tower_upgrade_icon.png" id="3_hey5w"]
+[ext_resource type="PackedScene" uid="uid://xfjdwg50g6na" path="res://scenes/wagons/wagon_archer_tower.tscn" id="4_7ha7g"]
+[ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_wbmr1"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_id1h5"]
+[ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_yt07k"]
+[ext_resource type="PackedScene" uid="uid://c1dj43eabcpxr" path="res://meshes/wagons/wagon_archer.tscn" id="8_xbvlx"]
+[ext_resource type="Script" uid="uid://dhvmtx75v1bes" path="res://scenes/wagons/mortar.gd" id="10_1ocou"]
+[ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="12_7fuvl"]
+
+[sub_resource type="Resource" id="Resource_8x6jf"]
+script = ExtResource("2_sny80")
+upgrade_cost = 50
+upgrade_name = "Archer Tower"
+upgrade_wagon = ExtResource("4_7ha7g")
+upgrade_icon = ExtResource("3_hey5w")
+metadata/_custom_type_script = "uid://da2xy0db0tifk"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
+size = Vector3(1.97223, 1.02826, 1)
+
+[node name="Wagon_Mortar" type="StaticBody3D"]
+script = ExtResource("1_5ngr6")
+display_name = "Archer Wagon"
+upgrades = Array[ExtResource("2_sny80")]([SubResource("Resource_8x6jf")])
+grid_size = Vector2i(2, 1)
+
+[node name="Health" parent="." instance=ExtResource("5_wbmr1")]
+max_health = 180
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qnmmq")
+
+[node name="WagonBody" type="StaticBody3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_id1h5")
+
+[node name="WagonShape" type="CollisionShape3D" parent="WagonBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
+shape = SubResource("BoxShape3D_hsfs4")
+disabled = true
+
+[node name="LanternLight" parent="." instance=ExtResource("7_yt07k")]
+transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.05003, 1.44114, -0.00502133)
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="wagon_archer2" parent="Visuals" instance=ExtResource("8_xbvlx")]
+
+[node name="RangeVisualization" parent="." instance=ExtResource("12_7fuvl")]
+transform = Transform3D(1.09607, 0, 0, 0, 0.858034, 0, 0, 0, 1.09607, 0, 0.1, 0)
+visibility_aabb = AABB(-5, -5, -5, 10, 10, 10)
+
+[node name="Mortar" type="Node3D" parent="."]
+script = ExtResource("10_1ocou")
+shooting_cooldown = 4.0
+projectile_speed = 1.0
+projectile_damage = 3
+
+[node name="ShootingOrigin" type="Node3D" parent="Mortar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27044, 0)
