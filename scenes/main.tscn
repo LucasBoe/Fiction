@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=53 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b4omdjrnb0gso" path="res://scripts/enemy_spawner.gd" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://bi12xtbot7xcv" path="res://scripts/camera.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://do85eqr16rq3j" path="res://scenes/PostProcessing.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://df52l5ahw7tn0" path="res://scenes/wagons/wagon_mortar.tscn" id="8_y6deb"]
 [ext_resource type="Script" uid="uid://1ha0yk0xfwla" path="res://scripts/placement_handler.gd" id="9_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bwa7d8yrcj3mh" path="res://scenes/wagons/wagon_basic.tscn" id="10_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
@@ -309,6 +310,9 @@ script = ExtResource("9_jbj1t")
 visible = false
 
 [node name="ActiveObjectHolder" type="Node3D" parent="PlacementHandler"]
+
+[node name="Wagon_Mortar" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("8_y6deb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Wagon_Barricade" parent="PlacementHandler/ActiveObjectHolder" instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1.00139, 0, 0, 0, 1.00139, 0, 0, 0, 1.00139, 0, 0, 0)

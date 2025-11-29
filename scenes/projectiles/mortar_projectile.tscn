@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://deiex68vje18d"]
+
+[ext_resource type="Script" uid="uid://c8udsu42gth11" path="res://scenes/projectiles/mortar_projectile.gd" id="1_8x8de"]
+[ext_resource type="Script" uid="uid://b8trxeh5lua0f" path="res://scenes/projectiles/enemy_damager.gd" id="3_0kec8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j84vr"]
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aupyw"]
+radius = 0.0606473
+
+[node name="Mortar_projectile" type="Node3D"]
+script = ExtResource("1_8x8de")
+
+[node name="Visualization" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("SphereMesh_j84vr")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("3_0kec8")
+
+[node name="EnemyDamager" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_aupyw")
