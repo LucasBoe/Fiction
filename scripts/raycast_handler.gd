@@ -61,8 +61,10 @@ func handle_modifications(space_state, mouse_pos, cam):
 	var grid_pos = raycast_for_position_on_grid()
 	if grid_pos != null:
 		cursor_3d.global_position = grid_pos + Vector3(0, .025, 0)
+		
+	var grid_pos_is_valid = not Globals.map_loader.currently_loaded_map.check_is_blocked(grid_pos)
 	
-	cursor_3d.visible = currently_dragging == null
+	cursor_3d.visible = currently_dragging == null && grid_pos_is_valid
 	
 	
 	if currently_dragging:
