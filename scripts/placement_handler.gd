@@ -45,8 +45,9 @@ func _align_all_placeables():
 	for child in inactive_holder.get_children():
 		child.reparent(active_holder)	
 		child.visible = true
-		
-	for child in active_holder.get_children():
+	
+	var all_wagons = active_holder.get_children()
+	for child in all_wagons:
 		child.global_position = placement_position
 		child.rotation = Vector3.ZERO
 		if (child is Moveable):
@@ -58,6 +59,8 @@ func _align_all_placeables():
 			child.global_position += Vector3(0 if _is_odd(m.grid_size.x) else .5,0,0)
 		else:
 			placement_position += Vector3.BACK
+			
+	RaycastHandler.all_wagons = all_wagons
 
 func _button_pressed():
 	

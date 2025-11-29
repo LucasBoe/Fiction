@@ -49,6 +49,9 @@ func get_current_camera() -> Camera3D:
 	return null
 	
 func set_camera(mode):
+	if mode == camera_mode.TOP_DOWN and Globals.tutorial != null:
+		Globals.tutorial.toggle_top.set_done()
+		
 	current_camera_mode = mode
 	get_current_camera().current = true
 	Globals.current_camera = get_current_camera()
@@ -112,6 +115,7 @@ func handle_move(delta):
 
 	# Apply movement
 	if move_dir != Vector3.ZERO:
+		Globals.tutorial.move_camera.set_done()
 		move_dir = move_dir.normalized()
 		
 		var movement_target = Vector2(global_position.x + move_dir.x, global_position.z + move_dir.z)
@@ -119,6 +123,9 @@ func handle_move(delta):
 			global_position += move_dir * move_speed * zoomTarget * delta
 
 func zoom_in_out():
+	
+	Globals.tutorial.zoom_in_out.set_done()
+	
 	if zoomTarget < max_zoom_out:
 		zoomTarget = max_zoom_out
 		

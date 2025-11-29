@@ -30,6 +30,11 @@ func grid_to_world_position(x : float,y : float):
 	var yy : int = (-GRID_SIZE * 0.5) + y
 	return Vector3(GRID_OFFSET + xx,0,GRID_OFFSET + yy)
 	
+func world_to_grid_position(world_pos: Vector3) -> Vector2i:
+	var x := int(round(world_pos.x - GRID_OFFSET + GRID_SIZE * 0.5))
+	var y := int(round(world_pos.z - GRID_OFFSET + GRID_SIZE * 0.5))
+	return Vector2i(x, y)
+
 func show_grid():
 	grid_root.show()
 	

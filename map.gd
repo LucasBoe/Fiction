@@ -9,6 +9,7 @@ class_name MapData
 var houses : Array
 var blocked_positions : Array[Vector2i]
 var display_name : String
+
 const village_names = [
 	"Blackmere",
 	"Grimwood",
@@ -93,6 +94,11 @@ func get_random_name(keyword : LocationKeyword) -> String:
 	elif keyword == LocationKeyword.CASTLE:
 		return castle_names.pick_random()
 	return farm_names.pick_random()
+	
+func check_is_blocked(location):
+	var l = GridVisualizer.world_to_grid_position(location - Vector3(.5,.5,.5))
+	print(blocked_positions, l)
+	return blocked_positions.has(l)
 
 func find_blocked_position():
 	var blocked : Array[Vector2i]

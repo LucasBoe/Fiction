@@ -10,16 +10,19 @@ func _ready() -> void:
 
 func _game_loop() -> void:
 	await get_tree().process_frame
+	Globals.tutorial.hide()
 	MoneyHandler.change_money(25)
 	await _reset_placement()
 	MusicPlayer.play_track(MusicPlayer.music_travel)
 	FadeEffectCanvas.fade_out()
 	await _run_narrative_popups(true)
+	Globals.tutorial.show()
 	
 	while true:
 		await _load_next_map()		
 		MusicPlayer.play_track(MusicPlayer.music_day)
 		await _wait_for_placement()
+		Globals.tutorial.hide()
 		MusicPlayer.play_track(MusicPlayer.music_night)
 		await _run_wave_phase()
 		MusicPlayer.play_track(MusicPlayer.music_day)
