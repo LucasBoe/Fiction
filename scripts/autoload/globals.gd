@@ -5,6 +5,7 @@ var map_loader : MapLoader
 var placement_handler : PlacementHandler
 var environment : EnvironmentHolder
 var camera_manager : CameraManager
+var tutorial : TutorialUI
 
 const MAX_LOCATIONS = 8
 

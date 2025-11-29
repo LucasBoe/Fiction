@@ -14,6 +14,7 @@ var currently_hovered_reward
 var previously_hovered_reward
 
 var are_modifications_allowed = false
+var all_wagons
 
 func set_modifications_allowed(allowed):
 	are_modifications_allowed = allowed
@@ -103,6 +104,7 @@ func handle_modifications(space_state, mouse_pos, cam):
 			JuiceUtil.apply_juice_tween(currently_dragging, Tween.TransitionType.TRANS_BOUNCE)
 			SoundPlayer.play3D(SoundPlayer.wagon_place, currently_dragging.global_position)
 			GridVisualizer.hide_grid()
+			check_tutorials(all_wagons, currently_dragging)
 			currently_dragging = null
 			
 	elif currently_hovered_moveable and lmb_pressed:
@@ -144,3 +146,11 @@ func get_mouse_on_y0_plane():
 
 	var hit_pos: Vector3 = origin + direction * t
 	return hit_pos
+
+func check_tutorials(all_wagons, currently_dragging):
+	if currently_dragging is WagonMoney:
+		Globals.tutorial.place_kings.set_done()
+		
+	all_wagons.erase(currently_dragging)
+	if all_wagons.is_empty():
+		Globals.tutorial.place_others.set_done()
