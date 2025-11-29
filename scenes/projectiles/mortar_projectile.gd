@@ -50,7 +50,8 @@ func _physics_process(delta: float) -> void:
 		for enemy in targets:
 			if is_instance_valid(enemy):
 				enemy.health.take_damage(_damage)
-
+		
+		SoundPlayer.play3D(SoundPlayer.mortar_impact, global_position)
 		queue_free()
 		return
 

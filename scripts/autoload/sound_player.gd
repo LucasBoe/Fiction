@@ -10,6 +10,8 @@ extends Node3D
 @onready var wagon_place = $WagonPlace
 @onready var wagon_destroy = $WagonDestroy
 @onready var arrow_shot = $ArrowShot
+@onready var mortar_shoot = $MortarShot
+@onready var mortar_impact = $MortarImpact
 @onready var ghost_talk = $GhostTalk
 @onready var enemy_attack = $EnemyAttack
 @onready var coin = $Coin

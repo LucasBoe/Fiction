@@ -56,7 +56,7 @@ func _look_at(target: Node3D):
 
 func _shoot(target: Node3D):
 	#print("shooting at" + target.name)
-	SoundPlayer.play3D(SoundPlayer.arrow_shot, shooting_origin.global_position)
+	SoundPlayer.play3D(SoundPlayer.mortar_shoot, global_position)
 	var projectile := projectile.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = shooting_origin.global_position

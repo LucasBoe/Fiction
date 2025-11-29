@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4rqihu0ytmqv"]
+[gd_scene load_steps=14 format=3 uid="uid://b4rqihu0ytmqv"]
 
 [ext_resource type="Script" uid="uid://cga0pb641gqx7" path="res://scripts/autoload/sound_player.gd" id="1_1as15"]
 [ext_resource type="AudioStream" uid="uid://bn42ewxbxmx6a" path="res://audio/sounds/ui_step.wav" id="2_wisn8"]
@@ -10,7 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://dntspacbos6pl" path="res://audio/sounds/building_destroy.wav" id="7_5ylmv"]
 [ext_resource type="AudioStream" uid="uid://bi1b2hfsclf0w" path="res://audio/sounds/enemy_attack.wav" id="8_w7vl0"]
 [ext_resource type="AudioStream" uid="uid://cp3lvl7wjfmr1" path="res://audio/sounds/treasure.wav" id="9_issg3"]
+[ext_resource type="AudioStream" uid="uid://b815dyon8818a" path="res://audio/sounds/mortar_launch.wav" id="9_p742c"]
 [ext_resource type="AudioStream" uid="uid://ca7cc63m7xehk" path="res://audio/sounds/coin.wav" id="9_uv37x"]
+[ext_resource type="AudioStream" uid="uid://ule3mnnabl1l" path="res://audio/sounds/mortar_impact.wav" id="10_c2cwd"]
 
 [node name="SoundPlayer" type="Node3D"]
 script = ExtResource("1_1as15")
@@ -38,6 +40,16 @@ stream = ExtResource("7_5ylmv")
 
 [node name="ArrowShot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_jn2lp")
+max_distance = 40.0
+
+[node name="MortarShot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_p742c")
+volume_db = 15.0
+max_distance = 40.0
+
+[node name="MortarImpact" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_c2cwd")
+volume_db = 5.0
 max_distance = 40.0
 
 [node name="GhostTalk" type="AudioStreamPlayer3D" parent="."]
