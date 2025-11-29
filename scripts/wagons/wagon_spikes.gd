@@ -27,6 +27,5 @@ func try_make_damage():
 			
 func _process(delta: float) -> void:
 	t += delta
-	var l = sin(t * PI * attack_speed * 2)
-	spikes1.position = Vector3(0,0,l)
-	spikes2.position = Vector3(0,0,l * -1)
+	spikes1.position = Vector3(0,0,(sin(t * PI * attack_speed * 2)+1)/2)
+	spikes2.position = Vector3(0,0,(sin((t + 0.25) * PI * attack_speed * 2)+1)/2)
