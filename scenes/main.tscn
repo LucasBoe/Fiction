@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=59 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dmjrrpq5hre60" path="res://scenes/wagons/wagon_barricade.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cdld48i2gfx8s" path="res://scenes/wagons/wagon_archer.tscn" id="11_yc10j"]
 [ext_resource type="PackedScene" uid="uid://bglr6y4wkwou0" path="res://scenes/wagons/wagon_fire.tscn" id="12_jscy8"]
-[ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="13_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cvns1siwngwfn" path="res://scenes/outer_environment.tscn" id="13_jbj1t"]
 [ext_resource type="Script" uid="uid://cjoovptj6mk7" path="res://scripts/supply_ui.gd" id="13_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://flemoc77kr28" path="res://scenes/wagons/wagon_money.tscn" id="13_muem4"]
@@ -21,9 +20,12 @@
 [ext_resource type="Shader" uid="uid://dgha8qwy530rv" path="res://shaders/fog.gdshader" id="16_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://bydv7j1bvypyx" path="res://texture/terrain/rocky_forest.png" id="17_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://bkoffsag8v3wa" path="res://texture/terrain/grass.png" id="18_yc10j"]
+[ext_resource type="Texture2D" uid="uid://51ams8nj08bm" path="res://ui/supply_box_ui_left.png" id="18_yq6so"]
 [ext_resource type="Script" uid="uid://bhj4wqh2yldsg" path="res://scripts/tutorial_ui.gd" id="19_2wyq8"]
+[ext_resource type="FontFile" uid="uid://pbrmctq7sdlw" path="res://fonts/Cubix.ttf" id="19_fv21b"]
 [ext_resource type="Texture2D" uid="uid://tmfg0gouj68n" path="res://texture/terrain/gravel.png" id="19_jscy8"]
 [ext_resource type="Texture2D" uid="uid://boxy66g3abt52" path="res://ui/travel/gradiant.png" id="20_2f3dj"]
+[ext_resource type="Texture2D" uid="uid://680riqsqy2xq" path="res://ui/supply_box_ui_right.png" id="20_fv21b"]
 [ext_resource type="Script" uid="uid://dhplcvjer2v18" path="res://scripts/tutorial_line.gd" id="20_og1vs"]
 [ext_resource type="Texture2D" uid="uid://dm20yep3yt1j4" path="res://texture/terrain/ground.png" id="20_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://cttar6i2s8omq" path="res://ui/travel/location_done.png" id="21_2f3dj"]
@@ -352,11 +354,8 @@ unique_name_in_owner = true
 
 [node name="SupplyUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+scale = Vector2(2, 2)
 mouse_filter = 2
 script = ExtResource("13_jkv2x")
 
@@ -365,40 +364,65 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -24.0
-offset_right = 24.0
-offset_bottom = 12.0
+offset_left = 12.0
+offset_right = 66.0
+offset_bottom = 20.0
 grow_horizontal = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = -8
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("13_a8y0u")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SupplyUI/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer2/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.764706, 0, 1)
+theme_override_constants/margin_right = -3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = -4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = -1
+theme_override_constants/margin_bottom = -1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("18_yq6so")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.862745, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("19_fv21b")
+theme_override_font_sizes/font_size = 11
 text = "400"
 
-[node name="Label2" type="Label" parent="CanvasLayer/SupplyUI/MarginContainer/MarginContainer2/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = -3
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = -3
+theme_override_constants/margin_bottom = -1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("20_fv21b")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label2" type="Label" parent="CanvasLayer/SupplyUI/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.654902, 0.466667, 1)
+theme_override_fonts/font = ExtResource("19_fv21b")
+theme_override_font_sizes/font_size = 11
 text = "Supplies"
 
 [node name="TutorialUI" type="MarginContainer" parent="CanvasLayer"]
