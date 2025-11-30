@@ -19,6 +19,7 @@ is_enemy_target = true
 can_be_damaged_by_enemy = true
 reward_amount_base = 5
 display_name = "Well"
+display_description = "Grants supplies after the attack"
 
 [node name="Well" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_47k84")

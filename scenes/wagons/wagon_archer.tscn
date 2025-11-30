@@ -30,6 +30,7 @@ size = Vector3(1.97223, 1.02826, 1)
 [node name="Wagon_Archer" type="StaticBody3D"]
 script = ExtResource("1_qnmmq")
 display_name = "Archer Wagon"
+display_description = "Shoots arrows at foes"
 upgrades = Array[ExtResource("2_1givq")]([SubResource("Resource_8x6jf")])
 grid_size = Vector2i(2, 1)
 

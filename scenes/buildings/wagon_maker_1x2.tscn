@@ -27,6 +27,7 @@ can_be_damaged_by_enemy = true
 reward_amount_base = 0
 debris_mesh = ExtResource("3_h7p7q")
 display_name = "Wagon Maker"
+display_description = "Grants new wagons after the attack "
 
 [node name="WagonMaker" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_c6q0m")

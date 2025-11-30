@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bglr6y4wkwou0"]
 
-[ext_resource type="Script" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
+[ext_resource type="Script" uid="uid://bu0efikpyo5ja" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
 [ext_resource type="PackedScene" uid="uid://bkr2ius3e7m68" path="res://meshes/wagons/wagon_fire.tscn" id="5_50edh"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_o8ouu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_1jx8e"]
@@ -54,6 +54,8 @@ radius = 1.75
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_50edh")
+display_name = "Fire Wagon"
+display_description = "Ignites anything that walks through it"
 grid_size = Vector2i(3, 3)
 
 [node name="Health" parent="." instance=ExtResource("5_o8ouu")]

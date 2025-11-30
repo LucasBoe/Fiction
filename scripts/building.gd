@@ -7,6 +7,7 @@ class_name Building
 @export var debris_mesh = preload("res://scenes/debris/house_1x1_debris.tscn")
 
 @export var display_name = ""
+@export var display_description = ""
 
 @export var day_tween_time: float = 1
 @export var night_tween_time: float = 4

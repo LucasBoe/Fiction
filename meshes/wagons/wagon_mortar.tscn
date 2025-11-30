@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://t3c02hjk6w0v"]
+
+[ext_resource type="PackedScene" uid="uid://drjd3ig4gj78h" path="res://meshes/wagons/wagon_mortar.glb" id="1_asfe4"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_wypco"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_f1oms"]
+[ext_resource type="Material" uid="uid://dns1w1ncxegwh" path="res://materials/metal_dark.tres" id="4_odjau"]
+
+[node name="wagon_mortar" instance=ExtResource("1_asfe4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_wypco")
+surface_material_override/1 = ExtResource("3_f1oms")
+surface_material_override/2 = ExtResource("4_odjau")
