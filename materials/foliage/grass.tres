@@ -1,12 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bdxltprtn8w65"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bdxltprtn8w65"]
 
 [ext_resource type="Texture2D" uid="uid://cjc5kotevpyhh" path="res://External/Bushes_Color_Noise.png" id="1_oysvd"]
 [ext_resource type="Shader" uid="uid://dmtcoj6j38521" path="res://shaders/wind.gdshader" id="1_uibgx"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0s3n2"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhwfh"]
-noise = SubResource("FastNoiseLite_0s3n2")
 
 [resource]
 render_priority = 0
@@ -22,7 +17,3 @@ shader_parameter/bend_top_amount = 0.3
 shader_parameter/bend_power = 1.5
 shader_parameter/height_scale = 0.4
 shader_parameter/base_rigidity = 0.3
-shader_parameter/wind_noise = SubResource("NoiseTexture2D_nhwfh")
-shader_parameter/noise_scale = 0.05
-shader_parameter/noise_speed = 0.05
-shader_parameter/noise_influence = 1.0

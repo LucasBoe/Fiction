@@ -22,6 +22,8 @@ size = Vector3(3.8, 1, 0.8)
 script = ExtResource("1_vcyf4")
 attack_speed = 2.0
 damage_per_attack = 1
+display_name = "Pike Wagon"
+display_description = "Pierces anything that goes close to it"
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("5_g66xa")]

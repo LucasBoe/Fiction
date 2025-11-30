@@ -25,6 +25,7 @@ can_be_damaged_by_enemy = true
 reward_amount_base = 0
 debris_mesh = ExtResource("3_h47ri")
 display_name = "Blacksmith"
+display_description = "Grants  wagon upgrades after the attack "
 
 [node name="Smith" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_nxwk6")

@@ -27,6 +27,7 @@ size = Vector3(1.97223, 1.02826, 1)
 [node name="Wagon_Barricade" type="StaticBody3D"]
 script = ExtResource("1_xliut")
 display_name = "Barricade Wagon"
+display_description = "Block anything that wants to pass through"
 upgrades = Array[ExtResource("2_upfku")]([SubResource("Resource_cepbf")])
 grid_size = Vector2i(2, 1)
 

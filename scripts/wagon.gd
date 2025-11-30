@@ -6,6 +6,7 @@ class_name Wagon
 @onready var range_visualization = $RangeVisualization
 
 @export var display_name = ""
+@export var display_description = ""
 @export var upgrades : Array[WagonUpgrade]
 
 @export var day_tween_time: float = 1

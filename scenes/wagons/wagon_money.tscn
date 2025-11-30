@@ -24,6 +24,7 @@ size = Vector3(1.97223, 1.02826, 1.97571)
 script = ExtResource("1_nkb43")
 money_amount_lerp_curve = SubResource("Curve_4iylc")
 display_name = "King's Wagon"
+display_description = "Needs to be protected"
 grid_size = Vector2i(2, 2)
 
 [node name="Health" parent="." instance=ExtResource("2_4iylc")]

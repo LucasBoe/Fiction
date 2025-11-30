@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dncmc3mi3cug2"]
+
+[ext_resource type="PackedScene" uid="uid://d3s1by1ea4txi" path="res://meshes/wagons/wagon_mortar_canon.glb" id="1_3tdtx"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="2_vt6h4"]
+[ext_resource type="Material" uid="uid://dns1w1ncxegwh" path="res://materials/metal_dark.tres" id="3_2aw4v"]
+
+[node name="wagon_mortar_canon" instance=ExtResource("1_3tdtx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_vt6h4")
+surface_material_override/1 = ExtResource("3_2aw4v")

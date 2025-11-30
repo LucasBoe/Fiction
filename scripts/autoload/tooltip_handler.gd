@@ -3,6 +3,7 @@ extends Node3D
 @onready var canvas_layer = $CanvasLayer
 @onready var tooltip_root = $CanvasLayer/Control/MarginContainer
 @onready var label = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/NameLabel
+@onready var description = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/DescriptionLabel
 @onready var healthbar_root = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/HealthBar
 @onready var reward_container = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/RewardContainer
 @onready var reward_label = $CanvasLayer/Control/MarginContainer/MarginContainer/VBoxContainer/RewardContainer/HBoxContainer/RewardLabel
@@ -48,6 +49,11 @@ func _process(delta):
 			label.text = currently_hovered.display_name
 		else:
 			label.text = currently_hovered.name
+		
+		if not currently_hovered.display_description.is_empty():
+			description.text = currently_hovered.display_description
+		else:
+			description.text = ""
 		
 		if currently_hovered is Wagon:
 			current_health = currently_hovered.body.health
