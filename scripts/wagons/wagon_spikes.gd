@@ -1,8 +1,6 @@
 extends Wagon
 class_name Wagon_Spikes
 
-@onready var spikes1 = $Spikes1
-@onready var spikes2 = $Spikes2
 @onready var area = $Area3D
 
 @export var attack_speed = 1.0
@@ -25,7 +23,3 @@ func try_make_damage():
 		if body is Enemy:
 			body.health.take_damage(damage_per_attack)
 			
-func _process(delta: float) -> void:
-	t += delta
-	spikes1.position = Vector3(0,0,(sin(t * PI * attack_speed * 2)+1)/2)
-	spikes2.position = Vector3(0,0,(sin((t + 0.25) * PI * attack_speed * 2)+1)/2)
