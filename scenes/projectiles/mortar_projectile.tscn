@@ -1,7 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://deiex68vje18d"]
+[gd_scene load_steps=9 format=3 uid="uid://deiex68vje18d"]
 
 [ext_resource type="Script" uid="uid://c8udsu42gth11" path="res://scenes/projectiles/mortar_projectile.gd" id="1_8x8de"]
-[ext_resource type="Script" uid="uid://b8trxeh5lua0f" path="res://scenes/projectiles/enemy_damager.gd" id="3_0kec8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j84vr"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.368627, 0.294118, 0.0901961)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_8x8de"]
+colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lt6t8"]
+gradient = SubResource("Gradient_8x8de")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k5aid"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.1
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -720.0
+angle_max = 696.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 2.99998
+radial_velocity_min = 0.999978
+radial_velocity_max = 1.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_lt6t8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0kec8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_j84vr"]
 radius = 0.1
@@ -9,18 +48,28 @@ height = 0.2
 radial_segments = 8
 rings = 8
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_aupyw"]
-radius = 0.0606473
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x8de"]
+albedo_color = Color(0.904597, 0.502041, 0.404344, 1)
 
 [node name="Mortar_projectile" type="Node3D"]
 script = ExtResource("1_8x8de")
 
+[node name="Particles" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_j84vr")
+amount = 200
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_k5aid")
+draw_pass_1 = SubResource("QuadMesh_0kec8")
+
 [node name="Visualization" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("SphereMesh_j84vr")
+surface_material_override/0 = SubResource("StandardMaterial3D_8x8de")
 
-[node name="Area3D" type="Area3D" parent="."]
-script = ExtResource("3_0kec8")
-
-[node name="EnemyDamager" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_aupyw")
+[node name="Impact" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_j84vr")
+emitting = false
+amount = 200
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_k5aid")
+draw_pass_1 = SubResource("QuadMesh_0kec8")

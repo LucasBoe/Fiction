@@ -8,8 +8,13 @@ class_name RewardChoiceCanvas
 @onready var fallback_label = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NoChoicesLeftFallback
 
 @onready var supply_icon = preload("res://ui/supplies_icon.png")
-@onready var basic_wagon_icon = preload("res://ui/basic_icon.png")
-const basic_wagon_scene_path = "res://scenes/wagons/wagon_basic.tscn"
+@onready var fire_wagon_icon = preload("res://ui/basic_icon.png")
+@onready var archer_wagon_icon = preload("res://ui/basic_icon.png")
+@onready var barricade_wagon_icon = preload("res://ui/basic_icon.png")
+
+const fire_wagon_scene_path = "res://scenes/wagons/wagon_fire.tscn"
+const archer_wagon_scene_path = "res://scenes/wagons/wagon_archer.tscn"
+const barricade_wagon_scene_path = "res://scenes/wagons/wagon_barricade.tscn"
 
 var choice_instances : Dictionary[RewardBuilding.RewardType, Array]
 
@@ -39,11 +44,30 @@ func populate_choices(reward : RewardBuilding.RewardType):
 			"[color= orange]Repair[/color] all wagons",
 			supply_icon,
 			30)
-		create_button_wagon_maker(
-			"Build a [color= orange]Simple Wagon[/color]",
-			basic_wagon_icon,
-			50,
-			basic_wagon_scene_path)
+			
+		var pool = [0, 1, 2]
+		pool.erase(pool.pick_random())
+		
+		if pool.has(0):
+			create_button_wagon_maker(
+				"Build a [color= orange]Fire Wagon[/color]",
+				fire_wagon_icon,
+				30,
+				fire_wagon_scene_path)
+				
+		if pool.has(1):
+			create_button_wagon_maker(
+				"Build a [color= orange]Archer Wagon[/color]",
+				archer_wagon_icon,
+				50,
+				archer_wagon_scene_path)
+				
+		if pool.has(2):
+			create_button_wagon_maker(
+				"Build a [color= orange]Barricade Wagon[/color]",
+				barricade_wagon_icon,
+				30,
+				barricade_wagon_scene_path)
 		
 	elif reward == RewardBuilding.RewardType.SMITH:
 		header_label.text = "The [color= orange]Smith [/color]can upgrade one of your wagons:"		

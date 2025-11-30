@@ -19,6 +19,7 @@ func fill(_canvas : RewardChoiceCanvas, _title, _icon, _price, _new_wagon_path =
 	icon_rect.texture = _icon
 	price_label.text = str(-price, " Supplies")
 	button.pressed.connect(try_choose)
+	refresh()
 
 func try_choose():
 	if MoneyHandler.current_money < price:

@@ -1,12 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://bglr6y4wkwou0"]
+[gd_scene load_steps=20 format=3 uid="uid://bglr6y4wkwou0"]
 
-[ext_resource type="Script" uid="uid://bu0efikpyo5ja" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
+[ext_resource type="Script" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
+[ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_iqjo1"]
+[ext_resource type="Texture2D" uid="uid://2rcgw2v44yhm" path="res://ui/travel_location.png" id="3_kmrq6"]
+[ext_resource type="PackedScene" uid="uid://df52l5ahw7tn0" path="res://scenes/wagons/wagon_mortar.tscn" id="4_372qq"]
 [ext_resource type="PackedScene" uid="uid://bkr2ius3e7m68" path="res://meshes/wagons/wagon_fire.tscn" id="5_50edh"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_o8ouu"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_1jx8e"]
 [ext_resource type="PackedScene" uid="uid://fnlr8nttcigu" path="res://meshes/wagons/wagon_fire_spinner.tscn" id="6_lt6t8"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_rt68c"]
 [ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="12_q3c7r"]
+
+[sub_resource type="Resource" id="Resource_bgcp7"]
+script = ExtResource("2_iqjo1")
+upgrade_cost = 30
+upgrade_name = "Mortar"
+upgrade_wagon = ExtResource("4_372qq")
+upgrade_icon = ExtResource("3_kmrq6")
+metadata/_custom_type_script = "uid://da2xy0db0tifk"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]
 size = Vector3(1.2, 1, 1.2)
@@ -29,7 +40,7 @@ particles_anim_loop = false
 [sub_resource type="Gradient" id="Gradient_50edh"]
 colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lt6t8"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_50edh"]
 gradient = SubResource("Gradient_50edh")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p2uro"]
@@ -43,7 +54,7 @@ angular_velocity_max = 2.99998
 gravity = Vector3(0, 0, 0)
 scale_min = 0.05
 scale_max = 0.25
-color_ramp = SubResource("GradientTexture1D_lt6t8")
+color_ramp = SubResource("GradientTexture1D_50edh")
 
 [sub_resource type="QuadMesh" id="QuadMesh_lt6t8"]
 
@@ -56,6 +67,7 @@ collision_mask = 2
 script = ExtResource("1_50edh")
 display_name = "Fire Wagon"
 display_description = "Ignites anything that walks through it"
+upgrades = Array[ExtResource("2_iqjo1")]([SubResource("Resource_bgcp7")])
 grid_size = Vector2i(3, 3)
 
 [node name="Health" parent="." instance=ExtResource("5_o8ouu")]
