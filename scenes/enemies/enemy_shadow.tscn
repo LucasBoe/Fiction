@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd8fpufy1o7f6"]
+[gd_scene load_steps=17 format=3 uid="uid://dd8fpufy1o7f6"]
 
 [ext_resource type="Script" uid="uid://cj7voqr5q4hrr" path="res://scripts/enemies/enemy_shadow.gd" id="1_ani8c"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_5cnh8"]
 [ext_resource type="PackedScene" uid="uid://djywoge7eqeoi" path="res://meshes/humans/enemy.tscn" id="3_c86y3"]
 [ext_resource type="AudioStream" uid="uid://c0ps1xig3kmcf" path="res://audio/sounds/enemy_loop.wav" id="4_c86y3"]
+[ext_resource type="Material" uid="uid://blr4mhjthmuui" path="res://mat_fire.tres" id="5_08chx"]
+[ext_resource type="Material" uid="uid://d04ckfp5s35is" path="res://scenes/enemies/pmat_enemy.tres" id="5_x2ikp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5cnh8"]
 radius = 0.09
@@ -111,6 +113,47 @@ _data = {
 &"RESET": SubResource("Animation_08chx")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c86y3"]
+transparency = 1
+blend_mode = 3
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PrismMesh" id="PrismMesh_c86y3"]
+
+[sub_resource type="Gradient" id="Gradient_50edh"]
+colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iqjo1"]
+gradient = SubResource("Gradient_50edh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_shugl"]
+lifetime_randomness = 0.5
+angle_min = -720.0
+angle_max = 696.0
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = -1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 2.99998
+gravity = Vector3(0, 8, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.2
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_iqjo1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_shugl"]
+
 [node name="EnemyShadow" type="CharacterBody3D"]
 script = ExtResource("1_ani8c")
 speed = 2.3
@@ -145,3 +188,22 @@ libraries = {
 }
 autoplay = "Idle"
 speed_scale = 3.5
+
+[node name="DeathParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00353825, 0.233528, 0)
+material_override = SubResource("StandardMaterial3D_c86y3")
+emitting = false
+amount = 100
+lifetime = 0.3
+one_shot = true
+process_material = ExtResource("5_x2ikp")
+draw_pass_1 = SubResource("PrismMesh_c86y3")
+
+[node name="Flames" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.997928, 0.0643407, -4.36208e-08, 4.37114e-08, 1.91069e-15, 1, 0.0643407, -0.997928, -2.81242e-09, 0, 0.214446, -0.0470825)
+material_override = ExtResource("5_08chx")
+cast_shadow = 0
+amount = 50
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_shugl")
+draw_pass_1 = SubResource("QuadMesh_shugl")

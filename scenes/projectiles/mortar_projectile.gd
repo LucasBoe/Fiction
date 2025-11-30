@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 		for enemy in targets:
 			if is_instance_valid(enemy):
 				enemy.health.take_damage(_damage)
+				enemy.set_burning()
 		
 		impact.emitting = true
 		JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)

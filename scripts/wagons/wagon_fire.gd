@@ -11,12 +11,15 @@ func _ready() -> void:
 	super._ready()
 
 func _process(delta: float) -> void:
-	
 	var bodies = area.get_overlapping_bodies()
 	for body in bodies:
 		if body is not Enemy:
 			continue
 			
 		var enemy = body as Enemy
-		enemy.health.take_damage(damage_per_second * delta)	
+		enemy.health.take_damage(damage_per_second * delta)
+		
+		if not enemy.check_burning():
+			enemy.set_burning()
+			
 	canon_mesh.rotate_y(delta * rotation_speed)

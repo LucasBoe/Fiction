@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_1jx8e"]
 [ext_resource type="PackedScene" uid="uid://fnlr8nttcigu" path="res://meshes/wagons/wagon_fire_spinner.tscn" id="6_lt6t8"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_rt68c"]
+[ext_resource type="Material" uid="uid://blr4mhjthmuui" path="res://mat_fire.tres" id="10_kmrq6"]
 [ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="12_q3c7r"]
 
 [sub_resource type="Resource" id="Resource_bgcp7"]
@@ -24,18 +25,6 @@ size = Vector3(1.2, 1, 1.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1, 1.028, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50edh"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.368627, 0.294118, 0.0901961)
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_50edh"]
 colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
@@ -97,8 +86,7 @@ transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.0008146
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Visuals/wagon_fire_spinner"]
 transform = Transform3D(0.997928, 0.0643407, -4.36208e-08, 4.37114e-08, 1.91069e-15, 1, 0.0643407, -0.997928, -2.81242e-09, 0.323862, 0.75773, -0.00213573)
-visible = false
-material_override = SubResource("StandardMaterial3D_50edh")
+material_override = ExtResource("10_kmrq6")
 amount = 200
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_p2uro")
@@ -106,8 +94,7 @@ draw_pass_1 = SubResource("QuadMesh_lt6t8")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Visuals/wagon_fire_spinner"]
 transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -0.384161, 0.758849, 0.0153128)
-visible = false
-material_override = SubResource("StandardMaterial3D_50edh")
+material_override = ExtResource("10_kmrq6")
 amount = 200
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_p2uro")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bu3vwbposnth5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c86y3"]
+transparency = 1
+blend_mode = 3
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_08chx"]
+colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_50edh"]
+gradient = SubResource("Gradient_08chx")
+
+[sub_resource type="Curve" id="Curve_c86y3"]
+_data = [Vector2(0, 1), 0.0, 1.7609, 0, 0, Vector2(1e-05, 1), 0.476949, 0.476949, 0, 0, Vector2(0.99999, 0), -2.18122, -2.18122, 0, 0, Vector2(1, 0), -6.10147, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_08chx"]
+curve = SubResource("Curve_c86y3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2ikp"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.3, 0.2)
+angle_min = -720.0
+angle_max = 696.0
+spread = 20.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 2.99998
+radial_velocity_min = -1.00002
+radial_velocity_max = 2.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_08chx")
+color_ramp = SubResource("GradientTexture1D_50edh")
+
+[sub_resource type="PrismMesh" id="PrismMesh_c86y3"]
+
+[node name="DeathParticles" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_c86y3")
+emitting = false
+amount = 100
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_x2ikp")
+draw_pass_1 = SubResource("PrismMesh_c86y3")

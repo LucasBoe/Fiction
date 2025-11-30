@@ -4,12 +4,19 @@ extends Enemy
 @export var attack_speed = 1.0
 @onready var agent = %NavigationAgent3D
 @onready var death_particles = $DeathParticles
+@onready var flames = $Flames
+@onready var fire_damage_per_second = 1.0
 
 var target_node
 var target_position
 
+var burning_time = 0.0
+const burning_cooldown = 3.0
+
 func _ready():
 	super._ready()
+	
+	flames.emitting = false
 	
 	#create unique delay
 	await get_tree().create_timer((1.0 / attack_speed) * randf()).timeout
@@ -17,6 +24,10 @@ func _ready():
 	while true: 
 		await get_tree().create_timer(1.0 / attack_speed).timeout
 		refresh()
+
+func set_burning():
+	burning_time = burning_cooldown
+	flames.emitting = true
 
 func refresh():
 	
@@ -51,6 +62,21 @@ func refresh():
 			JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 			SoundPlayer.play3D(SoundPlayer.enemy_attack, global_position)
 			print("damage ", target, ": ", damage)
+
+func _process(delta):
+	
+	if not check_burning():
+		return
+		
+	var dmg = fire_damage_per_second * delta
+	health.take_damage(dmg)
+	
+	burning_time -= delta
+	if not check_burning():
+		flames.emitting = false
+
+func check_burning():
+	return burning_time > 0.0
 
 func _physics_process(delta: float) -> void:
 	
