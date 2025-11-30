@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://diyvaqghfok1b"]
+[gd_scene load_steps=11 format=3 uid="uid://diyvaqghfok1b"]
 
 [ext_resource type="Script" uid="uid://bhy4lhrhk1cbl" path="res://scripts/autoload/reward_handler.gd" id="1_gr6x3"]
 [ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="2_hnfjh"]
 [ext_resource type="Script" uid="uid://bm1ko5i1aars7" path="res://scripts/reward_choice_canvas.gd" id="3_sd2vp"]
 [ext_resource type="Texture2D" uid="uid://e2gd4nj62k57" path="res://ui/window_rect.png" id="4_plse1"]
 [ext_resource type="Texture2D" uid="uid://yapy1n8utfd1" path="res://ui/healthbar_center_overlay.png" id="5_iterj"]
+[ext_resource type="Script" uid="uid://cddj5yocd45b2" path="res://scripts/reward_choice_ui.gd" id="6_iterj"]
 [ext_resource type="FontFile" uid="uid://cblvk8fk77d1h" path="res://fonts/C&C Red Alert.ttf" id="6_sd2vp"]
 [ext_resource type="Theme" uid="uid://bjos0os13v61q" path="res://ui/default_theme.tres" id="7_plse1"]
+[ext_resource type="FontFile" uid="uid://pbrmctq7sdlw" path="res://fonts/Cubix.ttf" id="8_1xt37"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gr6x3"]
 
@@ -80,6 +82,7 @@ theme_override_constants/separation = 8
 [node name="ChoiceDummy" type="MarginContainer" parent="RewardChoiceCanvas/Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(110, 150)
 layout_mode = 2
+script = ExtResource("6_iterj")
 
 [node name="Button" type="Button" parent="RewardChoiceCanvas/Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy"]
 layout_mode = 2
@@ -121,6 +124,17 @@ theme_override_fonts/font = ExtResource("6_sd2vp")
 theme_override_font_sizes/font_size = 13
 text = "100 Supplies"
 horizontal_alignment = 1
+
+[node name="NoChoicesLeftFallback" type="RichTextLabel" parent="RewardChoiceCanvas/Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 200)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.854902, 0.654902, 0.466667, 1)
+theme_override_fonts/normal_font = ExtResource("8_1xt37")
+theme_override_font_sizes/normal_font_size = 11
+text = "Nothing to do here anymore.
+Press \"continue journey\" to move on"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="MarginContainer" parent="RewardChoiceCanvas/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -17,8 +17,8 @@ static func execute_wagon_upgrade(wagon_path, original_wagon = null):
 		Globals.placement_handler.active_holder.add_child(instance)
 		instance.global_position = Vector3(0,-10,0)
 		
-		if original_wagon != null:
-			original_wagon.queue_free()
+	if original_wagon != null:
+		original_wagon.queue_free()
 
 static func get_all_possible_upgrades():
 	var pool : Array[WagonUpgrade]

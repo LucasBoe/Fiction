@@ -440,6 +440,45 @@ theme_override_fonts/font = ExtResource("22_vxglm")
 theme_override_font_sizes/font_size = 13
 text = "This is something you have to do"
 
+[node name="ContinueButtons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EndPlacementButton" type="Button" parent="CanvasLayer/ContinueButtons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -110.0
+offset_right = 55.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "wait for the night"
+
+[node name="EndRewardButton" type="Button" parent="CanvasLayer/ContinueButtons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -110.0
+offset_right = 55.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue journey"
+
 [node name="HealthBarCanvas" parent="." instance=ExtResource("15_jbj1t")]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
