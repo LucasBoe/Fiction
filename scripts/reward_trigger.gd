@@ -1,8 +1,8 @@
-extends StaticBody3D
+extends TriggerBase
 class_name RewardTrigger
 
-@onready var building : Building = $".."
 @onready var mesh = $MeshInstance3D
+@onready var building : Building = $".."
 
 var reward_instances : Array
 var triggered = false
@@ -44,15 +44,7 @@ func _on_show_rewards_signal():
 func _on_hide_rewards_signal():
 	hide()
 
-func notify_enter():
-	scale = Vector3(1.1, 1.1, 1.1)
-	
-func notify_exit():
-	scale = Vector3.ONE
-
-func trigger_reward():
-	
-	
+func on_click():
 	if building.health._is_empty():
 		queue_free()
 		return	

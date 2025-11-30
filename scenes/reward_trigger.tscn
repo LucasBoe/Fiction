@@ -7,7 +7,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl5r0"]
 transparency = 1
 blend_mode = 1
-cull_mode = 1
+cull_mode = 2
 albedo_color = Color(1, 1, 0, 0.388235)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r4lc6"]
