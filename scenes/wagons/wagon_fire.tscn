@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://bglr6y4wkwou0"]
 
-[ext_resource type="Script" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
+[ext_resource type="Script" uid="uid://bu0efikpyo5ja" path="res://scripts/wagons/wagon_fire.gd" id="1_50edh"]
 [ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_iqjo1"]
-[ext_resource type="Texture2D" uid="uid://2rcgw2v44yhm" path="res://ui/travel_location.png" id="3_kmrq6"]
+[ext_resource type="Texture2D" uid="uid://i8w71n1ja5js" path="res://ui/mortar_upgrade_icon.png" id="3_iqjo1"]
 [ext_resource type="PackedScene" uid="uid://df52l5ahw7tn0" path="res://scenes/wagons/wagon_mortar.tscn" id="4_372qq"]
 [ext_resource type="PackedScene" uid="uid://bkr2ius3e7m68" path="res://meshes/wagons/wagon_fire.tscn" id="5_50edh"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_o8ouu"]
@@ -16,7 +16,7 @@ script = ExtResource("2_iqjo1")
 upgrade_cost = 30
 upgrade_name = "Mortar"
 upgrade_wagon = ExtResource("4_372qq")
-upgrade_icon = ExtResource("3_kmrq6")
+upgrade_icon = ExtResource("3_iqjo1")
 metadata/_custom_type_script = "uid://da2xy0db0tifk"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnmmq"]

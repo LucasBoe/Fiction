@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://e6vikdxmpudk" path="res://meshes/wagons/wagon_barricade.tscn" id="3_fxwh8"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="4_5jywj"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="4_v2acl"]
-[ext_resource type="Texture2D" uid="uid://bdvcoatsu3421" path="res://ui/tooltip.png" id="5_80py0"]
+[ext_resource type="Texture2D" uid="uid://i7bjm0qer2jk" path="res://ui/pike_upgrade_icon.png" id="5_80py0"]
 [ext_resource type="PackedScene" uid="uid://brc1c1fk5ajwc" path="res://scenes/wagons/wagon_spikes.tscn" id="6_735vx"]
 
 [sub_resource type="Resource" id="Resource_cepbf"]
