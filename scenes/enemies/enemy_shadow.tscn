@@ -1,19 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd8fpufy1o7f6"]
+[gd_scene load_steps=6 format=3 uid="uid://dd8fpufy1o7f6"]
 
 [ext_resource type="Script" uid="uid://cj7voqr5q4hrr" path="res://scripts/enemies/enemy_shadow.gd" id="1_ani8c"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_5cnh8"]
-[ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="2_kxqcu"]
+[ext_resource type="PackedScene" uid="uid://djywoge7eqeoi" path="res://meshes/humans/enemy.tscn" id="3_c86y3"]
 [ext_resource type="AudioStream" uid="uid://c0ps1xig3kmcf" path="res://audio/sounds/enemy_loop.wav" id="4_c86y3"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_kxqcu"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5cnh8"]
-render_priority = 0
-shader = ExtResource("2_kxqcu")
-shader_parameter/color_tint = Vector3(0.1, 0.1, 0.15)
-shader_parameter/texture_tile = Vector2(1, 1)
-shader_parameter/snap_enabled = true
-shader_parameter/snap_resolution = 120.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5cnh8"]
 radius = 0.09
@@ -35,10 +25,8 @@ path_desired_distance = 0.5
 target_desired_distance = 0.5
 path_max_distance = 3.01
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_kxqcu")
-surface_material_override/0 = SubResource("ShaderMaterial_5cnh8")
+[node name="enemy" parent="." instance=ExtResource("3_c86y3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.697096, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5cnh8")

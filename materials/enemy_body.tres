@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bnrurcqynxe2e"]
+
+[ext_resource type="Shader" uid="uid://dinex0pt02ggc" path="res://shaders/ps1_models.gdshader" id="1_h8p2f"]
+[ext_resource type="Texture2D" uid="uid://bl7qvhxaly4k2" path="res://texture/Ground.png" id="2_4325v"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h8p2f")
+shader_parameter/albedo_texture = ExtResource("2_4325v")
+shader_parameter/color_tint = Vector3(0, 0, 0)
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 100.0

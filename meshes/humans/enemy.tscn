@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://djywoge7eqeoi"]
+
+[ext_resource type="PackedScene" uid="uid://di0rgobws85g6" path="res://meshes/humans/enemy.glb" id="1_rmp81"]
+[ext_resource type="Material" uid="uid://1bgvbxnbc8lv" path="res://materials/enemy_eye.tres" id="2_dbiap"]
+[ext_resource type="Material" uid="uid://bnrurcqynxe2e" path="res://materials/enemy_body.tres" id="3_olens"]
+
+[node name="enemy" instance=ExtResource("1_rmp81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_dbiap")
+surface_material_override/1 = ExtResource("3_olens")
