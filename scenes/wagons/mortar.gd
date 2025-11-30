@@ -57,7 +57,8 @@ func _look_at(target: Node3D):
 func _shoot(target: Node3D):
 	#print("shooting at" + target.name)
 	SoundPlayer.play3D(SoundPlayer.mortar_shoot, global_position)
+	JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 	var projectile := projectile.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = shooting_origin.global_position
-	projectile._set_target(projectile_speed, target, projectile_damage, impact_range)
+	projectile._set_target(projectile_speed, target.global_position, projectile_damage, impact_range)
