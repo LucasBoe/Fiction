@@ -3,10 +3,6 @@ extends Node3D
 @onready var reward_dummy : MeshInstance3D = $RewardDummy
 @onready var reward_choice_canvas : RewardChoiceCanvas = $RewardChoiceCanvas
 var reward_instances : Array[MeshInstance3D]
-var reward_triggers : Array[RewardTrigger]
-
-signal all_rewards_chose_signal
-signal all_rewards_given_signal
 
 signal preview_rewards_signal
 signal show_rewards_signal
@@ -14,12 +10,6 @@ signal hide_rewards_signal
 
 func _ready():
 	reward_dummy.visible = false
-	
-func register_trigger(trigger):
-	reward_triggers.append(trigger)
-	
-func unregister_trigger(trigger):
-	reward_triggers.erase(trigger)
 
 func give_rewards():
 	var map = Globals.map_loader.currently_loaded_map
@@ -42,15 +32,11 @@ func give_rewards():
 			continue
 		
 		# filter out specific reward buildings
-		#if building is RewardBuilding:
-			#if not building.health._is_empty():
-				#reward_buildings.append(building)	
-				
-		if building.reward_trigger != null:
-			if (building.health._is_empty()):
-				reward_triggers.erase(building.reward_trigger)
+		if building is RewardBuilding:
+			if not building.health._is_empty():
+				reward_choice_canvas.populate_choices(building.reward)
 			
-		## apply genereal reward based on destruction	
+		# apply genereal reward based on destruction	
 		#var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
 		#for i in reward_amount / 3.0:
 			#var reward_instance = reward_dummy.duplicate()
@@ -83,22 +69,6 @@ func give_rewards():
 	#for reward in reward_instances:
 		#reward.queue_free()
 	#reward_instances.clear()
-	
-	#for building in reward_buildings:
-		#await reward_choice_canvas.show_choice(building.reward)
-		#
-	while true:
-		# Remove freed / invalid instances
-		reward_triggers = reward_triggers.filter(func(t): return is_instance_valid(t))
-
-		if reward_triggers.is_empty():
-			break
-
-		await get_tree().process_frame
-		
-	await get_tree().create_timer(2).timeout
-		
-	all_rewards_given_signal.emit()
 
 func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay = 0.0):
 	var points : Array[Vector3]

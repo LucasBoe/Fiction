@@ -1,14 +1,13 @@
-extends StaticBody3D
+extends TriggerBase
 class_name RewardTrigger
 
-@onready var building : Building = $".."
 @onready var mesh = $MeshInstance3D
+@onready var building : Building = $".."
 
 var reward_instances : Array
 var triggered = false
 
 func _ready() -> void:
-	RewardHandler.register_trigger(self)
 	
 	if building is RewardBuilding:
 		var mesh  : MeshInstance3D = $MeshInstance3D
@@ -45,27 +44,20 @@ func _on_show_rewards_signal():
 func _on_hide_rewards_signal():
 	hide()
 
-func notify_enter():
-	scale = Vector3(1.1, 1.1, 1.1)
-	
-func notify_exit():
-	scale = Vector3.ONE
-
-func trigger_reward():
-	
-	if triggered:
-		return
-		
-	triggered = true
-	
+func on_click():
 	if building.health._is_empty():
 		queue_free()
-		RewardHandler.unregister_trigger(self)
 		return	
 		
 	if building is RewardBuilding:
-		RewardHandler.reward_choice_canvas.show_choice(building.reward, on_close_reward_window)
+		if not RewardHandler.reward_choice_canvas.visible:
+			RewardHandler.reward_choice_canvas.show_choice(building.reward)
 	else:
+		if triggered:
+			return
+			
+		triggered = true
+		
 		var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
 		for i in reward_amount / 3.0:
 			var reward_instance = get_child(3).duplicate()
@@ -99,7 +91,6 @@ func trigger_reward():
 		await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout
 		
 		queue_free()
-		RewardHandler.unregister_trigger(self)
 	
 func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay = 0.0):
 	var points : Array[Vector3]
@@ -132,10 +123,3 @@ func _process(delta: float) -> void:
 
 func ease_in_out_sine(x: float) -> float:
 	return -(cos(PI * x) - 1.0) / 2.0
-	
-func on_close_reward_window(chose_reward):
-	if chose_reward:
-		RewardHandler.unregister_trigger(self)
-		queue_free()
-	else:
-		triggered = false

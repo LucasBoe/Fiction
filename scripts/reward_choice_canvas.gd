@@ -3,114 +3,120 @@ class_name RewardChoiceCanvas
 
 @onready var margin_root = $Control/MarginContainer
 @onready var header_label = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/Label
-@onready var choice_dummy = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy
+@onready var choice_dummy : RewardChoiceUI = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ChoiceDummy
 @onready var close_button = $Control/MarginContainer/VBoxContainer/Control/CloseButton
+@onready var fallback_label = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NoChoicesLeftFallback
 
-var choice_instances : Array
-var choice_callback = null
+@onready var supply_icon = preload("res://ui/supplies_icon.png")
+@onready var basic_wagon_icon = preload("res://ui/basic_icon.png")
+const basic_wagon_scene_path = "res://scenes/wagons/wagon_basic.tscn"
 
-signal on_picked_reward_signal
+var choice_instances : Dictionary[RewardBuilding.RewardType, Array]
 
 func _ready():
-	choice_dummy.visible = false
+	choice_dummy.hide()
+	fallback_label.hide()
 	hide()
-	close_button.pressed.connect(try_call_callback)
+	close_button.pressed.connect(close_window)
+	#Globals.map_loader.loaded_map.connect(_on_loaded_map)
+	
+#func _on_loaded_map():
+	##clear previous choices for repopulation
+	#for array in choice_instances.values():
+		#for e in array:
+			#e.queue_free()
+	#choice_instances.clear()
 
-func show_choice(reward : RewardBuilding.RewardType, callback = null):
-	show()
+func populate_choices(reward : RewardBuilding.RewardType):
 	
-	if (callback != null):
-		close_button.visible = true
-	else:
-		close_button.visible = false
-	
-	choice_callback = callback
+	#clear previous choices for repopulation
+	if choice_instances.has(reward):
+		choice_instances[reward].clear()
 	
 	if reward == RewardBuilding.RewardType.WAGON_MAKER:
 		header_label.text = "The [color= orange]Wagon Maker [/color]can do something for you:"
 		create_button_wagon_maker(
-			"Get his leftover  [color= orange] Supplies [/color]",
-			load("res://ui/supplies_icon.png"))
-		create_button_wagon_maker(
-			" [color= orange] Repair [/color]all wagons",
-			load("res://ui/supplies_icon.png"),
+			"[color= orange]Repair[/color] all wagons",
+			supply_icon,
 			30)
 		create_button_wagon_maker(
-			"Build a[color= orange] Simple Wagon [/color]",
-			load("res://ui/basic_icon.png"),
-			50)
+			"Build a [color= orange]Simple Wagon[/color]",
+			basic_wagon_icon,
+			50,
+			basic_wagon_scene_path)
 		
 	elif reward == RewardBuilding.RewardType.SMITH:
-		header_label.text = "The [color= orange]Smith [/color]can upgrade one of your wagons:"
-		create_button_wagon_maker(
-			"Get his leftover  [color= orange] Supplies [/color]",
-			load("res://ui/supplies_icon.png"))
-		
+		header_label.text = "The [color= orange]Smith [/color]can upgrade one of your wagons:"		
 		#pool upgrades
 		var pool = WagonUpgrade.get_all_possible_upgrades()
 		
 		#pick random upgrades
-		var i = 2 #max count
+		var i = 3 #max count
 		while i > 0 and pool.size() > 0:
 			var upgrade : WagonUpgrade = pool.pick_random()
 			pool.erase(upgrade)
-			create_button_smith(upgrade.upgrade_name, upgrade.upgrade_cost, upgrade.upgrade_icon, upgrade.original_wagon, upgrade.upgrade_wagon.resource_path)
+			create_button_smith(upgrade)
+			#create_button_smith(upgrade.upgrade_name, upgrade.upgrade_cost, upgrade.upgrade_icon, upgrade.original_wagon, upgrade.upgrade_wagon.resource_path)
 			i-=1
-	
-	#margin_root.size = margin_root.get_combined_minimum_size()
 
-func create_button_smith(title, price, upgradeIcon, original_wagon, new_wagon):
-	var button = create_button(title, price, upgradeIcon)
-	button.pressed.connect(pick.bind(price, new_wagon, original_wagon))
-	
-func create_button_wagon_maker(title, icon, price = -10, wagon = ""):
-	var button = create_button(title, price, icon)
-	button.pressed.connect(pick.bind(price, wagon))
+func show_choice(reward : RewardBuilding.RewardType):
+	for c in choice_instances[reward]:
+		c.show()
+		
+	show()
+	try_update_fallback_label()
 
-func create_button(title, price, icon):
+func create_button_smith(upgrade : WagonUpgrade):
+	var choice = create_choice(RewardBuilding.RewardType.SMITH)
+	choice.fill(self, upgrade.upgrade_name, upgrade.upgrade_icon, upgrade.upgrade_cost, upgrade.upgrade_wagon.resource_path, upgrade.original_wagon)
+	
+	
+func create_button_wagon_maker(title, icon, price = -10, new_wagon_path = ""):
+	var choice = create_choice(RewardBuilding.RewardType.WAGON_MAKER)
+	choice.fill(self, title, icon, price, new_wagon_path, null)
+
+func create_choice(reward_type):
+	
+	if not choice_instances.has(reward_type):
+		choice_instances[reward_type] = []
+	
 	var instance = choice_dummy.duplicate()
-	choice_instances.append(instance)
-	instance.visible = true
+	choice_instances[reward_type].append(instance)
 	choice_dummy.get_parent().add_child(instance)	
+	return instance
 	
-	print("create button with title ", title)
+func try_remove_choice(choice : RewardChoiceUI):
+	for array in choice_instances.values():
+		array.erase(choice)
+		
+		#is there another update that would affect the same wagon?
+		if choice.original_wagon_instance != null:
+			for e : RewardChoiceUI in array:
+				if e.original_wagon_instance == choice.original_wagon_instance:
+					e.queue_free()
+					array.erase(e)
+		
+	choice.queue_free()
+	refresh_all_choices()
 	
-	var button = instance.get_node("Button")
-	button.disabled = MoneyHandler.current_money < price
-	instance.find_child("NameLabel", true, false).text = title
-	if icon !=  null:
-		instance.find_child("IconRect", true, false).texture = icon;
-	instance.find_child("PriceLabel", true, false).text = str(-price, " Supplies")
-	return button
+func refresh_all_choices():
+	for array in choice_instances.values():
+		for e in array:
+			e.refresh()
+			
+	try_update_fallback_label()
 
-func pick(price, wagon, original_wagon = null):
-	if MoneyHandler.current_money < price:
-		return
-		
-	MoneyHandler.change_money(-price)
-		
-	for choice in choice_instances:
-		choice.queue_free()
-	choice_instances.clear()
-	
-	if wagon.is_empty() and price > 0:
-		for existing_wagon : Wagon in Wagon.get_all_active_wagons():
-			existing_wagon.body.health.heal()
-	else:
-		WagonUpgrade.execute_wagon_upgrade(wagon, original_wagon)
-	
-	on_picked_reward_signal.emit()
-	choice_callback.call(true)
-	
-	hide()
+func try_update_fallback_label():
+	var show_fallback = true
+	for array in choice_instances.values():
+		for e in array:
+			if e.visible:
+				show_fallback = false
+				
+	fallback_label.visible = show_fallback
 
-func try_call_callback():
-	
-	for choice in choice_instances:
-		choice.queue_free()
-	choice_instances.clear()
-		
-	if choice_callback != null:
-		choice_callback.call(false)
-		
+func close_window():
+	for array in choice_instances.values():
+		for e in array:
+			e.hide()
 	hide()

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4kjviw36j1m8"]
+
+[ext_resource type="Script" uid="uid://rddcdxbna15v" path="res://scripts/repair_trigger.gd" id="1_2dq3i"]
+[ext_resource type="PackedScene" uid="uid://bt525g6ypbp17" path="res://scenes/decoration/hammer.tscn" id="2_ddkxy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_eo8bb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl5r0"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1, 0, 0, 0.388235)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r4lc6"]
+
+[node name="RepairTrigger" type="StaticBody3D"]
+script = ExtResource("1_2dq3i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_eo8bb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_wl5r0")
+
+[node name="hammer" parent="MeshInstance3D" instance=ExtResource("2_ddkxy")]
+transform = Transform3D(3.68115, 1.56498, 0, -1.56498, 3.68115, 0, 0, 0, 4, -0.0773702, -0.219215, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_r4lc6")

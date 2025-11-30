@@ -39,7 +39,7 @@ func _process(delta):
 		
 func handle_reward_claim(space_state, mouse_pos, cam):
 	previously_hovered_reward = currently_hovered_reward
-	currently_hovered_reward = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, RewardTrigger)
+	currently_hovered_reward = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, TriggerBase)
 	
 	if previously_hovered_reward != currently_hovered_reward:
 		if previously_hovered_reward != null:
@@ -52,7 +52,7 @@ func handle_reward_claim(space_state, mouse_pos, cam):
 		return
 		
 	if lmb_pressed:
-		currently_hovered_reward.trigger_reward()
+		currently_hovered_reward.on_click()
 
 func handle_modifications(space_state, mouse_pos, cam):
 	

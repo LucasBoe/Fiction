@@ -16,5 +16,4 @@ func on_health_is_empty():
 	instance.global_transform = global_transform
 	get_tree().root.add_child(instance)
 	SoundPlayer.play3D(SoundPlayer.wagon_destroy, self.global_position)
-	
-	self.get_parent().queue_free()
+	DestroyedWagonHandler.handover(self.get_parent())

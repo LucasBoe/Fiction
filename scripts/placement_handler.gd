@@ -5,32 +5,13 @@ class_name PlacementHandler
 @onready var inactive_holder = $InactiveObjectHolder
 @onready var active_holder = $ActiveObjectHolder
 
-var active = false
 var button : Button
-
-signal placement_started
-signal placement_finished
 
 func _ready():
 	Globals.placement_handler = self
 
 func run_placement_phase():
-
-	if active:
-		return
-
-	active = true
-	
 	_align_all_placeables()
-	
-	button = Button.new()
-	button.text = "Finish Placement"
-	button.pressed.connect(_button_pressed)
-	canvas.add_child(button)
-	
-	var screen_size: Vector2 = get_viewport().get_visible_rect().size
-	button.global_position = Vector2((screen_size.x - button.size.x) / 2, screen_size.y - 112)
-	emit_signal("placement_started")
 
 func reset_placement():
 	#migrate all placed objects to inactive parent
@@ -61,18 +42,6 @@ func _align_all_placeables():
 			placement_position += Vector3.BACK
 			
 	RaycastHandler.all_wagons = all_wagons
-
-func _button_pressed():
-	
-	if not active:
-		return
-		
-	active = false
-	
-	button.pressed.disconnect(_button_pressed)
-	button.queue_free()
-
-	emit_signal("placement_finished")
 	
 func _is_odd(x: int):
 	return x % 2 != 0

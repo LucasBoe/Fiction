@@ -5,7 +5,12 @@ class_name GameLoopHandler
 @onready var placement_handler = %PlacementHandler
 @onready var enemy_spawner = %EnemySpawner
 
+@onready var end_placement_button = %CanvasLayer/ContinueButtons/EndPlacementButton
+@onready var end_reward_button = %CanvasLayer/ContinueButtons/EndRewardButton
+
 func _ready() -> void:
+	end_placement_button.hide()
+	end_reward_button.hide()
 	await _game_loop()
 
 func _game_loop() -> void:
@@ -50,7 +55,7 @@ func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
 	RaycastHandler.set_modifications_allowed(true)
 	RewardHandler.preview_rewards_signal.emit()
-	await placement_handler.placement_finished
+	await await_button(end_placement_button)
 	RewardHandler.hide_rewards_signal.emit()
 	RaycastHandler.set_modifications_allowed(false)
 	Globals.environment.set_night()
@@ -70,7 +75,7 @@ func _reward_phase() -> void:
 	Globals.environment.set_day()
 	RewardHandler.show_rewards_signal.emit()
 	RewardHandler.give_rewards()
-	await RewardHandler.all_rewards_given_signal
+	await await_button(end_reward_button)
 	Globals.reward_phase_end_signal.emit()
 	print("rewards given")
 
@@ -79,3 +84,8 @@ func _run_narrative_popups(introduction_narrative = false) -> void:
 	NarrativeCanvas.begin_travel(introduction_narrative)
 	await NarrativeCanvas.travel_finished_signal
 	Globals.camera_manager.set_camera(CameraManager.camera_mode.PERSPECTIVE)
+
+func await_button(button):
+	button.show()
+	await button.pressed
+	button.hide()
