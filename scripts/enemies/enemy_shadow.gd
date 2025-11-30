@@ -3,6 +3,7 @@ extends Enemy
 @export var speed: float = 1.0
 @export var attack_speed = 1.0
 @onready var agent = %NavigationAgent3D
+@onready var death_particles = $DeathParticles
 
 var target_node
 var target_position
@@ -74,3 +75,8 @@ func _physics_process(delta: float) -> void:
 		#DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
 
 	move_and_slide()
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		death_particles.reparent(Globals.map_loader.currently_loaded_map)
+		death_particles.emitting = true
