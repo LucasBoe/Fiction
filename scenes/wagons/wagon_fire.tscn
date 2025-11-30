@@ -40,7 +40,7 @@ particles_anim_loop = false
 [sub_resource type="Gradient" id="Gradient_50edh"]
 colors = PackedColorArray(1, 0.963739, 0.777691, 1, 0.81502, 3.58574e-06, 7.70092e-07, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_50edh"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iqjo1"]
 gradient = SubResource("Gradient_50edh")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p2uro"]
@@ -54,7 +54,7 @@ angular_velocity_max = 2.99998
 gravity = Vector3(0, 0, 0)
 scale_min = 0.05
 scale_max = 0.25
-color_ramp = SubResource("GradientTexture1D_50edh")
+color_ramp = SubResource("GradientTexture1D_iqjo1")
 
 [sub_resource type="QuadMesh" id="QuadMesh_lt6t8"]
 
