@@ -10,4 +10,4 @@ shader_parameter/albedo_texture = ExtResource("2_4325v")
 shader_parameter/color_tint = Vector3(0, 0, 0)
 shader_parameter/texture_tile = Vector2(1, 1)
 shader_parameter/snap_enabled = true
-shader_parameter/snap_resolution = 100.0
+shader_parameter/snap_resolution = 120.0

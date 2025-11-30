@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 			direction = direction.normalized()
 			velocity = direction * speed
 			#DebugDraw3D.draw_line(global_position, global_position + direction)
+			var target_y = atan2(direction.x, direction.z) # yaw angle
+			rotation.y = lerp_angle(rotation.y, target_y, 5.0 * delta)
+			
 		else:
 			velocity = Vector3.ZERO
 			#DebugDraw3D.draw_line(global_position, global_position + Vector3(0,2,0))
