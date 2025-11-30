@@ -1,24 +1,285 @@
-[gd_scene load_steps=11 format=3 uid="uid://brc1c1fk5ajwc"]
+[gd_scene load_steps=16 format=3 uid="uid://brc1c1fk5ajwc"]
 
 [ext_resource type="Script" uid="uid://hkmfqnxgfwsd" path="res://scripts/wagons/wagon_spikes.gd" id="1_vcyf4"]
+[ext_resource type="PackedScene" uid="uid://ciloyr68jpjmf" path="res://meshes/wagons/wagon_pike.tscn" id="3_vcyf4"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_g66xa"]
-[ext_resource type="PackedScene" uid="uid://e6vikdxmpudk" path="res://meshes/wagons/wagon_barricade.tscn" id="6_ltttd"]
+[ext_resource type="PackedScene" uid="uid://crlu2gsm8d2rr" path="res://scenes/decoration/pike.tscn" id="7_531py"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_0670v"]
+[ext_resource type="Script" uid="uid://bn67mwj2h4jxj" path="res://scripts/wagons/pike.gd" id="8_ivlui"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="8_oh3xv"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="9_mvuw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
 size = Vector3(1.8, 1, 0.8)
 
+[sub_resource type="Animation" id="Animation_65q4m"]
+resource_name = "Pikes"
+length = 4.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pikes/Pike:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.81, 1.97, 2.77, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.547897, 0.71316, 0.19376), Vector3(-0.138262, 0.71316, -0.265827), Vector3(-0.138262, 0.71316, -0.265827), Vector3(-0.547897, 0.71316, 0.19376), Vector3(-0.547897, 0.71316, 0.19376)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pikes/Pike8:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.92, 2.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.307324, 0.663645, -0.25366), Vector3(-0.541092, 0.711759, 0.181104), Vector3(-0.541092, 0.711759, 0.181104), Vector3(-0.307324, 0.663645, -0.25366), Vector3(-0.307324, 0.663645, -0.25366)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pikes/Pike2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.69, 2.62, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.442775, 0.71316, 0.238083), Vector3(6.33001e-05, 0.71316, -0.156512), Vector3(6.33001e-05, 0.71316, -0.156512), Vector3(0.442775, 0.71316, 0.238083), Vector3(0.442775, 0.71316, 0.238083)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pikes/Pike9:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.83, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0962649, 0.77243, -0.203711), Vector3(0.497369, 0.703821, 0.307689), Vector3(0.497369, 0.703821, 0.307689), Vector3(0.0962649, 0.77243, -0.203711), Vector3(0.0962649, 0.77243, -0.203711)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pikes/Pike3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2.31, 3.33, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.442775, 0.71316, 0.238083), Vector3(0.319055, 0.803007, -0.31138), Vector3(0.319055, 0.803007, -0.31138), Vector3(0.442775, 0.71316, 0.238083), Vector3(0.442775, 0.71316, 0.238083)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pikes/Pike7:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 1.79, 2.65, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.493821, 0.589811, -0.290137), Vector3(0.346572, 0.691629, 0.241388), Vector3(0.346572, 0.691629, 0.241388), Vector3(0.493821, 0.589811, -0.290137), Vector3(0.493821, 0.589811, -0.290137)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pikes/Pike4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.84, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.00528556, 0.71316, 0.263831), Vector3(0.239734, 0.771596, -0.309972), Vector3(0.239734, 0.771596, -0.309972), Vector3(-0.00528556, 0.71316, 0.263831), Vector3(-0.00528556, 0.71316, 0.263831)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pikes/Pike6:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1, 2.33, 3.17, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.349106, 0.619702, -0.326688), Vector3(-0.14489, 0.712534, 0.277744), Vector3(-0.14489, 0.712534, 0.277744), Vector3(-0.349106, 0.619702, -0.326688), Vector3(-0.349106, 0.619702, -0.326688)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Pikes/Pike5:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.93, 2, 3.04, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.517536, 0.71316, 0.293269), Vector3(-0.361593, 0.84627, -0.254293), Vector3(-0.361593, 0.84627, -0.254293), Vector3(-0.517536, 0.71316, 0.293269), Vector3(-0.517536, 0.71316, 0.293269)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Pikes/Pike10:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.09, 2.09, 3.16, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.743458, 0.689383, -0.209933), Vector3(-0.553053, 0.709422, 0.214159), Vector3(-0.553053, 0.709422, 0.214159), Vector3(-0.743458, 0.689383, -0.209933), Vector3(-0.743458, 0.689383, -0.209933)]
+}
+
+[sub_resource type="Animation" id="Animation_bhnvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pikes/Pike:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.547897, 0.71316, 0.19376)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pikes/Pike8:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.307324, 0.663645, -0.25366)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pikes/Pike2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.442775, 0.71316, 0.238083)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pikes/Pike9:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0962649, 0.77243, -0.203711)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pikes/Pike3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.442775, 0.71316, 0.238083)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pikes/Pike7:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.336669, 0.698477, 0.277135)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pikes/Pike4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00528556, 0.71316, 0.263831)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pikes/Pike6:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.349106, 0.619702, -0.326688)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Pikes/Pike5:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.517536, 0.71316, 0.293269)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Pikes/Pike10:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.743458, 0.689383, -0.209933)]
+}
+
+[sub_resource type="Animation" id="Animation_531py"]
+resource_name = "test"
+step = 1.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oykju"]
+resource_local_to_scene = true
+_data = {
+&"Pikes": SubResource("Animation_65q4m"),
+&"RESET": SubResource("Animation_bhnvo"),
+&"test": SubResource("Animation_531py")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsfs4"]
 size = Vector3(1.97223, 1.02826, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b8pn2"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyn8p"]
-size = Vector3(3.8, 1, 0.8)
+size = Vector3(3.8, 1, 1.00151)
 
-[node name="Wagon_Spikes" type="StaticBody3D"]
+[node name="Wagon_Pike" type="StaticBody3D"]
 script = ExtResource("1_vcyf4")
 attack_speed = 2.0
 damage_per_attack = 1
@@ -29,7 +290,7 @@ grid_size = Vector2i(2, 1)
 [node name="Health" parent="." instance=ExtResource("5_g66xa")]
 max_health = 1000
 
-[node name="wagon_barricade2" parent="." instance=ExtResource("6_ltttd")]
+[node name="wagon_pike" parent="." instance=ExtResource("3_vcyf4")]
 
 [node name="LanternLight" parent="." instance=ExtResource("7_0670v")]
 transform = Transform3D(1, 4.51781e-05, 0.000189624, -4.50236e-05, 1, -0.000814684, -0.000189661, 0.000814676, 1, 0.000759602, 1.47639, -0.00502133)
@@ -44,6 +305,15 @@ transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, -0.327
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0250244, 0.597198, 0.0176697)
 shape = SubResource("BoxShape3D_xliut")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_oykju")
+}
+autoplay = "Pikes"
+speed_scale = 2.5
+movie_quit_on_finish = true
+
 [node name="WagonBody" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
@@ -56,25 +326,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259399, 0.500397, 0)
 shape = SubResource("BoxShape3D_hsfs4")
 disabled = true
 
-[node name="Spikes1" type="Node3D" parent="."]
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Spikes1"]
-transform = Transform3D(0.09117, 0, 0, 0, 0.0667633, 0, 0, 0, 1, -0.650806, 0.647981, 0)
-mesh = SubResource("BoxMesh_b8pn2")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Spikes1"]
-transform = Transform3D(0.09117, 0, 0, 0, 0.0667633, 0, 0, 0, 1, 0.442869, 0.647981, 0)
-mesh = SubResource("BoxMesh_b8pn2")
-
-[node name="Spikes2" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spikes2"]
-transform = Transform3D(0.09117, 0, 0, 0, 0.0667633, 0, 0, 0, 1, -0.0523791, 0.647981, 0)
-mesh = SubResource("BoxMesh_b8pn2")
-skeleton = NodePath("../../Spikes2")
-
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00497131, 0.5, 1.00824)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00497131, 0.5, 0.907483)
 shape = SubResource("BoxShape3D_gyn8p")
+
+[node name="Pikes" type="Node3D" parent="."]
+
+[node name="Pike" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.74651, 0, -0.947761, 0, 1, 0, 0.665374, 0, 1.06333, -0.547897, 0.71316, 0.19376)
+script = ExtResource("8_ivlui")
+
+[node name="Pike8" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.880158, 0.0562183, -0.671377, -0.011616, 0.995215, 0.138184, 0.474538, -0.0799104, 1.24863, -0.307324, 0.663645, -0.25366)
+script = ExtResource("8_ivlui")
+
+[node name="Pike2" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.665374, 0, 1.06333, 0, 1, 0, -0.74651, 0, 0.947761, 0.442775, 0.71316, 0.238083)
+script = ExtResource("8_ivlui")
+
+[node name="Pike9" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.786849, 0.0647878, 0.874207, 0, 0.994474, -0.149534, -0.617146, 0.0826032, 1.1146, 0.0962649, 0.77243, -0.203711)
+script = ExtResource("8_ivlui")
+
+[node name="Pike3" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.685254, 0.00642888, 0.271843, 0.0180738, 0.692999, -0.197416, -0.15134, 0.111871, 1.2073, 0.442775, 0.71316, 0.238083)
+script = ExtResource("8_ivlui")
+
+[node name="Pike7" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.677162, 0.0169825, -0.327676, 0.0173779, 0.690117, 0.226578, 0.184266, -0.127494, 1.18281, 0.493821, 0.589811, -0.290137)
+script = ExtResource("8_ivlui")
+
+[node name="Pike4" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.646102, 0.00418896, -0.510454, -0.0323364, 0.698193, -0.121742, 0.272598, 0.0728932, 1.19542, -0.00528556, 0.71316, 0.263831)
+script = ExtResource("8_ivlui")
+
+[node name="Pike6" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.665407, 0.0243475, 0.396908, -0.0591046, 0.692166, 0.180423, -0.215741, -0.114532, 1.17475, -0.349106, 0.619702, -0.326688)
+script = ExtResource("8_ivlui")
+
+[node name="Pike5" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.676502, 0.00967802, -0.332394, -0.0539803, 0.681431, -0.283727, 0.179542, 0.16841, 1.16714, -0.517536, 0.71316, 0.293269)
+script = ExtResource("8_ivlui")
+
+[node name="Pike10" parent="Pikes" instance=ExtResource("7_531py")]
+transform = Transform3D(0.61349, -0.184162, 0.535396, 0.188623, 0.675508, 0.0563456, -0.28435, 0.0507653, 1.1925, -0.743458, 0.689383, -0.209933)
+script = ExtResource("8_ivlui")

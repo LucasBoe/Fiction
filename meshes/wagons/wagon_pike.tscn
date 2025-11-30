@@ -1,0 +1,14 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciloyr68jpjmf"]
+
+[ext_resource type="PackedScene" uid="uid://kgrsvnxrhvak" path="res://meshes/wagons/wagon_pike.glb" id="1_hixtl"]
+[ext_resource type="Material" uid="uid://bl6puaxo5v5f6" path="res://materials/wooden_planks.tres" id="2_jk5pv"]
+[ext_resource type="Material" uid="uid://db4hlgy05x26n" path="res://materials/metal.tres" id="3_olhfk"]
+[ext_resource type="Material" uid="uid://ufovdlh45nww" path="res://materials/wooden_planks_branches.tres" id="4_ivnds"]
+[ext_resource type="Material" uid="uid://b1njo15mh7wkd" path="res://materials/window.tres" id="5_hqq1q"]
+
+[node name="wagon_pike" instance=ExtResource("1_hixtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_jk5pv")
+surface_material_override/1 = ExtResource("3_olhfk")
+surface_material_override/2 = ExtResource("4_ivnds")
+surface_material_override/3 = ExtResource("5_hqq1q")
