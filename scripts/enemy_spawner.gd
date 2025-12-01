@@ -5,7 +5,7 @@ extends Node3D
 
 const spawn_distance_to_center = 20
 
-const night_duration = 30.0
+const night_duration = 45.0
 var night_progression = 0.0
 
 signal begin_night_signal
@@ -32,7 +32,7 @@ func spawn_wave(location_number) -> void:
 		var dir = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
 		var location = dir * spawn_distance_to_center
 		spawn_enemy_at(location)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(20/target_amount).timeout
 
 
 func spawn_enemy_at(spawnpoint: Vector3) -> void:

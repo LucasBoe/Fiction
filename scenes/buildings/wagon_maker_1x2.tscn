@@ -51,13 +51,7 @@ max_health = 400
 [node name="Lights" type="Node3D" parent="." index="3"]
 
 [node name="WindowLight" parent="Lights" index="0" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(1, 4.51781e-05, 0.000189624, -0.000171603, 0.665487, 0.74641, -9.24711e-05, -0.74641, 0.665487, 0.380581, 1.0531, -0.429902)
-
-[node name="WindowLight5" parent="Lights" index="1" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(9.24274e-05, 0.74641, -0.665487, -0.000171603, 0.665487, 0.74641, 1, 4.52108e-05, 0.000189595, 1.02904, 1.01619, -0.0731916)
-
-[node name="WindowLight2" parent="Lights" index="2" instance=ExtResource("10_o5t0c")]
-transform = Transform3D(-0.000133777, -0.548736, 0.835996, -0.000141811, 0.835996, 0.548736, -1, -4.51452e-05, -0.000189654, -0.469238, 0.995392, 0.527821)
+transform = Transform3D(1, 4.51782e-05, 0.000189624, -0.000171603, 0.665487, 0.74641, -9.24711e-05, -0.74641, 0.665487, 0.144832, 1.00179, 0.120982)
 
 [node name="RewardTrigger" parent="." index="4" instance=ExtResource("11_hcrx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
