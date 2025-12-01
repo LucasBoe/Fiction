@@ -287,7 +287,7 @@ display_description = "Pierces anything that goes close to it"
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("5_g66xa")]
-max_health = 600
+max_health = 700
 
 [node name="wagon_pike" parent="." instance=ExtResource("3_vcyf4")]
 
