@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bjos0os13v61q"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bjos0os13v61q"]
 
 [ext_resource type="FontFile" uid="uid://cblvk8fk77d1h" path="res://fonts/C&C Red Alert.ttf" id="1_5r0yv"]
 [ext_resource type="Texture2D" uid="uid://ddo40if7jyn5f" path="res://ui/button_wide_hover.png" id="1_i4llc"]
 [ext_resource type="Texture2D" uid="uid://yh05h2cll2nl" path="res://ui/button_wide.png" id="2_5r0yv"]
+[ext_resource type="Texture2D" uid="uid://ceeaaimpmojij" path="res://ui/slider_grabbable.png" id="4_xv3vb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v8hat"]
 texture = ExtResource("1_i4llc")
@@ -40,6 +41,10 @@ texture_margin_top = 6.0
 texture_margin_right = 32.0
 texture_margin_bottom = 6.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0ie0l"]
+color = Color(0.564962, 0.564962, 0.564962, 1)
+thickness = 3
+
 [resource]
 Button/colors/font_color = Color(0.854902, 0.654902, 0.466667, 1)
 Button/font_sizes/font_size = 13
@@ -49,5 +54,9 @@ Button/styles/focus = SubResource("StyleBoxTexture_0ie0l")
 Button/styles/hover = SubResource("StyleBoxTexture_dqg5i")
 Button/styles/normal = SubResource("StyleBoxTexture_2hry7")
 Button/styles/pressed = SubResource("StyleBoxTexture_gvtyn")
+HSlider/icons/grabber = ExtResource("4_xv3vb")
+HSlider/icons/grabber_disabled = ExtResource("4_xv3vb")
+HSlider/icons/grabber_highlight = ExtResource("4_xv3vb")
+HSlider/styles/slider = SubResource("StyleBoxLine_0ie0l")
 Label/colors/font_color = Color(0.695204, 0.635026, 0.523578, 1)
 Label/font_sizes/font_size = 11

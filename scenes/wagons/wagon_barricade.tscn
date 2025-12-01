@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dmjrrpq5hre60"]
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_xliut"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="2_pcdh0"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/maps/wagons/wagon_body.gd" id="2_pcdh0"]
 [ext_resource type="Script" uid="uid://da2xy0db0tifk" path="res://scripts/wagon_upgrade.gd" id="2_upfku"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_v2acl"]
 [ext_resource type="PackedScene" uid="uid://5cy08nx7c0ha" path="res://scenes/wagons/wagon_wall.tscn" id="3_auuet"]

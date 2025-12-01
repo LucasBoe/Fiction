@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_5ngr6"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_wbmr1"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="6_id1h5"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/maps/wagons/wagon_body.gd" id="6_id1h5"]
 [ext_resource type="PackedScene" uid="uid://t3c02hjk6w0v" path="res://meshes/wagons/wagon_mortar.tscn" id="8_67arw"]
 [ext_resource type="Script" uid="uid://dhvmtx75v1bes" path="res://scenes/wagons/mortar.gd" id="10_1ocou"]
 [ext_resource type="PackedScene" uid="uid://dncmc3mi3cug2" path="res://meshes/wagons/wagon_mortar_canon.tscn" id="11_5ngr6"]

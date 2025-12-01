@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://clwk1ki35gt75" path="res://meshes/wagons/wagon_king.tscn" id="3_ga33m"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="4_2dd0y"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="4_4iylc"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_i8c7e"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/maps/wagons/wagon_body.gd" id="4_i8c7e"]
 [ext_resource type="ArrayMesh" uid="uid://cjr3rvm5jggjv" path="res://meshes/coins.obj" id="5_2dd0y"]
 [ext_resource type="Material" uid="uid://bovarkab6opgy" path="res://meshes/coins.tres" id="5_nkb43"]
 
@@ -58,5 +58,6 @@ disabled = true
 
 [node name="Money" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.8675e-08, 0, 0.656007, 0, 0.498565, 0, -0.656007, 0, -2.8675e-08, 0.138512, 1.03307, -0.647985)
+visible = false
 material_override = ExtResource("5_nkb43")
 mesh = ExtResource("5_2dd0y")

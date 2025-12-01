@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://xi6ow6uv6wjt" path="res://meshes/wagons/wagon_wall.tscn" id="3_qi1ia"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="4_1fhnm"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="4_co4em"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="4_d0qgl"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/maps/wagons/wagon_body.gd" id="4_d0qgl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
 size = Vector3(3.01236, 0.805603, 0.837952)

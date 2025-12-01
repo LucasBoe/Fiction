@@ -58,7 +58,7 @@ func refresh():
 		
 		if (is_wagon or is_house) and target.health.current_health > 0:
 			target.health.take_damage(damage)
-			DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
+			#DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
 			JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 			SoundPlayer.play3D(SoundPlayer.enemy_attack, global_position)
 

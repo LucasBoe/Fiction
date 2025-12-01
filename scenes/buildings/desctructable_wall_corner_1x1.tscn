@@ -13,6 +13,7 @@ size = Vector3(0.914856, 1, 0.962402)
 script = ExtResource("2_hvlpl")
 can_be_damaged_by_enemy = true
 reward_amount_base = 0
+display_name = "Fence"
 
 [node name="Health" parent="." index="0" instance=ExtResource("3_drkjy")]
 max_health = 200

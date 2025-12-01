@@ -85,4 +85,7 @@ func update_health(health : Health, source):
 	healthbar_amount_label.text = str(health.current_health, "/", health.max_health)
 	
 	if reward_container.visible and source is Building:
-		reward_label.text = str((source as Building).reward_amount_base)
+		if (source as Building).reward_amount_base != 0:
+			reward_label.text = str((source as Building).reward_amount_base)
+		else:
+			reward_label.text = ""

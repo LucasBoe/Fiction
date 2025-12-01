@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://chfd1qr1wrqpm" path="res://scripts/wagon.gd" id="1_ie0vh"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="2_27y3g"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="3_ucjej"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/maps/wagons/wagon_body.gd" id="3_ucjej"]
 [ext_resource type="PackedScene" uid="uid://bfc5dwhuyvxpv" path="res://meshes/wagons/wagon_archer_tower.tscn" id="4_ie0vh"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="5_27y3g"]
-[ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scripts/wagons/archer.gd" id="5_goo4k"]
+[ext_resource type="Script" uid="uid://dnvit0xrre6hh" path="res://scenes/maps/wagons/archer.gd" id="5_goo4k"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="6_ucjej"]
 [ext_resource type="PackedScene" uid="uid://cvedusjtkvpjo" path="res://scenes/archer.tscn" id="8_ucjej"]
 [ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="9_8qejw"]

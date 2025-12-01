@@ -145,4 +145,5 @@ mouse_filter = 2
 [node name="CloseButton" type="Button" parent="RewardChoiceCanvas/Control/MarginContainer/VBoxContainer/Control"]
 layout_mode = 2
 theme = ExtResource("7_plse1")
-text = "choose later"
+theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
+text = "Close"

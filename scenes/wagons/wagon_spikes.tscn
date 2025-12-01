@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://brc1c1fk5ajwc"]
 
-[ext_resource type="Script" uid="uid://hkmfqnxgfwsd" path="res://scripts/wagons/wagon_spikes.gd" id="1_vcyf4"]
+[ext_resource type="Script" uid="uid://hkmfqnxgfwsd" path="res://scenes/maps/wagons/wagon_spikes.gd" id="1_vcyf4"]
 [ext_resource type="PackedScene" uid="uid://ciloyr68jpjmf" path="res://meshes/wagons/wagon_pike.tscn" id="3_vcyf4"]
 [ext_resource type="PackedScene" uid="uid://g8wcuv6opu77" path="res://scenes/health.tscn" id="5_g66xa"]
 [ext_resource type="PackedScene" uid="uid://crlu2gsm8d2rr" path="res://scenes/decoration/pike.tscn" id="7_531py"]
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_0670v"]
-[ext_resource type="Script" uid="uid://bn67mwj2h4jxj" path="res://scripts/wagons/pike.gd" id="8_ivlui"]
+[ext_resource type="Script" uid="uid://bn67mwj2h4jxj" path="res://scenes/maps/wagons/pike.gd" id="8_ivlui"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="8_oh3xv"]
 [ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="9_ivlui"]
-[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="9_mvuw5"]
+[ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scenes/maps/wagons/wagon_body.gd" id="9_mvuw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
 size = Vector3(1.8, 1, 0.8)
