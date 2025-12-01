@@ -82,12 +82,11 @@ func on_set_night():
 	tween.tween_property(lantern_light, "light_energy", _original_energy, night_tween_time)
 	
 static func get_all_wagon_scene_paths():
-	var wagons = FileUtil.get_all_file_paths(WAGON_SCENE_PATH)
-	for wagon in wagons:
-		if wagon.contains("debris") or wagon.contains("money"):
-			wagons.erase(wagon)
-			
-	return wagons
+	return [
+	WAGON_SCENE_PATH + "wagon_archer.tscn",
+	WAGON_SCENE_PATH + "wagon_barricade.tscn",
+	WAGON_SCENE_PATH + "wagon_fire.tscn"
+]
 	
 static func get_all_active_wagons():
 	var i := wagons.size() - 1
