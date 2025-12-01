@@ -58,7 +58,9 @@ func on_click():
 			
 		triggered = true
 		
-		var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
+		SoundPlayer.play3D(SoundPlayer.coin, building.global_position)
+		
+		var reward_amount = building.reward_amount_base
 		for i in reward_amount / 3.0:
 			var reward_instance = get_child(3).duplicate()
 			building.add_child(reward_instance)
@@ -88,7 +90,12 @@ func on_click():
 			animate_over_time(reward, target_position, curve_fly_duration, null, delay)
 			delay += curve_fly_step_delay
 			
-		await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout
+		
+		await get_tree().create_timer(curve_fly_duration).timeout
+		
+		MoneyHandler.change_money(reward_amount)
+		
+		await get_tree().create_timer(curve_fly_step_delay * reward_instances.size()).timeout
 		
 		queue_free()
 	
@@ -110,9 +117,6 @@ func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay
 		
 		t -= get_process_delta_time() / duration
 		await get_tree().process_frame
-		
-	SoundPlayer.play3D(SoundPlayer.coin, node.global_position)
-	MoneyHandler.change_money(node.name.to_float())
 	
 func _process(delta: float) -> void:
 	rotate_y(deg_to_rad(15) * delta)
