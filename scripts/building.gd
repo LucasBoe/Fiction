@@ -73,9 +73,10 @@ func destroy():
 	if Globals.map_loader.currently_loaded_map != null:
 		(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
 	
-	var instance = debris_mesh.instantiate() as Node3D
-	instance.global_transform = global_transform
-	get_parent().add_child(instance)
+		var instance = debris_mesh.instantiate() as Node3D
+		Globals.map_loader.currently_loaded_map.add_child(instance)
+		instance.global_transform = global_transform
+	
 	SoundPlayer.play3D(SoundPlayer.building_destroy, global_position)
 	
 	queue_free()
