@@ -45,7 +45,7 @@ func _ready():
 	wagons.append(self)
 
 func _on_hover_enter (wagon):
-	if wagon == self && range_visualization:
+	if range_visualization && wagon.range_visualization:
 		range_visualization.show()
 
 func _on_hover_exit ():
