@@ -178,7 +178,7 @@ We move past the place without disturbing it.
 %Abandonded Village%
 #ENCOUNTER
 The road is easy to take, and we travel for several miles. Suddenly you hear <voices from further away>, coming from a <ghost village> behind a small hill that was supposed to be abandoned.
-[take the detour to the village
+[Take the detour
 -EFFECT:LOOSE_SUPPLIES_SMALL]
 You take the detour to the abandoned village only to find some <strange villagers> that seem like <no good company>. Armed and superior in number they take some of our belongings but we can escape with no losses.
 §§ <- SUPPLIES>
@@ -189,7 +189,7 @@ You take the detour to the abandoned village only to find some <strange villager
 #ENCOUNTER
 Our route goes through a small and high chain of mountains and we have to take a narrow road next to a slope as we hear <metal clinging> not far from the track where <a small path> cuts the grass.
 
-[Check out the sounds source
+[Check the sounds source
 -EFFECT:GET_UPGRADE_WINDOW]
 Some of us follow the small path and prospect an <old man working on an anvil> next to an old mine entrance. As he sees he stops hammering on his anvil and is willing to do some <improvements on one of our wagons> in exchange of him coming with us. He also tells us warns us about the mountain lions that live in these grounds and that we should stay alarmed.
 §§ <+1 WAGON UPGRADE>
@@ -207,5 +207,5 @@ While traveling through a thick forest one of you archers spies some <thin smoke
 -EFFECT:GET_WAGON_WINDOW]
 We send some people to investigate where the smokes and smell comes from. We find an old burned down camp. It looks like the people who stayed here had to leave in a hurry. But to our surprise we find a wagon quite well in shape that we can take with us.
 §§ <+ NEW WAGON>
-[Continue the travel and ignore it] 
+[Continue the travel] 
 We don’t risk getting caught in a trap and continue one the road we are on, leaving the place untouched. 
