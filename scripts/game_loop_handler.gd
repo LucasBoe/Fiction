@@ -18,10 +18,15 @@ func _game_loop() -> void:
 	Globals.tutorial.hide()
 	MoneyHandler.change_money(25)
 	await _reset_placement()
-	MusicPlayer.play_track(MusicPlayer.music_travel)
 	FadeEffectCanvas.fade_out()
+	MusicPlayer.play_track(MusicPlayer.music_day)
+	await _show_main_menu()
+	FadeEffectCanvas.fade_in_out()
+	MusicPlayer.play_track(MusicPlayer.music_travel)
 	await _run_narrative_popups(true)
 	Globals.tutorial.show()
+	#show supply ui
+	%CanvasLayer.get_child(0).show()
 	
 	while true:
 		await _load_next_map()		
@@ -39,7 +44,10 @@ func _game_loop() -> void:
 		await _run_narrative_popups()
 		
 	await FadeEffectCanvas.fade_in_out()
-		
+	
+func _show_main_menu():
+	Globals.camera_manager.set_camera(CameraManager.camera_mode.NARRATIVE)
+	await %MainMenu.started_game_signal	
 
 func _unload_current_map() -> void:
 	map_loader.unload_current_map()
@@ -47,7 +55,12 @@ func _unload_current_map() -> void:
 
 func _load_next_map() -> void:
 	Globals.current_camera.get_parent_node_3d().rotate_y(deg_to_rad(90))
-	map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
+	if map_loader.map_number >= (Globals.MAX_LOCATIONS - 1):
+		map_loader.load_map_from_path(map_loader.map_final_path)
+	elif map_loader.map_number == 0:
+		map_loader.load_map_from_path(map_loader.map_first_path)
+	else:
+		map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
 	Globals.environment.set_evening(.1)	
 
 func _wait_for_placement() -> void:
@@ -65,7 +78,8 @@ func _reset_placement() -> void:
 	print("placement reset")
 	
 func _run_wave_phase() -> void:
-	await enemy_spawner.night_loop()
+	enemy_spawner.spawn_wave(Globals.map_loader.map_number)
+	await EntityHandler.all_enemies_unregistered
 	print("wave cleared reset")
 
 func _reward_phase() -> void:

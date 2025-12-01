@@ -51,6 +51,7 @@ func _input(event: InputEvent) -> void:
 		_skip_text_animation = true
 		
 func begin_travel(introduction_narrative = true):
+	
 	chosen_keywords.clear()
 	
 	#pick next event
@@ -76,6 +77,7 @@ func _show_event(event):
 	_animate_text(narrative_text_label)
 	
 	popup_parent.visible = true
+	print("_show_event ", event)
 
 func try_create_button(index, event):	
 	var button : Button = event_choice_buttons[index]

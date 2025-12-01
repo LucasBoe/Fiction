@@ -15,11 +15,14 @@ crossfade_time = 2.0
 [node name="NightMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_eclxg")
 volume_db = -12.0
+bus = &"Music"
 
 [node name="DayMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gfljd")
 volume_db = -8.0
+bus = &"Music"
 
 [node name="TravelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vsocv")
 volume_db = -6.0
+bus = &"Music"
