@@ -47,9 +47,9 @@ visibility_aabb = AABB(-5, -5, -5, 10, 10, 10)
 [node name="Mortar" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0192075, 0.839503, 0.00960374)
 script = ExtResource("10_1ocou")
+shooting_range = 4.3
 shooting_cooldown = 4.0
 projectile_speed = 1.0
-projectile_damage = 3
 
 [node name="ShootingOrigin" type="Node3D" parent="Mortar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206031, 0.0268011)

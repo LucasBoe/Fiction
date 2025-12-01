@@ -134,7 +134,7 @@ The villagers are super relieved that you repair their wagon and decide to <join
 [Reject
 -EFFECT:DAMAGE_WAGON_RANDOM]
 The hopeless <villagers get angry> that you as the king don’t help them and try to <burn down one of your wagons> in anger. You and your guards handle them quickly but sadly one of your wagons took some damage nonetheless.
-§§ <+1 DAMAGED WAGON>
+§§ <+WAGON GOT DAMAGED>
 
 %Forest Carpenter%
 #ENCOUNTER
@@ -151,7 +151,7 @@ The forest path narrows suddenly, <blocked by a fallen wagon> dragged across the
 [Move the barrier aside
 -EFFECT:DAMAGE_WAGON_RANDOM]
 We pull the barrier aside and force the wagons through. The rough movement strains weakened frames — and <one wagon gives way beneath the pressure>, its axle splitting with a loud crack. 
-§§ <+1 DAMAGED WAGON>
+§§ <+WAGON GOT DAMAGED>
 [Send a scout to investigate
 -COST:10
 -EFFECT:REPAIR_ALL_WAGONS]

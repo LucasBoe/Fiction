@@ -37,7 +37,6 @@ func _process(delta):
 	if not currently_hovered:
 		currently_hovered = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, Wagon, true)
 			
-	print(currently_hovered)
 	if currently_hovered:
 		tooltip_root.position = tooltip_root.get_global_mouse_position() - tooltip_root.size * Vector2(0.5, 1) - Vector2(0,8)
 		
