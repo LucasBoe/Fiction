@@ -27,9 +27,14 @@ func _ready():
 		Globals.environment.set_day_signal.connect(on_set_day)
 		Globals.environment.set_evening_signal.connect(on_set_evening)
 		Globals.environment.set_night_signal.connect(on_set_night)
-		
+	
+	#make sure ugrades are new and unique
+	var upgrade_instances : Array[WagonUpgrade]
 	for upgrade in upgrades:
-		upgrade.original_wagon = self
+		var instance = upgrade.duplicate()
+		instance.original_wagon = self
+		upgrade_instances.append(instance)
+	upgrades = upgrade_instances
 	
 	wagons.append(self)
 
@@ -71,8 +76,9 @@ static func get_all_wagon_scene_paths():
 	return wagons
 	
 static func get_all_active_wagons():
-	for wagon in wagons:
-		if not is_instance_valid(wagon):
-			wagons.erase(wagon)
-			
+	var i := wagons.size() - 1
+	while i >= 0:
+		if not is_instance_valid(wagons[i]):
+			wagons.remove_at(i)
+		i -= 1
 	return wagons

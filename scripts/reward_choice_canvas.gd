@@ -85,6 +85,7 @@ func populate_choices(reward : RewardBuilding.RewardType):
 
 func show_choice(reward : RewardBuilding.RewardType):
 	for c in choice_instances[reward]:
+		c.refresh()
 		c.show()
 		
 	show()
