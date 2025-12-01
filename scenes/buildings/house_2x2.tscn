@@ -23,6 +23,7 @@ size = Vector3(2, 1, 2)
 script = ExtResource("2_viv3f")
 is_enemy_target = true
 can_be_damaged_by_enemy = true
+reward_amount_base = 15
 debris_mesh = ExtResource("3_xp7qk")
 display_name = "House"
 display_description = "Grants supplies after the attack"
