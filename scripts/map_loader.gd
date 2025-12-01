@@ -34,16 +34,19 @@ func _index_all_map_infos():
 func load_map_based_on_keywords(keywords):
 	var potential_maps : Array
 	for info in map_infos:
+		var matches = true
 		for keyword in info[KEYWORDS]:
 			if not keywords.has(keyword):
+				matches = false
 				break
-					
-		print("found map match in comparing ", info[PATH], " with ", info[KEYWORDS], " to ", keywords)
-		potential_maps.append(info[PATH])
+		if matches:		
+			print("found map match in comparing ", info[PATH], " with ", info[KEYWORDS], " to ", keywords)
+			potential_maps.append(info[PATH])
 		
 	if potential_maps.is_empty():
 		print("no matching map found for keywords - loading random")
 		load_random_map()
+		return
 		
 	load_map_from_path(potential_maps.pick_random())
 
