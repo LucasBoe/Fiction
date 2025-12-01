@@ -4,6 +4,7 @@ extends Node3D
 @onready var ui_text_beep = $UiTextBeep
 @onready var ui_click = $UiClick
 @onready var treasure = $Treasure
+@onready var tutorial_done = $TutorialDone
 
 #3D
 @onready var wagon_pick_up = $WagonPickUp

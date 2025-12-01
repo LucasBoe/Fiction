@@ -21,7 +21,7 @@ func _ready():
 	rotate_wagon = create_line("Use SPACE or RMB to rotate wagons")
 	place_kings = create_line("Place Kings Wagon at safe location")
 	place_others = create_line("Place defensive Wagons")
-	finish_place = create_line("Finish placement")
+	finish_place = create_line("Wait for the night")
 	
 func create_line(text):
 	var line_instance = line_dummy.duplicate()

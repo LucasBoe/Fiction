@@ -17,4 +17,5 @@ func set_done():
 		return
 		
 	is_done = true
+	SoundPlayer.play(SoundPlayer.tutorial_done)
 	box_texture_rect.texture = box_checked_tex
