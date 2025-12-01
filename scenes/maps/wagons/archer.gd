@@ -6,7 +6,7 @@ extends Node3D
 @export var projectile_speed: float = 4.0
 @export var projectile_damage: int = 1
 
-@onready var shooting_origin: Node3D
+var shooting_origin: Node3D
 @onready var bolt = preload("res://scenes/projectiles/bolt.tscn")
 
 
@@ -40,7 +40,7 @@ func _get_enemy_in_range(range: float) -> Node3D:
 		if not is_instance_valid(enemy):
 			continue
 
-		var dist := get_parent_node_3d().global_position.distance_to(enemy.global_position)
+		var dist := global_position.distance_to(enemy.global_position)
 
 		if dist <= closest_dist:
 			closest_dist = dist
