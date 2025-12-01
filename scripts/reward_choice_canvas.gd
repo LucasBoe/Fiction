@@ -8,9 +8,9 @@ class_name RewardChoiceCanvas
 @onready var fallback_label = $Control/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NoChoicesLeftFallback
 
 @onready var supply_icon = preload("res://ui/supplies_icon.png")
-@onready var fire_wagon_icon = preload("res://ui/basic_icon.png")
-@onready var archer_wagon_icon = preload("res://ui/basic_icon.png")
-@onready var barricade_wagon_icon = preload("res://ui/basic_icon.png")
+@onready var fire_wagon_icon = preload("res://ui/fire_icon.png")
+@onready var archer_wagon_icon = preload("res://ui/archer_icon.png")
+@onready var barricade_wagon_icon = preload("res://ui/barricade_icon.png")
 
 const fire_wagon_scene_path = "res://scenes/wagons/wagon_fire.tscn"
 const archer_wagon_scene_path = "res://scenes/wagons/wagon_archer.tscn"

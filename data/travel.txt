@@ -1,12 +1,12 @@
 %Village & Farm 1%
 #MAIN
 After a few hours of travel under the dim sunlight you reach a crossing and the last signpost has long since rotted away.§§
-The path to the west carries a faint <smell of smoke>, a thin and lonely kind, that one finds rising from a distant hearth.§
-The path to the east goes downward into <unseen lowlands>. No rooftops break the horizon, but one from our group thinks to remember that there should be <lone stead> of his cousin if we follow that route.
+The path to the west carries a faint smell of smoke hinting towards a <village> where we can <build new wagons>.§
+The path to the east goes downward into <unseen lowlands>. No rooftops break the horizon, but one from our group thinks to remember that there should be <lone stead> with <plenty of supplies> if we follow that route.
 
-[Go towards the smell of smokes
+[Go towards the smell of smoke
 -KEY:village
--TEXT:We continue our journey towards the smell of smoke.§§]
+-TEXT:We continue our journey towards the village.§§]
 We reach a village in silence and prepare for the following night.
 [Believe your kind
 -KEY:farm
@@ -18,23 +18,23 @@ The land dips and the earth darkens. We find the farm low and hidden, sheltered 
 %Village & Farm 2%
 #MAIN
 We travel for hours with no marker to measure our progress, only the slow turn of the sky and the creak of the wagons. Then we stop at a crossing.§§
-To the west, thin <threads of smoke> drift and vanish between the low hills, too steady to be  nothing.§
-To the east, the wind carries the faint <smell of soil and hay>, and the ground shows the broken marks of old wagon wheels.
+To the west, thin <threads of smoke> drift and vanish between the low hills, steady enough to be a <village>.§
+To the east, the ground shows the broken marks of old wagon wheels and a trace of grain. Probably a <farm> where we can restock our <supplies>.
 
 [Go towards the smoke
 -KEY:village]
 A cluster of houses appears only when we are nearly upon it, tucked away between the hills.
 The villagers move quickly to us and watch us with relief that we will protect the village for the night.
 
-[Follow the smell
+[Follow the trace of grain
 -KEY:farm]
 A wide, silent field opens before us and a modest farmhouse slowly emerges from the distance. The people here live close to the land and even closer to their fear of the coming night.
 
 %Village & Farm 3%
 #MAIN
-We travel through some plains where only dry grass and some resistant herbs grow. Next to what seams to be the only tree around the road splits.§§
-To the <left> a faint road continues away through tall grass, marked by <old wheel tracks>. §
-To the <right> the grass grows shorter and soil grows brittle and dry and the distant <scent of straw and animals> lingers.
+We travel through some plains where only dry grass and some resistant herbs grow. Next to what seams to be the only tree around the road splits and we look at the sign nailed to it.§§
+To the <left> the sign indicates a <village> and one of our people remembers that there lives a skilled <wagon maker>. §
+To the <right> the grass grows shorter and soil grows brittle and dry and the distant <scent of straw and animals> lingers, probably a <farm>.
 
 [Turn left
 -KEY:village]
@@ -50,8 +50,8 @@ Those who remain watch us closely, torn between relief and fear of drawing atten
 %Castle & Farm 1%
 #MAIN
 We reach a narrow crossing marked by a splintered, half-rotted sign.§§
-To the <north>, the path dips into a small valley and rises again, where the faint tip of a <distant tower> can just be seen against the hill.§
-To the <north west>, the path is nearly lost to weeds, marked only by trampled earth and old remains of <animal dung>.
+To the <north>, the path dips into a small valley and rises again, where the faint tip of a <distant tower> of an <old castle> can just be seen against the hill.§
+To the <north west>, the path is nearly lost to weeds, marked only by trampled earth and old remains of <animal dung> of <farm> animals.
 [Go north towards the tower
 -KEY:castle]
 The road climbs from the valley to the base of an old castle.§
@@ -64,8 +64,8 @@ The people living here are wary but relieved to see us.
 
 %Castle & Farm 2%
 #MAIN
-We reach a slow-moving river, its surface dark and quiet beneath an old stone bridge.§§ <Beyond the bridge>, a thin line of smoke curls into the sky, and the distant <sound of hammer strikes> echoes across the water.§
-Next to the bridge a <narrow path> follows the riverbank, soft earth pressed down by steady use. One of my people nods in recognition, certain that a farm lies not far along the water’s edge.
+We reach a slow-moving river, its surface dark and quiet beneath an old stone bridge.§§ <Beyond the bridge>, a thin line of smoke curls into the sky, and the distant sound of hammer strikes from <a smith> who could only live in a <fort> echoes across the water.§
+Next to the bridge a <narrow path> follows the riverbank, soft earth pressed down by steady use. One of my people nods in recognition, certain that a <farm> lies not far along the water’s edge.
 
 [Cross the stone bridge
 -KEY:castle]
@@ -79,7 +79,7 @@ Its people live quietly here, thankful to see armed protection arrive.
 
 %Castle & Farm 3%
 #MAIN
-We reach a small clearing in the thick forest, where the trees finally give way to a circle of pale light. At its center stands an old stone sign, split in two and covered in heavy moss.§§ On one side the carved name ….castle is still faintly readable, the arrow pointing <deeper into the forest> toward what must be a hideout hidden somewhere beyond sight.§
+We reach a small clearing in the thick forest, where the trees finally give way to a circle of pale light. At its center stands an old stone sign, split in two and covered in heavy moss.§§ On one side the carved name <….castle> is still faintly readable, the arrow pointing <deeper into the forest> toward what must be a hideout hidden somewhere beyond sight.§
 The second carving has almost completely faded and is <unknown>.
 [Go deeper into the forest
 -KEY:castle]
@@ -94,8 +94,8 @@ The people here have learned to stay hidden, and welcome our arrival quietly.
 %Castle & Village 1%
 #MAIN
 Our path leads past a bare field where black crows circle overhead, watching our slow progress.§§
-To the north, a thin column of <dark smoke> rises from the broken top of a large ruined tower, standing alone against the empty sky.§
-To the west, the breeze carries with it the unmistakable scent of <roasted fish>, warm and sharp, hinting at a small settlement near water just beyond the field.
+To the north, a thin column of <dark smoke of a smith> rises from the broken top of a large ruined <watch towers castle>.§
+To the west, the breeze carries with it the unmistakable scent of <roasted fish>, warm and sharp, hinting at a <small settlement> near water just beyond the field.
 [Go towards the smoke
 -KEY:castle]
 The field gives way to cracked stone and fallen walls around a towering ruin.
@@ -110,7 +110,7 @@ The people here live from the river and greet us with quiet relief.
 #MAIN
 We reach a rotten crossing where water and earth meet, and an old, vine-covered sign still stands, its markings barely readable beneath layers of green decay.§§
 To the east, a narrow <wooden path> stretches out over the dark water, <old lances piercing out of the water surface>, their broken tips crowned with scraps of faded cloth that sway softly in the breeze.§
-To the west, a faint trail follows a <quiet stream> deeper into the swamp, where the ground seems firmer and the tangled water gives way to a thicker forest.
+To the west, a faint trail follows a <quiet stream> deeper into the swamp, where the ground seems firmer and the tangled water gives way to a thicker forest, perfect for a <village>.
 [Follow the wooden path
 -KEY:castle]
 The wooden path carries us beyond the worst of the mire.
