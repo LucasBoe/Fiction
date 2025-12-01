@@ -53,8 +53,6 @@ func on_set_day():
 	if _lights.is_empty():
 		return
 
-	print("fade out lights on ", self)
-
 	for l in _lights:
 		var tween := create_tween()
 		tween.tween_property(l, "light_energy", 0.0, day_tween_time)
@@ -73,9 +71,10 @@ func destroy():
 	if Globals.map_loader.currently_loaded_map != null:
 		(Globals.map_loader.currently_loaded_map as MapData).houses.erase(self)
 	
-	var instance = debris_mesh.instantiate() as Node3D
-	instance.global_transform = global_transform
-	get_parent().add_child(instance)
+		var instance = debris_mesh.instantiate() as Node3D
+		Globals.map_loader.currently_loaded_map.add_child(instance)
+		instance.global_transform = global_transform
+	
 	SoundPlayer.play3D(SoundPlayer.building_destroy, global_position)
 	
 	queue_free()

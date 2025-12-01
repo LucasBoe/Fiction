@@ -31,6 +31,4 @@ func on_money_changed(amount):
 	var scale = Vector3(xz_scale, y_scale, xz_scale)
 	money_mesh.scale = scale
 	
-	print("lerp money vis: ", l, " scale:", scale)
-	
 	JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)

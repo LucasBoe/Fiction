@@ -82,7 +82,7 @@ func try_create_button(index, event):
 	var label = event_choice_button_labels[index]
 	
 	if (event.choices.size() <= index):
-		label = ""
+		label.text = ""
 		return
 	
 	populate_button(button, label, index, event)

@@ -35,40 +35,6 @@ func give_rewards():
 		if building is RewardBuilding:
 			if not building.health._is_empty():
 				reward_choice_canvas.populate_choices(building.reward)
-			
-		# apply genereal reward based on destruction	
-		#var reward_amount = float(building.health.current_health) / float(building.health.max_health) * building.reward_amount_base
-		#for i in reward_amount / 3.0:
-			#var reward_instance = reward_dummy.duplicate()
-			#add_child(reward_instance)
-			#reward_instance.visible = true
-			#reward_instance.name = str(3.0)
-			#reward_instance.global_position = child.global_position + Vector3.UP
-			#reward_instance.scale = Vector3.ZERO	
-			#reward_instances.append(reward_instance)
-			#var tween := reward_instance.create_tween()
-			#tween.set_ease(Tween.EASE_IN_OUT)
-			#tween.tween_property(reward_instance, "global_position", child.global_position + Vector3(randf_range(-.5,.5), 1, randf_range(-.5,.5)), 0.5)
-			#tween.parallel().tween_property(reward_instance, "scale", Vector3.ONE * .3, 0.5)
-			#
-		#total_reward += reward_amount
-		#print(total_reward)
-		
-	#await get_tree().create_timer(.5).timeout
-		#
-	#var curve_fly_duration = 1.0
-	#var curve_fly_step_delay = 0.05
-	#
-	#var delay = 0.0
-	#for reward in reward_instances:
-		#animate_over_time(reward, money_cart.global_position, curve_fly_duration, null, delay)
-		#delay += curve_fly_step_delay
-		#
-	#await get_tree().create_timer(curve_fly_duration + curve_fly_step_delay * reward_instances.size()).timeout	
-		#
-	#for reward in reward_instances:
-		#reward.queue_free()
-	#reward_instances.clear()
 
 func animate_over_time(node, p2, duration = 1.0, complete_function = null, delay = 0.0):
 	var points : Array[Vector3]

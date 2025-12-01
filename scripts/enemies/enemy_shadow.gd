@@ -61,7 +61,6 @@ func refresh():
 			DebugDraw3D.draw_line(global_position, target.global_position + Vector3.UP, Color.RED, .2)
 			JuiceUtil.apply_juice_tween(self, Tween.TransitionType.TRANS_BOUNCE)
 			SoundPlayer.play3D(SoundPlayer.enemy_attack, global_position)
-			print("damage ", target, ": ", damage)
 
 func _process(delta):
 	

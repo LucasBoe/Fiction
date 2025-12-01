@@ -63,7 +63,7 @@ func parse_body(content : String):
 		choice.final_text = body_text
 					
 		event.choices.append(choice)
-		print(choice.get_print_string())
+		#print(choice.get_print_string())
 		
 	return event
 
