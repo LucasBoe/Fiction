@@ -1,12 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cn33r0j1fc1db"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cn33r0j1fc1db"]
 
 [ext_resource type="Texture2D" uid="uid://cfeey8my6tqip" path="res://texture/trees/tree_strange_1_leafes.png" id="1_5hlwh"]
 [ext_resource type="Shader" uid="uid://dmtcoj6j38521" path="res://shaders/wind.gdshader" id="1_swngi"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_swngi"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qmpfi"]
-noise = SubResource("FastNoiseLite_swngi")
 
 [resource]
 render_priority = 0
@@ -22,7 +17,3 @@ shader_parameter/bend_top_amount = 0.5
 shader_parameter/bend_power = 1.5
 shader_parameter/height_scale = 2.0
 shader_parameter/base_rigidity = 0.3
-shader_parameter/wind_noise = SubResource("NoiseTexture2D_qmpfi")
-shader_parameter/noise_scale = 0.1
-shader_parameter/noise_speed = 0.1
-shader_parameter/noise_influence = 0.3

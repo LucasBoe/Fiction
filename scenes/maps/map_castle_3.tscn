@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://dfenjhkwqjotb"]
+[gd_scene load_steps=25 format=3 uid="uid://dfenjhkwqjotb"]
 
 [ext_resource type="Script" uid="uid://c2tu6cktsqacw" path="res://map.gd" id="1_ayv5t"]
 [ext_resource type="MeshLibrary" uid="uid://b32tg6uwq5p1y" path="res://meshes/meshLib.tres" id="2_33xuh"]
 [ext_resource type="Script" uid="uid://c5bd020k6j8g3" path="res://scripts/world_grid.gd" id="3_uty84"]
+[ext_resource type="PackedScene" uid="uid://bsegebvlsixkl" path="res://scenes/buildings/destructable_wall_1x2.tscn" id="4_hvrgu"]
 [ext_resource type="PackedScene" uid="uid://duq0kcbuervo1" path="res://scenes/buildings/smith_1x2.tscn" id="5_kerjc"]
+[ext_resource type="PackedScene" uid="uid://bwr4ji4gk7meu" path="res://scenes/buildings/wagon_maker_1x2.tscn" id="5_rf0ct"]
 [ext_resource type="PackedScene" uid="uid://ki1qd1vity5r" path="res://scenes/buildings/well_1x1.tscn" id="7_olrt5"]
 [ext_resource type="PackedScene" uid="uid://dxhmsu5ug7h8h" path="res://scenes/buildings/ruin_2x3.tscn" id="8_8uibf"]
 [ext_resource type="PackedScene" uid="uid://dvmhnhf158up0" path="res://scenes/buildings/ruin_2x2.tscn" id="9_tpmoh"]
@@ -38,6 +40,18 @@ script = ExtResource("3_uty84")
 
 [node name="Houses" type="Node3D" parent="."]
 
+[node name="wall_1x2_destructable" parent="Houses" instance=ExtResource("4_hvrgu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 0, 0)
+
+[node name="wall_1x2_destructable2" parent="Houses" instance=ExtResource("4_hvrgu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 0, 2)
+
+[node name="wall_1x2_destructable3" parent="Houses" instance=ExtResource("4_hvrgu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, -6)
+
+[node name="wagonMaker_1x2" parent="Houses" instance=ExtResource("5_rf0ct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.5)
+
 [node name="smith_1x2" parent="Houses" instance=ExtResource("5_kerjc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0, 1)
 
@@ -64,9 +78,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
 
 [node name="ruin_2x4" parent="Houses" instance=ExtResource("9_tpmoh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, 4)
-
-[node name="wall_1x34" parent="Houses" instance=ExtResource("10_8uibf")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 0, 0.5)
 
 [node name="wall_1x35" parent="Houses" instance=ExtResource("10_8uibf")]
 transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, 0.5, 0, -4.5)
