@@ -16,7 +16,7 @@ func _ready() -> void:
 func _game_loop() -> void:
 	await get_tree().process_frame
 	Globals.tutorial.hide()
-	MoneyHandler.change_money(250)
+	MoneyHandler.change_money(25)
 	await _reset_placement()
 	MusicPlayer.play_track(MusicPlayer.music_travel)
 	FadeEffectCanvas.fade_out()
