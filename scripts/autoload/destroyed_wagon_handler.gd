@@ -30,7 +30,7 @@ func _on_reward_phase_begin():
 		
 func try_repair(trigger, wagon):
 	
-	var price = 30
+	var price = RepairTrigger.COST
 	if MoneyHandler.current_money < price:
 		return
 		
