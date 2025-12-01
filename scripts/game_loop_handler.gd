@@ -70,6 +70,10 @@ func _run_wave_phase() -> void:
 	print("wave cleared reset")
 
 func _reward_phase() -> void:
+	for house in Globals.map_loader.currently_loaded_map.houses:
+		if is_instance_valid(house) and house.health != null:
+			house.health.heal()
+			
 	Globals.reward_phase_begin_signal.emit()
 	Globals.environment.set_day()
 	RewardHandler.show_rewards_signal.emit()

@@ -9,6 +9,8 @@ var triggered = false
 
 func _ready() -> void:
 	
+	display_name = "claim reward"
+	
 	if building is RewardBuilding:
 		var mesh  : MeshInstance3D = $MeshInstance3D
 		var mat = mesh.get_surface_override_material(0).duplicate()
@@ -38,6 +40,7 @@ func _on_show_rewards_signal():
 			hide()
 			return
 	
+	reparent(Globals.map_loader.currently_loaded_map)
 	show()
 	mesh.show()
 	
@@ -127,3 +130,6 @@ func _process(delta: float) -> void:
 
 func ease_in_out_sine(x: float) -> float:
 	return -(cos(PI * x) - 1.0) / 2.0
+
+func is_claimable():
+	return mesh.visible
