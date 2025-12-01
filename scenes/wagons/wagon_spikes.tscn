@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brc1c1fk5ajwc"]
+[gd_scene load_steps=17 format=3 uid="uid://brc1c1fk5ajwc"]
 
 [ext_resource type="Script" uid="uid://hkmfqnxgfwsd" path="res://scripts/wagons/wagon_spikes.gd" id="1_vcyf4"]
 [ext_resource type="PackedScene" uid="uid://ciloyr68jpjmf" path="res://meshes/wagons/wagon_pike.tscn" id="3_vcyf4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnkauswv0p8vg" path="res://scenes/Lantern_light.tscn" id="7_0670v"]
 [ext_resource type="Script" uid="uid://bn67mwj2h4jxj" path="res://scripts/wagons/pike.gd" id="8_ivlui"]
 [ext_resource type="PackedScene" uid="uid://cd7ud8wwb166o" path="res://scenes/decoration/lantern.tscn" id="8_oh3xv"]
+[ext_resource type="PackedScene" uid="uid://maenowys6kmm" path="res://scenes/range_visualization.tscn" id="9_ivlui"]
 [ext_resource type="Script" uid="uid://d3ggk4ymj44oq" path="res://scripts/wagons/wagon_body.gd" id="9_mvuw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xliut"]
@@ -372,3 +373,7 @@ script = ExtResource("8_ivlui")
 [node name="Pike10" parent="Pikes" instance=ExtResource("7_531py")]
 transform = Transform3D(0.61349, -0.184162, 0.535396, 0.188623, 0.675508, 0.0563456, -0.28435, 0.0507653, 1.1925, -0.743458, 0.689383, -0.209933)
 script = ExtResource("8_ivlui")
+
+[node name="RangeVisualization" parent="." instance=ExtResource("9_ivlui")]
+transform = Transform3D(0.45257, 0, 0, 0, 0.95, 0, 0, 0, 0.143233, -0.0231354, 0.1, 0.920987)
+visibility_aabb = AABB(-5, -5, -5, 10, 10, 10)
