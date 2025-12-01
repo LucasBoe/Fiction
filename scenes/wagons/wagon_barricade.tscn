@@ -42,7 +42,7 @@ upgrades = Array[ExtResource("2_upfku")]([SubResource("Resource_cepbf"), SubReso
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("2_v2acl")]
-max_health = 1000
+max_health = 800
 
 [node name="wagon_barricade2" parent="." instance=ExtResource("3_fxwh8")]
 

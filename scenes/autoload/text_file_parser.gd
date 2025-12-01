@@ -60,7 +60,7 @@ func parse_body(content : String):
 		if not header_split.is_empty():
 			for parameter in header_split:
 				_parse_parameter(parameter, choice)
-		choice.final_text = body_text
+		choice.final_text = apply_colors(body_text)
 					
 		event.choices.append(choice)
 		#print(choice.get_print_string())
@@ -90,7 +90,7 @@ func _parse_parameter(p, choice : EventChoice):
 		choice.location_keywords.append(location_key)
 		
 	elif parameter_type == "TEXT":
-		choice.feedback_text = parameter_value
+		choice.feedback_text = apply_colors(parameter_value)
 		
 	elif parameter_type == "COST":
 		choice.cost = parameter_value.to_int()

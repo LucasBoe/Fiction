@@ -281,14 +281,13 @@ size = Vector3(3.8, 1, 1.00151)
 
 [node name="Wagon_Pike" type="StaticBody3D"]
 script = ExtResource("1_vcyf4")
-attack_speed = 2.0
-damage_per_attack = 1
+damage_per_attack = 0.2
 display_name = "Pike Wagon"
 display_description = "Pierces anything that goes close to it"
 grid_size = Vector2i(2, 1)
 
 [node name="Health" parent="." instance=ExtResource("5_g66xa")]
-max_health = 1000
+max_health = 600
 
 [node name="wagon_pike" parent="." instance=ExtResource("3_vcyf4")]
 

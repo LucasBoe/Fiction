@@ -4,7 +4,7 @@ class_name Wagon_Spikes
 @onready var area = $Area3D
 
 @export var attack_speed = 1.0
-@export var damage_per_attack = 5
+@export var damage_per_attack = 5.0
 
 var t = 0
 
