@@ -36,6 +36,10 @@ func _game_loop() -> void:
 		MusicPlayer.play_track(MusicPlayer.music_night)
 		await _run_wave_phase()
 		MusicPlayer.play_track(MusicPlayer.music_day)
+		
+		if Globals.map_loader.map_number > Globals.MAX_LOCATIONS:
+			break
+		
 		await _reward_phase()
 		await FadeEffectCanvas.fade_in_out()
 		await _unload_current_map()
@@ -44,6 +48,7 @@ func _game_loop() -> void:
 		await _run_narrative_popups()
 		
 	await FadeEffectCanvas.fade_in_out()
+	VictoryUi.show()
 	
 func _show_main_menu():
 	Globals.camera_manager.set_camera(CameraManager.camera_mode.NARRATIVE)
@@ -55,7 +60,7 @@ func _unload_current_map() -> void:
 
 func _load_next_map() -> void:
 	Globals.current_camera.get_parent_node_3d().rotate_y(deg_to_rad(90))
-	if map_loader.map_number >= (Globals.MAX_LOCATIONS - 1):
+	if map_loader.map_number > (Globals.MAX_LOCATIONS - 1):
 		map_loader.load_map_from_path(map_loader.map_final_path)
 	elif map_loader.map_number == 0:
 		map_loader.load_map_from_path(map_loader.map_first_path)

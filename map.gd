@@ -84,7 +84,11 @@ enum LocationKeyword {
 
 func _ready():
 	houses = find_child("Houses").get_children()
-	display_name = "Shirewood" if keywords.is_empty() else get_random_name(keywords[0])
+	display_name = "Shirewood"
+	if Globals.map_loader.map_number > 1:
+		display_name = "Midas Trith"
+	if not keywords.is_empty():
+		display_name = get_random_name(keywords[0])
 	blocked_positions = find_blocked_position()
 	GridVisualizer.refresh_blocked(blocked_positions)
 

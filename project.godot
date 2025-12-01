@@ -45,6 +45,7 @@ FadeEffectCanvas="*res://scenes/autoload/fade_effect_canvas.tscn"
 SoundPlayer="*res://scenes/autoload/sound_player.tscn"
 ProgressionUi="*res://scenes/autoload/progression_ui.tscn"
 DestroyedWagonHandler="*res://scripts/autoload/destroyed_wagon_handler.gd"
+VictoryUi="*res://scenes/autoload/victory_ui.tscn"
 
 [debug_draw_3d]
 
