@@ -4,7 +4,9 @@ class_name MapLoader
 const PATH = "path"
 const DIFFICULTY = "difficulty"
 const KEYWORDS = "keywords"
-const map_folder_path = "res://scenes/maps/";
+const map_folder_path = "res://scenes/maps/pool/"
+const map_first_path = "res://scenes/maps/map_first.tscn"
+const map_final_path = "res://scenes/maps/map_final.tscn"
 
 var currently_loaded_map
 var map_infos : Array

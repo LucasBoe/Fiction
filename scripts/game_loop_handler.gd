@@ -55,7 +55,12 @@ func _unload_current_map() -> void:
 
 func _load_next_map() -> void:
 	Globals.current_camera.get_parent_node_3d().rotate_y(deg_to_rad(90))
-	map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
+	if map_loader.map_number >= (Globals.MAX_LOCATIONS - 1):
+		map_loader.load_map_from_path(map_loader.map_final_path)
+	elif map_loader.map_number == 0:
+		map_loader.load_map_from_path(map_loader.map_first_path)
+	else:
+		map_loader.load_map_based_on_keywords(NarrativeCanvas.chosen_keywords)
 	Globals.environment.set_evening(.1)	
 
 func _wait_for_placement() -> void:
