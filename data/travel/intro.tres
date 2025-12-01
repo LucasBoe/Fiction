@@ -8,8 +8,7 @@ resource_local_to_scene = true
 script = ExtResource("1_wdyy5")
 button_text = "Ready!"
 cost = 0
-feedback_text = "Use your wagons to defend the village.
-Make sure your [color=orange]King's Wagon[/color] is not destroyed."
+feedback_text = "Use your [color=orange]Wagons[/color] to defend the village and their [color=orange]Houses[/color]. They will reward you for even the smallest hut that you save. The [color=orange]Smith[/color] might still have time to upgrade you wagons and the [color=orange]Wagon Maker[/color] can build you new wagons for the harsh journey ahead. But most importantly make sure your [color=orange]King's Wagon[/color] is not destroyed. "
 final_text = ""
 effects = Array[int]([])
 location_keywords = Array[int]([])
@@ -19,7 +18,6 @@ metadata/_custom_type_script = "uid://ddoi7l4te1l2a"
 script = ExtResource("2_wx4ia")
 type = 2
 choices = Array[ExtResource("1_wdyy5")]([SubResource("Resource_tjpsu")])
-text = "Dark forces are attacking your kingdom.
-You are the king and have to exscape to the capital.
-On your journey you will meet your subjects traveling from village to village. Are you ready to defend your people?"
+text = "...Dark forces are attacking your kingdom.
+You as the king  have only one choice - escape to the capital city  of Midas Trith. Pack everything in your Wagons and travel fast. But beware you have to find a safe space for the night when the shadows creep up from their holes and caves to rampage the land. Are you ready to defend your people? "
 metadata/_custom_type_script = "uid://dl34a76dc7a6c"
