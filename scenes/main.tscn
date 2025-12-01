@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=71 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://dm20yep3yt1j4" path="res://texture/terrain/ground.png" id="20_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://cttar6i2s8omq" path="res://ui/travel/location_done.png" id="21_2f3dj"]
 [ext_resource type="FontFile" uid="uid://cblvk8fk77d1h" path="res://fonts/C&C Red Alert.ttf" id="22_vxglm"]
+[ext_resource type="Texture2D" uid="uid://envu6pa0jqhu" path="res://ui/travel/gradiant_x.png" id="25_5he1u"]
+[ext_resource type="FontFile" uid="uid://cr2xjor5aogwh" path="res://fonts/Pixeled English Font.ttf" id="26_5poiv"]
 [ext_resource type="Texture2D" uid="uid://p4jeu7sgsh3v" path="res://ui/icon_night.png" id="29_j8jky"]
 [ext_resource type="Script" uid="uid://due032jrh2oer" path="res://scripts/night_progression_ui.gd" id="29_kmb1v"]
 [ext_resource type="Texture2D" uid="uid://c2yekylfsxpts" path="res://ui/icon_day.png" id="30_kmb1v"]
@@ -448,29 +450,38 @@ theme_override_font_sizes/font_size = 11
 text = "Supplies"
 
 [node name="TutorialUI" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 1
+anchors_preset = 6
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-offset_left = -162.0
-offset_bottom = 32.0
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -23.0
+offset_bottom = 24.0
 grow_horizontal = 0
+grow_vertical = 2
 script = ExtResource("19_2wyq8")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/TutorialUI"]
-self_modulate = Color(1, 1, 1, 0.498039)
 layout_mode = 2
-texture = ExtResource("20_2f3dj")
-flip_v = true
+texture = ExtResource("25_5he1u")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TutorialUI"]
 layout_mode = 2
-theme_override_constants/margin_left = 24
+theme_override_constants/margin_left = 128
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 96
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TutorialUI/MarginContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TutorialUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72549, 0, 1)
+theme_override_fonts/font = ExtResource("26_5poiv")
+theme_override_font_sizes/font_size = 16
+text = "    Tutorial"
 
 [node name="TutorialLine" type="HBoxContainer" parent="CanvasLayer/TutorialUI/MarginContainer/VBoxContainer"]
 layout_mode = 2
