@@ -66,6 +66,7 @@ func load_map_from_path(path):
 	currently_loaded_map = scene.instantiate()
 	rebuild_navigation()
 	add_child(currently_loaded_map)
+	print("loaded new map (", path, ")")
 	emit_signal("loaded_map")
 
 func rebuild_navigation():
