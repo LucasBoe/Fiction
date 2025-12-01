@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://djr80asslu1fq" path="res://scripts/building.gd" id="2_diip3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_os8te"]
-size = Vector3(1.04858, 1, 1.02145)
+size = Vector3(1.04858, 1, 0.956473)
 
 [node name="wall_corner_2x2" instance=ExtResource("1_os8te")]
 script = ExtResource("2_diip3")
@@ -23,9 +23,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.489, 0.5, -0.471)
 shape = SubResource("BoxShape3D_os8te")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495526, 0.5, 0.526474)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.495526, 0.5, 0.453376)
 shape = SubResource("BoxShape3D_os8te")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551629, 0.5, -0.474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45993, 0.5, -0.508999)
 shape = SubResource("BoxShape3D_os8te")
