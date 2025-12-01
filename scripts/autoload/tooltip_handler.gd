@@ -64,9 +64,9 @@ func _process(delta):
 			reward_container.show()
 		
 func update_health(health : Health, source):
-	var health_multiplier = float(health.current_health) / float(health.max_health)
+	var health_multiplier = clampf(float(health.current_health) / float(health.max_health),0,1)
 	healthbar_fill_rect.size = Vector2(health_multiplier,1) * healthbar_background_rect.size
 	healthbar_amount_label.text = str(health.current_health, "/", health.max_health)
 	
 	if reward_container.visible and source is Building:
-		reward_label.text = str((source as Building).reward_amount_base * health_multiplier, "$")
+		reward_label.text = str((source as Building).reward_amount_base)
