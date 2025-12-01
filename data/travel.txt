@@ -123,85 +123,89 @@ Those who live here survive in secrecy, and greet us with weary relief.
 
 %Broken Wagon Friendly%
 #ENCOUNTER
-During mid day we see a <group of villagers> next to the rock road standing around a wagon with a broken axis. The people who seem to want to travel to the capital too ask for our help.
+During mid day we see a <group of villagers> next to the rock road standing around <a wagon with a broken axis>. The people who seem to want to travel to the capital too ask for our help.
 
 [Offer to repair
 -COST:25
 -EFFECT:GET_WAGON_WINDOW]
-The villagers are super relieved that you repair their wagon and decide to join your forces.
+The villagers are super relieved that you repair their wagon and decide to <join your forces>.
+§§ <+ NEW WAGON>
 
 [Reject
 -EFFECT:DAMAGE_WAGON_RANDOM]
-The hopeless villagers get angry that you as the king don’t help them and try to burn down one of your wagons in anger. You and your guards handle them quickly but sadly one of your wagons took some damage nonetheless.
+The hopeless <villagers get angry> that you as the king don’t help them and try to <burn down one of your wagons> in anger. You and your guards handle them quickly but sadly one of your wagons took some damage nonetheless.
+§§ <+1 DAMAGED WAGON>
 
 %Forest Carpenter%
 #ENCOUNTER
-As we travel through a narrow stretch of forest, a steady tapping reaches our ears from somewhere between the trees — wood striking wood, slow and careful. It is not the sound of an animal, nor a weapon. Some of my people grow uneasy and urge me to keep moving.
+As we travel through a narrow stretch of forest, <a steady tapping> reaches our ears from somewhere between the trees. It is not the sound of an animal, nor a weapon. Some of my people grow uneasy and urge me to keep moving.
 [Follow the sound
 -EFFECT:REPAIR_ALL_WAGONS]
-We guide the wagons toward the sound and find an old carpenter beneath the trees, carefully shaping wood beside a small, hidden shelter. He looks up, unafraid. “Your wagons have suffered,” he says simply. “I heard the tired creak of them in the forest.” Without asking he does all the needed repairs with supplies he has there
+We guide the wagons toward the sound and find an <old carpenter> beneath the trees, carefully shaping wood beside a small, hidden shelter. He looks up, unafraid. “Your wagons have suffered,” he says simply. Without asking he <does all the needed repairs> with supplies he has there
+§§ <ALL WAGONS REPAIRED>
 [Ignore it and move on]
 We pass the place without slowing.
 %Roadside Barrier%
 #ENCOUNTER
-The forest path narrows suddenly, blocked by a fallen wagon dragged across the road. Its boards are freshly split, as if torn down in haste. Off to the side, almost hidden in tall grass, a faint trail of wood shavings leads toward a cluster of trees, and somewhere within, the soft rasp of a file against metal can just be heard.
+The forest path narrows suddenly, <blocked by a fallen wagon> dragged across the road. Its boards are freshly split, as if torn down in haste. Off to the side, almost hidden in tall grass, a faint trail of <wood shavings> leads toward a cluster of trees, and somewhere within, the soft rasp of a file against metal can just be heard.
 [Move the barrier aside
 -EFFECT:DAMAGE_WAGON_RANDOM]
-We pull the barrier aside and force the wagons through. The rough movement strains weakened frames — and one wagon gives way beneath the pressure, its axle splitting with a loud crack. That did some damage…
+We pull the barrier aside and force the wagons through. The rough movement strains weakened frames — and <one wagon gives way beneath the pressure>, its axle splitting with a loud crack. 
+§§ <+1 DAMAGED WAGON>
 [Send a scout to investigate
 -COST:10
 -EFFECT:REPAIR_ALL_WAGONS]
-We send a scout to follow the shavings and he quickly returns with good news. Hidden between trunks, a metalworker tends a small forge, reshaping tools and wagon parts salvaged from the road. He nods once and offers his skill to repair our wagons in exchange for a small amount of supplies, then joins our group when the work is done.
+We send a scout to follow the shavings and he quickly <returns with good news>. Hidden between trunks, a <metalworker tends a small forge>, reshaping tools and wagon parts salvaged from the road. He nods once and offers his skill to repair our wagons.
+§§ <ALL WAGONS REPAIRED>
 %Riverbank Glimmer%
 #ENCOUNTER
-We travel alongside a slow-moving river, its dark surface barely disturbed as it slips past the road. Between the reeds, something glints once and disappears beneath the water. One of my people insists it was only a trick of the light. Another swears there may be something worth finding in the shallows.
+We travel alongside a slow-moving river, its dark surface barely disturbed as it slips past the road. Between the reeds, <something glints once> and disappears beneath the water. One of my people insists it was only a trick of the light. Another swears there may be something worth finding in the shallows.
 [Search along the riverbank
 -EFFECT:GET_SUPPLIES_BIG]
-We halt the caravan and search the river’s edge. Caught between reeds, a half-submerged fishing crate is pulled free, still sealed and intact. Inside, we find dried fish, rope, and usable tools — recently lost, but not yet claimed by the water.
+We halt the caravan and search the river’s edge. Caught between reeds, a <half-submerged fishing crate> is pulled free, still sealed and intact. Inside, we find dried fish, rope, and usable tools.
+§§ <+ SUPPLIES>
 [Ignore it and move on]
 We move on without stopping. The river carries its secrets away, and nothing else of note happens before nightfall.
 %Buried Bundle%
 #ENCOUNTER
-As we move through the forest, the trees close in and the light begins to fade. Beneath one of the larger trunks, half-covered by leaves, something has disturbed the ground. A few broken branches lie nearby, arranged in a way that feels almost deliberate.
+As we move through the forest, the trees close in and the light begins to fade. Beneath one of the larger trunks, half-covered by leaves, <something has disturbed the ground>. A few broken branches lie nearby, arranged in a way that feels almost deliberate.
 [Search the disturbed ground
 -EFFECT:GET_SUPPLIES_SMALL]
-We clear away the leaves and uncover a small buried bundle wrapped in leather. Inside are preserved rations, metal nails, and some lantern oil — recently hidden and still usable.
+We clear away the leaves and uncover <a small buried bundle> wrapped in leather. Inside are preserved rations, metal nails, and some lantern oil — recently hidden and still usable.
+§§ <+ SUPPLIES>
 [Leave it undisturbed]
 We move past the place without disturbing it.
 %Abandonded Village%
 #ENCOUNTER
-The road is easy to take, and we travel for several miles. Suddenly you hear voices from further away, coming from a ghost village behind a small hill that was supposed to be abandoned.
+The road is easy to take, and we travel for several miles. Suddenly you hear <voices from further away>, coming from a <ghost village> behind a small hill that was supposed to be abandoned.
 [take the detour to the village
 -EFFECT:LOOSE_SUPPLIES_SMALL]
-You take the detour to the abandoned village only to find some strange villager that don’t seem like good company. Armed and superior in number they take some of our belongings but we can escape with no losses.
-[continue the path]                                                                                                                   This journey has been peaceful, so you continue your road without a look in to the abandonded village.
-%Title_2%
-#ENCOUNTER
-encounter description
-[Option 1 Text get upgrade window
--EFFECT:GET_UPGRADE_WINDOW]
-outcome text option 1
-[Option 2 Text nothing]
-outcome text option 2
+You take the detour to the abandoned village only to find some <strange villagers> that seem like <no good company>. Armed and superior in number they take some of our belongings but we can escape with no losses.
+§§ <- SUPPLIES>
+[continue the path]                                                                                                                   This journey has been peaceful, so you <continue your journey> without a look into the abandonded village.
+
 
 %The narrow mountain path%
 #ENCOUNTER
-Our route goes through a small and high chain of mountains and we have to take a narrow road next to a slope as we hear metal clinging not far from the track where a small path cuts the grass.
+Our route goes through a small and high chain of mountains and we have to take a narrow road next to a slope as we hear <metal clinging> not far from the track where <a small path> cuts the grass.
 
 [Check out the sounds source
 -EFFECT:GET_UPGRADE_WINDOW]
-Some of us follow the small path and prospect an old man working on an anvil next to an old mine entrance. As he sees he stops hammering on his anvil and is willing to do some improvements on one of our wagons in exchange of him coming with us. He also tells us warns us about the mountain lions that live in these grounds and that we should stay alarmed.
+Some of us follow the small path and prospect an <old man working on an anvil> next to an old mine entrance. As he sees he stops hammering on his anvil and is willing to do some <improvements on one of our wagons> in exchange of him coming with us. He also tells us warns us about the mountain lions that live in these grounds and that we should stay alarmed.
+§§ <+1 WAGON UPGRADE>
 
 
 [Follow the mountain road 
 -EFFECT:LOOSE_SUPPLIES_SMALL]
-We ignore the ominous sounds and continue the steep road as three starving mountain lions attack our convoy. While defending, one horse starts to panic and the attached wagon starts to fluctuate and some baggage from it falls down into the steep ravine. 
+We ignore the ominous sounds and continue the steep road as <three starving mountain lions attack our convoy>. While defending, one horse starts to panic and the attached wagon starts to fluctuate and some <baggage> from it <falls down into the steep ravine>. 
+§§ <- SUPPLIES>
 
 %Between the Trees%
 #ENCOUNTER
-While traveling through a thick forest one of you archers spies some thin smoke between the thick trunks not far from the road and after halting the caravan the smell of iron and wood manifests in your noses.
+While traveling through a thick forest one of you archers spies some <thin smoke between the thick trunks> not far from the road and after halting the caravan the <smell of iron and wood> manifests in your noses.
 [Investigate the place
 -EFFECT:GET_WAGON_WINDOW]
 We send some people to investigate where the smokes and smell comes from. We find an old burned down camp. It looks like the people who stayed here had to leave in a hurry. But to our surprise we find a wagon quite well in shape that we can take with us.
+§§ <+ NEW WAGON>
 [Continue the travel and ignore it] 
 We don’t risk getting caught in a trap and continue one the road we are on, leaving the place untouched. 
