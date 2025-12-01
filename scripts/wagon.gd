@@ -28,6 +28,9 @@ func _ready():
 		Globals.environment.set_evening_signal.connect(on_set_evening)
 		Globals.environment.set_night_signal.connect(on_set_night)
 	
+	RaycastHandler.on_hover_enter.connect(_on_hover_enter)
+	RaycastHandler.on_hover_exit.connect(_on_hover_exit)
+	
 	#make sure ugrades are new and unique
 	var upgrade_instances : Array[WagonUpgrade]
 	for upgrade in upgrades:
@@ -36,7 +39,18 @@ func _ready():
 		upgrade_instances.append(instance)
 	upgrades = upgrade_instances
 	
+	if range_visualization:
+		range_visualization.hide()
+	
 	wagons.append(self)
+
+func _on_hover_enter (wagon):
+	if wagon == self && range_visualization:
+		range_visualization.show()
+
+func _on_hover_exit ():
+	if range_visualization:
+		range_visualization.hide()
 
 func on_set_day():		
 	if not lantern_light:

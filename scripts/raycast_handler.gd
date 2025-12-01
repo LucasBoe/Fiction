@@ -5,6 +5,7 @@ extends Node3D
 var lmb_pressed
 
 var currently_hovered_moveable
+var last_currently_hovered_movable
 var currently_dragging : Moveable
 var pickup_rotation_in_degrees : float
 var pickup_offset : Vector3
@@ -15,6 +16,9 @@ var previously_hovered_reward
 
 var are_modifications_allowed = false
 var all_wagons
+
+signal on_hover_enter (currently_hovered_movable)
+signal on_hover_exit
 
 func set_modifications_allowed(allowed):
 	are_modifications_allowed = allowed
@@ -57,6 +61,16 @@ func handle_reward_claim(space_state, mouse_pos, cam):
 func handle_modifications(space_state, mouse_pos, cam):
 	
 	currently_hovered_moveable = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, Moveable)
+	
+	if currently_hovered_moveable != last_currently_hovered_movable:
+		if currently_hovered_moveable:
+			emit_signal("on_hover_enter", currently_hovered_moveable)
+			#print("New Hover Object" + currently_hovered_moveable.name)
+		else:
+			emit_signal("on_hover_exit")
+			#print("Hover exit")
+		
+		last_currently_hovered_movable = currently_hovered_moveable
 	
 	var raw_pos = get_mouse_on_y0_plane()
 	var grid_pos = raycast_for_position_on_grid()
