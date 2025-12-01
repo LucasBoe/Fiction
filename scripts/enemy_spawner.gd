@@ -1,9 +1,27 @@
 extends Node3D
 
 @export var location_number_to_enemy_emount_curve : Curve
-
 @onready var shadowEnemy: PackedScene = preload("res://scenes/enemies/enemy_shadow.tscn")
+
 const spawn_distance_to_center = 20
+
+const night_duration = 30.0
+var night_progression = 0.0
+
+signal begin_night_signal
+signal end_night_signal
+
+func night_loop():
+	begin_night_signal.emit()
+	spawn_wave(Globals.map_loader.map_number)
+	Globals.environment.set_day(night_duration, EnvironmentHolder.transition_duration)
+	while night_progression < 1.0:
+		night_progression += get_process_delta_time() / night_duration
+		await get_tree().process_frame
+		
+	EntityHandler.kill_all()
+	end_night_signal.emit()
+	night_progression = 0.0
 
 func spawn_wave(location_number) -> void:
 	var target_amount = roundi(location_number_to_enemy_emount_curve.sample(location_number))

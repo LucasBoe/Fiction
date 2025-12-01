@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=66 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -33,6 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://dm20yep3yt1j4" path="res://texture/terrain/ground.png" id="20_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://cttar6i2s8omq" path="res://ui/travel/location_done.png" id="21_2f3dj"]
 [ext_resource type="FontFile" uid="uid://cblvk8fk77d1h" path="res://fonts/C&C Red Alert.ttf" id="22_vxglm"]
+[ext_resource type="Texture2D" uid="uid://p4jeu7sgsh3v" path="res://ui/icon_night.png" id="29_j8jky"]
+[ext_resource type="Script" uid="uid://due032jrh2oer" path="res://scripts/night_progression_ui.gd" id="29_kmb1v"]
+[ext_resource type="Texture2D" uid="uid://c2yekylfsxpts" path="res://ui/icon_day.png" id="30_kmb1v"]
 
 [sub_resource type="Environment" id="Environment_0ld40"]
 background_mode = 1
@@ -259,10 +262,11 @@ script = ExtResource("1_jkv2x")
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("2_muem4")
+day_rotation = Vector3(-140, 180, 0)
 evening_rotation = Vector3(-150, 180, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-1, 4.37114e-08, 7.57103e-08, 0, -0.866026, 0.5, 8.74228e-08, 0.5, 0.866025, 0, 4, 0)
+transform = Transform3D(-1, 8.74228e-08, 0, 6.77478e-08, 0.774945, 0.632029, 5.52538e-08, 0.63203, -0.774944, 0, 4, 0)
 light_color = Color(0.89, 0.807675, 0.5607, 1)
 light_indirect_energy = 0.5
 light_specular = 0.0
@@ -477,6 +481,59 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("22_vxglm")
 theme_override_font_sizes/font_size = 13
 text = "This is something you have to do"
+
+[node name="NightProgressionUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 261.0
+offset_right = -261.0
+offset_bottom = 79.0
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("29_kmb1v")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/NightProgressionUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("20_2f3dj")
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NightProgressionUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/NightProgressionUI/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRectNight" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("29_j8jky")
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/NightProgressionUI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("22_vxglm")
+theme_override_font_sizes/font_size = 13
+
+[node name="TextureRectDay" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("30_kmb1v")
+stretch_mode = 3
 
 [node name="ContinueButtons" type="Control" parent="CanvasLayer"]
 layout_mode = 3

@@ -16,7 +16,7 @@ func _ready() -> void:
 func _game_loop() -> void:
 	await get_tree().process_frame
 	Globals.tutorial.hide()
-	MoneyHandler.change_money(25)
+	MoneyHandler.change_money(250)
 	await _reset_placement()
 	MusicPlayer.play_track(MusicPlayer.music_travel)
 	FadeEffectCanvas.fade_out()
@@ -65,8 +65,7 @@ func _reset_placement() -> void:
 	print("placement reset")
 	
 func _run_wave_phase() -> void:
-	enemy_spawner.spawn_wave(Globals.map_loader.map_number)
-	await EntityHandler.all_enemies_unregistered
+	await enemy_spawner.night_loop()
 	print("wave cleared reset")
 
 func _reward_phase() -> void:

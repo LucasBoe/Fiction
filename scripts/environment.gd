@@ -18,7 +18,7 @@ class_name EnvironmentHolder
 @export var night_background_multiplier := 0.5
 
 # How long each transition should take
-@export var transition_duration := 3
+const transition_duration = 3
 
 signal set_day_signal
 signal set_evening_signal
@@ -43,7 +43,11 @@ func _make_tween() -> Tween:
 	return _current_tween
 
 
-func set_day():
+func set_day(trans = transition_duration, delay = 0.0):
+	
+	if delay > 0.0:
+		await get_tree().create_timer(delay).timeout
+	
 	set_day_signal.emit()
 
 	#directional_light.visible = true
@@ -52,19 +56,19 @@ func set_day():
 	tween.tween_property(directional_light, 
 		"rotation_degrees:x", 
 		day_rotation.x, 
-		transition_duration)
+		trans)
 	
 	tween.parallel().tween_property(
 		directional_light, 
 		"light_energy", 
 		day_energy, 
-		transition_duration)
+		trans)
 		
 	tween.parallel().tween_property(
 		world_environment.environment,
 		"background_energy_multiplier",
 		day_background_multiplier,
-		transition_duration
+		trans
 	)
 
 
