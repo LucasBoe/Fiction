@@ -5,8 +5,8 @@ class_name GameLoopHandler
 @onready var placement_handler = %PlacementHandler
 @onready var enemy_spawner = %EnemySpawner
 
-@onready var end_placement_button = %CanvasLayer/ContinueButtons/EndPlacementButton
-@onready var end_reward_button = %CanvasLayer/ContinueButtons/EndRewardButton
+@onready var end_placement_button = %ProgressionButtonsLayer/ContinueButtons/EndPlacementButton
+@onready var end_reward_button = %ProgressionButtonsLayer/ContinueButtons/EndRewardButton
 
 func _ready() -> void:
 	end_placement_button.hide()
