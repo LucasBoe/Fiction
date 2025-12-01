@@ -21,7 +21,17 @@ func _ready():
 	_index_all_map_infos()
 
 func _index_all_map_infos():
-	var paths = FileUtil.get_all_file_paths(map_folder_path)
+	var paths: Array[String] = [
+		map_folder_path + "map_castle_1.tscn",
+		map_folder_path + "map_castle_2.tscn",
+		map_folder_path + "map_castle_3.tscn",
+		map_folder_path + "map_farm_1.tscn",
+		map_folder_path + "map_farm_2.tscn",
+		map_folder_path + "map_farm_3.tscn",
+		map_folder_path + "map_village_1.tscn",
+		map_folder_path + "map_village_2.tscn",
+		map_folder_path + "map_village_3.tscn",
+	]
 	for path in paths:
 		var scene = ResourceLoader.load(path)
 		var map = scene.instantiate() as MapData
