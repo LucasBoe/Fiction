@@ -40,7 +40,7 @@ func try_choose():
 		var instance = scene.instantiate()
 		Globals.placement_handler.active_holder.add_child(instance)
 		instance.global_position = Vector3(0,-10,0)
-		print("create new wagon ", instance.name)
+		print("create new wagon ",  new_wagon_path)
 		
 		canvas.try_remove_choice(self)
 			

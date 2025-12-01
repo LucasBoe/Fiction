@@ -14,8 +14,6 @@ func _on_health_changed(health: Health) -> void:
 	# Calculate target width (clamped between 0 and full)
 	var ratio = clampf(health.current_health / (float)(health.max_health), 0.0, 1.0)
 	var target_size := back_rect.size * Vector2(ratio, 1.0)
-	print("health: ", health.current_health, "/", health.max_health, " (", ratio, ")")
-
 	# Stop old tween if still running
 	if tween and tween.is_valid():
 		tween.kill()

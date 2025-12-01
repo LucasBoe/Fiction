@@ -17,8 +17,7 @@ func heal():
 	var health_before = current_health
 	current_health = max_health
 	health_changed.emit(self)
-	print(get_parent().name, " healed from ", health_before, " to ", current_health)
-
+	
 func take_damage(amount: float):
 	current_health -= amount
 	took_damage.emit(amount)

@@ -97,7 +97,6 @@ func get_random_name(keyword : LocationKeyword) -> String:
 	
 func check_is_blocked(location):
 	var l = GridVisualizer.world_to_grid_position(location - Vector3(.5,.5,.5))
-	print(blocked_positions, l)
 	return blocked_positions.has(l)
 
 func find_blocked_position():
@@ -112,8 +111,6 @@ func find_blocked_position():
 			
 			var collisions = PhysicsUtil.boxcast_for_objects(space_state,pos, size)
 			var counted_collisions = collisions.size()
-			
-			print("c: ", pos, collisions)
 			
 			if counted_collisions > 0:
 				blocked.append(Vector2i(x,y))

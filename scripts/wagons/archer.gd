@@ -54,7 +54,6 @@ func _look_at(target: Node3D):
 	look_at(target_position, Vector3.UP, true)
 
 func _shoot(target: Node3D):
-	#print("shooting at" + target.name)
 	SoundPlayer.play3D(SoundPlayer.arrow_shot, shooting_origin.global_position)
 	var projectile := bolt.instantiate()
 	get_tree().current_scene.add_child(projectile)

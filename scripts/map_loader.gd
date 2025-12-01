@@ -34,12 +34,11 @@ func _index_all_map_infos():
 func load_map_based_on_keywords(keywords):
 	var potential_maps : Array
 	for info in map_infos:
-		print("check map ", info[PATH], " and compare keywords ", info[KEYWORDS], " with ", keywords)
 		for keyword in info[KEYWORDS]:
 			if not keywords.has(keyword):
-				print("map ", info[PATH], " keywords (", keyword, ") does not match keywords (", keywords, ")")
 				break
-				
+					
+		print("found map match in comparing ", info[PATH], " with ", info[KEYWORDS], " to ", keywords)
 		potential_maps.append(info[PATH])
 		
 	if potential_maps.is_empty():
@@ -67,7 +66,6 @@ func load_map_from_path(path):
 	currently_loaded_map = scene.instantiate()
 	rebuild_navigation()
 	add_child(currently_loaded_map)
-	print("Loaded Map!")
 	emit_signal("loaded_map")
 
 func rebuild_navigation():

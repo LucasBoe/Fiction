@@ -53,8 +53,6 @@ func on_set_day():
 	if _lights.is_empty():
 		return
 
-	print("fade out lights on ", self)
-
 	for l in _lights:
 		var tween := create_tween()
 		tween.tween_property(l, "light_energy", 0.0, day_tween_time)
