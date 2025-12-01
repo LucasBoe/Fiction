@@ -282,7 +282,6 @@ size = Vector3(3.8, 1, 1.00151)
 
 [node name="Wagon_Pike" type="StaticBody3D"]
 script = ExtResource("1_vcyf4")
-damage_per_attack = 0.2
 display_name = "Pike Wagon"
 display_description = "Pierces anything that goes close to it"
 grid_size = Vector2i(2, 1)
