@@ -2,6 +2,7 @@ extends Node3D
 
 @export var location_number_to_enemy_emount_curve : Curve
 @onready var shadowEnemy: PackedScene = preload("res://scenes/enemies/enemy_shadow.tscn")
+@onready var spawn_point_root = $"../../OuterEnvironment/SpawnPoints/"
 
 const spawn_distance_to_center = 20
 
@@ -29,8 +30,9 @@ func spawn_wave(location_number) -> void:
 	
 	
 	for i in target_amount:
-		var dir = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
-		var location = dir * spawn_distance_to_center
+		#var dir = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
+		#var location = dir * spawn_distance_to_center
+		var location = spawn_point_root.get_children(true).pick_random().global_position
 		spawn_enemy_at(location)
 		await get_tree().create_timer(30 / target_amount).timeout
 
