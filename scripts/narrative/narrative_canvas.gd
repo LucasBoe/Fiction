@@ -122,7 +122,7 @@ func _animate_text(label : RichTextLabel):
 		if c == ".":
 			await get_tree().create_timer(.4).timeout
 		else:
-			await get_tree().create_timer(.05).timeout
+			await get_tree().create_timer(0.025).timeout
 			
 	for i in event_choice_buttons.size():
 		var l = event_choice_button_labels[i]

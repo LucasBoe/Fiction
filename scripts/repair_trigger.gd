@@ -1,7 +1,7 @@
 extends TriggerBase
 class_name RepairTrigger
 
-const COST = 20
+const COST = 8
 
 signal on_click_signal
 
