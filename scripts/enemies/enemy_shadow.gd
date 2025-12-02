@@ -79,6 +79,9 @@ func check_burning():
 
 func _physics_process(delta: float) -> void:
 	
+	if global_position.y >= 2:
+		global_position.y = 0
+	
 	# If there's no path or we're already there, stop
 	if not agent.is_navigation_finished():
 		var next_point: Vector3 = agent.get_next_path_position()
