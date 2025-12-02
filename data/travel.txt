@@ -4,7 +4,7 @@ After a few hours of travel under the dim sunlight you reach a crossing and the 
 The path to the west carries a faint smell of smoke hinting towards a <village> where we can <build new wagons>.§
 The path to the east goes downward into <unseen lowlands>. No rooftops break the horizon, but one from our group thinks to remember that there should be <lone stead> with <plenty of supplies> if we follow that route.
 
-[Go towards the smell of smoke
+[Go towards the village
 -KEY:village
 -TEXT:We continue our journey towards the village.§§]
 We reach a village in silence and prepare for the following night.
