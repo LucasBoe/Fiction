@@ -32,7 +32,7 @@ func spawn_wave(location_number) -> void:
 		var dir = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
 		var location = dir * spawn_distance_to_center
 		spawn_enemy_at(location)
-		await get_tree().create_timer(30 / target_amount).timeout
+		await get_tree().create_timer(30.0 / float(target_amount)).timeout
 
 
 func spawn_enemy_at(spawnpoint: Vector3) -> void:
