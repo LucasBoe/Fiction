@@ -301,10 +301,9 @@ transform = Transform3D(1.16147, 0, -0.9492, 0, 1.5, 0, 0.9492, 0, 1.16147, -4.4
 transform = Transform3D(1.4941, 0, 0.132898, 0, 1.5, 0, -0.132898, 0, 1.4941, -15.1083, -1.3113e-06, 7.4539)
 
 [node name="SpawnPoints" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="P1" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1279, 0, 11.0887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5163, 0, 6.02529)
 
 [node name="P2" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4513, 0, 3.08241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7035, 0, 12.4193)

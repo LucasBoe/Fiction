@@ -50,9 +50,7 @@ func set_day(trans = transition_duration, delay = 0.0):
 	
 	set_day_signal.emit()
 
-	#directional_light.visible = true
-
-	var tween := _make_tween()
+	var tween = _make_tween()
 	tween.tween_property(directional_light, 
 		"rotation_degrees:x", 
 		day_rotation.x, 
@@ -68,9 +66,7 @@ func set_day(trans = transition_duration, delay = 0.0):
 		world_environment.environment,
 		"background_energy_multiplier",
 		day_background_multiplier,
-		trans
-	)
-
+		trans)
 
 func set_evening(trans = transition_duration):
 	set_evening_signal.emit()
