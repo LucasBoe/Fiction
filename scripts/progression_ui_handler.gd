@@ -2,11 +2,13 @@ extends CanvasLayer
 
 @onready var root_control = $PopupRoot
 @onready var name_label = $PopupRoot/MarginContainer/Root/MarginContainer/VBoxContainer/NameLabel
+@onready var permanent_root = $PermanentRoot
 
 func _ready():
 	await get_tree().process_frame
 	Globals.map_loader.loaded_map.connect(on_loaded_map)
 	root_control.visible = false
+	permanent_root.visible = false
 	
 func on_loaded_map():
 	await get_tree().create_timer(1).timeout

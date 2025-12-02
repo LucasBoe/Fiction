@@ -25,8 +25,8 @@ func _game_loop() -> void:
 	MusicPlayer.play_track(MusicPlayer.music_travel)
 	await _run_narrative_popups(true)
 	Globals.tutorial.show()
-	#show supply ui
-	%CanvasLayer.get_child(0).show()
+	%CanvasLayer.get_child(0).show() #show supply ui
+	ProgressionUi.permanent_root.show() #show progression
 	
 	while true:
 		await _load_next_map()		
