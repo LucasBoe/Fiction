@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=72 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://p4jeu7sgsh3v" path="res://ui/icon_night.png" id="29_j8jky"]
 [ext_resource type="Script" uid="uid://due032jrh2oer" path="res://scripts/night_progression_ui.gd" id="29_kmb1v"]
 [ext_resource type="Texture2D" uid="uid://c2yekylfsxpts" path="res://ui/icon_day.png" id="30_kmb1v"]
+[ext_resource type="Texture2D" uid="uid://c3th78u7d7jco" path="res://ui/night_progression_frame.png" id="31_5poiv"]
 [ext_resource type="PackedScene" uid="uid://bnm48172ajgjf" path="res://scenes/autoload/victory_ui.tscn" id="37_c6pm6"]
 [ext_resource type="Script" uid="uid://bw5krrrjbdhjs" path="res://scripts/main_menu.gd" id="37_fuf3a"]
 [ext_resource type="Texture2D" uid="uid://4gw0hqnqt5y4" path="res://ui/logo.png" id="38_pibwh"]
@@ -106,6 +107,9 @@ shader_parameter/fog_color = Vector4(0.3, 0.35, 0.4, 1)
 shader_parameter/clear_radius = 0.15
 shader_parameter/edge_softness = 0.25
 shader_parameter/tiling = Vector2(2.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cjbq"]
+bg_color = Color(0.976471, 0.878431, 0.768627, 1)
 
 [sub_resource type="Gradient" id="Gradient_jbj1t"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -256,12 +260,6 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 
 [node name="GameLoopHandler" type="Node" parent="."]
 script = ExtResource("1_jkv2x")
-
-[node name="MainMenu" type="Node" parent="GameLoopHandler"]
-
-[node name="Environment" type="Node3D" parent="GameLoopHandler/MainMenu"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="GameLoopHandler/MainMenu"]
 
 [node name="Environment" type="Node" parent="."]
 script = ExtResource("2_muem4")
@@ -506,46 +504,95 @@ mouse_filter = 2
 script = ExtResource("29_kmb1v")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/NightProgressionUI"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = 32.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("20_2f3dj")
 flip_v = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NightProgressionUI"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 31.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = -8.0
+offset_right = 108.0
+offset_bottom = 46.0
 grow_horizontal = 2
+pivot_offset = Vector2(100, 0)
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/NightProgressionUI/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("31_5poiv")
+stretch_mode = 3
 
-[node name="TextureRectNight" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer/HBoxContainer"]
-layout_mode = 2
+[node name="TextureRectNight" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -15.0
+offset_right = -70.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("29_j8jky")
-stretch_mode = 3
+stretch_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/NightProgressionUI/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/NightProgressionUI/MarginContainer/TextureRect"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -13.0
+offset_right = 63.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("22_vxglm")
-theme_override_font_sizes/font_size = 13
+theme_override_styles/fill = SubResource("StyleBoxFlat_2cjbq")
+value = 100.0
+show_percentage = false
 
-[node name="TextureRectDay" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer/HBoxContainer"]
-layout_mode = 2
+[node name="TextureRectDay" type="TextureRect" parent="CanvasLayer/NightProgressionUI/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -21.0
+offset_right = 96.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("30_kmb1v")
-stretch_mode = 3
+stretch_mode = 2
 
 [node name="ProgressionButtonsLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

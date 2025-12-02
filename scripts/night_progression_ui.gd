@@ -1,7 +1,7 @@
 extends Control
 class_name NightProgressionUI
 
-@onready var bar : ProgressBar = $MarginContainer/HBoxContainer/ProgressBar
+@onready var bar : ProgressBar = $MarginContainer/TextureRect/ProgressBar
 @onready var enemy_spawner = %EnemySpawner
 
 func _ready():
