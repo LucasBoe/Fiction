@@ -23,10 +23,12 @@ resources_spreadsheet_view/freeze_first_column=true
 
 [application]
 
-config/name="New Game Project"
+config/name="WAGENBURG"
+config/version="0.6.0"
 run/main_scene="uid://ela3ol1lqpt7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+run/max_fps=60
+config/icon="uid://cpo1t7ox8tc28"
 
 [autoload]
 
@@ -55,6 +57,7 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 window/size/viewport_width=920
 window/size/viewport_height=640
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
