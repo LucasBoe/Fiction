@@ -51,7 +51,7 @@ func spawn_wave(location_number) -> void:
 		
 		spawn_enemy_at(location)
 		print("spawn enemy at ", location)
-		await get_tree().create_timer(30 / target_amount).timeout
+		await get_tree().create_timer(30.0 / float(target_amount)).timeout
 		
 	enemy_spawning_done = true
 	print("done spawning enemies")

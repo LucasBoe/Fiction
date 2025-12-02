@@ -12,7 +12,7 @@ func _ready():
 
 func handover(wagon):
 	wagons.append(wagon)
-	wagon.global_position =+ Vector3(0, -10, 0)
+	wagon.global_position =+ Vector3(wagon.global_position.x, -10, wagon.global_position.z)
 	wagon.reparent(self)
 	
 func _on_reward_phase_begin():
@@ -26,7 +26,7 @@ func _on_reward_phase_begin():
 		var instance : RepairTrigger = repair_trigger_dummy.instantiate()
 		Globals.map_loader.get_tree().root.add_child(instance)
 		instance.on_click_signal.connect(try_repair.bind(instance, wagon))
-		instance.global_position = Vector3(wagon.global_position.x, 2, wagon.global_position.z)
+		instance.global_position = Vector3(wagon.global_position.x, 1.5, wagon.global_position.z)
 		
 func try_repair(trigger, wagon):
 	
