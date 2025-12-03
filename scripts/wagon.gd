@@ -61,7 +61,8 @@ func on_set_day():
 
 func on_set_evening():
 	if range_visualization != null:
-		range_visualization.get_child(0).show()
+		#range_visualization.get_child(0).show()
+		return;
 		
 	if not lantern_light:
 		return
@@ -72,7 +73,8 @@ func on_set_evening():
 
 func on_set_night():
 	if range_visualization != null:
-		range_visualization.get_child(0).hide()
+		#range_visualization.get_child(0).hide()
+		return;
 		
 	if not lantern_light:
 		return

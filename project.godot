@@ -26,7 +26,7 @@ resources_spreadsheet_view/freeze_first_column=true
 config/name="WAGENBURG"
 config/version="0.6.1"
 run/main_scene="uid://ela3ol1lqpt7"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
 config/icon="uid://cpo1t7ox8tc28"
 config/windows_native_icon="res://ui/game_icon.ico"
@@ -63,10 +63,6 @@ window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 [filesystem]
 

@@ -98,7 +98,7 @@ func handle_modifications(space_state, mouse_pos, cam):
 		else:
 			currently_dragging.global_position = raw_pos + pickup_offset
 		
-		DebugDraw3D.draw_box(check_pos + check_offset, Quaternion.IDENTITY,size, Color.DARK_RED if obstructed else Color.GRAY)
+		#DebugDraw3D.draw_box(check_pos + check_offset, Quaternion.IDENTITY,size, Color.DARK_RED if obstructed else Color.GRAY)
 		
 		if Input.is_action_just_pressed("rotate_dragging"):
 			Globals.tutorial.rotate_wagon.set_done()

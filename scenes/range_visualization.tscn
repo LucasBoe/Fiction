@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://maenowys6kmm"]
+[gd_scene load_steps=8 format=3 uid="uid://maenowys6kmm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8avvr"]
 shading_mode = 0
@@ -43,18 +43,6 @@ radius = 0.01
 radial_segments = 4
 rings = 4
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_8avvr"]
-top_radius = 4.0
-bottom_radius = 0.0
-height = 0.001
-radial_segments = 32
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyv8h"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-albedo_color = Color(0.101961, 0.619608, 0.537255, 0.0980392)
-
 [node name="RangeVisualization" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 material_override = SubResource("StandardMaterial3D_8avvr")
@@ -63,8 +51,3 @@ local_coords = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_a3d17")
 draw_pass_1 = SubResource("SphereMesh_8avvr")
-
-[node name="Circle" type="MeshInstance3D" parent="."]
-cast_shadow = 0
-mesh = SubResource("CylinderMesh_8avvr")
-surface_material_override/0 = SubResource("StandardMaterial3D_dyv8h")
