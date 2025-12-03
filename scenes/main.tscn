@@ -853,6 +853,19 @@ offset_bottom = 39.0
 text = "(c) 2025 SCHLEUDER GAMES - Max Bredlau & Lucas Bödeker
 Music by Plasticine Cowboy"
 
+[node name="VersionLabel" type="Label" parent="MainMenu/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -42.0
+offset_right = 271.0
+offset_bottom = -15.0
+grow_vertical = 0
+text = "Version: 9.9.9   "
+vertical_alignment = 2
+
 [connection signal="pressed" from="CanvasLayer/InGameSettings/Button" to="CanvasLayer/InGameSettings" method="_on_button_pressed"]
 [connection signal="toggled" from="CanvasLayer/InGameSettings/Button" to="CanvasLayer/InGameSettings" method="_on_button_toggled"]
 [connection signal="pressed" from="CanvasLayer/InGameSettings/Settings/ExitButton" to="CanvasLayer/InGameSettings" method="_on_exit_pressed"]

@@ -10,6 +10,9 @@ const SFX_BUS_NAME := "SFX"
 signal started_game_signal
 
 func _ready() -> void:
+	# Update Game Version
+	var version = ProjectSettings.get_setting("application/config/version")
+	$Control/VersionLabel.text = "Version: %s" % version
 
 	# Connect slider signals (if not already connected in the editor)
 	music_slider.value_changed.connect(_on_music_slider_value_changed)
