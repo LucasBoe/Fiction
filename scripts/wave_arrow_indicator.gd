@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 class_name ArrowIndicator
 
 const pulse_speed = 4.0

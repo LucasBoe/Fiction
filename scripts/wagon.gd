@@ -3,7 +3,7 @@ class_name Wagon
 
 @onready var body = $WagonBody
 @onready var lantern_light := find_child("LanternLight") as Light3D
-@onready var range_visualization = $RangeVisualization
+@onready var range_visualization := get_node_or_null("RangeVisualization")
 
 @export var display_name = ""
 @export var display_description = ""

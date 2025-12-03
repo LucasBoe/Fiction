@@ -15,7 +15,7 @@ class_name Building
 var health : Health
 var reward_trigger : RewardTrigger
 
-@onready var lights_root: Node3D = $Lights
+@onready var lights_root := get_node_or_null("Lights")
 var _lights: Array[Light3D] = []
 var _original_energy := {}
 

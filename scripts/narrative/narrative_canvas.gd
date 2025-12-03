@@ -1,9 +1,7 @@
 extends CanvasLayer
 
 @onready var fade_black_color_rect = $Control/ColorRect
-@onready var popup_parent = $Control/NarrativePopup
-
-@onready var text_beep_audio = $UiTextBeep
+@onready var popup_parent = $Control/NarrativePopup 
 
 @onready var narrative_text_label = $Control/NarrativePopup/MarginContainer/VBoxContainer/MarginContainer/RichTextLabel
 @onready var choice_button_1 = $Control/NarrativePopup/MarginContainer/VBoxContainer/HBoxContainer/Button1
