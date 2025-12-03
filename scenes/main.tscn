@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=76 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://bhj4wqh2yldsg" path="res://scripts/tutorial_ui.gd" id="19_2wyq8"]
 [ext_resource type="Texture2D" uid="uid://tmfg0gouj68n" path="res://texture/terrain/gravel.png" id="19_jscy8"]
 [ext_resource type="Texture2D" uid="uid://boxy66g3abt52" path="res://ui/travel/gradiant.png" id="20_2f3dj"]
+[ext_resource type="Script" uid="uid://ce8iusnrb7753" path="res://scripts/autoload/environment_handler.gd" id="20_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://680riqsqy2xq" path="res://ui/supply_box_ui_right.png" id="20_fv21b"]
 [ext_resource type="Script" uid="uid://dhplcvjer2v18" path="res://scripts/tutorial_line.gd" id="20_og1vs"]
 [ext_resource type="Texture2D" uid="uid://dm20yep3yt1j4" path="res://texture/terrain/ground.png" id="20_pm3ni"]
@@ -370,6 +371,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_0ld40")
 
 [node name="OuterEnvironment" parent="." instance=ExtResource("13_jbj1t")]
+script = ExtResource("20_cjqg0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

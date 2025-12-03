@@ -29,6 +29,7 @@ run/main_scene="uid://ela3ol1lqpt7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
 config/icon="uid://cpo1t7ox8tc28"
+config/windows_native_icon="res://ui/game_icon.ico"
 
 [autoload]
 

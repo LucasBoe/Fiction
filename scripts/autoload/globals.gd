@@ -4,8 +4,10 @@ var current_camera : Camera3D
 var map_loader : MapLoader
 var placement_handler : PlacementHandler
 var environment : EnvironmentHolder
+var environment_handler : EnvironmentHandler
 var camera_manager : CameraManager
 var tutorial : TutorialUI
+var in_game_menu
 
 const MAX_LOCATIONS = 8
 

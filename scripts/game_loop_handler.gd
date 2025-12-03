@@ -16,6 +16,7 @@ func _ready() -> void:
 func _game_loop() -> void:
 	await get_tree().process_frame
 	Globals.tutorial.hide()
+	Globals.in_game_menu.hide()
 	MoneyHandler.change_money(25)
 	await _reset_placement()
 	FadeEffectCanvas.fade_out()
@@ -26,6 +27,7 @@ func _game_loop() -> void:
 	await _run_narrative_popups(true)
 	Globals.tutorial.show()
 	%CanvasLayer.get_child(0).show() #show supply ui
+	Globals.in_game_menu.show()
 	ProgressionUi.permanent_root.show() #show progression
 	
 	while true:
@@ -70,11 +72,13 @@ func _load_next_map() -> void:
 
 func _wait_for_placement() -> void:
 	placement_handler.run_placement_phase()
+	Globals.environment_handler._show_wave_indicator()
 	RaycastHandler.set_modifications_allowed(true)
 	RewardHandler.preview_rewards_signal.emit()
 	await await_button(end_placement_button)
 	RewardHandler.hide_rewards_signal.emit()
 	RaycastHandler.set_modifications_allowed(false)
+	Globals.environment_handler._hide_wave_indicator()
 	Globals.environment.set_night()
 	print("placement finished")
 	

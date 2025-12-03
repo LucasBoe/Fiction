@@ -33,26 +33,23 @@ func night_loop():
 	night_progression = 0.0
 
 func spawn_wave(location_number) -> void:
-	var target_amount = roundi(location_number_to_enemy_emount_curve.sample(location_number))
+	var target_amount := roundi(location_number_to_enemy_emount_curve.sample(location_number))
 	print("spawn enemies: ", target_amount)
-	
-	
+
+	# Cache spawn points ONCE, so we don't call get_children repeatedly
+	var spawn_points = spawn_point_root.get_children(true)
+
 	for i in target_amount:
-		#ar dir = Vector3(randf_range(-1, 1), 0, randf_range(-1,1)).normalized()
-		#var location = dir * spawn_distance_to_center
-		
-		var points : Array
-		while points.size() < 2:
-			var point =  spawn_point_root.get_children(true).pick_random()
-			if points.has(point):
-				continue
-			points.append(point)
-		var location = lerp(points[0].global_position, points[1].global_position, randf())
-		
+		# Pick a single random spawn point
+		var point := spawn_points.pick_random() as Node3D
+		var location := point.global_position
+
 		spawn_enemy_at(location)
 		print("spawn enemy at ", location)
+
+		# Wait time (scaled to number of enemies)
 		await get_tree().create_timer(30.0 / float(target_amount)).timeout
-		
+
 	enemy_spawning_done = true
 	print("done spawning enemies")
 
