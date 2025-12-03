@@ -48,7 +48,7 @@ func _game_loop() -> void:
 		await _run_narrative_popups()
 		
 	await FadeEffectCanvas.fade_in_out()
-	#VictoryUi.show()
+	VictoryUi.show()
 	
 func _show_main_menu():
 	Globals.camera_manager.set_camera(CameraManager.camera_mode.NARRATIVE)

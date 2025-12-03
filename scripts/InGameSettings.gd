@@ -19,6 +19,15 @@ func _on_button_pressed() -> void:
 	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus))
 	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
 
+func _on_exit_pressed():
+	FadeEffectCanvas.fade_in_out()
+	await await get_tree().create_timer(1.5).timeout
+	get_tree().quit()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("exit"):
+		_on_button_pressed()
+
 func _ready() -> void:
 	music_slider.value_changed.connect(_on_music_slider_value_changed)
 	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
