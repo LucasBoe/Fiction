@@ -25,6 +25,12 @@ func _process(delta):
 	
 	var hovered_before = currently_hovered
 	
+	if currently_hovered is Wagon:
+		canvas_layer.visible = true
+		if RaycastHandler.currently_dragging:
+			canvas_layer.visible = false
+			return
+	
 	currently_hovered = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, TriggerBase)
 	if currently_hovered != null and not currently_hovered.is_claimable():
 		currently_hovered = null
