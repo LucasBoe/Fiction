@@ -309,9 +309,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = -23.0
-offset_bottom = 24.0
+offset_left = -353.0
+offset_top = -33.0
+offset_bottom = 34.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("19_2wyq8")
@@ -348,8 +348,8 @@ texture = ExtResource("21_2f3dj")
 
 [node name="Label" type="Label" parent="CanvasLayer/TutorialUI/MarginContainer/VBoxContainer/TutorialLine"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("22_vxglm")
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 text = "This is something you have to do"
 
 [node name="NightProgressionUI" type="Control" parent="CanvasLayer"]
