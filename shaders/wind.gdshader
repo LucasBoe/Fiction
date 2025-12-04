@@ -2,6 +2,8 @@ shader_type spatial;
 
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx;
 
+uniform bool wind_enabled = true;
+
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
 uniform float alpha_scissor_threshold : hint_range(0.0, 1.0);
@@ -22,12 +24,11 @@ uniform float base_rigidity = 0.3;
 uniform float wind_max_distance = 80.0;
 
 void vertex() {
-	
-    vec3 pos = VERTEX;
-
-    // --- 1. Distance check (cheap early-out) ---
-
-    // Translation column of MODEL_MATRIX = object/world position of origin
+    if(wind_enabled)
+	{
+		   vec3 pos = VERTEX;
+		
+		    // Translation column of MODEL_MATRIX = object/world position of origin
     vec3 tree_center = MODEL_MATRIX[3].xyz;
 
     vec3 to_cam = tree_center - CAMERA_POSITION_WORLD;
@@ -57,6 +58,9 @@ void vertex() {
     }
 
     VERTEX = pos;
+	}
+
+
 }
 
 void fragment() {

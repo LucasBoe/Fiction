@@ -11,13 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://kic4inkgep85" path="res://scenes/foliage/rocks/large_1_rock.tscn" id="10_r03xc"]
 [ext_resource type="PackedScene" uid="uid://cedkfk2g0rowa" path="res://scenes/foliage/rocks/large_2_rock.tscn" id="11_slvwk"]
 [ext_resource type="PackedScene" uid="uid://bpgvmd444wupy" path="res://scenes/foliage/rocks/large_3_rock.tscn" id="12_51qq1"]
-[ext_resource type="PackedScene" path="res://scenes/foliage/grass/grass_patch_1_wide.tscn" id="13_t4hxa"]
-[ext_resource type="PackedScene" path="res://scenes/foliage/grass/grass_1_patch.tscn" id="13_u8q61"]
-[ext_resource type="PackedScene" path="res://scenes/foliage/grass/grass_patch_2_wide.tscn" id="14_54c8u"]
-[ext_resource type="PackedScene" path="res://scenes/foliage/grass/grass_2_patch.tscn" id="14_slvwk"]
-[ext_resource type="PackedScene" path="res://scenes/foliage/grass/grass_3_patch.tscn" id="15_51qq1"]
+[ext_resource type="PackedScene" uid="uid://p8bt3yljsxhg" path="res://scenes/foliage/grass/grass_patch_1_wide.tscn" id="13_t4hxa"]
+[ext_resource type="PackedScene" uid="uid://bh8kal8it7bew" path="res://scenes/foliage/grass/grass_1_patch.tscn" id="13_u8q61"]
+[ext_resource type="PackedScene" uid="uid://d3w1rxkghs2ef" path="res://scenes/foliage/grass/grass_patch_2_wide.tscn" id="14_54c8u"]
+[ext_resource type="PackedScene" uid="uid://brgbt2xdlamts" path="res://scenes/foliage/grass/grass_2_patch.tscn" id="14_slvwk"]
+[ext_resource type="PackedScene" uid="uid://blchhmg7fpp5n" path="res://scenes/foliage/grass/grass_3_patch.tscn" id="15_51qq1"]
 [ext_resource type="PackedScene" uid="uid://cy3huyv3lphqe" path="res://meshes/arrow.glb" id="18_54c8u"]
-[ext_resource type="PackedScene" path="res://scenes/foliage/grass/grass_patch_3_wide.tscn" id="18_lx1yp"]
+[ext_resource type="PackedScene" uid="uid://dtol424pygimf" path="res://scenes/foliage/grass/grass_patch_3_wide.tscn" id="18_lx1yp"]
 [ext_resource type="Script" uid="uid://c7n6kwj0hj7mm" path="res://scripts/wave_arrow_indicator.gd" id="19_lx1yp"]
 
 [node name="OuterEnvironment" type="Node3D"]
@@ -243,7 +243,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46115, 0, -13.5104)
 transform = Transform3D(-0.23353, 0, 0.97235, 0, 1, 0, -0.97235, 0, -0.23353, 7.53885, 0, 10.4896)
 
 [node name="Grass" type="Node3D" parent="."]
-visible = false
 
 [node name="grass_patch_1_wide" parent="Grass" instance=ExtResource("13_t4hxa")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.26961, 0, -7.69037)
