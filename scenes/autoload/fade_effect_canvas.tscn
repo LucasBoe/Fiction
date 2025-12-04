@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv6827ineotj3"]
+[gd_scene load_steps=3 format=3 uid="uid://br7ix7kbntku3"]
 
 [ext_resource type="Script" uid="uid://dpj5xcl7hpbgv" path="res://scripts/autoload/fade_effect_canvas.gd" id="1_g53dt"]
+[ext_resource type="FontFile" uid="uid://cr2xjor5aogwh" path="res://fonts/Pixeled English Font.ttf" id="2_2flbs"]
 
 [node name="FadeEffectCanvas" type="CanvasLayer"]
 layer = 100
@@ -13,3 +14,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -6.0
+offset_right = 20.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.85490197, 0.654902, 0.46666667, 1)
+theme_override_fonts/font = ExtResource("2_2flbs")
+theme_override_font_sizes/font_size = 16
+text = "loading..."
