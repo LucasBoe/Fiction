@@ -28,7 +28,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="WAGENBURG"
-config/version="0.6.1"
+config/version="0.6.2"
 run/main_scene="uid://ela3ol1lqpt7"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=90
