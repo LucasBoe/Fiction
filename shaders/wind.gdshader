@@ -4,63 +4,64 @@ render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specula
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
-uniform float alpha_scissor_threshold : hint_range(0.0, 1.0, 0.001);
+uniform float alpha_scissor_threshold : hint_range(0.0, 1.0);
 uniform ivec2 albedo_texture_size;
 
-// === Global wind controls (same on all tree materials) ===
-uniform vec3 wind_direction = vec3(1.0, 0.0, 0.3); // XZ direction
-uniform float wind_strength : hint_range(0.0, 2.0, 0.01) = 0.2;   // overall sway
-uniform float wind_frequency : hint_range(0.1, 5.0, 0.01) = 0.8;  // speed of big sway
+// Wind controls (assume wind_direction is already normalized in XZ)
+uniform vec3 wind_direction = vec3(1.0, 0.0, 0.3);
+uniform float wind_strength = 0.2;
+uniform float wind_frequency = 0.8;
 
-// === How much the tree bends with height ===
-uniform float bend_top_amount : hint_range(0.0, 2.0, 0.01) = 0.5;
-uniform float bend_power : hint_range(0.1, 4.0, 0.01) = 1.5; // curve of falloff
+// Bending
+uniform float bend_top_amount = 0.5;
+uniform float bend_power = 1.5;
+uniform float height_scale = 5.0;
+uniform float base_rigidity = 0.3;
 
-// Optional: scale height if your tree isn’t modeled around y = 0 at the base
-uniform float height_scale : hint_range(0.1, 20.0, 0.1) = 5.0;
-
-// Bottom part that should stay mostly rigid (0 = none, 0.3 = bottom 30%)
-uniform float base_rigidity : hint_range(0.0, 0.9, 0.01) = 0.3;
+// Distance where wind stops
+uniform float wind_max_distance = 80.0;
 
 void vertex() {
+	
     vec3 pos = VERTEX;
 
-    // ---- 1. Height-based factor: base barely moves, top moves a lot ----
-    float raw_height = clamp(pos.y / height_scale, 0.0, 1.0);
+    // --- 1. Distance check (cheap early-out) ---
 
-    // make the bottom base_rigidity portion rigid
-    float t = clamp((raw_height - base_rigidity) / (1.0 - base_rigidity), 0.0, 1.0);
+    // Translation column of MODEL_MATRIX = object/world position of origin
+    vec3 tree_center = MODEL_MATRIX[3].xyz;
 
-    // shape it so it ramps up more at the top
-    float height_factor = pow(t, bend_power) * bend_top_amount;
+    vec3 to_cam = tree_center - CAMERA_POSITION_WORLD;
+    float dist2 = dot(to_cam, to_cam);
+    float max_dist2 = wind_max_distance * wind_max_distance;
 
-    // ---- 2. Large-scale trunk/branch sway without noise ----
+    // If tree is far away -> no wind work at all
+    if (dist2 < max_dist2) {
+        float dist = sqrt(dist2); // only for trees close enough
+        float fade = smoothstep(wind_max_distance, wind_max_distance * 0.5, dist);
 
-    // normalize once; you can assume wind_direction is already normalized
-    // and remove this normalize() for a tiny bit more speed.
-    vec3 wind_dir = normalize(vec3(wind_direction.x, 0.0, wind_direction.z));
+        // --- 2. Height-based bending ---
 
-    // world position for per-tree variation (cheap compared to texture lookup)
-    vec3 world_pos = (MODEL_MATRIX * vec4(pos, 1.0)).xyz;
+        float raw_height = clamp(pos.y / height_scale, 0.0, 1.0);
+        float t = clamp((raw_height - base_rigidity) / (1.0 - base_rigidity), 0.0, 1.0);
+        float height_factor = pow(t, bend_power) * bend_top_amount;
 
-    // base phase so nearby trees are slightly different
-    float phase = dot(world_pos.xz, vec2(0.1, 0.13));
+        // Use only XZ wind direction, pre-normalized in the uniform
+        vec3 wind_dir = normalize(vec3(wind_direction.x, 0.0, wind_direction.z));
 
-    // simple sine sway
-    float sway = sin(TIME * wind_frequency + phase);
+        // World position for phase
+        vec3 world_pos = (MODEL_MATRIX * vec4(pos, 1.0)).xyz;
+        float phase = dot(world_pos.xz, vec2(0.1, 0.13));
+        float sway = sin(TIME * wind_frequency + phase);
 
-    vec3 sway_offset = wind_dir * sway * wind_strength * height_factor;
-    pos += sway_offset;
+        pos += wind_dir * sway * wind_strength * height_factor * fade;
+    }
 
     VERTEX = pos;
 }
 
 void fragment() {
-    vec2 base_uv = UV;
-
-    vec4 albedo_tex = texture(texture_albedo, base_uv);
+    vec4 albedo_tex = texture(texture_albedo, UV);
     ALBEDO = albedo.rgb * albedo_tex.rgb;
-
-    ALPHA = albedo.a * albedo_tex.a;
+    ALPHA  = albedo.a * albedo_tex.a;
     ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
 }

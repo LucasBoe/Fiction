@@ -7,39 +7,39 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v8hat"]
 texture = ExtResource("1_i4llc")
-texture_margin_left = 36.0
-texture_margin_top = 6.0
-texture_margin_right = 32.0
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
 texture_margin_bottom = 6.0
 modulate_color = Color(0.4, 0.4, 0.4, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ie0l"]
 texture = ExtResource("1_i4llc")
-texture_margin_left = 36.0
-texture_margin_top = 6.0
-texture_margin_right = 32.0
-texture_margin_bottom = 6.0
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dqg5i"]
 texture = ExtResource("1_i4llc")
-texture_margin_left = 36.0
-texture_margin_top = 6.0
-texture_margin_right = 32.0
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
 texture_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hry7"]
 texture = ExtResource("2_5r0yv")
-texture_margin_left = 36.0
-texture_margin_top = 6.0
-texture_margin_right = 32.0
-texture_margin_bottom = 6.0
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvtyn"]
 texture = ExtResource("1_i4llc")
-texture_margin_left = 36.0
-texture_margin_top = 6.0
-texture_margin_right = 32.0
-texture_margin_bottom = 6.0
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_0ie0l"]
 color = Color(0.564962, 0.564962, 0.564962, 1)
@@ -53,7 +53,9 @@ Button/styles/disabled = SubResource("StyleBoxTexture_v8hat")
 Button/styles/focus = SubResource("StyleBoxTexture_0ie0l")
 Button/styles/hover = SubResource("StyleBoxTexture_dqg5i")
 Button/styles/normal = SubResource("StyleBoxTexture_2hry7")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_gvtyn")
 Button/styles/pressed = SubResource("StyleBoxTexture_gvtyn")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_gvtyn")
 HSlider/icons/grabber = ExtResource("4_xv3vb")
 HSlider/icons/grabber_disabled = ExtResource("4_xv3vb")
 HSlider/icons/grabber_highlight = ExtResource("4_xv3vb")

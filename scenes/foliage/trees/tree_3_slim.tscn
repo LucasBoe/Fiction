@@ -8,3 +8,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_culti")
 surface_material_override/1 = ExtResource("3_wj8h2")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenEnabler3D" parent="." index="0"]
+transform = Transform3D(-0.7184401, 0, 0, 0, 1, 0, 0, 0, -0.7184401, 0, 2.3236005, 0)
+aabb = AABB(-1, -2.9235277, -1, 2, 5.8470554, 2)

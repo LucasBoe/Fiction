@@ -27,6 +27,8 @@ func _on_exit_pressed():
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
 		_on_button_pressed()
+	
+	$FPS_Label.text = str(Engine.get_frames_per_second())
 
 func _ready() -> void:
 	Globals.in_game_menu = self
@@ -50,3 +52,10 @@ func _on_music_slider_value_changed(value: float) -> void:
 func _on_sfx_slider_value_changed(value: float) -> void:
 	var bus_index := AudioServer.get_bus_index(SFX_BUS_NAME)
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+
+func _on_v_sync_toggled(toggled_on: bool) -> void:
+	if toggled_on: 
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)

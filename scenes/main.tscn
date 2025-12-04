@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ela3ol1lqpt7"]
+[gd_scene load_steps=56 format=3 uid="uid://ela3ol1lqpt7"]
 
 [ext_resource type="Script" uid="uid://43nlv1fag8nm" path="res://scripts/game_loop_handler.gd" id="1_jkv2x"]
 [ext_resource type="Script" uid="uid://dqkdol1omhl6q" path="res://scripts/map_loader.gd" id="1_jyhfs"]
@@ -113,6 +113,8 @@ shader_parameter/tiling = Vector2(2.5, 1)
 bg_color = Color(0.976471, 0.878431, 0.768627, 1)
 
 [sub_resource type="Theme" id="Theme_cjqg0"]
+
+[sub_resource type="Theme" id="Theme_2cjbq"]
 
 [node name="main" type="Node"]
 
@@ -490,7 +492,6 @@ texture_hover = ExtResource("34_2cjbq")
 stretch_mode = 3
 
 [node name="Settings" type="VBoxContainer" parent="CanvasLayer/InGameSettings"]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -536,6 +537,24 @@ value = 1.0
 [node name="ExitButton" type="Button" parent="CanvasLayer/InGameSettings/Settings"]
 layout_mode = 2
 text = "QUIT"
+
+[node name="VSync" type="CheckBox" parent="CanvasLayer/InGameSettings/Settings"]
+layout_mode = 2
+theme = SubResource("Theme_2cjbq")
+text = "VSYNC"
+
+[node name="FPS_Label" type="Label" parent="CanvasLayer/InGameSettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 28.0
+offset_top = 10.0
+offset_right = 68.0
+offset_bottom = 22.0
+grow_horizontal = 2
+text = "999"
+horizontal_alignment = 2
 
 [node name="ProgressionButtonsLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -628,6 +647,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MainMenu/Control/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -719,3 +739,4 @@ vertical_alignment = 2
 [connection signal="pressed" from="CanvasLayer/InGameSettings/Button" to="CanvasLayer/InGameSettings" method="_on_button_pressed"]
 [connection signal="toggled" from="CanvasLayer/InGameSettings/Button" to="CanvasLayer/InGameSettings" method="_on_button_toggled"]
 [connection signal="pressed" from="CanvasLayer/InGameSettings/Settings/ExitButton" to="CanvasLayer/InGameSettings" method="_on_exit_pressed"]
+[connection signal="toggled" from="CanvasLayer/InGameSettings/Settings/VSync" to="CanvasLayer/InGameSettings" method="_on_v_sync_toggled"]
