@@ -25,12 +25,6 @@ func _process(delta):
 	
 	var hovered_before = currently_hovered
 	
-	if currently_hovered is Wagon:
-		canvas_layer.visible = true
-		if RaycastHandler.currently_dragging:
-			canvas_layer.visible = false
-			return
-	
 	currently_hovered = PhysicsUtil.raycast_for_all_and_find(space_state, mouse_pos, cam, TriggerBase)
 	if currently_hovered != null and not currently_hovered.is_claimable():
 		currently_hovered = null
@@ -45,6 +39,12 @@ func _process(delta):
 			
 	if currently_hovered:
 		tooltip_root.position = tooltip_root.get_global_mouse_position() - tooltip_root.size * Vector2(0.5, 1) - Vector2(0,8)
+		
+	if currently_hovered is Wagon:
+		canvas_layer.visible = true
+		if RaycastHandler.currently_dragging:
+			canvas_layer.visible = false
+			return
 		
 	if current_health:
 		update_health(current_health, currently_hovered)
